@@ -1,0 +1,486 @@
+{
+  "code": 0,
+  "data": [
+    {
+      "description": "卡牌<color_orange><u>保留</u></>、<color_orange><u>消滅</u></>時，對隨機敵人造成<cc>100</>%的<color_orange><u>固定傷害</u></>（各效果每回合<cc>2</>次）",
+      "id": "rr_arena_01",
+      "link_cs_id": [
+        "rr_arena_01_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "回合開始及回合結束後，若仍持有<color_orange><u>護盾</u></>，則對所有敵人造成<color_orange>100</>%的<color_orange><u>固定傷害</u></>",
+      "id": "rr_arena_02",
+      "link_cs_id": [
+        "rr_arena_02_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "回合開始時，若<color_orange><u>抽牌堆</u></>中存在<color_orange><u>消滅</u></>卡牌，以<cc>30</>%機率<color_orange><u>抽取</u></><color_orange><u>消滅</u></>卡牌<color_orange>1</>",
+      "id": "rr_arena_03",
+      "link_cs_id": [
+        "rr_arena_03_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "戰鬥開始時<color_orange><u>抽取</u></><color_orange>1</>張自身的<color_orange><u>消滅</u></>卡牌",
+      "id": "rr_arena_04",
+      "link_cs_id": [
+        "rr_arena_04_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "當自身的<color_orange><u>消滅</u></>卡牌因友軍能力<color_orange><u>抽取</u></>時<color_orange><u>啟動</u></>（每回合<cc>1</>次）",
+      "id": "rr_arena_05",
+      "link_cs_id": [
+        "rr_arena_05_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "攻擊卡牌傷害量增加<color_orange>20</>%​​",
+      "id": "rr_arena_06",
+      "link_cs_id": [
+        "rr_arena_06_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "護盾獲得量增加<color_orange>15</>%，治癒量增加<color_orange>15</>%",
+      "id": "rr_arena_07",
+      "link_cs_id": [
+        "rr_arena_07_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "若完全阻擋傷害時，於下回合開始時，持續<cc>1</>回合使友軍傷害量增加<cc>10</>%（每回合<cc>1</>次）​",
+      "id": "rr_arena_08",
+      "link_cs_id": [
+        "rr_arena_08_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "戰鬥開始時，若牌組的卡牌為<cc>33</>張以上，攻擊卡牌傷害量增加<cc>30</>%",
+      "id": "rr_arena_09",
+      "link_cs_id": [
+        "rr_arena_09_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "戰鬥開始時，若牌組的卡牌為<cc>18</>張以下，攻擊卡牌傷害量增加<cc>30</>%",
+      "id": "rr_arena_10",
+      "link_cs_id": [
+        "rr_arena_10_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "<color_orange><u>消滅</u></>卡牌的傷害量增加<color_orange>25</>%",
+      "id": "rr_arena_11",
+      "link_cs_id": [
+        "rr_arena_11_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "費用<cc>2</>以上的攻擊卡牌傷害量增加<color_orange>25</>%",
+      "id": "rr_arena_12",
+      "link_cs_id": [
+        "rr_arena_12_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "戰鬥開始時<color_orange><u>儲存</u></><color_orange>1</>",
+      "id": "rr_arena_13",
+      "link_cs_id": [
+        "rr_arena_13_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "對處於<color_orange><u>脆弱</u></>狀態的敵人<color_orange><u>觸發</u></>攻擊卡牌時，暴擊率+<color_orange>15</>%",
+      "id": "rr_arena_14",
+      "link_cs_id": [
+        "rr_arena_14_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "若持續<cc>1</>回合未以卡牌對敵人造成傷害時，於下回合開始時，持續<cc>1</>回合傷害量增加<color_orange>50</>%",
+      "id": "rr_arena_15",
+      "link_cs_id": [
+        "rr_arena_15_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "回合開始時，依手牌中<color_orange><u>消滅</u></>卡牌的數量，對隨機敵人造成<color_orange>60</>%的<color_orange><u>固定傷害</u></>",
+      "id": "rr_arena_16",
+      "link_cs_id": [
+        "rr_arena_16_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "<color_orange><u>反擊</u></>時，對所有敵人造成<color_orange>200</>%的<color_orange><u>基於防禦的傷害</u></>（每回合<cc>1</>次）",
+      "id": "rr_arena_17",
+      "link_cs_id": [
+        "rr_arena_17_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "獲得<color_orange><u>護盾</u></>時，獲得<cc>100</>%<color_orange><u>固定護盾</u></>（每回合<cc>1</>次）",
+      "id": "rr_arena_18",
+      "link_cs_id": [
+        "rr_arena_18_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "費用<cc>3</>以上的卡牌<color_orange><u>觸發</u></>時，獲得<color_orange><u>AP</u></><color_orange>1</>（每回合<cc>1</>次）",
+      "id": "rr_arena_19",
+      "link_cs_id": [
+        "rr_arena_19_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "在持有<color_orange><u>AP</u></><cc>1</>以上的狀態下回合結束時，使所有敵人<color_orange><u>脆弱</u></><cc>1</>",
+      "id": "rr_arena_20",
+      "link_cs_id": [
+        "rr_arena_20_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "費用<cc>1</>以下的攻擊卡牌傷害量+<color_orange>30</>%",
+      "id": "rr_arena_21",
+      "link_cs_id": [
+        "rr_arena_21_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "<color_orange><u>額外攻擊</u></>傷害量增加<color_orange>25</>%",
+      "id": "rr_arena_22",
+      "link_cs_id": [
+        "rr_arena_22_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "以能力抽取自身攻擊卡牌時，該卡牌持續<cc>1</>回合，傷害量增加<color_orange>50</>%",
+      "id": "rr_arena_23",
+      "link_cs_id": [
+        "rr_arena_23_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "<color_orange><u>基於防禦的傷害</u></>量+<color_orange>30</>%",
+      "id": "rr_arena_24",
+      "link_cs_id": [
+        "rr_arena_24_01"
+      ],
+      "reinforce_type": "ARENA"
+    },
+    {
+      "description": "回合開始時對隨機敵人造成<cc>50</>%的<color_orange><u>固定傷害</u></>",
+      "id": "rr_lux_01",
+      "link_cs_id": [
+        "rr_lux_01_01",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "LUX"
+    },
+    {
+      "description": "若本回合<color_orange><u>行動次數</u></>減少<cc>3</>以上，則對<color_orange><u>行動次數</u></>最低的敵人造成<color_orange><u>削弱</u></><cc>1</>",
+      "id": "rr_lux_02",
+      "link_cs_id": [
+        "rr_lux_02_01",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "LUX"
+    },
+    {
+      "description": "自身的<color_orange><u>快速</u></>卡牌傷害量增加<cc>25</>%",
+      "id": "rr_lux_03",
+      "link_cs_id": [
+        "rr_lux_03_01",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "LUX"
+    },
+    {
+      "description": "自身卡牌<color_orange><u>觸發</u></>時，以<cc>30</>%的機率使所有敵人<color_orange><u>行動次數</u></>增加<cc>1</>（每回合<cc>1</>次）",
+      "id": "rr_lux_04",
+      "link_cs_id": [
+        "rr_lux_04_01",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "LUX"
+    },
+    {
+      "description": "回合開始時對擁有<color_orange><u>護盾</u></>的隨機敵人造成<cc>100</>%的<color_orange><u>固定傷害</u></>",
+      "id": "rr_lux_05",
+      "link_cs_id": [
+        "rr_lux_05_01",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "LUX"
+    },
+    {
+      "description": "友軍以能力生成<cc>5</>張以上卡牌時，自身的<color_orange><u>額外攻擊</u></>傷害量+<cc>30</>%（每回合<cc>1</>次）",
+      "id": "rr_lux_06",
+      "link_cs_id": [
+        "rr_lux_06_01",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "LUX"
+    },
+    {
+      "description": "回合開始時對<color_orange><u>行動次數</u></>最低的目標造成<cc>100</>%的<color_orange><u>固定傷害</u></>",
+      "id": "rr_lux_07",
+      "link_cs_id": [
+        "rr_lux_07_01",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "LUX"
+    },
+    {
+      "description": "回合開始時對<color_orange><u>行動次數</u></>最低的目標造成<color_orange><u>削弱</u></><cc>2</>",
+      "id": "rr_lux_08",
+      "link_cs_id": [
+        "rr_lux_08_01",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "LUX"
+    },
+    {
+      "description": "回合結束時，若有<color_orange><u>保留</u></>的卡牌，獲得<cc>50</>%<color_orange><u>固定護盾</u></>",
+      "id": "rr_lux_09",
+      "link_cs_id": [
+        "rr_lux_09_01",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "LUX"
+    },
+    {
+      "description": "敵人的<color_orange><u>行動次數</u></>增加時，持續<cc>1</>回合友軍的攻擊卡牌傷害量+<cc>50</>%（每回合<cc>1</>次）",
+      "id": "rr_lux_10",
+      "link_cs_id": [
+        "rr_lux_10_01",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "LUX"
+    },
+    {
+      "description": "受擊時，對攻擊者在<color_orange><u>脆弱</u></>、<color_orange><u>削弱</u></>中隨機賦予<cc>1</>個（每回合<cc>1</>次）",
+      "id": "rr_lux_11",
+      "link_cs_id": [
+        "rr_lux_11_01",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "LUX"
+    },
+    {
+      "description": "友軍<color_orange><u>快速</u></>卡牌<color_orange><u>觸發</u></>時，接下來<color_orange><u>觸發</u></>的自身攻擊卡牌傷害量增加<cc>25</>%（每回合<cc>1</>次）",
+      "id": "rr_lux_12",
+      "link_cs_id": [
+        "rr_lux_12_01",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "LUX"
+    },
+    {
+      "description": "友軍<color_orange><u>擊破</u></>時，目標的<color_orange><u>行動次數</u></>增加<cc>2</>（每回合<cc>1</>次）",
+      "id": "rr_lux_13",
+      "link_cs_id": [
+        "rr_lux_13_01",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "LUX"
+    },
+    {
+      "description": "<color_orange><u>光之刻印</u></>+<cc>1</>",
+      "id": "rr_lux_14",
+      "link_cs_id": [
+        "eid_lux_amt",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "LUX"
+    },
+    {
+      "description": "<color_orange><u>黑暗刻印</u></>+<cc>1</>",
+      "id": "rr_lux_15",
+      "link_cs_id": [
+        "eid_umbra_amt",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "LUX"
+    },
+    {
+      "description": "回合開始時，若手牌中有友軍的<color_orange><u>連結</u></>卡牌，對隨機敵人造成<color_orange><u>共鳴</u></><cc>1</>",
+      "id": "rr_lux_17",
+      "link_cs_id": [
+        "rr_lux_17_01",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "LUX"
+    },
+    {
+      "description": "友軍以能力丟棄<cc>2</>張卡牌時，<color_orange><u>抽取</u></><cc>1</>張<color_orange><u>安息</u></>卡牌（每場戰鬥<cc>1</>次）",
+      "id": "rr_umbra_01",
+      "link_cs_id": [
+        "rr_umbra_01_01",
+        "eid_umbra_amt"
+      ],
+      "reinforce_type": "UMBRA"
+    },
+    {
+      "description": "若友軍以能力丟棄<color_orange><u>安息</u></>卡牌，<color_orange><u>抽取</u></><cc>1</>（每回合<cc>1</>次）",
+      "id": "rr_umbra_02",
+      "link_cs_id": [
+        "rr_umbra_02_01",
+        "eid_umbra_amt"
+      ],
+      "reinforce_type": "UMBRA"
+    },
+    {
+      "description": "自身的<color_orange><u>安息</u></>卡牌傷害量增加<cc>25</>%",
+      "id": "rr_umbra_03",
+      "link_cs_id": [
+        "rr_umbra_03_01",
+        "eid_umbra_amt"
+      ],
+      "reinforce_type": "UMBRA"
+    },
+    {
+      "description": "自身的<color_orange><u>消滅</u></>卡牌傷害量增加<cc>25</>%",
+      "id": "rr_umbra_04",
+      "link_cs_id": [
+        "rr_umbra_04_01",
+        "eid_umbra_amt"
+      ],
+      "reinforce_type": "UMBRA"
+    },
+    {
+      "description": "當<color_orange><u>墳墓</u></>的卡牌數為<cc>7</>張以上時，自身攻擊卡牌傷害量增加<cc>30</>%（不可疊加）",
+      "id": "rr_umbra_05",
+      "link_cs_id": [
+        "rr_umbra_05_01",
+        "eid_umbra_amt"
+      ],
+      "reinforce_type": "UMBRA"
+    },
+    {
+      "description": "若自身卡牌被丟棄，接下來<color_orange><u>使用</u></>的自身攻擊卡牌傷害量+<cc>100</>%（每回合<cc>1</>次）",
+      "id": "rr_umbra_06",
+      "link_cs_id": [
+        "rr_umbra_06_01",
+        "eid_umbra_amt"
+      ],
+      "reinforce_type": "UMBRA"
+    },
+    {
+      "description": "回合開始時若手牌中有<color_orange><u>安息</u></>卡牌，對隨機敵方造成<cc>60</>%的<color_orange><u>固定傷害</u></>",
+      "id": "rr_umbra_07",
+      "link_cs_id": [
+        "rr_umbra_07_01",
+        "eid_umbra_amt"
+      ],
+      "reinforce_type": "UMBRA"
+    },
+    {
+      "description": "<color_orange><u>墳墓</u></>有<cc>15</>張以上的卡牌時，自身攻擊卡牌暴擊傷害+<cc>15</>%（不可疊加）",
+      "id": "rr_umbra_08",
+      "link_cs_id": [
+        "rr_umbra_08_01",
+        "eid_umbra_amt"
+      ],
+      "reinforce_type": "UMBRA"
+    },
+    {
+      "description": "回合結束時，對帶有減益效果的隨機敵方造成<cc>100</>%的<color_orange><u>固定傷害</u></>",
+      "id": "rr_umbra_09",
+      "link_cs_id": [
+        "rr_umbra_09_01",
+        "eid_umbra_amt"
+      ],
+      "reinforce_type": "UMBRA"
+    },
+    {
+      "description": "<color_orange><u>額外攻擊</u></>時，持續<cc>1</>回合<color_orange><u>士氣</u></><cc>1</>（每回合<cc>1</>次）",
+      "id": "rr_umbra_10",
+      "link_cs_id": [
+        "rr_umbra_10_01",
+        "eid_umbra_amt"
+      ],
+      "reinforce_type": "UMBRA"
+    },
+    {
+      "description": "受擊時，隨機<color_orange><u>丟棄</u></>手牌中<cc>1</>張<color_orange><u>安息</u></>卡牌（每回合<cc>1</>次）",
+      "id": "rr_umbra_11",
+      "link_cs_id": [
+        "rr_umbra_11_01",
+        "eid_umbra_amt"
+      ],
+      "reinforce_type": "UMBRA"
+    },
+    {
+      "description": "自身的<color_orange><u>主導</u></>卡牌被丟棄時<color_orange><u>啟動</u></>（每回合<cc>1</>次）",
+      "id": "rr_umbra_12",
+      "link_cs_id": [
+        "rr_umbra_12_01",
+        "eid_umbra_amt"
+      ],
+      "reinforce_type": "UMBRA"
+    },
+    {
+      "description": "若<color_orange><u>墳墓</u></>有<cc>40</>張以上的卡牌，則<color_orange><u>士氣</u></><cc>2</>（每場戰鬥<cc>1</>次）",
+      "id": "rr_umbra_13",
+      "link_cs_id": [
+        "rr_umbra_13_01",
+        "eid_umbra_amt"
+      ],
+      "reinforce_type": "UMBRA"
+    },
+    {
+      "description": "<color_orange><u>光之刻印</u></>+<cc>1</>",
+      "id": "rr_umbra_14",
+      "link_cs_id": [
+        "eid_umbra_amt",
+        "eid_lux_amt"
+      ],
+      "reinforce_type": "UMBRA"
+    },
+    {
+      "description": "<color_orange><u>黑暗刻印</u></>+<cc>1</>",
+      "id": "rr_umbra_15",
+      "link_cs_id": [
+        "eid_umbra_amt",
+        "eid_umbra_amt"
+      ],
+      "reinforce_type": "UMBRA"
+    },
+    {
+      "description": "當自身卡牌因能力從<color_orange><u>墳墓</u></><color_orange><u>消滅</u></>時，友軍的攻擊卡牌傷害量+<cc>1</>%（最多<cc>25</>%）",
+      "id": "rr_umbra_16",
+      "link_cs_id": [
+        "rr_umbra_16_01",
+        "eid_umbra_amt"
+      ],
+      "reinforce_type": "UMBRA"
+    }
+  ],
+  "message": "success"
+}

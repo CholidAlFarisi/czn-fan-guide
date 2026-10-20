@@ -1,0 +1,1556 @@
+{
+  "code": 0,
+  "data": {
+    "illust_combs": [
+      {
+        "card_category": "CARD_ATK",
+        "change_to_sct_name": "job_00520",
+        "id": "ds03_lux_none",
+        "name": "Lux Persona",
+        "name_key": "eidolon_card_illust_comb@name@ds03_lux_none",
+        "slot_type_0": "ds03_lux",
+        "slot_type_1": ""
+      },
+      {
+        "card_category": "CARD_ATK",
+        "change_to_sct_name": "job_00521",
+        "id": "ds03_umbra_none",
+        "name": "Umbra Persona",
+        "name_key": "eidolon_card_illust_comb@name@ds03_umbra_none",
+        "slot_type_0": "ds03_umbra",
+        "slot_type_1": ""
+      },
+      {
+        "card_category": "CARD_ATK",
+        "change_to_sct_name": "job_00522",
+        "id": "ds03_lux_ds03_umbra",
+        "name": "Persona of Boundary",
+        "name_key": "eidolon_card_illust_comb@name@ds03_lux_ds03_umbra",
+        "slot_type_0": "ds03_lux",
+        "slot_type_1": "ds03_umbra"
+      },
+      {
+        "card_category": "CARD_ATK",
+        "change_to_sct_name": "job_00524",
+        "id": "ds03_lux_ds03_lux",
+        "name": "Persona of Luster",
+        "name_key": "eidolon_card_illust_comb@name@ds03_lux_ds03_lux",
+        "slot_type_0": "ds03_lux",
+        "slot_type_1": "ds03_lux"
+      },
+      {
+        "card_category": "CARD_ATK",
+        "change_to_sct_name": "job_00522",
+        "id": "ds03_umbra_ds03_lux",
+        "name": "Persona of Boundary",
+        "name_key": "eidolon_card_illust_comb@name@ds03_umbra_ds03_lux",
+        "slot_type_0": "ds03_umbra",
+        "slot_type_1": "ds03_lux"
+      },
+      {
+        "card_category": "CARD_ATK",
+        "change_to_sct_name": "job_00525",
+        "id": "ds03_umbra_ds03_umbra",
+        "name": "Persona of Obsidian",
+        "name_key": "eidolon_card_illust_comb@name@ds03_umbra_ds03_umbra",
+        "slot_type_0": "ds03_umbra",
+        "slot_type_1": "ds03_umbra"
+      },
+      {
+        "card_category": "CARD_SKILL",
+        "change_to_sct_name": "job_00534",
+        "id": "ds03_lux_none_ski",
+        "name": "Lux Persona",
+        "name_key": "eidolon_card_illust_comb@name@ds03_lux_none",
+        "slot_type_0": "ds03_lux",
+        "slot_type_1": ""
+      },
+      {
+        "card_category": "CARD_SKILL",
+        "change_to_sct_name": "job_00537",
+        "id": "ds03_umbra_none_ski",
+        "name": "Umbra Persona",
+        "name_key": "eidolon_card_illust_comb@name@ds03_umbra_none",
+        "slot_type_0": "ds03_umbra",
+        "slot_type_1": ""
+      },
+      {
+        "card_category": "CARD_SKILL",
+        "change_to_sct_name": "job_00536",
+        "id": "ds03_lux_ds03_umbra_ski",
+        "name": "Persona of Boundary",
+        "name_key": "eidolon_card_illust_comb@name@ds03_lux_ds03_umbra",
+        "slot_type_0": "ds03_lux",
+        "slot_type_1": "ds03_umbra"
+      },
+      {
+        "card_category": "CARD_SKILL",
+        "change_to_sct_name": "job_00535",
+        "id": "ds03_lux_ds03_lux_ski",
+        "name": "Persona of Luster",
+        "name_key": "eidolon_card_illust_comb@name@ds03_lux_ds03_lux",
+        "slot_type_0": "ds03_lux",
+        "slot_type_1": "ds03_lux"
+      },
+      {
+        "card_category": "CARD_SKILL",
+        "change_to_sct_name": "job_00536",
+        "id": "ds03_umbra_ds03_lux_ski",
+        "name": "Persona of Boundary",
+        "name_key": "eidolon_card_illust_comb@name@ds03_umbra_ds03_lux",
+        "slot_type_0": "ds03_umbra",
+        "slot_type_1": "ds03_lux"
+      },
+      {
+        "card_category": "CARD_SKILL",
+        "change_to_sct_name": "job_00538",
+        "id": "ds03_umbra_ds03_umbra_ski",
+        "name": "Persona of Obsidian",
+        "name_key": "eidolon_card_illust_comb@name@ds03_umbra_ds03_umbra",
+        "slot_type_0": "ds03_umbra",
+        "slot_type_1": "ds03_umbra"
+      }
+    ],
+    "rewards": [
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0005",
+        "description": "<color_orange>1</> <color_orange><u>Counterattack</u></><br>for each<color_orange>0</> <color_orange><u>Lux Engraving</u></>",
+        "id": "ds03_lux_0005",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0005_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "shield",
+          "counter"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0006",
+        "description": "For each<color_orange></> <color_orange><u>Lux Engraving</u></>, <color_orange>1</> <color_orange><u>Mark</u></> to random enemies",
+        "id": "ds03_lux_0006",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0006_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "hunter",
+          "ranger"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0008",
+        "description": "<color_orange>Attunement:</> Decrease Cost by <color_orange>1</> until <color_orange><u>activate</u></>d",
+        "id": "ds03_lux_0008",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0008_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "cost_mn"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0009",
+        "description": "<color_orange>1</> <color_orange><u>Agony</u></> on all enemies<br>for each<color_orange>0</> <color_orange><u>Lux Engraving</u></>",
+        "id": "ds03_lux_0009",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0009_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "pain"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0010",
+        "description": "On <color_orange><u>Ravage</u></> with this card, decrease Cost by <color_orange>1</>",
+        "id": "ds03_lux_0010",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0010_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0011",
+        "description": "+<color_orange>30</>% Damage Amount<br>for each<color_orange>0</> <color_orange><u>Lux Engraving</u></>",
+        "id": "ds03_lux_0011",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0011_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "self_buff"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0012",
+        "description": "<color_orange>Attunement:</> Change Cost from between <cc>0</>-<cc>2</>",
+        "id": "ds03_lux_0012",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0012_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_NO_COUNT"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "This card does not reduce the enemy’s Action Count",
+            "id": "TALENT_NO_COUNT",
+            "title": "Haste"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "cost_mn"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0013",
+        "description": "Decrease <color_orange><u>Morale</u></> by <color_orange>1</> for each<br><color_orange>0</> <color_orange><u>Action Count</u></> for <cc>1</>turn (max. <cc>5</>)",
+        "id": "ds03_lux_0013",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0013_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_EXHAUST"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "When this card is <color_orange><u>activate</u></>d, move to <color_orange><u>Exhaust</u></> Pile",
+            "id": "TALENT_EXHAUST",
+            "title": "Exhaust"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "tn_cnt"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "ranger",
+          "hunter",
+          "controller"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0014",
+        "description": "<color_orange>Lux Engraving <cc>5</>:</> <color_orange>3</>Vulnerable to this unit, then <color_orange><u>Draw</u></> <color_orange>3</>",
+        "id": "ds03_lux_0014",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0014_01",
+          "ds03_lux_0014_02"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_EXHAUST"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "When this card is <color_orange><u>activate</u></>d, move to <color_orange><u>Exhaust</u></> Pile",
+            "id": "TALENT_EXHAUST",
+            "title": "Exhaust"
+          }
+        ],
+        "slot_add_cost": 1,
+        "slot_add_cost_mathsign": "MATHSIGN_ADD",
+        "slot_tag": [
+          "draw"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "ranger",
+          "hunter",
+          "controller"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0015",
+        "description": "If a card was <color_orange><u>Exhaust</u></>ed this turn,<br><color_orange>1</> <color_orange><u>Agony</u></><br>equal to <color_orange>0</> of each <color_orange><u>Lux Engraving</u></>",
+        "id": "ds03_lux_0015",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0015_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "exhaust",
+          "pain"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "psionic"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0016",
+        "description": "<color_orange>Lux Engraving <cc>4</>:</> +<color_orange>40</>% Damage Amount to <color_orange><u>Exhaust</u></> cards of this unit for <cc>1</> turn",
+        "id": "ds03_lux_0016",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0016_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "ranger",
+          "controller"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0017",
+        "description": "<color_orange><u>Draw</u></> <color_orange>2</> <color_orange><u>Haste</u></> card(s)",
+        "id": "ds03_lux_0017",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0017_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 1,
+        "slot_add_cost_mathsign": "MATHSIGN_ADD",
+        "slot_tag": [
+          "draw"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "hunter",
+          "ranger"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0018",
+        "description": "Gain <color_orange>1</> <color_orange><u>Blessing of Light</u></> <br>for each<color_orange>0</> <color_orange><u>Lux Engraving</u></>",
+        "id": "ds03_lux_0018",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0018_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_RETAIN"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "This card is not discarded at the end of the turn",
+            "id": "TALENT_RETAIN",
+            "title": "Retain"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "ranger",
+          "controller"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0019",
+        "description": "<color_orange>Lux Engraving <cc>3</>:</> Increase <color_orange><u>Action Count</u></> of all enemies by <color_orange>3</>",
+        "id": "ds03_lux_0019",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0019_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "tn_cnt"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "controller"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0001",
+        "description": "When Cost of this card is <cc>0</>,<br>increase Damage Amount by <color_orange>200</>%",
+        "id": "ds03_umbra_0001",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0001_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "buff"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0002",
+        "description": "When <cc>7</> or more cards are in <color_orange><u>Graveyard</u></>,<br>Increase Damage Amount by <color_orange>100</>%",
+        "id": "ds03_umbra_0002",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0002_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "dis_cnt",
+          "self_buff"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "striker",
+          "hunter",
+          "ranger"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0003",
+        "description": "When a card is Discarded this turn,<br>+<color_orange>50</>% Damage Amount<br>for each<color_orange>0</> <color_orange><u>Umbra Engraving</u></>",
+        "id": "ds03_umbra_0003",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0003_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "tri_dis"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0004",
+        "description": "When an Attack Card is <color_orange><u>Draw</u></>n,<br><color_orange>1</> <color_orange><u>Resonance</u></> to all enemies<br>for each<color_orange>0</> <color_orange><u>Umbra Engraving</u></>",
+        "id": "ds03_umbra_0004",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0004_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "draw",
+          "discard"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "ranger"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0005",
+        "description": "<color_orange>1</> <color_orange><u>Resonance</u></><br>for each<color_orange>0</> <color_orange><u>Umbra Engraving</u></>",
+        "id": "ds03_umbra_0005",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0005_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "tri_dis",
+          "discard"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "hunter",
+          "controller"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0006",
+        "description": "<color_orange>Umbra Engraving <cc>4</>:</> +<color_orange>40</>% Damage Amount to <color_orange><u>Quietus</u></> cards of this unit for <cc>1</> turn",
+        "id": "ds03_umbra_0006",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0006_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "tel_testa",
+          "buff"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0007",
+        "description": "Increase Damage Amount of Attack Cards of this unit by <color_orange>30</>% for <cc>1</> turn",
+        "id": "ds03_umbra_0007",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0007_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "tel_conn",
+          "buff"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0008",
+        "description": "<color_orange><u>Discard</u></> a random <color_orange><u>Quietus</u></> card<br>for each<color_orange>0</> <color_orange><u>Umbra Engraving</u></>",
+        "id": "ds03_umbra_0008",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0008_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "tel_testa",
+          "discard"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "ranger",
+          "hunter",
+          "controller"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0009",
+        "description": "<color_orange>Umbra Engraving <cc>3</>:</> Select and <color_orange><u>proc</u></> <color_orange>1</> card(s) in hand",
+        "id": "ds03_umbra_0009",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0009_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_EXHAUST"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "When this card is <color_orange><u>activate</u></>d, move to <color_orange><u>Exhaust</u></> Pile",
+            "id": "TALENT_EXHAUST",
+            "title": "Exhaust"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "hunter"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0010",
+        "description": "When this card is Discarded, <color_orange><u>proc</u></> this card",
+        "id": "ds03_umbra_0010",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0010_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 1,
+        "slot_add_cost_mathsign": "MATHSIGN_ADD",
+        "slot_tag": [
+          "tri_dis"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0011",
+        "description": "+<color_orange>30</>% Damage Amount<br>for each<color_orange>0</> <color_orange><u>Umbra Engraving</u></>",
+        "id": "ds03_umbra_0011",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0011_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "self_buff"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0012",
+        "description": "<color_orange>Umbra Engraving <cc>5</>:</> <color_orange><u>Discard</u></> all Attack Cards, then add <color_orange>2</> Hit(s)",
+        "id": "ds03_umbra_0012",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0012_01",
+          "ds03_umbra_0012_02"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_RETAIN"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "This card is not discarded at the end of the turn",
+            "id": "TALENT_RETAIN",
+            "title": "Retain"
+          }
+        ],
+        "slot_add_cost": 2,
+        "slot_add_cost_mathsign": "MATHSIGN_ADD",
+        "slot_tag": [
+          "discard"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0013",
+        "description": "<color_orange>Umbra Engraving <cc>5</>:</> Add <color_orange>2</> Hit(s)",
+        "id": "ds03_umbra_0013",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0013_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_EXHAUST_2"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "When this card is <color_orange><u>activate</u></>d <color_orange>2</> time(s), move to <color_orange><u>Exhaust</u></> Pile",
+            "id": "TALENT_EXHAUST_N",
+            "title": "Exhaust 2"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "atk_cnt"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0014",
+        "description": "Select <color_orange>1</> Attack Card(s) of this unit in <color_orange><u>Discard Pile</u></>, then move those cards to hand",
+        "id": "ds03_umbra_0014",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0014_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_RETAIN"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "This card is not discarded at the end of the turn",
+            "id": "TALENT_RETAIN",
+            "title": "Retain"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0015",
+        "description": "When this card is Discarded, decrease Cost of this card by <color_orange>1</> until <color_orange><u>activate</u></>d",
+        "id": "ds03_umbra_0015",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0015_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_NO_COUNT"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "This card does not reduce the enemy’s Action Count",
+            "id": "TALENT_NO_COUNT",
+            "title": "Haste"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "tri_dis"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0016",
+        "description": "<color_orange>Umbra Engraving <cc>5</>:</> Move all Persona Cards to hand",
+        "id": "ds03_umbra_0016",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0016_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_EXHAUST_2"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "When this card is <color_orange><u>activate</u></>d <color_orange>2</> time(s), move to <color_orange><u>Exhaust</u></> Pile",
+            "id": "TALENT_EXHAUST_N",
+            "title": "Exhaust 2"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "ranger",
+          "hunter",
+          "controller"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0017",
+        "description": "When the target is in a <color_orange><u>Resonance</u></> state,<br>add <color_orange>2</> Hit(s)",
+        "id": "ds03_umbra_0017",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0017_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0018",
+        "description": "For each<color_orange></> Umbra Engraving, create <cc>Overload</> in <color_orange><u>Discard Pile</u></>, then +<color_orange>50</>% Damage Amount for each created",
+        "id": "ds03_umbra_0018",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0018_01",
+          "ds03_umbra_0018_02"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "discard_add"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "psionic"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0019",
+        "description": "<color_orange>1</> <color_orange><u>Agony</u></> on all enemies<br>for each<color_orange>0</> <color_orange><u>Umbra Engraving</u></>",
+        "id": "ds03_umbra_0019",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0019_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "pain"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "Umbra",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "psionic"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0001",
+        "description": "<color_orange>1</> <color_orange><u>Lux Blessing</u></>",
+        "id": "ds03_lux_0001",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0001_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_EXHAUST_2"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "When this card is <color_orange><u>activate</u></>d <color_orange>2</> time(s), move to <color_orange><u>Exhaust</u></> Pile",
+            "id": "TALENT_EXHAUST_N",
+            "title": "Exhaust 2"
+          }
+        ],
+        "slot_add_cost": 1,
+        "slot_add_cost_mathsign": "MATHSIGN_ADD",
+        "slot_tag": [
+          "shield"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "striker",
+          "vanguard"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0002",
+        "description": "When a target with an <color_orange><u>Action Count</u></> of <cc>1</> is present,<br>decrease Cost of this card by <color_orange>2</>",
+        "id": "ds03_lux_0002",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0002_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_NO_COUNT"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "This card does not reduce the enemy’s Action Count",
+            "id": "TALENT_NO_COUNT",
+            "title": "Haste"
+          }
+        ],
+        "slot_add_cost": 1,
+        "slot_add_cost_mathsign": "MATHSIGN_ADD",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "striker",
+          "vanguard",
+          "hunter",
+          "ranger",
+          "psionic"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0003",
+        "description": "<color_orange>2</> <color_orange><u>Counter Surge</u></>, and gain additional Counter Surge for each<color_orange></> <color_orange><u>Lux Engraving</u></>",
+        "id": "ds03_lux_0003",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0003_01",
+          "ds03_lux_0003_02"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "counter",
+          "shield"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "vanguard"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0004",
+        "description": "Increase <color_orange><u>Shield</u></> Gain Amount by <color_orange>20</>% for each<color_orange>0</> <color_orange><u>Lux Engraving</u></>",
+        "id": "ds03_lux_0004",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0004_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "shield"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "striker",
+          "vanguard"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0007",
+        "description": "For each<color_orange>0</> <color_orange><u>Lux Engraving</u></>,<br>+<color_orange>15</>% Damage Amount to ally Attack Cards for <cc>1</> turn",
+        "id": "ds03_lux_0007",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0007_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_NO_COUNT"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "This card does not reduce the enemy’s Action Count",
+            "id": "TALENT_NO_COUNT",
+            "title": "Haste"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "buff"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "Lux",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "controller",
+          "vanguard"
+        ]
+      }
+    ],
+    "slot_types": [
+      {
+        "id": "ds03_lux",
+        "name": "Lux",
+        "name_key": "eidolon_slot_type_define@name@ds03_lux",
+        "slot_icon": "icon_eidolon_lux",
+        "slot_type": "LUX"
+      },
+      {
+        "id": "ds03_umbra",
+        "name": "Umbra",
+        "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+        "slot_icon": "icon_eidolon_umbra",
+        "slot_type": "UMBRA"
+      }
+    ],
+    "summary": {
+      "illust_comb_count": 12,
+      "reward_count": 38,
+      "slot_type_count": 2
+    }
+  },
+  "message": "success"
+}

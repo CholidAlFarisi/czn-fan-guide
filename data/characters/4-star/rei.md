@@ -1,45 +1,87 @@
 # Rei
 
-**Rarity:** 4★  
-**Class:** Striker  
-**Attribute:** Void  
-**Faction:** Terrascion  
+- **Rarity**: ★★★★ (4-Star)
+- **Class / Job**: Controller
+- **Attribute (Ego)**: Void (Dark)
+- **Faction**: Terrascion
+- **Gender**: Female
+- **Character ID**: `1056`
 
 ---
 
-## Role Description
-
-Rei is a Void-attribute Striker specializing in Dark Blade combos and conditional damage amplification. She excels at setting up Dark Condensation and following up with Predator or Strike of Darkness bursts.
-
----
-
-## Starting Cards
-
-| Card Name | AP | Type | Effect | Tags |
-| :--- | :---: | :--- | :--- | :--- |
-| **Dark Blade** | 1 | Attack | 100% Damage | — |
-| **Dark Condensation** | 1 | Skill | Choose 1 Attack Card(s) in hand, +100% Damage for 1 turn | — |
-| **Material Regeneration** | 1 | Skill | Heal 100% | — |
-| **Protection** | 1 | Skill | 100% Shield | — |
-| **Predator** | 1 | Attack | 250% Damage ・ For 1 turn Morale 4 | — |
-| **Protection** | 1 | Skill | 100% Shield | — |
-| **Snack Time** | 0 | Skill | Select 1 card(s) from hand to Exhaust ・ Heal 100% ・ Draw 1 | Exhaust |
-| **Spirit of the Aromata** | 1 | Skill | When using a card, +20% Damage for 1 turn | Retain |
-| **Strike of Darkness** | 1 | Attack | Damage 100% ・ For 1 turn(s), increase Basic attack card damage by 100% | Lead |
+## Overview
+Rei is a 4★ Controller affiliated with Terrascion, harnessing the Void (Dark) attribute in combat.
 
 ---
 
-## Key Unique Mechanics
-
-- **Dark Condensation:** Buffs a chosen Attack card in hand by +100% damage for 1 turn.
-- **Predator:** 250% damage + applies Morale 4 for 1 turn.
-- **Strike of Darkness:** Lead tag; increases Basic attack card damage by 100% for 1 turn.
-- **Dark Blade:** Consistent 100% Void damage filler.
-- **Material Regeneration / Snack Time:** Reliable healing options.
-- **Protection:** 100% Shield for sustained turns.
+## Starter Cards (Base Deck)
+| Card Name | AP Cost | Category | Effect |
+|-----------|---------|----------|--------|
+| **Dark Blade** | 1 | Atk | 100% Damage |
+| **Dark Blade** | 1 | Atk | 100% Damage 20% DMG-Based Recovery |
+| **Material Regeneration** | 1 | Skill | Heal 100% |
 
 ---
 
-## Ego Skill
+## Signature Unique Cards & Epiphanies
 
-TBD — Data needed
+### Strike of Darkness
+- **Base Form**: [Atk] (1 AP) — 100% Damage Increase Damage Amount of Basic Attack Cards by 100% for 1 turn
+
+**Epiphany Variations:**
+- *Variant 1* [Atk] (1 AP): 150% Damage Increases Damage Amount of Basic Attack Cards by 150% for 1 turn
+- *Variant 2* [Atk] (1 AP): 350% Damage 20% DMG-Based Recovery Decrease Damage Amount by 20% for 1 turn
+- *Variant 3* [Atk] (1 AP): 150% Damage Discard all Basic Cards, add 1 Hit for each
+- *Variant 4* [Power] (1 AP): Increase Damage Amount of Basic Attack Cards by 80%
+- *Variant 5* [Skill] (0 AP): Proc all Basic Cards in hand
+
+### Resonating Darkness
+- **Base Form**: [Power] (1 AP) — +40% Damage Amount to 1-Cost cards At the end of the turn, Heal 60%
+
+**Epiphany Variations:**
+- *Variant 1* [Power] (1 AP): +60% Damage Amount to 1-Cost cards At the end of the turn, Heal 90%
+- *Variant 2* [Power] (1 AP): +40% Damage Amount to Void Cards At the end of the turn, Heal 90%
+- *Variant 3* [Power] (1 AP): +40% Damage, Shield Gain, and Heal Amounts to 1-Cost cards At the end of the turn, Heal 90%
+- *Variant 4* [Power] (1 AP): +40% Damage Amount to 1-Cost or lower cards At the end of the turn, Heal 90%
+- *Variant 5* [Skill] (0 AP): Heal 100% For 1 turn, +80% Damage Amount to 1-Cost cards
+
+### Snack Time
+- **Base Form**: [Skill] (0 AP) — Choose 1 card(s) in hand to Exhaust Heal 200% Draw 1
+
+**Epiphany Variations:**
+- *Variant 1* [Skill] (0 AP): Choose 1 card(s) in hand to Exhaust Heal 200% Draw 1
+- *Variant 2* [Skill] (0 AP): Heal 200% Draw 2
+- *Variant 3* [Skill] (0 AP): Heal 150% Select and Exhaust up to 2 card(s) in hand, then Draw for each Exhausted
+- *Variant 4* [Skill] (0 AP): Heal 150% Select and Exhaust up to 1 card(s) in Draw Pile, then Draw for each Exhausted
+- *Variant 5* [Skill] (0 AP): Heal 150% Select and Exhaust 2 card(s) in hand Select and Draw 1 Void card(s)
+
+### Dark Condensation
+- **Base Form**: [Skill] (1 AP) — Select 1 Attack Card(s) in hand, then +100% Damage Amount for 1 turn until activated
+
+**Epiphany Variations:**
+- *Variant 1* [Skill] (1 AP): Select 1 Attack Card(s) in hand, then +150% Damage Amount for 1 turn until activated
+- *Variant 2* [Skill] (1 AP): Select 1 card(s) in hand, then +100% Damage, Shield Gain, and Heal Amounts for 1 turn until activated
+- *Variant 3* [Skill] (1 AP): For 1 turn, +50% Damage Amount of Void Attack Cards
+- *Variant 4* [Skill] (1 AP): Select 1 Attack Card(s), then +100% Damage Amount until activated
+- *Variant 5* [Power] (1 AP): Choose 1 Attack Card(s) in hand, +50% Damage Amount
+
+### Predator's Blade
+- **Base Form**: [Atk] (1 AP) — 250% Damage For 1 turn, 2 Morale
+
+**Epiphany Variations:**
+- *Variant 1* [Atk] (1 AP): 250% Damage For 1 turn, 4 Morale
+
+---
+
+## Ego Ultimate Skill (Post-Breakdown Recovery)
+| Skill Name | AP Cost | Category | Effect |
+|------------|---------|----------|--------|
+| **Final Shadow** | 4 | Atk | 300% Damage 15% DMG-Based Recovery Gain 1 AP |
+| **Final Shadow** | 4 | Atk | 400% Damage 15% DMG-Based Recovery Gain 1 AP |
+
+---
+
+## Mental Breakdown State (Stress 100%)
+When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
+
+- **Breakdown Card**: `Confusion` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)

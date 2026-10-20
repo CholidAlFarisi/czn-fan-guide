@@ -1,48 +1,88 @@
 # Khalipe
 
-**Rarity:** 5★  
-**Class:** Vanguard  
-**Attribute:** Instinct  
-**Faction:** Stella Familia (White Altair)  
+- **Rarity**: ★★★★★ (5-Star)
+- **Class / Job**: Vanguard
+- **Attribute (Ego)**: Instinct (Eye)
+- **Faction**: Stella Familia
+- **Gender**: Female
+- **Character ID**: `1008`
 
 ---
 
-## Role Description
-
-Khalipe is an elite frontline tank and defense anchor belonging to the White Altair branch of Stella Familia. She converts defensive stats into devastating attack power while projecting massive team shields and applying the **Silver Veil** buff.
-
----
-
-## Starting Cards
-
-| Card Name | AP | Type | Effect | Tags |
-| :--- | :---: | :--- | :--- | :--- |
-| **Lashing** | 1 | Attack | 100% Defense-based Damage | — |
-| **Tyr** | 1 | Skill | 100% Shield | — |
-| **Upward Slash** | 2 | Attack | 180% Defense-based Damage | — |
-| **Rally** | 1 | Skill | 120% Shield ・ Draw 1 highest-cost card(s) | — |
+## Overview
+Khalipe is a 5★ Vanguard affiliated with Stella Familia, harnessing the Instinct (Eye) attribute in combat.
 
 ---
 
-## Key Unique Mechanics
-
-- **Defense Scaling:** Khalipe's attacks scale primarily with the squad's accumulated Defense and Shield values rather than raw Attack power.
-- **Silver Veil:** Unique defensive aura granting damage mitigation and shield sustainability.
-- **Greatsword Aquila:** 2 AP card dealing 150% Defense-based damage to all enemies (+100% damage and +1 Cost if Vulture Ejection is in hand).
-- **Vulture Ejection:** 3 AP Celestial card dealing 100% Defense-based damage to all enemies, 80% Shield, and 1 Silver Veil.
-- **Absolute Perfection:** X AP Ultimate card granting +X100% Shield and granting Retain to all cards in hand for 1 turn.
-- **Overpower:** 2 AP Skill granting 200% Shield and dealing 1 Tenacity Damage to all enemies.
-
----
-
-## Notable Epiphany Cards
-
-- Tier IV Epiphany expands Vulture Ejection's Silver Veil duration.
-- Divine Epiphany upgrades Tyr to grant unconditional party-wide damage mitigation.
+## Starter Cards (Base Deck)
+| Card Name | AP Cost | Category | Effect |
+|-----------|---------|----------|--------|
+| **Lashing** | 1 | Atk | 100% Defense-Based Damage |
+| **Upward Slash** | 2 | Atk | 220% Defense-Based Damage |
+| **Tyr’s Vow** | 1 | Skill | 100% Shield |
+| **Upward Slash** | 2 | Atk | 180% Defense-Based Damage to all enemies |
 
 ---
 
-## Ego Skill
+## Signature Unique Cards & Epiphanies
 
-- **Ego Name:** White Altair Bastion (TBD)
-- **Effect:** Deploys a full-party barrier scaling with team defense, purging status ailments and resetting enemy Action Counts.
+### Vulture Ejection
+- **Base Form**: [Atk] (3 AP) — 120% Defense-Based Damage to all enemies 100% Shield 1 Silver Veil
+
+**Epiphany Variations:**
+- *Variant 1* [Atk] (3 AP): 280% Defense-Based Damage to all enemies 1 Silver Veil
+- *Variant 2* [Skill] (3 AP): 280% Shield 1 Silver Veil
+- *Variant 3* [Atk] (3 AP): 180% Defense-Based Damage to all enemies 150% Shield 1 Silver Veil
+- *Variant 4* [Atk] (3 AP): 180% Defense-Based Damage to all enemies 1 Silver Veil Retain: 100% Shield
+- *Variant 5* [Atk] (3 AP): 180% Defense-Based Damage to all enemies 1 Silver Veil 40% Shield for each card in hand
+
+### Greatsword Aquila
+- **Base Form**: [Atk] (1 AP) — 150% Defense-Based Damage to all enemies If Vulture Ejection is in hand, increase Cost by 1, +120% Damage Amount
+
+**Epiphany Variations:**
+- *Variant 1* [Atk] (1 AP): 210% Defense-Based Damage to all enemies If Vulture Ejection is in hand, increase Cost by 1, +170% Damage Amount
+- *Variant 2* [Atk] (2 AP): 220% Defense-Based Damage to all enemies When activated, +40% Damage Amount
+- *Variant 3* [Atk] (2 AP): 220% Defense-Based Damage to all enemies If Vulture Ejection is in hand, 1 Silver Veil
+- *Variant 4* [Atk] (2 AP): 220% Defense-Based Damage to all enemies Retain: +60% Damage Amount to next activated Vulture Ejection
+- *Variant 5* [Atk] (1 AP): 150% Defense-Based Damage to all enemies If Vulture Ejection is in hand, increase Cost by 1, +120% Damage Amount
+
+### Overpower
+- **Base Form**: [Skill] (2 AP) — 250% Shield 1 Tenacity Damage to all enemies
+
+**Epiphany Variations:**
+- *Variant 1* [Skill] (2 AP): 300% Shield 1 Tenacity Damage to all enemies 1 Damage Reduction for each enemy present
+- *Variant 2* [Skill] (2 AP): 300% Shield 1 Tenacity Damage to all enemies 2 Vulnerable to enemies in a Ravage state If not, 2 Weaken
+- *Variant 3* [Skill] (2 AP): 300% Shield 2 Tenacity Damage to all enemies
+- *Variant 4* [Skill] (2 AP): 250% Shield 1 Tenacity Damage to all enemies +40% base Shield Gain Amount for each card in hand
+- *Variant 5* [Skill] (2 AP): 300% Shield 1 Tenacity Damage to all enemies Increase Action Count of all enemies by 5
+
+### Rally
+- **Base Form**: [Skill] (1 AP) — 120% Shield Draw 1 highest-cost card(s)
+
+**Epiphany Variations:**
+- *Variant 1* [Skill] (1 AP): 150% Shield Select and Draw 1 2-Cost or higher cards from Draw Pile
+- *Variant 2* [Skill] (1 AP): 150% Shield Draw 1 highest-cost card(s) 1 Silver Veil
+- *Variant 3* [Skill] (1 AP): 150% Shield Draw 1 Celestial Card(s) 1 Silver Veil
+- *Variant 4* [Skill] (2 AP): 150% Shield Draw 1 highest-cost card(s) 1 Silver Veil
+- *Variant 5* [Skill] (1 AP): 120% Shield Draw 1, gain 60% Shield equal to that card’s Cost 1 Silver Veil
+
+### Absolute Protection
+- **Base Form**: [Skill] (-1 AP) — 100% Shield for each X For 1 turn, Retain all cards in hand (cannot stack)
+
+**Epiphany Variations:**
+- *Variant 1* [Skill] (-1 AP): 120% Shield for each X For 1 turn, Retain all cards in hand (cannot stack)
+
+---
+
+## Ego Ultimate Skill (Post-Breakdown Recovery)
+| Skill Name | AP Cost | Category | Effect |
+|------------|---------|----------|--------|
+| **Charisma of Resolve** | 5 | Atk | 300% Defense-Based Damage to all enemies Create 1 Vulture Ejection |
+| **Charisma of Resolve** | 5 | Atk | 350% Defense-Based Damage to all enemies Create 1 Vulture Ejection 1 Silver Veil |
+
+---
+
+## Mental Breakdown State (Stress 100%)
+When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
+
+- **Breakdown Card**: `Impulse` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)

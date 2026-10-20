@@ -1,54 +1,30 @@
-# Story Overview
+# Chaos Zero Nightmare — Story & Universe Lore
 
-## Narrative Setting
+## Premise & Universe Setting
+Eons ago, an incomprehensible extraterrestrial phenomenon known as **Chaos** descended upon Earth, inflicting catastrophic ecological and psychological devastation. Humanity was driven from its home world and transformed into an interstellar space-faring empire to survive.
 
-*Chaos Zero Nightmare* (CZN) takes place in a distant, dystopian future where Earth was devastated eons ago by an enigmatic extraterrestrial entity known only as **Chaos**. Chaos is not merely an alien species—it is a mutating, corrupting cosmic force that consumes matter, distorts space-time, and inflicts severe psychological terror on conscious beings. 
+Across the cosmos, anomalous spatial regions termed **Chaos Zones** (or **Chaos Manifestations**) emerge unpredictably. Within these zones, physical space contorts, time fractures, and eldritch abominations—corrupted by the psychological trauma of shattered worlds—roam freely.
 
-Forced to abandon their homeworld, humanity reorganized into a militaristic, space-faring interstellar empire. Surviving human populations reside aboard colossal fleet ships, research citadels, and orbital arcologies, constantly barricaded against the pervasive spread of Chaos manifestations.
+## The Protagonist: The Amnesiac Captain
+The player assumes the mantle of a genetically enhanced Imperial Officer holding the rank of **Captain**, commanding an elite expeditionary vanguard aboard the flagship **SS Nightmare**. 
 
-The narrative masterfully blends high-concept **science fiction** with deep **cosmic psychological horror**, exploring themes of existential dread, genetic engineering ethics, cognitive corruption, and imperial power struggles.
+During what should have been a standard Chaos eradication sortie, an unprecedented anomaly triggered severe, total retrograde amnesia in the Captain—a biological impossibility given imperial genetic engineering. Accompanied by Vice-Captain **Renoa** and key allies, the Captain must unravel:
+1. The conspiracy behind the amnesia within the Imperial hierarchy.
+2. The escalating tensions between the Imperial Government, the corporate syndicate **Peltion**, and the dogmatic **Holy Crusaders**.
+3. The true origin and metaphysical purpose of the Chaos infection.
 
----
+## Cosmological Entities: The 6 Primordial Deities
+Archived within the deepest layers of the **Zero Archive** lie historical records of 6 cosmic deities whose echoes manifest as Divine Sparks during extreme spatial convergence:
+1. **Caligo**: Deity of Tenacity and Breakdown.
+2. **Circen**: Deity of Time, Flow, and Efficiency.
+3. **Diallos**: Deity of Aegis, Shield, and Protection.
+4. **Nihilum**: Deity of Void and Card Flow.
+5. **Secred**: Deity of Unity, Synergy, and Pincer Strikes.
+6. **Vitor**: Deity of Might and Absolute Destruction.
 
-## The Protagonist and the Inciting Incident
-
-The player assumes the role of an elite Imperial Officer—a genetically engineered military commander engineered specifically to resist cognitive dissonance and lead frontline expeditionary strikes against Chaos contamination. In theory, your synthetic neural architecture makes neurological degradation or amnesia physiologically impossible.
-
-However, during a high-priority routine reconnaissance mission into a deep Chaos manifestation zone, a bizarre anomaly occurs. The player experiences sudden, inexplicable **memory loss**. 
-
-Awakening aboard the imperial flagship **SS Nightmare**, the protagonist finds themselves at the nexus of a brewing civil conspiracy:
-- Imperial military factions vying for authoritarian control over remaining fleet assets.
-- Heretical religious sects questioning the empire's doctrine.
-- The disturbing reality that the nature of Chaos is intricately tied to humanity's own past and the genetic lineage of the officers themselves.
-
----
-
-## Core Conflicts and Power Blocs
-
-### The Imperial Government vs. The Holy Crusaders
-While the imperial administration seeks to mechanize, contain, and purge Chaos through relentless militarism and genetic optimization, a powerful religious order known as **The Holy Crusaders** preaches that Chaos is a divine chastisement and herald of cosmic rebirth. The Holy Crusaders operate with fanatical devotion, creating ideological rifts within the human empire and covertly undermining military operations.
-
-### Planetary Survivors vs. Void-Born Nobles
-Tensions simmer between the descendants of planet-born survivors (such as combatants hailing from Terrascion backgrounds) and the entrenched void-born aristocracy commanding the fleet councils.
-
----
-
-## The Zero Archive & The 4 Gods
-
-Deeper lore is chronicled within the **Zero Archive**, an ancient classified imperial database accessible through high-tier Zero System explorations. The Archive details humanity's first encounters with cosmic entities classified as the **4 Gods (Divine Representatives)**:
-- Ancient deities possessing reality-warping authority.
-- The source of divine Epiphanies and cosmic paradoxes within the Chaos zones.
-- Encountered directly in endgame Mythic Codices, offering profound revelations regarding the origin of the universe and the ultimate trajectory of human evolution.
-
----
-
-## Story Structure & Unlocks
-
-The main campaign unfolds through serialized **Chapters**, subdivided into narrative **Episodes** interspersed with tactical card battles and boss encounters:
-
-| Chapter / Beat | Milestone Unlocks |
-| :--- | :--- |
-| **Prologue & Chapter 1** | Core combat mechanics, basic card decks, starter combatants, mailbox rewards, and redemption codes (Ep 4). |
-| **Chapter 2 (#01-2)** | **Ark City** social hub, Policy Office, Garden Café, Epione Center, and Excursions. |
-| **Chapter 3** | Nightmare difficulty mode (2x Enemy HP, +50% damage, elevated rewards). |
-| **Chapter 4+ / Lv 40** | Advanced codices, Basin of Hyperspace, and the **Zero System** endgame matrix. |
+## Psychological Horror: Deep Trauma & The Sanity Loop
+Unlike conventional military conflicts, fighting within Chaos inflicts severe mental degradation on combatants:
+- Unblocked strikes accumulate **Stress**.
+- At maximum stress (100), combatants undergo **Mental Breakdown**, collapsing team health and paralyzing their combat capability until cathartic Breakdown Cards are processed.
+- Extended exposure induces **Deep Trauma**, requiring psychiatric rehabilitation at the **Epione Center** in Ark City.
+- Through recovery and perseverance, agents achieve psychological awakening, unlocking their devastating **Ego Skills**.

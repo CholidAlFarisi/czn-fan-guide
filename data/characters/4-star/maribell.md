@@ -1,47 +1,89 @@
 # Maribell
 
-**Rarity:** 4★  
-**Class:** Vanguard  
-**Attribute:** Passion  
-**Faction:** Ironrain  
+- **Rarity**: ★★★★ (4-Star)
+- **Class / Job**: Vanguard
+- **Attribute (Ego)**: Passion (Fire)
+- **Faction**: Ironrain
+- **Gender**: Female
+- **Character ID**: `1028`
 
 ---
 
-## Role Description
-
-Maribell is a Passion-attribute Vanguard specializing in Shelter-based shielding and Counterattack procs. She excels at team protection and retaliatory damage via Shelter line and Wolves upgrades.
-
----
-
-## Starting Cards
-
-| Card Name | AP | Type | Effect | Tags |
-| :--- | :---: | :--- | :--- | :--- |
-| **Maribell Shelter MK.II** | 1 | Attack | 100% Defense-based Damage ・ Fixed Shield equal to Damage dealt ( Does not exceed 20% of Max HP) | Pulverize |
-| **Resolute Assault** | 1 | Attack | 100% Defense-based Damage ・ 1 Counterattack | Pulverize |
-| **Resolute Blitz** | 1 | Attack | 100% Defense-based Damage ・ 1 Counterattack | Pulverize |
-| **Shelter Defense** | 1 | Skill | 100% Shield | — |
-| **Shelter Hold** | 2 | Skill | 220% Shield | — |
-| **Shelter Kick** | 1 | Attack | 100% Defense-based Damage | — |
-| **Shelter Strike** | 1 | Attack | Fixed Damage equal to Shield owned | Pulverize |
-| **Wolves** | 1 | Upgrade | 2 Counterattack at the start of the turn, 1 Counterattack | — |
+## Overview
+Maribell is a 4★ Vanguard affiliated with Ironrain, harnessing the Passion (Fire) attribute in combat.
 
 ---
 
-## Key Unique Mechanics
-
-- **Shelter Line:** Core defensive toolkit:
-  - **Shelter Defense:** 100% Shield.
-  - **Shelter Hold:** 220% Shield.
-  - **Shelter Kick:** Defense-based Damage.
-  - **Shelter Strike:** Damage equal to current Shield (Pulverize).
-  - **Maribell Shelter MK.II:** Defense-based Damage + Fixed Shield equal to damage dealt.
-- **Wolves:** Grants 2 starting Counterattack + 1 permanent.
-- **Resolute Assault/Blitz:** Defense-based Damage + Counterattack.
-- **Shield Synergy:** Shelter Strike converts shields into damage.
+## Starter Cards (Base Deck)
+| Card Name | AP Cost | Category | Effect |
+|-----------|---------|----------|--------|
+| **Shelter Kick** | 1 | Atk | 100% Defense-Based Damage |
+| **Shelter Defense** | 1 | Skill | 100% Shield |
+| **Shelter Hold** | 2 | Skill | 220% Shield |
+| **Shelter Defense** | 1 | Skill | 100% Shield 1 Counterattack |
+| **Shelter Hold** | 2 | Skill | 220% Shield 1 Counterattack |
 
 ---
 
-## Ego Skill
+## Signature Unique Cards & Epiphanies
 
-TBD — Data needed
+### Resolute Blitz
+- **Base Form**: [Atk] (1 AP) — 140% Defense-Based Damage 20% DMG-Based Shield 1 Counterattack
+
+**Epiphany Variations:**
+- *Variant 1* [Atk] (1 AP): 210% Defense-Based Damage 20% DMG-Based Shield 1 Counterattack When Damage is inflicted, add 1 Counterattack
+- *Variant 2* [Atk] (1 AP): 140% Defense-Based Damage 20% DMG-Based Shield 2 Counterattack
+- *Variant 3* [Atk] (2 AP): 210% Defense-Based Damage to all enemies 20% DMG-Based Shield Gain Counterattack for each target Damaged
+- *Variant 4* [Atk] (1 AP): 210% Defense-Based Damage 20% DMG-Based Shield Increases Damage Amount equal to 30% of Shield owned
+- *Variant 5* [Power] (2 AP): At the end of the turn, 1 Counterattack 210% Defense-Based Damage to random enemies
+
+### Maribell Shelter MK.II
+- **Base Form**: [Atk] (1 AP) — 120% Defense-Based Damage 100% DMG-Based Shield
+
+**Epiphany Variations:**
+- *Variant 1* [Atk] (1 AP): 120% Defense-Based Damage to all enemies 100% DMG-Based Shield
+- *Variant 2* [Atk] (1 AP): 160% Defense-Based Damage 100% DMG-Based Shield
+- *Variant 3* [Atk] (2 AP): 280% Defense-Based Damage 100% DMG-Based Shield
+- *Variant 4* [Atk] (2 AP): 160% Defense-Based Damage +50% Damage Amount for each Counterattack of this unit
+- *Variant 5* [Atk] (0 AP): 120% Defense-Based Damage 100% DMG-Based Shield
+
+### Wolves’ Dome
+- **Base Form**: [Power] (1 AP) — 2 Counterattack At the start of the turn, 1 Counterattack 2 Crystallization
+
+**Epiphany Variations:**
+- *Variant 1* [Power] (0 AP): 2 Counterattack At the start of the turn, 1 Counterattack 2 Crystallization
+- *Variant 2* [Power] (1 AP): 2 Counterattack At the start of the turn, 1 Counterattack and 80% Fixed Shield
+- *Variant 3* [Power] (1 AP): 2 Counterattack At the start of the turn, 2 Counterattack 2 Crystallization
+- *Variant 4* [Skill] (0 AP): 2 Counterattack For 1 turn, 2 Resolve
+- *Variant 5* [Power] (2 AP): At the start of the turn, 2 Counterattack +20% Damage Amount to Counterattacks of this unit
+
+### Oh... I see.
+- **Base Form**: [Skill] (1 AP) — 100% Shield 1 Counterattack 1 Weaken to all enemies
+
+**Epiphany Variations:**
+- *Variant 1* [Skill] (1 AP): 150% Shield 1 Counterattack 2 Weaken to all enemies
+- *Variant 2* [Skill] (1 AP): 150% Shield 2 Counterattack
+- *Variant 3* [Skill] (1 AP): 2 Counterattack 2 Weaken to all enemies
+- *Variant 4* [Power] (1 AP): At the end of the turn, Fixed Damage equal to 50% of Shield owned to the enemy with the lowest HP
+- *Variant 5* [Power] (1 AP): At the start of the turn, 25% Fixed Shield equal to number of the own Counterattack
+
+### Shelter Strike
+- **Base Form**: [Atk] (1 AP) — Fixed Damage equal to Shield owned
+
+**Epiphany Variations:**
+- *Variant 1* [Atk] (1 AP): Fixed Damage equal to 150% of Shield owned
+
+---
+
+## Ego Ultimate Skill (Post-Breakdown Recovery)
+| Skill Name | AP Cost | Category | Effect |
+|------------|---------|----------|--------|
+| **Unbreakable** | 4 | Skill | 350% Shield |
+| **Unbreakable** | 4 | Skill | 450% Shield |
+
+---
+
+## Mental Breakdown State (Stress 100%)
+When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
+
+- **Breakdown Card**: `Fear` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)

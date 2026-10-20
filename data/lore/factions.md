@@ -1,83 +1,63 @@
-# Factions of Chaos Zero Nightmare
+# The Factions of Chaos Zero Nightmare
 
-In *Chaos Zero Nightmare*, all combatants and partners align with one of **seven major factions** spanning the human empire, outer fringes, and divine houses. Faction alignment influences combatant backstories, synergy traits, and character interactions in Ark City.
+The universe of Chaos Zero Nightmare is shaped by major galactic factions, corporate entities, religious orders, and wanderers, each with distinct philosophies and agendas regarding the Chaos outbreak.
 
 ---
 
 ## 1. Terrascion
-
-**Terrascion** is the primary military and civilian vanguard of the human imperial fleet. It comprises personnel stationed aboard the imperial dreadnought **SS Nightmare** alongside cadets and faculty from the prestigious military academy vessel **SS Edenity**. They represent humanity's organized scientific and military struggle against the encroaching Chaos.
-
-- **Primary Themes:** Discipline, imperial loyalty, military academy camaraderie, martial arts, advanced firearms.
-- **Roster:**
-  - **Playable Combatants:** Renoa, Haru, Mei Lin, Mika, Owen, Amir, Nia, Rei, Tressa
-  - **Academy & Support Members / Partners:** Yuki, Kiara, Erica, Arwen, Wilhelmina, Rosaria, Eloise, Lillian, Asteria, Westmacott
+- **Headquarters**: SS Nightmare (Flagship) & SS Edenity (Academy Ship)
+- **Description**: The frontline military and administrative body responsible for deep space expeditionary fleets. Characters either serve as active crew aboard the SS Nightmare or study tactical arts aboard the SS Edenity.
+- **Notable Combatants**: Renoa (Vice Captain), Haru, Mei Lin, Mika, Owen, Amir, Nia, Rei, Tressa, Yuki, Anika
+- **Notable Supporters / Partners**: Kiara, Erica, Arwen, Wilhelmina, Rosaria, Eloise, Lillian, Asteria, Westmacott
 
 ---
 
 ## 2. Ironrain
-
-**Ironrain** is a hardened paramilitary mercenary coalition operating on the outer frontiers, primarily formed of survivalist **Rangers, Bounty Hunters, and Heavy Ballistics Specialists**. It houses the elite mercenary unit known as the **Wolf Platoon**.
-
-- **Primary Themes:** Ballistics, heavy ordnance, bullet mechanics, rugged survivalism, tracked marksmanship.
-- **Roster:**
-  - **Playable Combatants:** Luke (Wolf Platoon Commander), Maribell, Beryl, Lucas
-  - **Affiliated Rangers & Partners:** Janet, Alyssa, Daisy, Rachel
+- **Headquarters**: Frontier Outposts & Wolf Platoon Deployment Sector
+- **Description**: A battle-hardened faction primarily composed of elite Rangers and Hunters. Home of the famous **Wolf Platoon** vanguard team.
+- **Notable Combatants**: Luke (Wolf Platoon Leader), Lucas, Beryl, Maribell, Hilde
+- **Notable Supporters / Partners**: Janet, Alyssa, Daisy, Rachel
 
 ---
 
 ## 3. Stella Familia
-
-**Stella Familia** is a powerful interstellar syndicate and kinship house distinguished by individuals possessing animalistic physical traits—ranging from prominent beast ears and tails to fully humanoid anthropomorphic forms. Despite their eccentric domestic exterior, they field lethal combatants and influential corporate magnates.
-
-- **Primary Themes:** Animal traits, pack coordination, aggressive targeting, rapid counter-tactics, high social status.
-- **Roster:**
-  - **Playable Combatants:** Khalipe (White Altair), Hugo, Magna, Veronica
-  - **Affiliated Family Members & Partners:** Marin, Carroty, Nakia, Zatera, Raidel, Douglas, Yuri
+- **Headquarters**: Altair Sector
+- **Description**: A distinctive faction characterized by members with animalistic traits (beast ears, tails, or fully humanoid animal forms). They possess acute primal instincts and extraordinary survivability in corrupted Chaos Zones.
+- **Notable Combatants**: Khalipe (White Altair Vanguard), Hugo, Magna, Veronica
+- **Notable Supporters / Partners**: Marin, Carroty, Nakia, Zatera, Raidel, Douglas, Yuri
 
 ---
 
 ## 4. Peltion
-
-**Peltion** represents specialized corporate task forces, private security conglomerates, and tech syndicates (such as Company 110). Known for high-risk gambles, corporate espionage, and calculating efficiency, they leverage experimental probability tech and tactical cards.
-
-- **Primary Themes:** High risk / high reward, quest contracts, card manipulation, probability control.
-- **Roster:**
-  - **Playable Combatants:** Cassius (Company 110)
-  - **Corporate Affiliates & Partners:** Zeta, Scarlet, Marianne, Tina, Akad, Ritochka, Elexia
+- **Headquarters**: Company 110 Headquarters
+- **Description**: A corporate-military syndicate specializing in tactical technology, mercenary contracts, and deck modulation algorithms. Highly pragmatic and resource-focused.
+- **Notable Combatants**: Cassius
+- **Notable Supporters / Partners**: Zeta, Scarlet, Marianne, Tina, Akad, Ritochka
 
 ---
 
 ## 5. The Holy Crusaders
-
-**The Holy Crusaders** is an austere religious order that preaches absolute devotion to the cosmic deities. Adorned in stylized ecclesiastical vestments and nun-like habit robes, they view the spread of Chaos through an apocalyptic spiritual lens—viewing tribulations as divine judgment.
-
-- **Primary Themes:** Sacred relics, divine faith, esoteric healing, ritual prayers, censers, divine creation cards.
-- **Roster:**
-  - **Playable Combatants:** Orlea
-  - **Devout Sisters & Order Partners:** Noel, Yvonne
+- **Headquarters**: The Grand Cathedral & Epione Sanctuaries
+- **Description**: A devout religious order dedicated to preaching the divine word and shielding souls from psychological corruption. Their aesthetics mirror consecrated monastic habit.
+- **Notable Combatants**: Orlea, Diana
+- **Notable Supporters / Partners**: Noel, Yvonne
 
 ---
 
-## 6. Wanderer
-
-**Wanderers** acknowledge no imperial allegiance, corporate contract, or sacred dogma. Operating as independent drifters, lone ronin, and solitary existentialists across the void, they pursue personal vendettas, cosmic secrets, or romantic pursuits across the stars.
-
-- **Primary Themes:** Autonomy, self-contained combo loops, profound void mastery, solitary martial arts.
-- **Roster:**
-  - **Playable Combatants:** Rin (the solitary wandering swordswoman seeking romance), Kayron (the existential wielder of Futility and abyss), Bria (Kayron's attendant)
+## 6. Sileyma
+- **Headquarters**: Outer Celestial Spheres
+- **Description**: Ancient and enigmatic beings bearing distinctive horns upon their heads. They wield immense otherworldly power and predominantly serve as formidable Partners/Supporters.
+- **Notable Supporters / Partners**: Solia, Eishlen, Nyx, Anteia, Serithea, Priscilla
 
 ---
 
-## 7. Sileyma
+## 7. Wanderer (Unaffiliated Independents)
+- **Headquarters**: None (Drifting Stars)
+- **Description**: Elite independent combatants operating without imperial or corporate allegiance.
+- **Notable Combatants**: Rin (Swordsman searching for purpose), Kayron (Void Master), Bria
 
-**Sileyma** comprises ancient, noble aristocratic beings hailing from enigmatic houses of power. Recognized immediately by their prominent crown horns, immense psionic resonance, and majestic poise, members of Sileyma frequently serve as extraordinarily potent Partners who forge soul-links with frontline combatants.
+---
 
-- **Primary Themes:** Horned aristocracy, ancient lineage, eldritch resonance, soul pacts.
-- **Roster (Primarily Partners):**
-  - Solia
-  - Eishlen
-  - Nyx
-  - Anteia
-  - Serithea
-  - Priscilla
+## 8. Imperial High Command & External Allies
+- **Description**: Direct imperial officers, enigmatic entities, and inter-dimensional collaborators.
+- **Notable Combatants**: Adelheid, Arabella, Chizuru, Fei, Narja, Nine, Olga, Rita, Sereniel, Tenebria (Epic Seven Collaboration), Tiphera

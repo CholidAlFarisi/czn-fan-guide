@@ -1,50 +1,87 @@
 # Nia
 
-**Rarity:** 4★  
-**Class:** Controller  
-**Attribute:** Instinct  
-**Faction:** Terrascion [No Affiliation]  
+- **Rarity**: ★★★★ (4-Star)
+- **Class / Job**: Controller
+- **Attribute (Ego)**: Instinct (Eye)
+- **Faction**: Terrascion
+- **Gender**: Female
+- **Character ID**: `1003`
 
 ---
 
-## Role Description
-
-Nia is an Instinct-attribute Controller specializing in card draw, discard manipulation, and Adagio loops. She excels at engine-building through Shuffle, Adagio, and Mute Accent combos.
-
----
-
-## Starting Cards
-
-| Card Name | AP | Type | Effect | Tags |
-| :--- | :---: | :--- | :--- | :--- |
-| **Adagio** | 0 | Skill | Draw 1 ・ Discard 1 ・ With this effect, move discarded card to top of the Draw Pile | — |
-| **Amp Therapy** | 1 | Skill | Heal 100% | — |
-| **G Chord** | 1 | Skill | 1 Decibel ・ Activate the top 1 card(s) of the Draw Pile | — |
-| **Mute Accent** | 1 | Skill | Discard 1 card(s) with the highest cost, then the combatant who owned that card performs 150% Extra Attack to a random enemy | — |
-| **Nia** | 1 | Skill | Reveal 3 random cards from the Draw Pile ・ Choose one to Draw ・ Discard the rest | — |
-| **Soul Rip** | 1 | Skill | Heal 120% ・ For 1 turn, when a card is discarded, 1 Decibel | Retain |
-| **Stroke** | 1 | Attack | 100% Damage | — |
-| **Triple 0** | 0 | Attack | 40% Damage equal to the number of Attack Cards used this turn | Exhaust, Ephermeral |
-| **Triple 1** | 0 | Attack | 90% Damage ・ Heal 90% | Exhaust, Ephermeral |
-| **Swiftie** | 0 | Attack | 60% Damage ・ Retain: Damage +40% | Exhaust, Retain, Creation |
-| **Swiftie ★★** | 0 | Attack | 120% Damage ・ Retain: Damage +80% | Exhaust, Retain, Creation |
-| **Swiftie ★★★** | 0 | Attack | 200% Damage ・ Retain: Damage +150% | Exhaust, Retain, Creation |
-| **Toughie** | 0 | Skill | 80% Shield ・ Retain: Heal 30% | Exhaust, Retain, Creation |
-| **Toughie ★★** | 0 | Skill | 160% Shield ・ Retain: Heal 60% | Exhaust, Retain, Creation |
-| **Toughie ★★★** | 0 | Skill | 250% Shield ・ Retain: Heal 100% | Exhaust, Retain, Creation |
+## Overview
+Nia is a 4★ Controller affiliated with Terrascion, harnessing the Instinct (Eye) attribute in combat.
 
 ---
 
-## Key Unique Mechanics
-
-- **Adagio Engine:** 0-cost draw/discard with top-deck recursion enables infinite card cycling.
-- **Mute Accent + Adagio:** Discard highest cost card for 150% Extra Attack, then recur via Adagio.
-- **Creation Engine:** Soul Rip + Creation Swifties/Toughies provide healing/damage scaling via Retain.
-- **Soul Rip:** Heals 120% and grants Decibel on discard — enables G Chord loops.
-- **Quadruple Tactics:** Swiftie/Toughie lines provide scaling Creation cards (★/★★/★★★).
+## Starter Cards (Base Deck)
+| Card Name | AP Cost | Category | Effect |
+|-----------|---------|----------|--------|
+| **Stroke** | 1 | Atk | 100% Damage |
+| **Amp Therapy** | 1 | Skill | Heal 100% |
+| **Amp Therapy** | 1 | Skill | Heal 100% 2 Elasticity |
 
 ---
 
-## Ego Skill
+## Signature Unique Cards & Epiphanies
 
-TBD — Data needed
+### G Chord
+- **Base Form**: [Skill] (1 AP) — 2 Decibel Proc the top 1 card(s) in Draw Pile
+
+**Epiphany Variations:**
+- *Variant 1* [Skill] (1 AP): 2 Decibel Check the top 3 cards in Draw Pile Select one to proc
+- *Variant 2* [Skill] (1 AP): 2 Decibel Proc the top 1 card(s) in Draw Pile Gain Decibel for each Cost of those cards
+- *Variant 3* [Skill] (1 AP): 2 Decibel 120% Extra Attack to a random enemy by the Combatant who possesses the topmost card of Draw Pile Proc that card
+- *Variant 4* [Skill] (1 AP): 3 Decibel Discard the top 3 card(s) from Draw Pile
+- *Variant 5* [Skill] (2 AP): Proc the top 1 card(s) from Draw Pile If in a Decibel state, decrease Decibel by 1, then proc 1 additional card(s)
+
+### Mute Accent
+- **Base Form**: [Skill] (1 AP) — Discard 1 card(s) with the highest Cost 150% Extra Attack to a random enemy by the Combatant who owns that card
+
+**Epiphany Variations:**
+- *Variant 1* [Skill] (1 AP): Discard 1 random card(s) 250% Extra Attack to a random enemy by the Combatant who owns that card
+- *Variant 2* [Skill] (1 AP): Discard 1 200% Extra Attack to a random enemy by the Combatant who owns that card
+- *Variant 3* [Skill] (1 AP): Heal 150% Proc 1 of the lowest-Cost card(s)
+- *Variant 4* [Power] (2 AP): At the start of the turn, Discard 1 150% Extra Attack to a random enemy by the Combatant who owns that card
+- *Variant 5* [Skill] (1 AP): Discard all cards with the highest Cost 100% Extra Attack to a random enemy by the Combatants who own those cards
+
+### Soul Riff
+- **Base Form**: [Skill] (1 AP) — Heal 150% For 1 turn, when a card is Discarded, 1 Decibel and 2 Elasticity
+
+**Epiphany Variations:**
+- *Variant 1* [Skill] (2 AP): Heal 200% 2 Decibel 4 Elasticity Proc even when Discarded
+- *Variant 2* [Skill] (1 AP): Heal 150% For 1 turn, when a card in hand is Discarded, Heal 100% and 1 Decibel
+- *Variant 3* [Skill] (1 AP): For 1 turn, when a card in hand is Discarded, 100% Extra Attack to a random enemy by the Combatant who owns that card
+- *Variant 4* [Skill] (2 AP): Heal 200% 2 Decibel Activate the next Decibel effect 1 more time(s)
+- *Variant 5* [Power] (2 AP): When a card is Discarded, 1 Decibel and 2 Elasticity
+
+### Adagio
+- **Base Form**: [Skill] (0 AP) — Draw 1 Discard 1 Move the card Discarded through this effect to the top of Draw Pile
+
+**Epiphany Variations:**
+- *Variant 1* [Skill] (0 AP): Draw 2 Discard 2 Move the card Discarded through this effect to the top of Draw Pile
+- *Variant 2* [Skill] (0 AP): Draw 1 Discard up to 1 card(s) If a card was Discarded, create 1 Adagio with Exhaust
+- *Variant 3* [Skill] (0 AP): Draw 1 1 Decibel for each Cost of those cards Discard 1 Heal 100% for each Cost of those cards
+- *Variant 4* [Skill] (3 AP): Discard the top 2 card(s) from Draw Pile Draw 2 Decrease Cost by 1 for each Decibel in possession
+- *Variant 5* [Skill] (0 AP): Discard 1 Draw 2 card(s) of the Combatant who owns the card Discarded
+
+### Nia’s Curiosity
+- **Base Form**: [Skill] (1 AP) — Check 3 random cards in Draw Pile Select and Draw one Discard the rest
+
+**Epiphany Variations:**
+- *Variant 1* [Skill] (0 AP): Check 3 random cards in Draw Pile Select and Draw one Discard the rest
+
+---
+
+## Ego Ultimate Skill (Post-Breakdown Recovery)
+| Skill Name | AP Cost | Category | Effect |
+|------------|---------|----------|--------|
+| **Rock and Roll** | 5 | Atk | 200% Damage to all enemies 3 Decibel Discard all cards in Draw Pile |
+| **Rock and Roll** | 5 | Atk | 200% Damage to all enemies 5 Decibel Discard all cards in Draw Pile |
+
+---
+
+## Mental Breakdown State (Stress 100%)
+When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
+
+- **Breakdown Card**: `Charm` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)

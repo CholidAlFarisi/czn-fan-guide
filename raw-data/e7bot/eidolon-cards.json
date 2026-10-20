@@ -1,0 +1,1556 @@
+{
+  "code": 0,
+  "data": {
+    "illust_combs": [
+      {
+        "card_category": "CARD_ATK",
+        "change_to_sct_name": "job_00520",
+        "id": "ds03_lux_none",
+        "name": "光之人格面具",
+        "name_key": "eidolon_card_illust_comb@name@ds03_lux_none",
+        "slot_type_0": "ds03_lux",
+        "slot_type_1": ""
+      },
+      {
+        "card_category": "CARD_ATK",
+        "change_to_sct_name": "job_00521",
+        "id": "ds03_umbra_none",
+        "name": "黑暗人格面具",
+        "name_key": "eidolon_card_illust_comb@name@ds03_umbra_none",
+        "slot_type_0": "ds03_umbra",
+        "slot_type_1": ""
+      },
+      {
+        "card_category": "CARD_ATK",
+        "change_to_sct_name": "job_00522",
+        "id": "ds03_lux_ds03_umbra",
+        "name": "邊境人格面具",
+        "name_key": "eidolon_card_illust_comb@name@ds03_lux_ds03_umbra",
+        "slot_type_0": "ds03_lux",
+        "slot_type_1": "ds03_umbra"
+      },
+      {
+        "card_category": "CARD_ATK",
+        "change_to_sct_name": "job_00524",
+        "id": "ds03_lux_ds03_lux",
+        "name": "光輝人格面具",
+        "name_key": "eidolon_card_illust_comb@name@ds03_lux_ds03_lux",
+        "slot_type_0": "ds03_lux",
+        "slot_type_1": "ds03_lux"
+      },
+      {
+        "card_category": "CARD_ATK",
+        "change_to_sct_name": "job_00522",
+        "id": "ds03_umbra_ds03_lux",
+        "name": "邊境人格面具",
+        "name_key": "eidolon_card_illust_comb@name@ds03_umbra_ds03_lux",
+        "slot_type_0": "ds03_umbra",
+        "slot_type_1": "ds03_lux"
+      },
+      {
+        "card_category": "CARD_ATK",
+        "change_to_sct_name": "job_00525",
+        "id": "ds03_umbra_ds03_umbra",
+        "name": "漆黑人格面具",
+        "name_key": "eidolon_card_illust_comb@name@ds03_umbra_ds03_umbra",
+        "slot_type_0": "ds03_umbra",
+        "slot_type_1": "ds03_umbra"
+      },
+      {
+        "card_category": "CARD_SKILL",
+        "change_to_sct_name": "job_00534",
+        "id": "ds03_lux_none_ski",
+        "name": "光之人格面具",
+        "name_key": "eidolon_card_illust_comb@name@ds03_lux_none",
+        "slot_type_0": "ds03_lux",
+        "slot_type_1": ""
+      },
+      {
+        "card_category": "CARD_SKILL",
+        "change_to_sct_name": "job_00537",
+        "id": "ds03_umbra_none_ski",
+        "name": "黑暗人格面具",
+        "name_key": "eidolon_card_illust_comb@name@ds03_umbra_none",
+        "slot_type_0": "ds03_umbra",
+        "slot_type_1": ""
+      },
+      {
+        "card_category": "CARD_SKILL",
+        "change_to_sct_name": "job_00536",
+        "id": "ds03_lux_ds03_umbra_ski",
+        "name": "邊境人格面具",
+        "name_key": "eidolon_card_illust_comb@name@ds03_lux_ds03_umbra",
+        "slot_type_0": "ds03_lux",
+        "slot_type_1": "ds03_umbra"
+      },
+      {
+        "card_category": "CARD_SKILL",
+        "change_to_sct_name": "job_00535",
+        "id": "ds03_lux_ds03_lux_ski",
+        "name": "光輝人格面具",
+        "name_key": "eidolon_card_illust_comb@name@ds03_lux_ds03_lux",
+        "slot_type_0": "ds03_lux",
+        "slot_type_1": "ds03_lux"
+      },
+      {
+        "card_category": "CARD_SKILL",
+        "change_to_sct_name": "job_00536",
+        "id": "ds03_umbra_ds03_lux_ski",
+        "name": "邊境人格面具",
+        "name_key": "eidolon_card_illust_comb@name@ds03_umbra_ds03_lux",
+        "slot_type_0": "ds03_umbra",
+        "slot_type_1": "ds03_lux"
+      },
+      {
+        "card_category": "CARD_SKILL",
+        "change_to_sct_name": "job_00538",
+        "id": "ds03_umbra_ds03_umbra_ski",
+        "name": "漆黑人格面具",
+        "name_key": "eidolon_card_illust_comb@name@ds03_umbra_ds03_umbra",
+        "slot_type_0": "ds03_umbra",
+        "slot_type_1": "ds03_umbra"
+      }
+    ],
+    "rewards": [
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0005",
+        "description": "依<color_orange><u>光之刻印</u></>數量<color_orange>0</>，<br>獲得<color_orange><u>反擊</u></><color_orange>1</>",
+        "id": "ds03_lux_0005",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0005_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "shield",
+          "counter"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0006",
+        "description": "依<color_orange><u>光之刻印</u></>數量<color_orange></><br>對隨機敵人造成<color_orange><u>標記</u></><color_orange>1</>",
+        "id": "ds03_lux_0006",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0006_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "hunter",
+          "ranger"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0008",
+        "description": "<color_orange>感應：</>至<color_orange><u>觸發</u></>前費用減少<color_orange>1</>",
+        "id": "ds03_lux_0008",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0008_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "cost_mn"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0009",
+        "description": "依<color_orange><u>光之刻印</u></>數量<color_orange>0</>，<br>對所有敵人造成<color_orange><u>痛苦</u></><color_orange>1</>",
+        "id": "ds03_lux_0009",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0009_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "pain"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0010",
+        "description": "以此卡牌<color_orange><u>擊破</u></>時，費用減少<color_orange>1</>",
+        "id": "ds03_lux_0010",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0010_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0011",
+        "description": "依<color_orange><u>光之刻印</u></>數量<color_orange>0</>，<br>傷害量+<color_orange>30</>%",
+        "id": "ds03_lux_0011",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0011_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "self_buff"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0012",
+        "description": "<color_orange>感應：</>費用變更為<cc>0</>～<cc>2</>",
+        "id": "ds03_lux_0012",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0012_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_NO_COUNT"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "這張卡牌不會減少敵人的行動次數",
+            "id": "TALENT_NO_COUNT",
+            "title": "快速"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "cost_mn"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0013",
+        "description": "依<color_orange><u>行動次數</u></><color_orange>0</>，<br>持續<cc>1</>回合減少<color_orange><u>士氣</u></><color_orange>1</>（最多<cc>5</>）",
+        "id": "ds03_lux_0013",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0013_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_EXHAUST"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "此卡牌<color_orange><u>觸發</u></>時，移動至<color_orange><u>消滅</u></>堆",
+            "id": "TALENT_EXHAUST",
+            "title": "消滅"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "tn_cnt"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "ranger",
+          "hunter",
+          "controller"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0014",
+        "description": "<color_orange>光之刻印<cc>5</>：</>對自身造成脆弱<color_orange>3</>，<br><color_orange><u>抽取</u></><color_orange>3</>",
+        "id": "ds03_lux_0014",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0014_01",
+          "ds03_lux_0014_02"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_EXHAUST"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "此卡牌<color_orange><u>觸發</u></>時，移動至<color_orange><u>消滅</u></>堆",
+            "id": "TALENT_EXHAUST",
+            "title": "消滅"
+          }
+        ],
+        "slot_add_cost": 1,
+        "slot_add_cost_mathsign": "MATHSIGN_ADD",
+        "slot_tag": [
+          "draw"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "ranger",
+          "hunter",
+          "controller"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0015",
+        "description": "若本回合有卡牌被<color_orange><u>消滅</u></>，<br>則依<color_orange><u>光之刻印</u></>數量<color_orange>0</><br>造成<color_orange><u>痛苦</u></><color_orange>1</>",
+        "id": "ds03_lux_0015",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0015_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "exhaust",
+          "pain"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "psionic"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0016",
+        "description": "<color_orange>光之刻印<cc>4</>：</>持續<cc>1</>回合，自身<br><color_orange><u>消滅</u></>卡牌傷害量+<color_orange>40</>%",
+        "id": "ds03_lux_0016",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0016_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "ranger",
+          "controller"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0017",
+        "description": "<color_orange><u>抽取</u></><color_orange>2</>張<color_orange><u>快速</u></>卡牌",
+        "id": "ds03_lux_0017",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0017_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 1,
+        "slot_add_cost_mathsign": "MATHSIGN_ADD",
+        "slot_tag": [
+          "draw"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "hunter",
+          "ranger"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0018",
+        "description": "依<color_orange><u>光之刻印</u></>數量<color_orange>0</>，<br>獲得<color_orange><u>光之祝福</u></><color_orange>1</>",
+        "id": "ds03_lux_0018",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0018_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_RETAIN"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "回合結束時不會丟棄此卡牌",
+            "id": "TALENT_RETAIN",
+            "title": "保留"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "ranger",
+          "controller"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0019",
+        "description": "<color_orange>光之刻印<cc>3</>：</>所有敵人<color_orange><u>行動次數</u></>增加<color_orange>3</>",
+        "id": "ds03_lux_0019",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0019_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "tn_cnt"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "controller"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0001",
+        "description": "此卡牌費用為<cc>0</>時，<br>傷害量增加<color_orange>200</>%",
+        "id": "ds03_umbra_0001",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0001_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "buff"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0002",
+        "description": "<color_orange><u>墳墓</u></>的卡牌為<cc>7</>張以上時，<br>傷害量增加<color_orange>100</>%",
+        "id": "ds03_umbra_0002",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0002_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "dis_cnt",
+          "self_buff"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "striker",
+          "hunter",
+          "ranger"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0003",
+        "description": "若本回合中有卡牌被丟棄，<br>依<color_orange><u>黑暗刻印</u></>數量<color_orange>0</><br>傷害量+<color_orange>50</>%",
+        "id": "ds03_umbra_0003",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0003_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "tri_dis"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0004",
+        "description": "<color_orange><u>抽取</u></>攻擊卡牌時，<br>依<color_orange><u>黑暗刻印</u></>數量<color_orange>0</><br>對所有敵人造成<color_orange><u>共鳴</u></><color_orange>1</>",
+        "id": "ds03_umbra_0004",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0004_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "draw",
+          "discard"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "ranger"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0005",
+        "description": "依<color_orange><u>黑暗刻印</u></>數量<color_orange>0</><br>造成<color_orange><u>共鳴</u></><color_orange>1</>",
+        "id": "ds03_umbra_0005",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0005_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "tri_dis",
+          "discard"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "hunter",
+          "controller"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0006",
+        "description": "<color_orange>黑暗刻印<cc>4</>：</>持續<cc>1</>回合，自身<br><color_orange><u>安息</u></>卡牌傷害量+<color_orange>40</>%",
+        "id": "ds03_umbra_0006",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0006_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "tel_testa",
+          "buff"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0007",
+        "description": "持續<cc>1</>回合自身的攻擊卡牌傷害量增加<color_orange>30</>%",
+        "id": "ds03_umbra_0007",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0007_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "tel_conn",
+          "buff"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0008",
+        "description": "依<color_orange><u>黑暗刻印</u></>數量<color_orange>0</><br><color_orange><u>丟棄</u></>隨機<color_orange><u>安息</u></>卡牌",
+        "id": "ds03_umbra_0008",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0008_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "tel_testa",
+          "discard"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "ranger",
+          "hunter",
+          "controller"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0009",
+        "description": "<color_orange>黑暗刻印<cc>3</>：</>的手牌<br>選擇<color_orange>1</>張<color_orange><u>啟動</u></>",
+        "id": "ds03_umbra_0009",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0009_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_EXHAUST"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "此卡牌<color_orange><u>觸發</u></>時，移動至<color_orange><u>消滅</u></>堆",
+            "id": "TALENT_EXHAUST",
+            "title": "消滅"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "hunter"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0010",
+        "description": "被丟棄時，此卡牌<color_orange><u>啟動</u></>",
+        "id": "ds03_umbra_0010",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0010_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 1,
+        "slot_add_cost_mathsign": "MATHSIGN_ADD",
+        "slot_tag": [
+          "tri_dis"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0011",
+        "description": "依<color_orange><u>黑暗刻印</u></>數量的<color_orange>0</><br>傷害量+<color_orange>30</>%",
+        "id": "ds03_umbra_0011",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0011_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "self_buff"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0012",
+        "description": "<color_orange>黑暗刻印<cc>5</>：</><color_orange><u>丟棄</u></>所有攻擊卡牌，<br>額外打擊<color_orange>2</>次",
+        "id": "ds03_umbra_0012",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0012_01",
+          "ds03_umbra_0012_02"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_RETAIN"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "回合結束時不會丟棄此卡牌",
+            "id": "TALENT_RETAIN",
+            "title": "保留"
+          }
+        ],
+        "slot_add_cost": 2,
+        "slot_add_cost_mathsign": "MATHSIGN_ADD",
+        "slot_tag": [
+          "discard"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0013",
+        "description": "<color_orange>黑暗刻印<cc>5</>：</>額外打擊<color_orange>2</>次",
+        "id": "ds03_umbra_0013",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0013_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_EXHAUST_2"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "此卡牌<color_orange><u>觸發</u></><color_orange>2</>次時，移動至<color_orange><u>消滅</u></>的卡牌",
+            "id": "TALENT_EXHAUST_N",
+            "title": "消滅2"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "atk_cnt"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0014",
+        "description": "從<color_orange><u>棄牌堆</u></>中選擇自身<color_orange>1</>張攻擊卡牌，<br>將該卡牌移動至手牌",
+        "id": "ds03_umbra_0014",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0014_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_RETAIN"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "回合結束時不會丟棄此卡牌",
+            "id": "TALENT_RETAIN",
+            "title": "保留"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0015",
+        "description": "丟棄時，此卡牌至<color_orange><u>觸發</u></>前<br>費用減少<color_orange>1</>",
+        "id": "ds03_umbra_0015",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0015_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_NO_COUNT"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "這張卡牌不會減少敵人的行動次數",
+            "id": "TALENT_NO_COUNT",
+            "title": "快速"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "tri_dis"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0016",
+        "description": "<color_orange>黑暗刻印<cc>5</>：</>將所有人格面具卡牌移動至手牌",
+        "id": "ds03_umbra_0016",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0016_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_EXHAUST_2"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "此卡牌<color_orange><u>觸發</u></><color_orange>2</>次時，移動至<color_orange><u>消滅</u></>的卡牌",
+            "id": "TALENT_EXHAUST_N",
+            "title": "消滅2"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "ranger",
+          "hunter",
+          "controller"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0017",
+        "description": "目標處於<color_orange><u>共鳴</u></>狀態時，<br>額外打擊<color_orange>2</>次",
+        "id": "ds03_umbra_0017",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0017_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": []
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0018",
+        "description": "在<color_orange><u>棄牌堆</u></>中生成等同黑暗刻印數量<color_orange></>的<br><cc>超出負荷</>，<br>並依該數量傷害量+<color_orange>50</>%",
+        "id": "ds03_umbra_0018",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0018_01",
+          "ds03_umbra_0018_02"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "discard_add"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "psionic"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_umbra_0019",
+        "description": "依<color_orange><u>黑暗刻印</u></>數量<color_orange>0</>，<br>對所有敵人造成<color_orange><u>痛苦</u></><color_orange>1</>",
+        "id": "ds03_umbra_0019",
+        "link_cs_id": [
+          "eid_umbra_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_umbra_0019_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "pain"
+        ],
+        "slot_type": {
+          "id": "ds03_umbra",
+          "name": "黑暗",
+          "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+          "slot_icon": "icon_eidolon_umbra",
+          "slot_type": "UMBRA"
+        },
+        "slot_type_id": "ds03_umbra",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "psionic"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0001",
+        "description": "獲得<color_orange><u>光之庇佑</u></><color_orange>1</>",
+        "id": "ds03_lux_0001",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0001_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_EXHAUST_2"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "此卡牌<color_orange><u>觸發</u></><color_orange>2</>次時，移動至<color_orange><u>消滅</u></>的卡牌",
+            "id": "TALENT_EXHAUST_N",
+            "title": "消滅2"
+          }
+        ],
+        "slot_add_cost": 1,
+        "slot_add_cost_mathsign": "MATHSIGN_ADD",
+        "slot_tag": [
+          "shield"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "striker",
+          "vanguard"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0002",
+        "description": "當有<color_orange><u>行動次數</u></>為<cc>1</>的目標時，<br>此卡牌費用減少<color_orange>2</>",
+        "id": "ds03_lux_0002",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0002_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_NO_COUNT"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "這張卡牌不會減少敵人的行動次數",
+            "id": "TALENT_NO_COUNT",
+            "title": "快速"
+          }
+        ],
+        "slot_add_cost": 1,
+        "slot_add_cost_mathsign": "MATHSIGN_ADD",
+        "slot_tag": [],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "striker",
+          "vanguard",
+          "hunter",
+          "ranger",
+          "psionic"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0003",
+        "description": "獲得<color_orange><u>反擊波動</u></><color_orange>2</>，<br>額外獲得等同於<color_orange><u>光之刻印</u></>數量的<color_orange></>",
+        "id": "ds03_lux_0003",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0003_01",
+          "ds03_lux_0003_02"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "counter",
+          "shield"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "vanguard"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0004",
+        "description": "依<color_orange><u>光之刻印</u></>數量<color_orange>0</><br><color_orange><u>護盾</u></>獲得量增加<color_orange>20</>%",
+        "id": "ds03_lux_0004",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0004_01"
+        ],
+        "slot_add_card_talent": [],
+        "slot_add_card_talent_details": [],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "shield"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_SKILL"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "striker",
+          "vanguard"
+        ]
+      },
+      {
+        "desc_key": "eidolon_card_slot_info@desc@ds03_lux_0007",
+        "description": "依<color_orange><u>光之刻印</u></>數量<color_orange>0</><br>持續<cc>1</>回合，友軍的攻擊卡牌傷害量+<color_orange>15</>%",
+        "id": "ds03_lux_0007",
+        "link_cs_id": [
+          "eid_lux_amt"
+        ],
+        "link_skill_eff_id": [
+          "ds03_lux_0007_01"
+        ],
+        "slot_add_card_talent": [
+          "TALENT_NO_COUNT"
+        ],
+        "slot_add_card_talent_details": [
+          {
+            "desc": "這張卡牌不會減少敵人的行動次數",
+            "id": "TALENT_NO_COUNT",
+            "title": "快速"
+          }
+        ],
+        "slot_add_cost": 0,
+        "slot_add_cost_mathsign": "MATHSIGN_NONE",
+        "slot_tag": [
+          "buff"
+        ],
+        "slot_type": {
+          "id": "ds03_lux",
+          "name": "光",
+          "name_key": "eidolon_slot_type_define@name@ds03_lux",
+          "slot_icon": "icon_eidolon_lux",
+          "slot_type": "LUX"
+        },
+        "slot_type_id": "ds03_lux",
+        "slot_weight": 1,
+        "target_card_category": [
+          "CARD_ATK"
+        ],
+        "target_card_cost_max": 9,
+        "target_card_cost_min": 0,
+        "target_link_base_class_define_id": [
+          "controller",
+          "vanguard"
+        ]
+      }
+    ],
+    "slot_types": [
+      {
+        "id": "ds03_lux",
+        "name": "光",
+        "name_key": "eidolon_slot_type_define@name@ds03_lux",
+        "slot_icon": "icon_eidolon_lux",
+        "slot_type": "LUX"
+      },
+      {
+        "id": "ds03_umbra",
+        "name": "黑暗",
+        "name_key": "eidolon_slot_type_define@name@ds03_umbra",
+        "slot_icon": "icon_eidolon_umbra",
+        "slot_type": "UMBRA"
+      }
+    ],
+    "summary": {
+      "illust_comb_count": 12,
+      "reward_count": 38,
+      "slot_type_count": 2
+    }
+  },
+  "message": "success"
+}
