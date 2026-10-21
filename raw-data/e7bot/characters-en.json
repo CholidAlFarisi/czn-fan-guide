@@ -1368,12 +1368,12 @@
     },
     {
       "card_icon_name": "",
-      "char_type": "CHAR_SUPPORTER",
+      "char_type": "CHAR_COMBATANT",
       "color": "#8981a9",
-      "ego": "",
+      "ego": "love",
       "gender_type": "GENDER_FEMALE",
       "id": "1058",
-      "job": "ranger",
+      "job": "supporter",
       "live_event_id": "",
       "map_portrait_name": "",
       "model": "1058",
@@ -1825,6 +1825,27 @@
         "zht": "克拉拉"
       },
       "portrait_ani": "face/portrait/30095",
+      "portrait_name": "",
+      "rarity": 5
+    },
+    {
+      "card_icon_name": "",
+      "char_type": "CHAR_COMBATANT",
+      "color": "#dfb235",
+      "ego": "norms",
+      "gender_type": "GENDER_FEMALE",
+      "id": "30134",
+      "job": "vanguard",
+      "live_event_id": "live_event_30134",
+      "map_portrait_name": "",
+      "model": "30134",
+      "name": "Rosweisse",
+      "names": {
+        "en": "Rosweisse",
+        "zhs": "罗斯维瑟",
+        "zht": "羅斯維瑟"
+      },
+      "portrait_ani": "face/portrait/30134",
       "portrait_name": "",
       "rarity": 5
     }

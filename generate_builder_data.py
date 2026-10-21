@@ -380,17 +380,25 @@ glossary = [
     }
 ]
 
-output_js = f"""// Chaos Zero Nightmare - Team & Deck Builder Data
-// Updated with Lv 60 baseline stats, 3-Combatant + 3-Partner configuration, card damage multipliers, and official Glossary
-window.CZN_DATA = {{
-  combatants: {json.dumps(combatants_data, ensure_ascii=False)},
-  partners: {json.dumps(partners_data, ensure_ascii=False)},
-  presets: {json.dumps(presets, ensure_ascii=False)},
-  glossary: {json.dumps(glossary, ensure_ascii=False)}
-}};
-"""
+# Read extra rich data from git HEAD
+import subprocess
+head_data = subprocess.check_output(
+    ['git', '-C', 'D:/agents/czn-fan-guide', 'show', 'HEAD:teambuilder-data.js'],
+    text=True, errors='replace'
+)
+p_extra = head_data.find('"commonEpiphanies": [')
+extra_tail = head_data[p_extra:]
+
+prefix = "// Chaos Zero Nightmare - Team & Deck Builder Data\n"
+prefix += "// Updated with Lv 60 baseline stats, 3-Combatant + 3-Partner configuration, card damage multipliers, and official Glossary\n"
+prefix += "window.CZN_DATA = {\n"
+prefix += f"  combatants: {json.dumps(combatants_data, ensure_ascii=False)},\n"
+prefix += f"  partners: {json.dumps(partners_data, ensure_ascii=False)},\n"
+prefix += f"  presets: {json.dumps(presets, ensure_ascii=False)},\n"
+prefix += f"  glossary: {json.dumps(glossary, ensure_ascii=False)},\n"
+prefix += "  " + extra_tail
 
 with open(f'{base_dir}/teambuilder-data.js', 'w', encoding='utf-8') as f:
-    f.write(output_js)
+    f.write(prefix)
 
 print(f"Generated teambuilder-data.js successfully: {len(combatants_data)} combatants, {len(partners_data)} partners, {len(presets)} presets, {len(glossary)} glossary terms.")

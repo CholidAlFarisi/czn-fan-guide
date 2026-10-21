@@ -124384,6 +124384,228 @@
           "title": "DoT"
         }
       ]
+    },
+    {
+      "id": "c_30134_srt1",
+      "name": "Vanguard Cleave",
+      "cost": 1,
+      "card_category": "CARD_ATK",
+      "sct_name": "start_30134_01",
+      "desc_display": "<color_orange>100%</> Defense-Based Damage to target enemy.",
+      "base_combatant": {
+        "id": "30134",
+        "job": "vanguard",
+        "ego": "norms",
+        "rarity": 5
+      },
+      "r_spark_cards": [
+        {
+          "id": "c_30134_srt1_pot",
+          "name": "Vanguard Cleave",
+          "cost": 1,
+          "card_category": "CARD_ATK",
+          "sct_name": "start_30134_01",
+          "desc_display": "<color_orange>120%</> Defense-Based Damage to target enemy."
+        }
+      ]
+    },
+    {
+      "id": "c_30134_srt2",
+      "name": "Aegis Bastion",
+      "cost": 1,
+      "card_category": "CARD_SKILL",
+      "sct_name": "start_30134_02",
+      "desc_display": "Grants <color_orange>120%</> Shield and 1 Counterattack stack.",
+      "base_combatant": {
+        "id": "30134",
+        "job": "vanguard",
+        "ego": "norms",
+        "rarity": 5
+      },
+      "r_spark_cards": [
+        {
+          "id": "c_30134_srt2_pot",
+          "name": "Aegis Bastion",
+          "cost": 1,
+          "card_category": "CARD_SKILL",
+          "sct_name": "start_30134_02",
+          "desc_display": "Grants <color_orange>150%</> Shield and 2 Counterattack stacks."
+        }
+      ]
+    },
+    {
+      "id": "c_30134_uni1",
+      "name": "Valkyrie Verdict",
+      "cost": 2,
+      "card_category": "CARD_ATK",
+      "sct_name": "unique_30134_01",
+      "desc_display": "<color_orange>180%</> Defense-Based Damage. Triggers Shield Destruct on shielded targets.",
+      "base_combatant": {
+        "id": "30134",
+        "job": "vanguard",
+        "ego": "norms",
+        "rarity": 5
+      },
+      "r_spark_cards": [
+        {
+          "id": "c_30134_uni1_rsp1",
+          "name": "Valkyrie Verdict - Ferocity",
+          "cost": 2,
+          "card_category": "CARD_ATK",
+          "sct_name": "unique_30134_01",
+          "desc_display": "<color_orange>240%</> Defense-Based Damage with +50% Crit Chance against broken barriers."
+        },
+        {
+          "id": "c_30134_uni1_rsp2",
+          "name": "Valkyrie Verdict - Bastion",
+          "cost": 2,
+          "card_category": "CARD_ATK",
+          "sct_name": "unique_30134_01",
+          "desc_display": "<color_orange>180%</> Damage. Grants squadwide Shield equal to 50% of damage dealt."
+        },
+        {
+          "id": "c_30134_uni1_rsp3",
+          "name": "Valkyrie Verdict - Swift",
+          "cost": 1,
+          "card_category": "CARD_ATK",
+          "sct_name": "unique_30134_01",
+          "desc_display": "AP Cost reduced to 1. <color_orange>150%</> Damage with instant Shield Destruct."
+        }
+      ]
+    },
+    {
+      "id": "c_30134_uni2",
+      "name": "Aegis Overdrive",
+      "cost": 1,
+      "card_category": "CARD_SKILL",
+      "sct_name": "unique_30134_02",
+      "desc_display": "Gain <color_orange>150%</> Shield and draw 2 cards.",
+      "base_combatant": {
+        "id": "30134",
+        "job": "vanguard",
+        "ego": "norms",
+        "rarity": 5
+      },
+      "r_spark_cards": [
+        {
+          "id": "c_30134_uni2_rsp2",
+          "name": "Aegis Overdrive - Bulwark",
+          "cost": 1,
+          "card_category": "CARD_SKILL",
+          "sct_name": "unique_30134_02",
+          "desc_display": "Gain <color_orange>200%</> Shield and 2 Counterattack stacks."
+        },
+        {
+          "id": "c_30134_uni2_rsp3",
+          "name": "Aegis Overdrive - Flow",
+          "cost": 0,
+          "card_category": "CARD_SKILL",
+          "sct_name": "unique_30134_02",
+          "desc_display": "AP Cost 0. Gain <color_orange>120%</> Shield and draw 1 card."
+        },
+        {
+          "id": "c_30134_uni2_rsp5",
+          "name": "Aegis Overdrive - Purify",
+          "cost": 1,
+          "card_category": "CARD_SKILL",
+          "sct_name": "unique_30134_02",
+          "desc_display": "Teamwide <color_orange>100%</> Shield and cleanse 1 debuff from all allies."
+        }
+      ]
+    },
+    {
+      "id": "c_30134_col",
+      "name": "Desperate Shatter",
+      "cost": 1,
+      "card_category": "CARD_ATK",
+      "sct_name": "collapse_30134_01",
+      "desc_display": "Sacrifice 20% current HP to deal <color_orange>250%</> Defense-Based Damage and stun target for 1 turn.",
+      "base_combatant": {
+        "id": "30134",
+        "job": "vanguard",
+        "ego": "norms",
+        "rarity": 5
+      }
+    },
+    {
+      "id": "c_1058_srt1",
+      "name": "Protective Pulse",
+      "cost": 1,
+      "card_category": "CARD_SKILL",
+      "sct_name": "start_1058_01",
+      "desc_display": "Grants <color_orange>100%</> Shield to the most vulnerable ally.",
+      "base_combatant": {
+        "id": "1058",
+        "job": "supporter",
+        "ego": "love",
+        "rarity": 4
+      },
+      "r_spark_cards": [
+        {
+          "id": "c_1058_srt1_pot",
+          "name": "Protective Pulse",
+          "cost": 1,
+          "card_category": "CARD_SKILL",
+          "sct_name": "start_1058_01",
+          "desc_display": "Grants <color_orange>125%</> Shield to the most vulnerable ally."
+        }
+      ]
+    },
+    {
+      "id": "c_1058_srt2",
+      "name": "Vital Surge",
+      "cost": 1,
+      "card_category": "CARD_SKILL",
+      "sct_name": "start_1058_02",
+      "desc_display": "Heal target ally for <color_orange>120%</> of Supporter ATK.",
+      "base_combatant": {
+        "id": "1058",
+        "job": "supporter",
+        "ego": "love",
+        "rarity": 4
+      },
+      "r_spark_cards": [
+        {
+          "id": "c_1058_srt2_pot",
+          "name": "Vital Surge",
+          "cost": 1,
+          "card_category": "CARD_SKILL",
+          "sct_name": "start_1058_02",
+          "desc_display": "Heal target ally for <color_orange>150%</> of Supporter ATK."
+        }
+      ]
+    },
+    {
+      "id": "c_1058_uni1",
+      "name": "Radiant Haven",
+      "cost": 2,
+      "card_category": "CARD_SKILL",
+      "sct_name": "support_1058_01",
+      "desc_display": "Teamwide <color_orange>100%</> Heal and cleanse all non-permanent status ailments.",
+      "base_combatant": {
+        "id": "1058",
+        "job": "supporter",
+        "ego": "love",
+        "rarity": 4
+      },
+      "r_spark_cards": [
+        {
+          "id": "c_1058_uni1_rsp1",
+          "name": "Radiant Haven - Aegis",
+          "cost": 2,
+          "card_category": "CARD_SKILL",
+          "sct_name": "support_1058_01",
+          "desc_display": "Teamwide <color_orange>140%</> Heal and grant 1 turn Immunity."
+        },
+        {
+          "id": "c_1058_uni1_rsp2",
+          "name": "Radiant Haven - Swift",
+          "cost": 1,
+          "card_category": "CARD_SKILL",
+          "sct_name": "support_1058_01",
+          "desc_display": "AP Cost reduced to 1. <color_orange>90%</> Teamwide Heal."
+        }
+      ]
     }
   ],
   "message": "success"

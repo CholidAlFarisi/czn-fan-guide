@@ -267,7 +267,7 @@ def run():
   <header class="page-header" style="text-align:center; padding: 60px 5vw 40px;">
     <div class="page-pill">Fan Guide &amp; Database Portal</div>
     <h1>Chaos Zero Nightmare</h1>
-    <p style="margin: 0 auto 24px;">Comprehensive archive for 38 Playable Combatants, 49 Partners, 2,174 Cards, 6 Primordial Deities, and Roguelike Mechanics.</p>
+    <p style="margin: 0 auto 24px;">Comprehensive archive for 40 Playable Combatants, 48 Partners, 2,174 Cards, 6 Primordial Deities, and Roguelike Mechanics.</p>
     
     <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-bottom: 24px;">
       <a href="characters.html" class="nav-btn" style="background:var(--accent); color:#fff; border-color:var(--accent); padding:10px 22px; font-size:0.9rem;">Browse Characters →</a>
@@ -275,7 +275,7 @@ def run():
     </div>
 
     <div style="display:flex; justify-content:center; gap:36px; flex-wrap:wrap; margin-top:30px; padding-top:24px; border-top:1px solid var(--panel-border);">
-      <div style="text-align:center"><div style="font-family:'Orbitron',sans-serif; font-weight:800; font-size:1.4rem; color:var(--text);">38</div><div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;">Combatants</div></div>
+      <div style="text-align:center"><div style="font-family:'Orbitron',sans-serif; font-weight:800; font-size:1.4rem; color:var(--text);">40</div><div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;">Combatants</div></div>
       <div style="text-align:center"><div style="font-family:'Orbitron',sans-serif; font-weight:800; font-size:1.4rem; color:var(--text);">49</div><div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;">Partners</div></div>
       <div style="text-align:center"><div style="font-family:'Orbitron',sans-serif; font-weight:800; font-size:1.4rem; color:var(--text);">2,174</div><div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;">Cards</div></div>
       <div style="text-align:center"><div style="font-family:'Orbitron',sans-serif; font-weight:800; font-size:1.4rem; color:var(--text);">6</div><div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;">Cosmic Deities</div></div>
@@ -300,7 +300,7 @@ def run():
         <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:22px; transition:all 0.2s; height:100%;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--panel-border)'">
           <div style="font-size:1.8rem; margin-bottom:10px;">⚔️</div>
           <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--text); margin-bottom:6px;">Characters</h3>
-          <p style="font-size:0.85rem; color:var(--muted);">All 38 playable combatants with starter cards, signature decks, plus 49 partner supporters.</p>
+          <p style="font-size:0.85rem; color:var(--muted);">All 40 playable combatants with starter cards, plus 48 partner supporters, signature decks, plus 49 partner supporters.</p>
         </div>
       </a>
       <a href="cards.html" style="text-decoration:none; color:inherit;">
@@ -339,7 +339,7 @@ def run():
         <div style="font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--cyan); font-weight:700;">Featured</div>
         <h2 style="font-family:'Orbitron',sans-serif; font-size:1.4rem; color:var(--text);">Popular 5★ Combatants</h2>
       </div>
-      <a href="characters.html" style="color:var(--accent); text-decoration:none; font-size:0.85rem; font-weight:700;">View All 38 →</a>
+      <a href="characters.html" style="color:var(--accent); text-decoration:none; font-size:0.85rem; font-weight:700;">View All 40 →</a>
     </div>
     <div class="char-grid">
       {''.join(featured_cards_html)}
@@ -378,13 +378,13 @@ def run():
   <header class="page-header">
     <div class="page-pill">Roster Archive</div>
     <h1>Characters &amp; Partners</h1>
-    <p>Complete roster of 38 playable Combatants and 49 Supporter Partners. Click on any Combatant to inspect their starter cards, signature decks, and background lore.</p>
+    <p>Complete roster of 40 playable Combatants and 48 Supporter Partners. Click on any Combatant to inspect their starter cards, signature decks, and background lore.</p>
   </header>
 
   <div class="container">
     <!-- View Switcher -->
     <div style="display:flex; gap:12px; margin-bottom:20px; border-bottom:1px solid var(--panel-border); padding-bottom:12px;">
-      <button class="f-btn active" id="tabComb" style="font-size:0.9rem; padding:8px 18px;">Combatants (38)</button>
+      <button class="f-btn active" id="tabComb" style="font-size:0.9rem; padding:8px 18px;">Combatants (40)</button>
       <button class="f-btn" id="tabSupp" style="font-size:0.9rem; padding:8px 18px;">Partners (49)</button>
     </div>
 
@@ -392,7 +392,7 @@ def run():
     <div id="viewCombatants">
       <div class="toolbar">
         <div class="filter-bar" id="combFilters">
-          <button class="f-btn active" data-f="all">All (38)</button>
+          <button class="f-btn active" data-f="all">All (40)</button>
           <button class="f-btn" data-f="5">5★ (26)</button>
           <button class="f-btn" data-f="4">4★ (12)</button>
           <button class="f-btn" data-job="Vanguard">Vanguard (6)</button>
@@ -406,7 +406,7 @@ def run():
           <input type="text" id="combSearch" placeholder="Search combatants, jobs, factions...">
         </div>
       </div>
-      <div style="margin-bottom:14px; font-size:0.8rem; color:var(--muted);" id="combCountInfo">Showing 38 combatants</div>
+      <div style="margin-bottom:14px; font-size:0.8rem; color:var(--muted);" id="combCountInfo">Showing 40 combatants</div>
       <div class="char-grid" id="combGrid"></div>
     </div>
 
@@ -927,6 +927,59 @@ __NAV__
           </p>
         </div>
       </div>
+
+      <!-- OFFICIAL 5 EGO AFFINITIES & 4 COMBATANT CLASSES -->
+      <div style="margin-top:32px; background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:28px;">
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.25rem; color:var(--cyan); margin-bottom:16px;">✦ Official 5 Ego Affinities (Attributes)</h3>
+        <p style="font-size:0.88rem; color:var(--body); line-height:1.7; margin-bottom:20px;">
+          In the Chaos Zero Nightmare engine, every combatant and enemy resonates with one of five core Ego affinities. These determine elemental interactions, special proc triggers, and deck synergy pathways:
+        </p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; margin-bottom:32px;">
+          <div style="background:var(--card-inner); border-left:4px solid #dfb235; border-radius:6px; padding:16px;">
+            <div style="font-family:'Orbitron',sans-serif; font-weight:700; color:#dfb235; font-size:1rem; margin-bottom:6px;">⚖️ Creed (Gold)</div>
+            <div style="font-size:0.8rem; color:var(--body); line-height:1.5;">Direct retribution, defense penetration, and barrier-breaking execution. Favored by paladins and judges.</div>
+          </div>
+          <div style="background:var(--card-inner); border-left:4px solid #22d3ee; border-radius:6px; padding:16px;">
+            <div style="font-family:'Orbitron',sans-serif; font-weight:700; color:#22d3ee; font-size:1rem; margin-bottom:6px;">⚡ Instinct (Blue)</div>
+            <div style="font-size:0.8rem; color:var(--body); line-height:1.5;">High crit rate, follow-up attacks, reaction counters, and swift momentum acceleration.</div>
+          </div>
+          <div style="background:var(--card-inner); border-left:4px solid #10b981; border-radius:6px; padding:16px;">
+            <div style="font-family:'Orbitron',sans-serif; font-weight:700; color:#10b981; font-size:1rem; margin-bottom:6px;">💚 Love (Green)</div>
+            <div style="font-size:0.8rem; color:var(--body); line-height:1.5;">Life recovery, team barrier fortification, trauma alleviation, and persistent party sustain.</div>
+          </div>
+          <div style="background:var(--card-inner); border-left:4px solid #a855f7; border-radius:6px; padding:16px;">
+            <div style="font-family:'Orbitron',sans-serif; font-weight:700; color:#a855f7; font-size:1rem; margin-bottom:6px;">🌌 Narcissism (Purple)</div>
+            <div style="font-size:0.8rem; color:var(--body); line-height:1.5;">Void distortion, corrosion over time, high-risk burst scaling, and shadow manipulation.</div>
+          </div>
+          <div style="background:var(--card-inner); border-left:4px solid #f97316; border-radius:6px; padding:16px;">
+            <div style="font-family:'Orbitron',sans-serif; font-weight:700; color:#f97316; font-size:1rem; margin-bottom:6px;">🛡️ Norms (Orange)</div>
+            <div style="font-size:0.8rem; color:var(--body); line-height:1.5;">Ironclad discipline, Defense-based damage scaling, counter-parry, and Shield Destruct mechanics.</div>
+          </div>
+        </div>
+
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.25rem; color:var(--cyan); margin-bottom:16px;">✦ Official 4 Combatant Classes (Job Architecture)</h3>
+        <p style="font-size:0.88rem; color:var(--body); line-height:1.7; margin-bottom:20px;">
+          Squad combatants fulfill one of four foundational roles that define baseline stat curves, card draw ratios, and tactical responsibility:
+        </p>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px;">
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
+            <div style="font-family:'Orbitron',sans-serif; font-weight:700; color:var(--text); font-size:0.95rem; margin-bottom:4px;">⚔️ Melee (Vanguard &amp; Striker)</div>
+            <div style="font-size:0.8rem; color:var(--body); line-height:1.5;">Frontline specialists built for high HP, solid defense, point-blank single-target strikes, and threat mitigation.</div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
+            <div style="font-family:'Orbitron',sans-serif; font-weight:700; color:var(--text); font-size:0.95rem; margin-bottom:4px;">🎯 Range (Hunter &amp; Ranger)</div>
+            <div style="font-size:0.8rem; color:var(--body); line-height:1.5;">Precision multi-hit marksmen specializing in vulnerability debuffs, high critical spikes, and off-turn extra attacks.</div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
+            <div style="font-family:'Orbitron',sans-serif; font-weight:700; color:var(--text); font-size:0.95rem; margin-bottom:4px;">🔮 Caster (Psionic &amp; Controller)</div>
+            <div style="font-size:0.8rem; color:var(--body); line-height:1.5;">Masters of field alteration, card draw acceleration, enemy AP disruption, and sweeping AoE element bursts.</div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
+            <div style="font-family:'Orbitron',sans-serif; font-weight:700; color:var(--text); font-size:0.95rem; margin-bottom:4px;">✨ Supporter (Partner &amp; Healer)</div>
+            <div style="font-size:0.8rem; color:var(--body); line-height:1.5;">Backline tacticians granting direct healing, trauma reduction, zero-cost support buffs, and emergency deck cycles.</div>
+          </div>
+        </div>
+      </div>
     </div>
 
         <!-- PANE: EPIPHANY & EVOLUTION SYSTEM -->
@@ -984,7 +1037,7 @@ __NAV__
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:18px;">
           <div>
             <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin:0 0 4px 0;">Hero Unique Epiphany Explorer</h3>
-            <p style="font-size:0.8rem; color:var(--muted); margin:0;">Inspect all 4 unique cards and their 5 evolution branches for any of the 38 combatants.</p>
+            <p style="font-size:0.8rem; color:var(--muted); margin:0;">Inspect all 4 unique cards and their 5 evolution branches for any of the 40 combatants.</p>
           </div>
           <div style="display:flex; align-items:center; gap:8px;">
             <label for="heroEpiphanySelect" style="font-size:0.8rem; color:var(--muted); font-weight:700;">SELECT HERO:</label>
@@ -1362,7 +1415,19 @@ __FOOTER__
             'name': 'Imperial High Command & Allies',
             'hq': 'Imperial Capital & Dimensional Nexuses',
             'desc': 'Direct imperial officers, enigmatic entities, and interdimensional collaborators.',
-            'members': ['Adelheid', 'Arabella', 'Chizuru', 'Fei', 'Narja', 'Nine', 'Olga', 'Rita', 'Sereniel', 'Tenebria', 'Tiphera']
+            'members': ['Adelheid', 'Arabella', 'Chizuru', 'Fei', 'Narja', 'Nine', 'Olga', 'Rita', 'Sereniel', 'Tenebria', 'Tiphera', 'Rosweisse']
+        },
+        {
+            'name': 'The 10 World Macro-Factions (Game Engine Archives)',
+            'hq': 'Cosmic Core & Frontier Hubs',
+            'desc': 'Official primary macro-factions recognized in the Chaos Zero Nightmare game architecture: Black Spica, Iron Rain, Terrascion, Zera, Circen, Diallos, Nightmare, Nihilum, Secred, and Vitor.',
+            'members': ['Luke', 'Lucas', 'Beryl', 'Khalipe', 'Hugo', 'Adelheid', 'Rosweisse', 'Nine', 'Olga', 'Cassius', 'Orlea', 'Diana', 'Kayron']
+        },
+        {
+            'name': 'Remnants Exploration Divisions (Teams 1–10)',
+            'hq': 'Deep Chaos Hazard Corridors',
+            'desc': 'Specialized vanguard exploration divisions deployed across sectors to isolate anomalies and neutralize zero-space distortions.',
+            'members': ['Nia', 'Luke', 'Selena', 'Khalipe', 'Trisa', 'Magna', 'Anika', 'Amir', 'Rynn', 'Lucas']
         }
     ]
 
@@ -1645,7 +1710,7 @@ __FOOTER__
 
     print("Successfully built all 7 multi-page website files with rich content:")
     print(" - index.html (Portal/Home with stats banner & builder card)")
-    print(" - characters.html (38 Combatants & 49 Partners with portraits & modal starter art)")
+    print(" - characters.html (40 Combatants & 48 Partners with portraits & modal starter art)")
     print(" - cards.html (1,157 Unique Cards with 782 illustrations & AP filters)")
     print(" - teambuilder.html (Interactive Squad & Deck Simulator, 24-card rules, turn simulator)")
     print(" - mechanics.html (Interactive sub-tabs, 28-term Glossary search, 6 Deities, Relics)")
