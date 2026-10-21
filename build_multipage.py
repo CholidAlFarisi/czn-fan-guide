@@ -90,7 +90,16 @@ def run():
             })
     supporters.sort(key=lambda x: (-x['rarity'], x['name']))
 
-    # 3. Load sample cards from cards-en.json
+    # 3. Load cards from cards-en.json with proper category and character mappings
+    category_map = {
+        'CARD_ATK': 'Attack',
+        'CARD_SKILL': 'Skill',
+        'CARD_POWER': 'Power',
+        'CARD_CURSE': 'Curse',
+        'CARD_ABNORM': 'Abnormality'
+    }
+    id_map = {str(c['id']): c['name'] for c in chars_raw if 'id' in c and 'name' in c}
+
     with open(f'{base_dir}/raw-data/e7bot/cards-en.json', encoding='utf-8') as f:
         cards_raw = json.load(f)['data']
     
@@ -102,15 +111,20 @@ def run():
         if not name or not desc or len(name) < 2:
             continue
         cleaned = clean_desc(desc)
-        if not cleaned or len(cleaned) < 15 or len(cleaned) > 160 or cleaned.startswith('{'):
+        if not cleaned or len(cleaned) < 10 or len(cleaned) > 240 or cleaned.startswith('{'):
             continue
-        card_type = c.get('type', 'Skill')
-        if card_type not in ['Attack', 'Skill', 'Power', 'Epiphany']:
-            card_type = 'Skill'
+        cat = c.get('card_category', '')
+        card_type = category_map.get(cat, 'Skill')
         cost = c.get('cost', 1)
-        if cost not in [0, 1, 2, 3]:
-            cost = 1
-        key = (name, cost, card_type)
+        if cost < 0:
+            cost = 0
+            
+        owner = 'General'
+        bc = c.get('base_combatant')
+        if bc and isinstance(bc, dict) and 'id' in bc:
+            owner = id_map.get(str(bc['id']), 'General')
+            
+        key = (name, cost, card_type, owner)
         if key in seen_cards:
             continue
         seen_cards.add(key)
@@ -119,10 +133,8 @@ def run():
             'cost': cost,
             'type': card_type,
             'effect': cleaned,
-            'owner': c.get('character_name', 'General')
+            'owner': owner
         })
-        if len(cards_list) >= 120:
-            break
 
     # Helper for navigation
     def make_nav(active_page):
@@ -317,12 +329,12 @@ def run():
           <button class="f-btn active" data-f="all">All (38)</button>
           <button class="f-btn" data-f="5">5★ (26)</button>
           <button class="f-btn" data-f="4">4★ (12)</button>
-          <button class="f-btn" data-job="Vanguard">Vanguard</button>
-          <button class="f-btn" data-job="Striker">Striker</button>
-          <button class="f-btn" data-job="Hunter">Hunter</button>
-          <button class="f-btn" data-job="Ranger">Ranger</button>
-          <button class="f-btn" data-job="Psionic">Psionic</button>
-          <button class="f-btn" data-job="Controller">Controller</button>
+          <button class="f-btn" data-job="Vanguard">Vanguard (6)</button>
+          <button class="f-btn" data-job="Striker">Striker (7)</button>
+          <button class="f-btn" data-job="Hunter">Hunter (5)</button>
+          <button class="f-btn" data-job="Ranger">Ranger (7)</button>
+          <button class="f-btn" data-job="Psionic">Psionic (6)</button>
+          <button class="f-btn" data-job="Controller">Controller (7)</button>
         </div>
         <div class="search-inline">
           <input type="text" id="combSearch" placeholder="Search combatants, jobs, factions...">
@@ -337,9 +349,9 @@ def run():
       <div class="toolbar">
         <div class="filter-bar" id="suppFilters">
           <button class="f-btn active" data-sf="all">All Partners (49)</button>
-          <button class="f-btn" data-sf="5">5★</button>
-          <button class="f-btn" data-sf="4">4★</button>
-          <button class="f-btn" data-sf="3">3★</button>
+          <button class="f-btn" data-sf="5">5★ (32)</button>
+          <button class="f-btn" data-sf="4">4★ (11)</button>
+          <button class="f-btn" data-sf="3">3★ (6)</button>
         </div>
         <div class="search-inline">
           <input type="text" id="suppSearch" placeholder="Search partner names...">
@@ -592,10 +604,11 @@ suppSearch.addEventListener('input', filterPartners);
       <div style="display:flex; flex-direction:column; gap:8px;">
         <div class="filter-bar" id="typeFilters">
           <span style="font-size:0.75rem; color:var(--muted); align-self:center; margin-right:4px;">TYPE:</span>
-          <button class="f-btn active" data-t="all">All</button>
-          <button class="f-btn" data-t="Attack">Attack</button>
-          <button class="f-btn" data-t="Skill">Skill</button>
-          <button class="f-btn" data-t="Power">Power</button>
+          <button class="f-btn active" data-t="all">All (1,157)</button>
+          <button class="f-btn" data-t="Attack">Attack (470)</button>
+          <button class="f-btn" data-t="Skill">Skill (464)</button>
+          <button class="f-btn" data-t="Power">Power (161)</button>
+          <button class="f-btn" data-t="Curse">Curse (29)</button>
         </div>
         <div class="filter-bar" id="costFilters">
           <span style="font-size:0.75rem; color:var(--muted); align-self:center; margin-right:4px;">COST:</span>
@@ -613,6 +626,9 @@ suppSearch.addEventListener('input', filterPartners);
 
     <div style="margin-bottom:16px; font-size:0.8rem; color:var(--muted);" id="cardCountInfo">Showing cards...</div>
     <div class="cards-grid" id="cardsGrid"></div>
+    <div id="loadMoreContainer" style="text-align:center; margin-top:24px;">
+      <button class="f-btn" id="loadMoreBtn" style="padding:10px 24px; font-size:0.9rem; background:var(--card-hover); color:var(--text); border-color:var(--accent); cursor:pointer;">Load More Cards</button>
+    </div>
   </div>
 </main>
 
@@ -625,21 +641,35 @@ let curCost = 'all';
 
 const grid = document.getElementById('cardsGrid');
 const countInfo = document.getElementById('cardCountInfo');
+const loadMoreContainer = document.getElementById('loadMoreContainer');
+const loadMoreBtn = document.getElementById('loadMoreBtn');
 
-function renderCards(items) {{
+const PAGE_SIZE = 60;
+let visibleCount = PAGE_SIZE;
+let currentFiltered = CARDS;
+
+function renderCards() {{
   grid.innerHTML = '';
-  countInfo.textContent = `Showing ${{items.length}} cards`;
-  if (items.length === 0) {{
+  const total = currentFiltered.length;
+  if (total === 0) {{
+    countInfo.textContent = 'Showing 0 cards';
     grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px; color:var(--muted);">No matching cards found.</div>';
+    loadMoreContainer.style.display = 'none';
     return;
   }}
-  items.forEach(c => {{
+
+  const slice = currentFiltered.slice(0, visibleCount);
+  countInfo.textContent = `Showing ${{slice.length}} of ${{total}} cards`;
+
+  slice.forEach(c => {{
     const el = document.createElement('div');
     el.className = 'card-item';
     
     let typeClass = 'type-skill';
     if (c.type === 'Attack') typeClass = 'type-atk';
     else if (c.type === 'Power') typeClass = 'type-power';
+    else if (c.type === 'Curse') typeClass = 'type-curse';
+    else if (c.type === 'Abnormality') typeClass = 'type-abnorm';
 
     el.innerHTML = `
       <div class="c-top">
@@ -655,8 +685,20 @@ function renderCards(items) {{
     `;
     grid.appendChild(el);
   }});
+
+  if (visibleCount < total) {{
+    loadMoreContainer.style.display = 'block';
+    loadMoreBtn.textContent = `Load More Cards (${{total - visibleCount}} remaining)`;
+  }} else {{
+    loadMoreContainer.style.display = 'none';
+  }}
 }}
-renderCards(CARDS);
+renderCards();
+
+loadMoreBtn.addEventListener('click', () => {{
+  visibleCount += PAGE_SIZE;
+  renderCards();
+}});
 
 // Filter Event Listeners
 const typeBtns = document.querySelectorAll('#typeFilters .f-btn');
@@ -682,13 +724,14 @@ costBtns.forEach(btn => {{
 const cardSearch = document.getElementById('cardSearch');
 function applyCardFilters() {{
   const q = cardSearch.value.toLowerCase().trim();
-  const res = CARDS.filter(c => {{
+  visibleCount = PAGE_SIZE;
+  currentFiltered = CARDS.filter(c => {{
     const matchT = curType === 'all' || c.type.toLowerCase() === curType.toLowerCase();
     const matchC = curCost === 'all' || (curCost === '3' ? c.cost >= 3 : String(c.cost) === curCost);
     const matchQ = !q || c.name.toLowerCase().includes(q) || c.effect.toLowerCase().includes(q) || c.owner.toLowerCase().includes(q);
     return matchT && matchC && matchQ;
   }});
-  renderCards(res);
+  renderCards();
 }}
 cardSearch.addEventListener('input', applyCardFilters);
 </script>
