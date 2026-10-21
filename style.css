@@ -979,3 +979,51 @@ footer p { font-size: 0.76rem; color: var(--faint); line-height: 1.7; }
   display: block;
   font-size: 0.82rem;
 }
+
+/* Card Removal & Epiphany System */
+.game-card-item.removed {
+  opacity: 0.45;
+  border: 1px dashed var(--muted) !important;
+  filter: grayscale(0.85);
+  background: rgba(15, 23, 42, 0.4);
+}
+.game-card-item.removed:hover {
+  opacity: 0.8;
+  transform: none;
+}
+.game-card-item.epiphany-common {
+  border-top: 2px solid var(--cyan) !important;
+  box-shadow: 0 0 10px rgba(34, 211, 238, 0.25);
+}
+.game-card-item.epiphany-unique {
+  border-top: 2px solid var(--gold) !important;
+  box-shadow: 0 0 12px rgba(223, 178, 53, 0.3);
+}
+.game-card-item.epiphany-divine {
+  border-top: 2px solid #a855f7 !important;
+  box-shadow: 0 0 14px rgba(168, 85, 247, 0.35);
+  background: linear-gradient(180deg, rgba(168,85,247,0.06), var(--card-inner));
+}
+.badge-epiphany {
+  font-size: 0.65rem;
+  padding: 1px 6px;
+  border-radius: 3px;
+  font-weight: 700;
+  display: inline-block;
+  white-space: nowrap;
+}
+.badge-epiphany.common {
+  background: rgba(34, 211, 238, 0.2);
+  color: var(--cyan);
+  border: 1px solid rgba(34, 211, 238, 0.4);
+}
+.badge-epiphany.unique {
+  background: rgba(223, 178, 53, 0.2);
+  color: var(--gold);
+  border: 1px solid rgba(223, 178, 53, 0.4);
+}
+.badge-epiphany.divine {
+  background: rgba(168, 85, 247, 0.25);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.5);
+}

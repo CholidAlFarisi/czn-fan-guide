@@ -412,13 +412,21 @@ __NAV__
 // STATE MANAGEMENT (3 COMBATANTS + 3 PARTNERS)
 // ==========================================
 let currentSquad = {
-  hero1: '1010', // Hugo (5★ Hunter, Order)
+  hero1: '1010', // Magna (5★ Vanguard, Order)
   partner1: '20001', // Assigned Partner 1
+  manifestation1: 0, // 0 to 6 (E0 to E6)
+
   hero2: '1009', // Tressa (4★ Psionic, Justice)
   partner2: '20002', // Assigned Partner 2
+  manifestation2: 0, // 0 to 6
+
   hero3: '1049', // Cassius (4★ Controller, Instinct)
   partner3: '20003', // Assigned Partner 3
-  customDeck: {} // heroId -> array of 4 chosen unique card names
+  manifestation3: 0, // 0 to 6
+
+  customDeck: {}, // heroId -> array of 4 chosen unique card names
+  removedCards: {}, // heroId -> array of removed card names
+  epiphanies: {} // heroId -> { [cardName]: 'common' | 'unique' | 'divine' }
 };
 
 let activeHeroSlotIndex = 0; // 0, 1, 2 for deck tabs
@@ -437,16 +445,30 @@ let sim = {
   maxAp: 3,
   turn: 1,
   shield: 0,
+  dummyLevel: 60,
   dummyMaxHp: 10000,
   dummyHp: 10000,
-  dummyMaxTenacity: 6, // 6 bars
+  dummyMaxTenacity: 6,
   dummyTenacity: 6,
+  dummyDef: 350,
+  applyDef: true,
   dummyWeakness: 'None',
   isRavage: false,
+  debuffs: { bleed: 0, burn: 0, vuln: 0 },
   totalDamage: 0,
   turnDamage: 0,
   highestHit: 0,
   critHits: 0
+};
+
+const MANIFESTATION_STAGES = {
+  0: { stat_pct: 0, crit_rate: 0, crit_dmg: 0, name: 'Stage 0 (Base / E0)' },
+  1: { stat_pct: 5, crit_rate: 0, crit_dmg: 0, name: 'Stage 1: Sleeping (+5% Stats)' },
+  2: { stat_pct: 10, crit_rate: 2, crit_dmg: 0, name: 'Stage 2: Awakening (+10% Stats, +2% Crit)' },
+  3: { stat_pct: 15, crit_rate: 4, crit_dmg: 10, name: 'Stage 3: Vivid (+15% Stats, +4% Crit, +10% CDMG)' },
+  4: { stat_pct: 20, crit_rate: 6, crit_dmg: 20, name: 'Stage 4: Inner (+20% Stats, +6% Crit, +20% CDMG)' },
+  5: { stat_pct: 25, crit_rate: 8, crit_dmg: 30, name: 'Stage 5: Complete (+25% Stats, +8% Crit, +30% CDMG)' },
+  6: { stat_pct: 35, crit_rate: 10, crit_dmg: 50, name: 'Stage 6: Liberated (+35% Stats, +10% Crit, +50% CDMG)' }
 };
 
 // ==========================================
@@ -473,7 +495,35 @@ function initDefaultDeck() {
         currentSquad.customDeck[hid] = [];
       }
     }
+    if (!currentSquad.removedCards[hid]) {
+      currentSquad.removedCards[hid] = [];
+    }
+    if (!currentSquad.epiphanies[hid]) {
+      currentSquad.epiphanies[hid] = {};
+    }
   });
+}
+
+function getHeroEffectiveStats(hero, stage = 0, partner = null) {
+  const b = MANIFESTATION_STAGES[stage] || MANIFESTATION_STAGES[0];
+  const pAtkPct = partner && partner.stat_boost ? partner.stat_boost.atk_pct : 0;
+  const pFlatAtk = partner && partner.stat_boost ? partner.stat_boost.flat_atk : 0;
+  const pHpPct = partner && partner.stat_boost ? partner.stat_boost.hp_pct : 0;
+  const pDefPct = partner && partner.stat_boost ? partner.stat_boost.def_pct : 0;
+
+  const totalAtkMult = 1 + (b.stat_pct + pAtkPct) / 100;
+  const totalHpMult = 1 + (b.stat_pct + pHpPct) / 100;
+  const totalDefMult = 1 + (b.stat_pct + pDefPct) / 100;
+
+  return {
+    atk: Math.round(hero.stats.atk * totalAtkMult + pFlatAtk),
+    hp: Math.round(hero.stats.hp * totalHpMult),
+    def: Math.round(hero.stats.def * totalDefMult),
+    crit_rate: hero.stats.crit_rate + b.crit_rate,
+    crit_dmg: hero.stats.crit_dmg + b.crit_dmg,
+    stageName: b.name,
+    stat_pct: b.stat_pct
+  };
 }
 
 function renderAll() {
@@ -493,16 +543,15 @@ function renderSquadStations() {
   for (let idx = 0; idx < 3; idx++) {
     const heroId = currentSquad[`hero${idx + 1}`];
     const partnerId = currentSquad[`partner${idx + 1}`];
+    const mLevel = currentSquad[`manifestation${idx + 1}`] || 0;
+
     const hero = window.CZN_DATA.combatants.find(c => c.id === heroId) || window.CZN_DATA.combatants[0];
     const partner = window.CZN_DATA.partners.find(p => p.id === partnerId) || window.CZN_DATA.partners[0];
 
+    const effStats = getHeroEffectiveStats(hero, mLevel, partner);
+
     const stationDiv = document.createElement('div');
     stationDiv.className = `squad-station ${activeHeroSlotIndex === idx ? 'active' : ''}`;
-
-    // Calculate un-geared base ATK with partner bonus
-    const pAtkPct = partner.stat_boost ? partner.stat_boost.atk_pct : 0;
-    const pFlatAtk = partner.stat_boost ? partner.stat_boost.flat_atk : 0;
-    const finalAtk = Math.round(hero.stats.atk * (1 + pAtkPct / 100) + pFlatAtk);
 
     stationDiv.innerHTML = `
       <!-- TOP: COMBATANT -->
@@ -513,7 +562,7 @@ function renderSquadStations() {
         </div>
         <div style="display:flex; gap:12px; align-items:center; margin-bottom:10px;">
           <img src="${hero.portrait}" alt="${hero.name}" class="builder-slot-avatar" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'64\' height=\'64\' fill=\'%23333\'><rect width=\'100%\' height=\'100%\'/></svg>'">
-          <div>
+          <div style="flex:1;">
             <div style="font-family:'Orbitron',sans-serif; font-size:1.05rem; font-weight:800; color:var(--text);">${hero.name}</div>
             <div style="display:flex; gap:8px; font-size:0.75rem; margin-top:2px;">
               <span>${hero.job_icon} ${hero.job}</span>
@@ -522,12 +571,26 @@ function renderSquadStations() {
           </div>
         </div>
 
+        <!-- Ego Manifestation Selector Dropdown -->
+        <div style="margin-bottom:8px; display:flex; align-items:center; justify-content:space-between; gap:6px; background:var(--card-inner); padding:5px 8px; border-radius:4px; border:1px solid var(--panel-border);">
+          <span style="font-size:0.7rem; color:var(--purple); font-weight:700;">🧬 Ego Manifestation:</span>
+          <select style="padding:2px 6px; font-size:0.72rem; background:var(--panel); border:1px solid var(--panel-border); border-radius:4px; color:#fff;" onchange="changeHeroManifestation(${idx + 1}, this.value)">
+            <option value="0" ${mLevel === 0 ? 'selected' : ''}>Stage 0 (Base / E0)</option>
+            <option value="1" ${mLevel === 1 ? 'selected' : ''}>Stage 1: Sleeping (+5%)</option>
+            <option value="2" ${mLevel === 2 ? 'selected' : ''}>Stage 2: Awakening (+10%)</option>
+            <option value="3" ${mLevel === 3 ? 'selected' : ''}>Stage 3: Vivid (+15%)</option>
+            <option value="4" ${mLevel === 4 ? 'selected' : ''}>Stage 4: Inner (+20%)</option>
+            <option value="5" ${mLevel === 5 ? 'selected' : ''}>Stage 5: Complete (+25%)</option>
+            <option value="6" ${mLevel === 6 ? 'selected' : ''}>Stage 6: Liberated (+35%)</option>
+          </select>
+        </div>
+
         <!-- Base Stats Grid -->
         <div class="stat-badge-grid">
-          <div class="stat-badge">ATK: <strong>${finalAtk}</strong></div>
-          <div class="stat-badge">HP: <strong>${hero.stats.hp}</strong></div>
-          <div class="stat-badge">DEF: <strong>${hero.stats.def}</strong></div>
-          <div class="stat-badge">Crit: <strong>${hero.stats.crit_rate}%</strong></div>
+          <div class="stat-badge">ATK: <strong style="${mLevel > 0 ? 'color:var(--gold);' : ''}">${effStats.atk}</strong></div>
+          <div class="stat-badge">HP: <strong style="${mLevel > 0 ? 'color:var(--emerald);' : ''}">${effStats.hp}</strong></div>
+          <div class="stat-badge">DEF: <strong>${effStats.def}</strong></div>
+          <div class="stat-badge">Crit: <strong>${effStats.crit_rate}%</strong></div>
         </div>
 
         <div style="display:flex; gap:6px; margin-top:10px;">
@@ -566,6 +629,22 @@ function renderSquadStations() {
   }
 }
 
+function changeHeroManifestation(slotNum, level) {
+  const lvl = parseInt(level, 10) || 0;
+  currentSquad[`manifestation${slotNum}`] = lvl;
+  const heroId = currentSquad[`hero${slotNum}`];
+  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
+  const stage = MANIFESTATION_STAGES[lvl];
+  
+  renderSquadStations();
+  updateAnalytics();
+  initSimState();
+
+  if (hero && stage) {
+    logTerminal(`[Ego Manifestation] <strong>${hero.name}</strong> ascended to <strong>${stage.name}</strong>! Base stats increased by +${stage.stat_pct}%.`, 'highlight');
+  }
+}
+
 function renderPartnerAssistButtons() {
   const container = document.getElementById('partnerAssistButtonsContainer');
   container.innerHTML = '';
@@ -586,7 +665,7 @@ function renderPartnerAssistButtons() {
 }
 
 // ==========================================
-// 2. HERO DECK CUSTOMIZER
+// 2. HERO DECK CUSTOMIZER (CARD REMOVAL & EPIPHANY)
 // ==========================================
 function selectDeckTab(idx) {
   activeHeroSlotIndex = idx;
@@ -601,6 +680,58 @@ function setDeckMode(mode) {
   renderDeckCustomizer();
 }
 
+function toggleCardRemoved(heroId, cardName) {
+  if (!currentSquad.removedCards[heroId]) {
+    currentSquad.removedCards[heroId] = [];
+  }
+  const idx = currentSquad.removedCards[heroId].indexOf(cardName);
+  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
+  const hName = hero ? hero.name : 'Hero';
+
+  if (idx !== -1) {
+    // Restore
+    currentSquad.removedCards[heroId].splice(idx, 1);
+    logTerminal(`[Card Restored] Restored [${cardName}] back to <strong>${hName}</strong>'s operational deck.`, 'normal');
+  } else {
+    // Remove
+    currentSquad.removedCards[heroId].push(cardName);
+    logTerminal(`[Card Removed] 🗑️ Removed [${cardName}] from <strong>${hName}</strong>'s deck (Deck Thinning).`, 'highlight');
+  }
+
+  renderDeckCustomizer();
+  updateAnalytics();
+  initSimState();
+}
+
+function restoreAllRemovedCards(heroId) {
+  if (currentSquad.removedCards[heroId]) {
+    currentSquad.removedCards[heroId] = [];
+  }
+  renderDeckCustomizer();
+  updateAnalytics();
+  initSimState();
+  logTerminal(`[Deck Restored] All removed cards restored for active hero.`, 'normal');
+}
+
+function setCardEpiphany(heroId, cardName, epiphanyType) {
+  if (!currentSquad.epiphanies[heroId]) {
+    currentSquad.epiphanies[heroId] = {};
+  }
+  currentSquad.epiphanies[heroId][cardName] = epiphanyType;
+
+  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
+  const hName = hero ? hero.name : 'Hero';
+  const label = epiphanyType === 'common' ? '💡 Common Epiphany (+25% DMG)'
+    : (epiphanyType === 'unique' ? '🌟 Unique Epiphany (+50% DMG, -1 Cost)'
+    : (epiphanyType === 'divine' ? '✨ Divine Epiphany (+80% DMG, -1 Cost, +1 AP Refund)' : 'Standard'));
+
+  logTerminal(`[Epiphany Awakened] [${cardName}] (${hName}) &rarr; <strong>${label}</strong>!`, 'highlight');
+
+  renderDeckCustomizer();
+  updateAnalytics();
+  initSimState();
+}
+
 function renderDeckCustomizer() {
   const tabsContainer = document.getElementById('heroDeckTabs');
   tabsContainer.innerHTML = '';
@@ -609,9 +740,12 @@ function renderDeckCustomizer() {
   heroIds.forEach((hid, idx) => {
     const hero = window.CZN_DATA.combatants.find(c => c.id === hid);
     if (!hero) return;
+    const removedCount = (currentSquad.removedCards[hid] || []).length;
+    const activeCards = 8 - removedCount;
+
     const btn = document.createElement('button');
     btn.className = `builder-btn ${activeHeroSlotIndex === idx ? 'builder-btn-primary' : ''}`;
-    btn.textContent = `${hero.name} (8 Cards)`;
+    btn.textContent = `${hero.name} (${activeCards} Cards)`;
     btn.onclick = () => selectDeckTab(idx);
     tabsContainer.appendChild(btn);
   });
@@ -646,49 +780,99 @@ function renderDeckCustomizer() {
     return;
   }
 
-  // Normal Deck: 4 Starters + 4 Selected Uniques
-  curHero.starters.forEach(card => {
-    const cDiv = document.createElement('div');
-    cDiv.className = 'game-card-item locked';
-    const artHtml = card.image ? `<img src="${card.image}" alt="${card.name}">` : `<span style="font-size:1.5rem;">⚔️</span>`;
-    cDiv.innerHTML = `
-      <div class="game-card-head">
-        <span class="card-cost-orb">${card.cost}</span>
-        <span style="font-size:0.68rem; padding:2px 6px; border-radius:3px; background:rgba(223,178,53,0.15); color:var(--gold); font-weight:700;">Starter</span>
-      </div>
-      <div class="game-card-art">${artHtml}</div>
-      <div class="game-card-title">${card.name}</div>
-      <div class="game-card-desc">${card.desc}</div>
-    `;
-    cardsContainer.appendChild(cDiv);
-  });
+  // Normal Deck: 4 Starters + 4 Selected Uniques with Epiphany and Removal controls
+  const removedList = currentSquad.removedCards[curHeroId] || [];
+  const heroEpis = currentSquad.epiphanies[curHeroId] || {};
 
+  // Build full 8-card list for this hero
+  const fullHeroCards = [];
+  curHero.starters.forEach(s => fullHeroCards.push({ ...s, isStarter: true }));
   const chosenNames = currentSquad.customDeck[curHeroId] || [];
   for (let i = 0; i < 4; i++) {
-    const cardName = chosenNames[i];
-    const cardObj = curHero.uniques.find(u => u.name === cardName) || curHero.uniques[i] || {
+    const u = curHero.uniques.find(x => x.name === chosenNames[i]) || curHero.uniques[i] || {
       name: 'Empty Slot',
       cost: 1,
       category: 'Skill',
       desc: 'Select a unique card.',
       image: ''
     };
+    fullHeroCards.push({ ...u, isStarter: false, uniqueIndex: i });
+  }
+
+  fullHeroCards.forEach(card => {
+    const isRemoved = removedList.includes(card.name);
+    const epiType = heroEpis[card.name] || 'none';
+
+    // Calculate modified card cost and description
+    let displayCost = card.cost || 0;
+    let epiBadgeHtml = '';
+    let epiDescAdd = '';
+    let itemExtraClass = '';
+
+    if (epiType === 'common') {
+      itemExtraClass = 'epiphany-common';
+      epiBadgeHtml = `<span class="badge-epiphany common">💡 Epiphany</span>`;
+      epiDescAdd = `<div style="font-size:0.7rem; color:var(--cyan); margin-top:4px; font-weight:600;">💡 Epiphany: +25% Damage / Shield Multiplier</div>`;
+    } else if (epiType === 'unique') {
+      itemExtraClass = 'epiphany-unique';
+      displayCost = Math.max(0, displayCost - 1);
+      epiBadgeHtml = `<span class="badge-epiphany unique">🌟 Unique Epiphany</span>`;
+      epiDescAdd = `<div style="font-size:0.7rem; color:var(--gold); margin-top:4px; font-weight:600;">🌟 Unique: +50% Damage / Shield &amp; -1 AP Cost</div>`;
+    } else if (epiType === 'divine') {
+      itemExtraClass = 'epiphany-divine';
+      displayCost = Math.max(0, displayCost - 1);
+      epiBadgeHtml = `<span class="badge-epiphany divine">✨ Divine Epiphany</span>`;
+      epiDescAdd = `<div style="font-size:0.7rem; color:#c084fc; margin-top:4px; font-weight:600;">✨ Divine: +80% Damage, -1 AP Cost, +1 AP Refund on use</div>`;
+    }
 
     const cDiv = document.createElement('div');
-    cDiv.className = 'game-card-item custom';
-    const artHtml = cardObj.image ? `<img src="${cardObj.image}" alt="${cardObj.name}">` : `<span style="font-size:1.5rem;">💡</span>`;
+    cDiv.className = `game-card-item ${card.isStarter ? 'locked' : 'custom'} ${isRemoved ? 'removed' : ''} ${itemExtraClass}`;
+
+    const artHtml = card.image ? `<img src="${card.image}" alt="${card.name}">` : `<span style="font-size:1.5rem;">${card.isStarter ? '⚔️' : '💡'}</span>`;
+    const typeLabel = card.isStarter ? 'Starter' : 'Unique';
+    const typeBg = card.isStarter ? 'rgba(223,178,53,0.15)' : 'rgba(34,211,238,0.15)';
+    const typeColor = card.isStarter ? 'var(--gold)' : 'var(--cyan)';
+
     cDiv.innerHTML = `
       <div class="game-card-head">
-        <span class="card-cost-orb">${cardObj.cost}</span>
-        <span style="font-size:0.68rem; padding:2px 6px; border-radius:3px; background:rgba(34,211,238,0.15); color:var(--cyan); font-weight:700;">Unique</span>
+        <span class="card-cost-orb" style="${epiType !== 'none' ? 'border-color:var(--gold); color:var(--gold);' : ''}">${displayCost}</span>
+        <div style="display:flex; gap:4px; align-items:center;">
+          ${epiBadgeHtml}
+          <span style="font-size:0.68rem; padding:2px 6px; border-radius:3px; background:${typeBg}; color:${typeColor}; font-weight:700;">${typeLabel}</span>
+        </div>
       </div>
       <div class="game-card-art">${artHtml}</div>
-      <div class="game-card-title">${cardObj.name}</div>
-      <div class="game-card-desc">${cardObj.desc}</div>
-      <button class="builder-btn" style="margin-top:8px; font-size:0.72rem; padding:4px;" onclick="openCardSwapModal('${curHeroId}', ${i})">Swap Card</button>
+      <div class="game-card-title">${card.name} ${isRemoved ? '<span style="color:var(--red); font-size:0.7rem;">(Removed)</span>' : ''}</div>
+      <div class="game-card-desc">
+        ${card.desc}
+        ${epiDescAdd}
+      </div>
+
+      <!-- Controls: Epiphany Selector & Removal -->
+      <div style="margin-top:auto; padding-top:8px; border-top:1px dashed var(--panel-border); display:flex; flex-direction:column; gap:6px;">
+        <!-- Epiphany dropdown -->
+        <div style="display:flex; justify-content:space-between; align-items:center; font-size:0.7rem;">
+          <span style="color:var(--muted);">Epiphany:</span>
+          <select style="font-size:0.7rem; padding:2px 4px; background:var(--panel); border:1px solid var(--panel-border); border-radius:3px; color:#fff;" onchange="setCardEpiphany('${curHeroId}', '${card.name}', this.value)" ${isRemoved ? 'disabled' : ''}>
+            <option value="none" ${epiType === 'none' ? 'selected' : ''}>None</option>
+            <option value="common" ${epiType === 'common' ? 'selected' : ''}>💡 Epiphany (+25%)</option>
+            <option value="unique" ${epiType === 'unique' ? 'selected' : ''}>🌟 Unique (+50%, -1 AP)</option>
+            <option value="divine" ${epiType === 'divine' ? 'selected' : ''}>✨ Divine (+80%, -1 AP, Refund)</option>
+          </select>
+        </div>
+
+        <!-- Buttons Row -->
+        <div style="display:flex; gap:4px;">
+          ${!card.isStarter ? `<button class="builder-btn" style="flex:1; font-size:0.7rem; padding:3px 6px;" onclick="openCardSwapModal('${curHeroId}', ${card.uniqueIndex})" ${isRemoved ? 'disabled' : ''}>Swap</button>` : ''}
+          <button class="builder-btn ${isRemoved ? 'builder-btn-primary' : ''}" style="flex:1; font-size:0.7rem; padding:3px 6px; ${!isRemoved ? 'color:var(--red); border-color:rgba(248,80,88,0.4);' : ''}" onclick="toggleCardRemoved('${curHeroId}', '${card.name}')">
+            ${isRemoved ? '↩️ Restore' : '🗑️ Remove'}
+          </button>
+        </div>
+      </div>
     `;
+
     cardsContainer.appendChild(cDiv);
-  }
+  });
 }
 
 // ==========================================
@@ -703,28 +887,90 @@ function getCombinedDeckCards() {
     if (!hero) return;
     const partnerId = currentSquad[`partner${idx + 1}`];
     const partner = window.CZN_DATA.partners.find(p => p.id === partnerId);
+    const mLevel = currentSquad[`manifestation${idx + 1}`] || 0;
+    const effStats = getHeroEffectiveStats(hero, mLevel, partner);
+
+    const removedList = currentSquad.removedCards[hid] || [];
+    const heroEpis = currentSquad.epiphanies[hid] || {};
 
     // 4 Starters
-    hero.starters.forEach(s => cards.push({
-      ...s,
-      heroId: hero.id,
-      heroName: hero.name,
-      heroElement: hero.element,
-      heroStats: hero.stats,
-      partnerStats: partner ? partner.stat_boost : null
-    }));
+    hero.starters.forEach(s => {
+      if (!removedList.includes(s.name)) {
+        const epiType = heroEpis[s.name] || 'none';
+        let mult = s.mult || 100;
+        let shield = s.shield || 0;
+        let cost = s.cost || 0;
+        let isDivine = false;
+
+        if (epiType === 'common') {
+          mult = Math.round(mult * 1.25);
+          shield = Math.round(shield * 1.25);
+        } else if (epiType === 'unique') {
+          mult = Math.round(mult * 1.50);
+          shield = Math.round(shield * 1.50);
+          cost = Math.max(0, cost - 1);
+        } else if (epiType === 'divine') {
+          mult = Math.round(mult * 1.80);
+          shield = Math.round(shield * 1.80);
+          cost = Math.max(0, cost - 1);
+          isDivine = true;
+        }
+
+        cards.push({
+          ...s,
+          cost,
+          mult,
+          shield,
+          epiphanyType: epiType,
+          isDivine,
+          heroId: hero.id,
+          heroName: hero.name,
+          heroElement: hero.element,
+          heroStats: effStats,
+          partnerStats: partner ? partner.stat_boost : null
+        });
+      }
+    });
+
     // 4 Uniques
     const chosen = currentSquad.customDeck[hid] || [];
     for (let i = 0; i < 4; i++) {
       const u = hero.uniques.find(x => x.name === chosen[i]) || hero.uniques[i];
-      if (u) cards.push({
-        ...u,
-        heroId: hero.id,
-        heroName: hero.name,
-        heroElement: hero.element,
-        heroStats: hero.stats,
-        partnerStats: partner ? partner.stat_boost : null
-      });
+      if (u && !removedList.includes(u.name)) {
+        const epiType = heroEpis[u.name] || 'none';
+        let mult = u.mult || 100;
+        let shield = u.shield || 0;
+        let cost = u.cost || 0;
+        let isDivine = false;
+
+        if (epiType === 'common') {
+          mult = Math.round(mult * 1.25);
+          shield = Math.round(shield * 1.25);
+        } else if (epiType === 'unique') {
+          mult = Math.round(mult * 1.50);
+          shield = Math.round(shield * 1.50);
+          cost = Math.max(0, cost - 1);
+        } else if (epiType === 'divine') {
+          mult = Math.round(mult * 1.80);
+          shield = Math.round(shield * 1.80);
+          cost = Math.max(0, cost - 1);
+          isDivine = true;
+        }
+
+        cards.push({
+          ...u,
+          cost,
+          mult,
+          shield,
+          epiphanyType: epiType,
+          isDivine,
+          heroId: hero.id,
+          heroName: hero.name,
+          heroElement: hero.element,
+          heroStats: effStats,
+          partnerStats: partner ? partner.stat_boost : null
+        });
+      }
     }
   });
 
@@ -740,9 +986,10 @@ function updateAnalytics() {
   for (let idx = 0; idx < 3; idx++) {
     const hero = window.CZN_DATA.combatants.find(c => c.id === currentSquad[`hero${idx + 1}`]);
     const partner = window.CZN_DATA.partners.find(p => p.id === currentSquad[`partner${idx + 1}`]);
+    const mLevel = currentSquad[`manifestation${idx + 1}`] || 0;
     if (hero) {
-      const hpPct = partner && partner.stat_boost ? partner.stat_boost.hp_pct : 0;
-      totalHp += Math.round(hero.stats.hp * (1 + hpPct / 100));
+      const effStats = getHeroEffectiveStats(hero, mLevel, partner);
+      totalHp += effStats.hp;
     }
   }
   document.getElementById('totalSquadHpLabel').textContent = `${totalHp} HP`;
@@ -953,10 +1200,10 @@ function getSquadAvgAtk() {
   heroIds.forEach((hid, idx) => {
     const hero = window.CZN_DATA.combatants.find(c => c.id === hid);
     const partner = window.CZN_DATA.partners.find(p => p.id === currentSquad[`partner${idx + 1}`]);
+    const mLevel = currentSquad[`manifestation${idx + 1}`] || 0;
     if (hero) {
-      const pAtkPct = partner && partner.stat_boost ? partner.stat_boost.atk_pct : 0;
-      const pFlat = partner && partner.stat_boost ? partner.stat_boost.flat_atk : 0;
-      sumAtk += Math.round(hero.stats.atk * (1 + pAtkPct / 100) + pFlat);
+      const effStats = getHeroEffectiveStats(hero, mLevel, partner);
+      sumAtk += effStats.atk;
     }
   });
   return Math.round(sumAtk / 3);
@@ -1026,13 +1273,21 @@ function updateSimUI() {
   sim.hand.forEach((card, idx) => {
     const canPlay = sim.ap >= card.cost;
     const cardEl = document.createElement('div');
-    cardEl.className = `hand-card ${canPlay ? '' : 'unplayable'}`;
+    cardEl.className = `hand-card ${canPlay ? '' : 'unplayable'} ${card.epiphanyType && card.epiphanyType !== 'none' ? 'epiphany-' + card.epiphanyType : ''}`;
     const artHtml = card.image ? `<img src="${card.image}" alt="${card.name}">` : `<span style="font-size:1.3rem;">⚔️</span>`;
+
+    let epiTag = '';
+    if (card.epiphanyType === 'common') epiTag = '<span class="badge-epiphany common">💡</span>';
+    else if (card.epiphanyType === 'unique') epiTag = '<span class="badge-epiphany unique">🌟</span>';
+    else if (card.epiphanyType === 'divine') epiTag = '<span class="badge-epiphany divine">✨</span>';
 
     cardEl.innerHTML = `
       <div class="game-card-head">
         <span class="card-cost-orb">${card.cost}</span>
-        <span style="font-size:0.65rem; color:var(--cyan); font-weight:700;">${card.heroName || ''}</span>
+        <div style="display:flex; align-items:center; gap:4px;">
+          ${epiTag}
+          <span style="font-size:0.65rem; color:var(--cyan); font-weight:700;">${card.heroName || ''}</span>
+        </div>
       </div>
       <div class="game-card-art" style="height:60px;">${artHtml}</div>
       <div class="game-card-title">${card.name}</div>
@@ -1076,7 +1331,7 @@ function simDrawOpening() {
     sim.hand.push(sim.drawPile.pop());
   }
 
-  logTerminal(`[Turn 1] Shuffled 24-card squad deck. Drew 5 opening cards. AP reset to 3.`, 'highlight');
+  logTerminal(`[Turn 1] Shuffled active ${deck.length}-card squad deck. Drew 5 opening cards. AP reset to 3.`, 'highlight');
   updateSimUI();
 }
 
@@ -1087,6 +1342,13 @@ function simPlayCard(handIndex) {
   sim.ap -= card.cost;
   sim.hand.splice(handIndex, 1);
   sim.discardPile.push(card);
+
+  // Divine Epiphany Cosmic Spark Resonance (+1 AP Refund!)
+  let refundedAp = false;
+  if (card.isDivine) {
+    sim.ap = Math.min(sim.maxAp + 1, sim.ap + 1);
+    refundedAp = true;
+  }
 
   // Auto-proc Status Effects based on card keywords
   const descLower = ((card.name || '') + ' ' + (card.desc || '')).toLowerCase();
@@ -1109,10 +1371,10 @@ function simPlayCard(handIndex) {
     const heroStats = card.heroStats || { atk: 450, crit_rate: 5, crit_dmg: 150 };
     const pStats = card.partnerStats || { atk_pct: 0, flat_atk: 0 };
 
-    // 1. Calculate un-geared Base ATK with partner bonus
-    const finalAtk = Math.round(heroStats.atk * (1 + (pStats.atk_pct || 0) / 100) + (pStats.flat_atk || 0));
+    // 1. Scaled Base ATK from hero stats (already includes Manifestation & partner)
+    const finalAtk = heroStats.atk;
     
-    // 2. Card Skill Multiplier
+    // 2. Card Skill Multiplier (includes Epiphany upgrade)
     const mult = card.mult || 100;
     let baseDmg = finalAtk * (mult / 100);
 
@@ -1167,13 +1429,20 @@ function simPlayCard(handIndex) {
       }
     }
 
+    // Epiphany label badge
+    let epiLogBadge = '';
+    if (card.epiphanyType === 'common') epiLogBadge = `<span style="color:var(--cyan); font-weight:700;">[💡 Epiphany +25%]</span> `;
+    else if (card.epiphanyType === 'unique') epiLogBadge = `<span style="color:var(--gold); font-weight:700;">[🌟 Unique Epiphany +50%]</span> `;
+    else if (card.epiphanyType === 'divine') epiLogBadge = `<span style="color:#c084fc; font-weight:700;">[✨ Divine Epiphany +80%]</span> `;
+
     // Terminal Logging
-    let logMsg = `[Turn ${sim.turn}] <strong>${card.heroName}</strong> played [${card.name}] (-${card.cost} AP) &rarr; <strong style="color:var(--red);">${finalDamage.toLocaleString()} DMG</strong>! `;
+    let logMsg = `[Turn ${sim.turn}] <strong>${card.heroName}</strong> played [${card.name}] ${epiLogBadge}(-${card.cost} AP) &rarr; <strong style="color:var(--red);">${finalDamage.toLocaleString()} DMG</strong>! `;
     if (sim.applyDef) logMsg += `<span style="font-size:0.72rem; color:var(--muted);">(Raw: ${rawDamage.toLocaleString()} &minus; DEF ${sim.dummyDef})</span> `;
     if (isCrit) logMsg += `<span style="color:var(--gold); font-weight:700;">[CRIT! 💥]</span> `;
     if (isWeakness) logMsg += `<span style="color:var(--cyan); font-weight:700;">[WEAKNESS +25%]</span> `;
     if (consumedVuln) logMsg += `<span style="color:var(--gold); font-weight:700;">[VULNERABLE +30%]</span> `;
     if (sim.isRavage && !tenacityBroken) logMsg += `<span style="color:var(--gold);">[RAVAGE +50%]</span> `;
+    if (refundedAp) logMsg += `<br>&nbsp;&nbsp;&nbsp;&nbsp;↳ 🌌 <strong>Cosmic Spark Resonance!</strong> Divine Epiphany refunded +1 AP!`;
     if (tenacityBroken) logMsg += `<br>&nbsp;&nbsp;&nbsp;&nbsp;↳ ⚡ <strong>TENACITY SHIELD BROKEN!</strong> Target enters Ravage State! +1 Bonus AP granted to Squad!`;
     
     logTerminal(logMsg, 'action');
@@ -1181,7 +1450,7 @@ function simPlayCard(handIndex) {
     // Defense / Shield Card
     const heroStats = card.heroStats || { def: 200 };
     const pStats = card.partnerStats || { def_pct: 0 };
-    const finalDef = Math.round(heroStats.def * (1 + (pStats.def_pct || 0) / 100));
+    const finalDef = heroStats.def;
     const shieldGain = Math.round(finalDef * (card.shield / 100));
     sim.shield += shieldGain;
     logTerminal(`[Turn ${sim.turn}] <strong>${card.heroName}</strong> played [${card.name}] (-${card.cost} AP) &rarr; Generated <strong style="color:var(--emerald);">+${shieldGain} Shield</strong>! (Total Shield: ${sim.shield})`, 'normal');
@@ -1321,6 +1590,7 @@ function logTerminal(msg, type = 'normal') {
   term.scrollTop = term.scrollHeight;
 }
 
+// ==========================================
 // 5. MODALS & PICKERS
 // ==========================================
 function openHeroModal(slotNum) {
@@ -1368,6 +1638,7 @@ function filterHeroPicker() {
           return;
         }
         currentSquad[`hero${pickingHeroSlot}`] = c.id;
+        currentSquad[`manifestation${pickingHeroSlot}`] = 0;
         initDefaultDeck();
         closeHeroModal();
         renderAll();
@@ -1524,7 +1795,12 @@ function loadPreset(presetId) {
   currentSquad.partner1 = p.partner_ids[0];
   currentSquad.partner2 = p.partner_ids[1];
   currentSquad.partner3 = p.partner_ids[2];
+  currentSquad.manifestation1 = 0;
+  currentSquad.manifestation2 = 0;
+  currentSquad.manifestation3 = 0;
   currentSquad.customDeck = {};
+  currentSquad.removedCards = {};
+  currentSquad.epiphanies = {};
   initDefaultDeck();
   renderAll();
   initSimState();
@@ -1534,11 +1810,16 @@ function loadPreset(presetId) {
 function resetSquad() {
   currentSquad.hero1 = '1010';
   currentSquad.partner1 = '20001';
+  currentSquad.manifestation1 = 0;
   currentSquad.hero2 = '1009';
   currentSquad.partner2 = '20002';
+  currentSquad.manifestation2 = 0;
   currentSquad.hero3 = '1049';
   currentSquad.partner3 = '20003';
+  currentSquad.manifestation3 = 0;
   currentSquad.customDeck = {};
+  currentSquad.removedCards = {};
+  currentSquad.epiphanies = {};
   initDefaultDeck();
   renderAll();
   initSimState();
