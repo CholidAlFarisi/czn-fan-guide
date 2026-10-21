@@ -1557,3 +1557,270 @@ footer p { font-size: 0.76rem; color: var(--faint); line-height: 1.7; }
 .card-variant-pill strong {
   color: #dfb235;
 }
+
+
+/* ========================================================
+   TCG PLAYING CARD SYSTEM (DECK CUSTOMIZER & CARD ARCHITECTURE)
+   ======================================================== */
+.game-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 18px;
+}
+
+.tcg-card {
+  width: 100%;
+  background: linear-gradient(165deg, #131b2e 0%, #0a0e19 100%);
+  border: 2px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s, border-color 0.25s;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+.tcg-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75), 0 0 16px rgba(34, 211, 238, 0.25);
+  border-color: rgba(34, 211, 238, 0.45);
+}
+
+.tcg-card.is-removed {
+  opacity: 0.4;
+  filter: grayscale(0.85);
+  border: 2px dashed rgba(255, 255, 255, 0.22) !important;
+  background: rgba(15, 23, 42, 0.5) !important;
+  box-shadow: none !important;
+}
+
+.tcg-card.is-removed:hover {
+  opacity: 0.8;
+  transform: none;
+}
+
+/* Epiphany Variants Border & Glows */
+.tcg-card.is-unique {
+  border-color: #dfb235 !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), 0 0 18px rgba(223, 178, 53, 0.35) !important;
+}
+
+.tcg-card.is-common {
+  border-color: #22d3ee !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), 0 0 16px rgba(34, 211, 238, 0.3) !important;
+}
+
+.tcg-card.is-divine {
+  border-color: #a855f7 !important;
+  background: linear-gradient(165deg, #1c1130 0%, #0b0e1b 100%) !important;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), 0 0 22px rgba(168, 85, 247, 0.45) !important;
+}
+
+/* Card Header Bar */
+.tcg-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: rgba(10, 15, 26, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+}
+
+.tcg-ap-badge {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #38bdf8 0%, #0284c7 70%, #0369a1 100%);
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 800;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.5), inset 0 1px 2px rgba(255, 255, 255, 0.6);
+  flex-shrink: 0;
+}
+
+.tcg-name {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex: 1;
+}
+
+/* Card Artwork Frame */
+.tcg-art-frame {
+  width: 100%;
+  height: 140px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background: #080c16;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.tcg-art-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform 0.3s ease;
+}
+
+.tcg-card:hover .tcg-art-img {
+  transform: scale(1.06);
+}
+
+.tcg-art-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.85));
+  color: var(--muted);
+  font-size: 1.8rem;
+}
+
+.tcg-art-badge-branch {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  background: rgba(10, 15, 29, 0.9);
+  backdrop-filter: blur(4px);
+  border: 1px solid #dfb235;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #dfb235;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+.tcg-art-badge-deity {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  background: rgba(10, 15, 29, 0.9);
+  backdrop-filter: blur(4px);
+  border: 1px solid #a855f7;
+  border-radius: 4px;
+  padding: 2px 7px;
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #c084fc;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+/* Card Effect Description Box */
+.tcg-desc-box {
+  background: rgba(10, 14, 23, 0.88);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 9px 11px;
+  min-height: 54px;
+  font-size: 0.76rem;
+  line-height: 1.45;
+  color: #e2e8f0;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+/* Epiphany Config Section */
+.tcg-epiphany-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: rgba(8, 12, 22, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.tcg-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.tcg-field-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+}
+
+.tcg-select {
+  width: 100%;
+  background: #0f172a;
+  border: 1px solid var(--panel-border);
+  border-radius: 5px;
+  color: #f1f5f9;
+  font-size: 0.72rem;
+  padding: 4px 6px;
+  outline: none;
+  transition: border-color 0.2s, background 0.2s;
+  box-sizing: border-box;
+}
+
+.tcg-select:focus {
+  border-color: var(--cyan);
+}
+
+.tcg-select:disabled {
+  opacity: 0.42;
+  cursor: not-allowed;
+  background: rgba(15, 23, 42, 0.4);
+  border-color: rgba(255, 255, 255, 0.05);
+  color: var(--muted);
+}
+
+.tcg-locked-badge {
+  font-size: 0.62rem;
+  color: var(--muted);
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+.tcg-deity-banner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px;
+  background: rgba(168, 85, 247, 0.12);
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 4px;
+  font-size: 0.68rem;
+  color: #c084fc;
+  margin-top: 3px;
+  line-height: 1.25;
+}
+
+.tcg-footer-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+}

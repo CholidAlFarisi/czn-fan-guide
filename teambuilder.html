@@ -1196,110 +1196,201 @@ function renderDeckCustomizer() {
   const extra = currentSquad.extraCards[activeSlotNum] || [];
   cardsToShow = cardsToShow.concat(extra);
 
+  const commonEpList = (window.CZN_DATA.commonEpiphanies && window.CZN_DATA.commonEpiphanies.length > 0)
+    ? window.CZN_DATA.commonEpiphanies
+    : [
+        { id: 'c_dmg25', desc: 'Power Surge (+25% Damage)', category: 'Buff' },
+        { id: 'c_tenacity', desc: 'Tenacity Shred (+15% Break)', category: 'Debuff' },
+        { id: 'c_shield', desc: 'Bastion Spark (+20% Shield)', category: 'Buff' },
+        { id: 'c_draw1', desc: 'Flow Reflex (Draw +1)', category: 'Resource' },
+        { id: 'c00002', desc: 'Morale 2', category: 'Buff' },
+        { id: 'c04011', desc: 'Resolve 2', category: 'Buff' }
+      ];
+
   cardsToShow.forEach(c => {
     const isRemoved = isCardRemoved(activeHeroId, c.name);
     const isBasic = c.isBasic || (activeHero && (activeHero.starters || []).some(s => s.name === c.name));
-    const epTier = isBasic ? 'none' : (currentSquad.epiphanies[activeHeroId]?.[c.name] || 'none');
-    const deityKey = currentSquad.deities[activeHeroId]?.[c.name] || getDefaultDeityForCard(c);
-    const deity = window.CZN_DATA.deities?.[deityKey];
+
+    const activeBranch = isBasic ? 0 : (currentSquad.branches?.[activeHeroId]?.[c.name] || 0);
+    const activeCommon = isBasic ? 'none' : (currentSquad.commonSparks?.[activeHeroId]?.[c.name] || (currentSquad.epiphanies?.[activeHeroId]?.[c.name] === 'common' ? 'c00002' : 'none'));
+    const activeDeity = isBasic ? 'none' : (currentSquad.deities?.[activeHeroId]?.[c.name] || 'none');
+
+    const isUniqueSelected = !isBasic && activeBranch > 0;
+    const isCommonSelected = !isBasic && activeCommon && activeCommon !== 'none';
+    const isDivine = !isBasic && activeDeity && activeDeity !== 'none';
+    const deityData = isDivine ? (window.CZN_DATA.deities?.[activeDeity.toLowerCase()]) : null;
 
     const hasVariants = !isBasic && c.variants && c.variants.length > 0;
-    const activeBranch = isBasic ? 0 : (currentSquad.branches?.[activeHeroId]?.[c.name] || 0);
     const activeVar = (hasVariants && activeBranch > 0) ? c.variants[activeBranch - 1] : null;
 
     const displayDesc = activeVar ? activeVar.desc : (c.desc || '');
     const displayCat = activeVar ? activeVar.category : (c.category || c.type || 'Attack');
     let apCost = activeVar ? activeVar.cost : (c.cost !== undefined ? c.cost : 1);
 
-    if (!isBasic && (epTier === 'unique' || epTier === 'divine')) apCost = Math.max(0, apCost - 1);
+    if (!isBasic && (isUniqueSelected || isDivine)) apCost = Math.max(0, apCost - 1);
 
-    let epClass = '';
-    if (!isBasic) {
-      if (activeBranch > 0 || epTier === 'unique') epClass = 'epiphany-unique';
-      else if (epTier === 'common') epClass = 'epiphany-common';
-      else if (epTier === 'divine') epClass = 'epiphany-divine';
-    }
+    let epStateClass = '';
+    if (isDivine) epStateClass = 'is-divine';
+    else if (isUniqueSelected) epStateClass = 'is-unique';
+    else if (isCommonSelected) epStateClass = 'is-common';
 
-    let branchSelectHtml = '';
-    let detailsBtnHtml = '';
+    const cardImgSrc = c.image || (activeHero ? `assets/characters/${activeHero.id}.webp` : '');
+    const activeCommonObj = isCommonSelected ? commonEpList.find(s => s.id === activeCommon) : null;
+
+    // 1. UNIQUE EPIPHANY SELECTOR (Mutually exclusive with Common)
+    let uniqueEpHtml = '';
     if (isBasic) {
-      branchSelectHtml = `
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-size:0.68rem; color:var(--muted); font-weight:700;">TYPE:</span>
-          <span style="font-size:0.7rem; color:var(--muted); background:rgba(255,255,255,0.05); padding:2px 8px; border-radius:3px; border:1px solid rgba(255,255,255,0.08);">Basic Starter (No Epiphany)</span>
-        </div>
-      `;
+      uniqueEpHtml = `<div class="tcg-locked-badge">🛡️ Basic Starter (No Epiphany)</div>`;
     } else if (hasVariants) {
-      branchSelectHtml = `
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-size:0.68rem; color:#dfb235; font-weight:700;">UNIQUE BRANCH:</span>
-          <select style="background:var(--card-inner); border:1px solid #dfb235; border-radius:3px; color:#dfb235; font-size:0.7rem; padding:2px 4px; max-width:140px;" onchange="setCardBranch('${activeHeroId}', '${c.name.replace(/'/g, "\\\\\'")}', this.value)">
-            <option value="0" ${activeBranch === 0 ? 'selected' : ''}>Base Card</option>
-            ${c.variants.map(v => `
-              <option value="${v.branch}" ${activeBranch === v.branch ? 'selected' : ''}>
-                ✦ B${v.branch}: ${v.mult > 0 ? v.mult + '% DMG' : (v.shield > 0 ? v.shield + '% Shield' : v.desc.slice(0, 14) + '...')}
-              </option>
-            `).join('')}
-          </select>
-        </div>
-      `;
-      detailsBtnHtml = `
-        <button class="builder-btn" style="flex:1; padding:4px 8px; font-size:0.74rem; color:#dfb235; border-color:rgba(223,178,53,0.4);" onclick="openEpiphanyModal('${activeHeroId}', '${c.name.replace(/'/g, "\\\\\'")}', ${activeSlotNum})">
-          🔍 Epiphany Details
-        </button>
+      uniqueEpHtml = `
+        <select class="tcg-select" style="border-color:${isUniqueSelected ? '#dfb235' : 'var(--panel-border)'}; color:${isUniqueSelected ? '#dfb235' : '#f1f5f9'};" ${isCommonSelected ? 'disabled title="Locked because Common Epiphany is selected"' : ''} onchange="setCardBranch('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}', this.value)">
+          <option value="0" ${activeBranch === 0 ? 'selected' : ''}>Base Card (No Branch)</option>
+          ${c.variants.map(v => `
+            <option value="${v.branch}" ${activeBranch === v.branch ? 'selected' : ''}>
+              ✦ Branch ${v.branch}: ${v.mult > 0 ? v.mult + '% DMG' : (v.shield > 0 ? v.shield + '% Shield' : v.desc.slice(0, 18) + '...')}
+            </option>
+          `).join('')}
+        </select>
       `;
     } else {
-      branchSelectHtml = `
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-size:0.68rem; color:var(--muted); font-weight:700;">EPIPHANY:</span>
-          <select style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:3px; color:#dfb235; font-size:0.7rem; padding:2px 4px;" onchange="setCardEpiphany('${activeHeroId}', '${c.name.replace(/'/g, "\\\\\'")}', this.value)">
-            <option value="none" ${epTier === 'none' ? 'selected' : ''}>None (Base)</option>
-            <option value="common" ${epTier === 'common' ? 'selected' : ''}>💡 Common (+25%)</option>
-            <option value="unique" ${epTier === 'unique' ? 'selected' : ''}>🌟 Unique (+50%, -1 AP)</option>
-            <option value="divine" ${epTier === 'divine' ? 'selected' : ''}>✨ Divine (+100%, Deity)</option>
-          </select>
-        </div>
+      uniqueEpHtml = `<div class="tcg-locked-badge">No Unique Branches</div>`;
+    }
+
+    // 2. COMMON EPIPHANY SELECTOR (Mutually exclusive with Unique)
+    let commonEpHtml = '';
+    if (isBasic) {
+      commonEpHtml = `<div class="tcg-locked-badge">🛡️ Basic Starter (No Epiphany)</div>`;
+    } else {
+      let sparkOptions = commonEpList.slice(0, 24);
+      if (activeCommonObj && !sparkOptions.some(s => s.id === activeCommonObj.id)) {
+        sparkOptions.unshift(activeCommonObj);
+      }
+
+      commonEpHtml = `
+        <select class="tcg-select" style="border-color:${isCommonSelected ? 'var(--cyan)' : 'var(--panel-border)'}; color:${isCommonSelected ? 'var(--cyan)' : '#f1f5f9'};" ${isUniqueSelected ? 'disabled title="Locked because Unique Epiphany is selected"' : ''} onchange="setCardCommonSpark('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}', this.value)">
+          <option value="none" ${activeCommon === 'none' ? 'selected' : ''}>None (No Common Spark)</option>
+          ${sparkOptions.map(s => `
+            <option value="${s.id}" ${activeCommon === s.id ? 'selected' : ''}>
+              ${s.category ? `[${s.category}] ` : ''}${s.desc}
+            </option>
+          `).join('')}
+        </select>
       `;
-      detailsBtnHtml = `
-        <button class="builder-btn" style="flex:1; padding:4px 8px; font-size:0.74rem; color:#dfb235; border-color:rgba(223,178,53,0.4);" onclick="openEpiphanyModal('${activeHeroId}', '${c.name.replace(/'/g, "\\\\\'")}', ${activeSlotNum})">
-          🔍 Epiphany Details
-        </button>
+    }
+
+    // 3. DIVINE EPIPHANY SELECTOR (Cosmic Deities)
+    let divineEpHtml = '';
+    if (isBasic) {
+      divineEpHtml = `<div class="tcg-locked-badge">🛡️ Basic Starter (No Epiphany)</div>`;
+    } else {
+      divineEpHtml = `
+        <select class="tcg-select" style="border-color:${isDivine ? '#a855f7' : 'var(--panel-border)'}; color:${isDivine ? '#c084fc' : '#f1f5f9'};" onchange="setCardDeity('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}', this.value)">
+          <option value="none" ${activeDeity === 'none' ? 'selected' : ''}>None (No Divine Resonance)</option>
+          <option value="vitor" ${activeDeity === 'vitor' ? 'selected' : ''}>🔥 Vitor (Destruction • +100% Burst DMG)</option>
+          <option value="circen" ${activeDeity === 'circen' ? 'selected' : ''}>⏳ Circen (Chrono Shift • -1 AP & Refund)</option>
+          <option value="caligo" ${activeDeity === 'caligo' ? 'selected' : ''}>⚡ Caligo (Tenacity • 1.5x Break Shred)</option>
+          <option value="diallos" ${activeDeity === 'diallos' ? 'selected' : ''}>🛡️ Diallos (Aegis Bastion • +300 Shield)</option>
+          <option value="nihilum" ${activeDeity === 'nihilum' ? 'selected' : ''}>🌌 Nihilum (Void Flux • Draw +1 Card)</option>
+          <option value="secred" ${activeDeity === 'secred' ? 'selected' : ''}>🤝 Secred (Pincer Coord • Co-op Attack)</option>
+        </select>
+        ${isDivine && deityData ? `
+          <div class="tcg-deity-banner">
+            <span>${deityData.icon}</span>
+            <span><strong>${deityData.name}:</strong> ${deityData.sparkDesc}</span>
+          </div>
+        ` : ''}
       `;
     }
 
     const cardEl = document.createElement('div');
-    cardEl.className = `game-card-item ${isRemoved ? 'removed' : ''} ${epClass}`;
+    cardEl.className = `tcg-card ${isRemoved ? 'is-removed' : ''} ${epStateClass}`;
     cardEl.innerHTML = `
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-        <div style="display:flex; align-items:center; gap:6px;">
-          <span class="card-ap-badge">${apCost}</span>
-          ${activeBranch > 0 ? `<span style="font-size:0.65rem; color:#dfb235; font-weight:700; border:1px solid #dfb235; border-radius:3px; padding:1px 4px;">Branch ${activeBranch}</span>` : ''}
-        </div>
+      <!-- 1. NAMA KARTU, AP COST, & TYPE -->
+      <div class="tcg-header">
+        <div class="tcg-ap-badge" title="Energy Cost: ${apCost} AP">${apCost}</div>
+        <div class="tcg-name" title="${c.name}">${c.name}</div>
         <span class="type-badge type-${displayCat.toLowerCase()}">${displayCat}</span>
       </div>
 
-      <div style="font-family:'Orbitron',sans-serif; font-size:0.95rem; font-weight:700; color:var(--text); margin-bottom:6px;">${c.name}</div>
-      <div style="font-size:0.75rem; color:${activeBranch > 0 ? '#f0d78c' : 'var(--muted)'}; line-height:1.35; margin-bottom:12px; min-height:48px;">${displayDesc}</div>
+      <!-- 2. GAMBAR KARTU -->
+      <div class="tcg-art-frame">
+        ${cardImgSrc ? `
+          <img src="${cardImgSrc}" alt="${c.name}" class="tcg-art-img" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'tcg-art-fallback\'><span>${displayCat === 'Attack' ? '⚔️' : (displayCat === 'Skill' ? '🛡️' : '🔮')}</span><span style=\'font-size:0.65rem; color:var(--muted); margin-top:4px;\'>${c.name}</span></div>';">
+        ` : `
+          <div class="tcg-art-fallback">
+            <span>${displayCat === 'Attack' ? '⚔️' : (displayCat === 'Skill' ? '🛡️' : '🔮')}</span>
+            <span style="font-size:0.65rem; color:var(--muted); margin-top:4px;">${c.name}</span>
+          </div>
+        `}
+        ${isBasic ? `
+          <div class="tcg-art-badge-branch" style="color:var(--muted); border-color:var(--panel-border);">🛡️ Starter</div>
+        ` : (isUniqueSelected ? `
+          <div class="tcg-art-badge-branch">✦ Branch ${activeBranch}</div>
+        ` : (isCommonSelected ? `
+          <div class="tcg-art-badge-branch" style="color:var(--cyan); border-color:var(--cyan);">💡 Common Spark</div>
+        ` : `
+          <div class="tcg-art-badge-branch" style="color:var(--muted); border-color:var(--panel-border);">Base Card</div>
+        `))}
+        ${isDivine && deityData ? `
+          <div class="tcg-art-badge-deity">${deityData.icon} ${deityData.name}</div>
+        ` : ''}
+      </div>
 
-      <div style="display:flex; flex-direction:column; gap:6px; background:rgba(0,0,0,0.25); padding:8px; border-radius:4px;">
-        ${branchSelectHtml}
-
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-size:0.68rem; color:var(--muted); font-weight:700;">DEITY:</span>
-          <select style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:3px; color:var(--cyan); font-size:0.7rem; padding:2px 4px;" onchange="setCardDeity('${activeHeroId}', '${c.name.replace(/'/g, "\\\\\'")}', this.value)">
-            <option value="vitor" ${deityKey === 'vitor' ? 'selected' : ''}>Vitor (Destruction)</option>
-            <option value="circen" ${deityKey === 'circen' ? 'selected' : ''}>Circen (Chrono Shift)</option>
-            <option value="caligo" ${deityKey === 'caligo' ? 'selected' : ''}>Caligo (Tenacity Rupture)</option>
-            <option value="diallos" ${deityKey === 'diallos' ? 'selected' : ''}>Diallos (Aegis Bastion)</option>
-            <option value="nihilum" ${deityKey === 'nihilum' ? 'selected' : ''}>Nihilum (Void Flux)</option>
-            <option value="secred" ${deityKey === 'secred' ? 'selected' : ''}>Secred (Pincer Coord)</option>
-          </select>
+      <!-- 3. PENJELASAN EFEK KARTU ATAU UNIQUE EPIPHANY -->
+      <div class="tcg-desc-box">
+        <div>
+          <div>${displayDesc}</div>
+          ${activeVar && (activeVar.mult > 0 || activeVar.shield > 0 || activeVar.hits > 1) ? `
+            <div style="font-size:0.68rem; color:#dfb235; font-weight:700; margin-top:3px;">
+              ✦ ${activeVar.mult > 0 ? activeVar.mult + '% DMG Scaling' : ''}${activeVar.shield > 0 ? ' • ' + activeVar.shield + '% Shield' : ''}${activeVar.hits > 1 ? ' • ' + activeVar.hits + ' Hits' : ''}
+            </div>
+          ` : ''}
+          ${isCommonSelected && activeCommonObj ? `
+            <div style="font-size:0.68rem; color:var(--cyan); font-weight:700; margin-top:3px;">
+              💡 Spark: ${activeCommonObj.desc}
+            </div>
+          ` : ''}
         </div>
       </div>
 
-      <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-top:10px;">
-        ${detailsBtnHtml}
-        <button class="builder-btn" style="flex:1; padding:4px 8px; font-size:0.74rem; ${isRemoved ? 'border-color:var(--cyan); color:var(--cyan);' : 'border-color:var(--red); color:var(--red);'}" onclick="toggleCardRemoved('${activeHeroId}', '${c.name.replace(/'/g, "\\\\\'")}')">
+      <!-- 4. EPIPHANY CONFIGURATION (UNIQUE, COMMON, DIVINE) -->
+      <div class="tcg-epiphany-controls">
+        <!-- UNIQUE EPIPHANY -->
+        <div class="tcg-field">
+          <div class="tcg-field-header">
+            <span style="color:#dfb235;">✦ UNIQUE EPIPHANY</span>
+            ${isCommonSelected ? '<span class="tcg-locked-badge">🔒 Locked by Common</span>' : ''}
+          </div>
+          ${uniqueEpHtml}
+        </div>
+
+        <!-- COMMON EPIPHANY (MUTUALLY EXCLUSIVE) -->
+        <div class="tcg-field">
+          <div class="tcg-field-header">
+            <span style="color:var(--cyan);">💡 COMMON EPIPHANY</span>
+            ${isUniqueSelected ? '<span class="tcg-locked-badge">🔒 Locked by Unique</span>' : ''}
+          </div>
+          ${commonEpHtml}
+        </div>
+
+        <!-- DIVINE EPIPHANY -->
+        <div class="tcg-field">
+          <div class="tcg-field-header">
+            <span style="color:#c084fc;">✨ DIVINE EPIPHANY</span>
+            ${isDivine ? `<span style="font-size:0.62rem; color:#c084fc; font-weight:700;">${deityData ? deityData.icon : '✨'} Active</span>` : ''}
+          </div>
+          ${divineEpHtml}
+        </div>
+      </div>
+
+      <!-- 5. FOOTER ACTIONS -->
+      <div class="tcg-footer-actions">
+        ${!isBasic ? `
+          <button class="builder-btn" style="flex:1; padding:5px 8px; font-size:0.72rem; color:#dfb235; border-color:rgba(223,178,53,0.4);" onclick="openEpiphanyModal('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}', ${activeSlotNum})" title="Inspect all branches, deities, and common sparks">
+            🔍 Details
+          </button>
+        ` : ''}
+        <button class="builder-btn" style="flex:1; padding:5px 8px; font-size:0.72rem; ${isRemoved ? 'border-color:var(--cyan); color:var(--cyan);' : 'border-color:var(--red); color:var(--red);'}" onclick="toggleCardRemoved('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}')">
           ${isRemoved ? '✅ Restore' : '🗑️ Remove'}
         </button>
       </div>
@@ -1309,21 +1400,100 @@ function renderDeckCustomizer() {
   });
 }
 
-function setCardEpiphany(heroId, cardName, epiphanyType) {
+function setCardCommonSpark(heroId, cardName, sparkVal) {
   const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
   if (hero && (hero.starters || []).some(s => s.name === cardName)) {
-    showToast(`Basic Card (${cardName}) tidak dapat memiliki Epiphany.`);
+    showToast(`Basic Starter (${cardName}) tidak dapat memiliki Epiphany.`);
     return;
   }
+  if (!currentSquad.commonSparks) currentSquad.commonSparks = {};
+  if (!currentSquad.commonSparks[heroId]) currentSquad.commonSparks[heroId] = {};
+  if (!currentSquad.epiphanies) currentSquad.epiphanies = {};
   if (!currentSquad.epiphanies[heroId]) currentSquad.epiphanies[heroId] = {};
-  currentSquad.epiphanies[heroId][cardName] = epiphanyType;
+  if (!currentSquad.branches) currentSquad.branches = {};
+  if (!currentSquad.branches[heroId]) currentSquad.branches[heroId] = {};
+
+  currentSquad.commonSparks[heroId][cardName] = sparkVal;
+  if (sparkVal && sparkVal !== 'none') {
+    currentSquad.epiphanies[heroId][cardName] = 'common';
+    // Mutual exclusivity: disable/reset Unique Branch
+    currentSquad.branches[heroId][cardName] = 0;
+    showToast(`Equipped Common Epiphany for ${cardName} (Unique Branch unlocked/reset).`);
+  } else {
+    if (currentSquad.epiphanies[heroId][cardName] === 'common') {
+      currentSquad.epiphanies[heroId][cardName] = 'none';
+    }
+  }
+  renderAll();
+}
+
+function setCardBranch(heroId, cardName, branchVal) {
+  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
+  if (hero && (hero.starters || []).some(s => s.name === cardName)) {
+    showToast(`Basic Starter (${cardName}) tidak dapat memiliki Epiphany.`);
+    return;
+  }
+  if (!currentSquad.branches) currentSquad.branches = {};
+  if (!currentSquad.branches[heroId]) currentSquad.branches[heroId] = {};
+  if (!currentSquad.commonSparks) currentSquad.commonSparks = {};
+  if (!currentSquad.commonSparks[heroId]) currentSquad.commonSparks[heroId] = {};
+  if (!currentSquad.epiphanies) currentSquad.epiphanies = {};
+  if (!currentSquad.epiphanies[heroId]) currentSquad.epiphanies[heroId] = {};
+
+  const b = parseInt(branchVal, 10);
+  currentSquad.branches[heroId][cardName] = b;
+  if (b > 0) {
+    currentSquad.epiphanies[heroId][cardName] = 'unique';
+    // Mutual exclusivity: disable/reset Common Spark
+    currentSquad.commonSparks[heroId][cardName] = 'none';
+    showToast(`Equipped Unique Branch ${b} for ${cardName} (Common Epiphany locked).`);
+  } else {
+    if (currentSquad.epiphanies[heroId][cardName] === 'unique') {
+      currentSquad.epiphanies[heroId][cardName] = 'none';
+    }
+  }
   renderAll();
 }
 
 function setCardDeity(heroId, cardName, deityKey) {
+  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
+  if (hero && (hero.starters || []).some(s => s.name === cardName)) {
+    showToast(`Basic Starter (${cardName}) tidak dapat memiliki Divine Epiphany.`);
+    return;
+  }
+  if (!currentSquad.deities) currentSquad.deities = {};
   if (!currentSquad.deities[heroId]) currentSquad.deities[heroId] = {};
+  if (!currentSquad.divineSparks) currentSquad.divineSparks = {};
+  if (!currentSquad.divineSparks[heroId]) currentSquad.divineSparks[heroId] = {};
+
   currentSquad.deities[heroId][cardName] = deityKey;
+  currentSquad.divineSparks[heroId][cardName] = deityKey;
+  if (deityKey && deityKey !== 'none') {
+    const d = window.CZN_DATA.deities?.[deityKey.toLowerCase()];
+    showToast(`Resonated ${cardName} with ✨ ${d ? d.name : deityKey}!`);
+  } else {
+    showToast(`Removed Divine Resonance from ${cardName}.`);
+  }
   renderAll();
+}
+
+function setCardEpiphany(heroId, cardName, epiphanyType) {
+  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
+  if (hero && (hero.starters || []).some(s => s.name === cardName)) {
+    showToast(`Basic Starter (${cardName}) tidak dapat memiliki Epiphany.`);
+    return;
+  }
+  if (!currentSquad.epiphanies) currentSquad.epiphanies = {};
+  currentSquad.epiphanies[heroId][cardName] = epiphanyType;
+  if (epiphanyType === 'common') {
+    setCardCommonSpark(heroId, cardName, 'c00002');
+  } else if (epiphanyType === 'none') {
+    if (currentSquad.branches?.[heroId]) currentSquad.branches[heroId][cardName] = 0;
+    if (currentSquad.commonSparks?.[heroId]) currentSquad.commonSparks[heroId][cardName] = 'none';
+    renderAll();
+  } else {
+    renderAll();
+  }
 }
 
 function toggleCardRemoved(heroId, cardName) {
@@ -1406,14 +1576,21 @@ function getCombinedDeckCards() {
           const isBasic = c.isBasic || (hero.starters || []).some(s => s.name === c.name);
           const hasVariants = !isBasic && c.variants && c.variants.length > 0;
           const activeBranch = isBasic ? 0 : (currentSquad.branches?.[hid]?.[c.name] || 0);
+          const activeCommon = isBasic ? 'none' : (currentSquad.commonSparks?.[hid]?.[c.name] || (currentSquad.epiphanies?.[hid]?.[c.name] === 'common' ? 'c00002' : 'none'));
+          const activeDeity = isBasic ? 'none' : (currentSquad.deities?.[hid]?.[c.name] || 'none');
+          const isDivine = !isBasic && activeDeity && activeDeity !== 'none';
           const activeVar = (hasVariants && activeBranch > 0) ? c.variants[activeBranch - 1] : null;
 
-          const epTier = isBasic ? 'none' : (currentSquad.epiphanies[hid]?.[c.name] || 'none');
-          const deityKey = currentSquad.deities[hid]?.[c.name] || getDefaultDeityForCard(c);
-          
+          let epTier = 'none';
+          if (!isBasic) {
+            if (activeBranch > 0) epTier = 'unique';
+            else if (activeCommon !== 'none') epTier = 'common';
+            else if (isDivine) epTier = 'divine';
+          }
+
           let cost = activeVar ? activeVar.cost : (c.cost !== undefined ? c.cost : 1);
-          if (!isBasic && (epTier === 'unique' || epTier === 'divine' || activeBranch > 0)) {
-            if (epTier === 'unique' || epTier === 'divine') cost = Math.max(0, cost - 1);
+          if (!isBasic && (activeBranch > 0 || isDivine)) {
+            cost = Math.max(0, cost - 1);
           }
 
           deck.push({
@@ -1426,11 +1603,13 @@ function getCombinedDeckCards() {
             shield: isBasic ? (c.shield || 0) : (activeVar ? activeVar.shield : (c.shield || 0)),
             hits: isBasic ? (c.hits || 1) : (activeVar ? activeVar.hits : (c.hits || 1)),
             branch: activeBranch,
+            commonSpark: activeCommon,
+            isDivine: isDivine,
             cost: cost,
             ownerHeroId: hid,
             ownerSlot: slotNum,
             epiphany: epTier,
-            deity: deityKey
+            deity: activeDeity
           });
         }
       });
@@ -1732,22 +1911,6 @@ function addCardToHero(slotNum, card) {
 // ==========================================
 let activeEpiphanyContext = { heroId: null, cardName: null, slotNum: 1, tab: 'unique' };
 
-function setCardBranch(heroId, cardName, branchVal) {
-  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
-  if (hero && (hero.starters || []).some(s => s.name === cardName)) {
-    showToast(`Basic Card (${cardName}) tidak dapat memiliki Epiphany.`);
-    return;
-  }
-  if (!currentSquad.branches) currentSquad.branches = {};
-  if (!currentSquad.branches[heroId]) currentSquad.branches[heroId] = {};
-  const b = parseInt(branchVal, 10);
-  currentSquad.branches[heroId][cardName] = b;
-  renderAll();
-  updateAnalytics();
-  initSimState();
-  showToast(b > 0 ? `Branch ${b} equipped for ${cardName}!` : `Reverted ${cardName} to Base Card.`);
-}
-
 function openEpiphanyModal(heroId, cardName, slotNum) {
   const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
   const cardList = getHeroCardsList(heroId, slotNum);
@@ -1919,7 +2082,7 @@ function renderEpiphanyModalBody() {
             </div>
             <div style="font-size:0.75rem; color:var(--text); line-height:1.35; margin:6px 0;">${s.desc}</div>
           </div>
-          <button class="builder-btn" style="width:100%; font-size:0.7rem; padding:3px 6px;" onclick="setCardEpiphany('${heroId}', '${cardName.replace(/'/g, "\\'")}', 'common'); closeEpiphanyModal(); showToast('Equipped Common Epiphany affix!');">
+          <button class="builder-btn" style="width:100%; font-size:0.7rem; padding:3px 6px;" onclick="setCardCommonSpark('${heroId}', '${cardName.replace(/'/g, "\\'")}', '${s.id}'); closeEpiphanyModal(); showToast('Equipped Common Spark: ' + '${s.desc.replace(/'/g, "\\'")}');">
             Attach Spark (+25%)
           </button>
         </div>
