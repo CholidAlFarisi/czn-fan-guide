@@ -420,3 +420,180 @@ footer p { font-size: 0.76rem; color: var(--faint); line-height: 1.7; }
     font-size: 1.6rem;
   }
 }
+
+/* Sub Navigation Tabs */
+.sub-tabs {
+  display: flex;
+  gap: 8px;
+  border-bottom: 1px solid var(--panel-border);
+  margin-bottom: 24px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+}
+.sub-tab-btn {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  color: var(--muted);
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+.sub-tab-btn:hover {
+  color: var(--text);
+  border-color: var(--card-border);
+  background: var(--card-inner);
+}
+.sub-tab-btn.active {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(38,146,211,0.2), rgba(16,102,77,0.3));
+  border-color: var(--cyan);
+  box-shadow: 0 0 10px rgba(34,211,238,0.15);
+}
+
+.tab-pane {
+  display: none;
+}
+.tab-pane.active {
+  display: block;
+}
+
+/* Responsive Table */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 16px 0 24px;
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+}
+.guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  text-align: left;
+}
+.guide-table th {
+  background: var(--card-inner);
+  color: var(--text);
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--panel-border);
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+}
+.guide-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  color: var(--body);
+  line-height: 1.6;
+}
+.guide-table tr:last-child td {
+  border-bottom: none;
+}
+.guide-table tr:hover td {
+  background: rgba(255,255,255,0.02);
+}
+
+/* Glossary Card & Grid */
+.glossary-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+.glossary-card {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 6px;
+  padding: 16px;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+.glossary-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--cyan);
+}
+.glossary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 6px;
+}
+.glossary-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.glossary-tag {
+  font-size: 0.7rem;
+  padding: 2px 7px;
+  border-radius: 4px;
+  background: rgba(34,211,238,0.12);
+  color: var(--cyan);
+  font-weight: 600;
+}
+.glossary-desc {
+  font-size: 0.82rem;
+  color: var(--body);
+  line-height: 1.5;
+}
+
+/* Lore Faction Roster Grid */
+.faction-roster {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.faction-member-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: var(--card-inner);
+  border: 1px solid var(--panel-border);
+  font-size: 0.78rem;
+  color: var(--text);
+}
+.faction-member-badge img {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Stats Counter */
+.stats-banner {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.stat-box {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--cyan);
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}

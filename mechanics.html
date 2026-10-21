@@ -26,103 +26,280 @@
 <main>
   <header class="page-header">
     <div class="page-pill">Gameplay Engine</div>
-    <h1>Mechanics, Deities &amp; Roguelike Systems</h1>
-    <p>Comprehensive guide to Chaos Zero Nightmare's deckbuilding combat, the 6 Primordial Deities, Divine Sparks, Epiphany transformations, and Save Data loadouts.</p>
+    <h1>Mechanics, Deities &amp; Systems</h1>
+    <p>Comprehensive breakdown of card combat, mental breakdowns, the 6 Primordial Deities, 491 Divine Sparks, 557 Relics, and the complete 28-term combat glossary.</p>
   </header>
 
   <div class="container">
-    <!-- 6 Deities Box -->
-    <div style="margin-bottom:40px; padding:28px; border-radius:8px; background:linear-gradient(135deg, rgba(16,102,77,0.2), var(--panel) 60%); border:1px solid rgba(22,133,100,0.35);">
-      <h2 style="font-family:'Orbitron',sans-serif; font-size:1.3rem; color:var(--text); margin-bottom:8px;">The 6 Primordial Cosmic Deities &amp; 491 Divine Sparks</h2>
-      <p style="font-size:0.9rem; color:var(--body); line-height:1.6; margin-bottom:20px;">
-        During roguelike Chaos runs, players encounter cosmic codices governed by six primordial deities. Interacting with their shrines grants Divine Sparks—permanent passive enhancements that alter card costs, damage scaling, and survivability.
-      </p>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px;">
-        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
-          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">CALIGO</div>
-          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Tenacity &amp; Ravage Focus</div>
-          <div style="font-size:0.8rem; color:var(--muted);">Grants +100% Ravage scaling, critical strike multipliers, and converts lost health into raw offensive power.</div>
+    <div class="sub-tabs">
+      <button class="sub-tab-btn active" data-tab="tab-combat">⚡ Combat &amp; Stress Engine</button>
+      <button class="sub-tab-btn" data-tab="tab-glossary">📖 Keywords Glossary (28)</button>
+      <button class="sub-tab-btn" data-tab="tab-deities">🌌 6 Cosmic Deities &amp; Sparks</button>
+      <button class="sub-tab-btn" data-tab="tab-relics">🛡️ Relics System (557)</button>
+    </div>
+
+    <!-- PANE 1: COMBAT & STRESS ENGINE -->
+    <div id="tab-combat" class="tab-pane active">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; margin-bottom:40px;">
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+          <div style="font-size:2rem; margin-bottom:12px;">⚔️</div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Turn-Based Card Combat</h3>
+          <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+            Every battle turn starts with your 3-hero squad drawing <strong>5 cards</strong> and receiving <strong>3 Action Points (AP)</strong>. Cards share a unified team HP pool and can be cast in any sequence to weave devastating chain reactions.
+          </p>
         </div>
-        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
-          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">CIRCEN</div>
-          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Action Point Acceleration</div>
-          <div style="font-size:0.8rem; color:var(--muted);">Provides -1 AP cost reductions on high-cost signatures, energy rebates upon card combo chains, and AP refunds.</div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+          <div style="font-size:2rem; margin-bottom:12px;">🧠</div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Mental Breakdown &amp; Ego Recovery</h3>
+          <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+            Unblocked damage builds psychological Stress. At <strong>100 Stress</strong>, a hero suffers a <strong>Mental Breakdown</strong>: team max HP drops by 1/3 and normal cards morph into Breakdown Cards. Playing 5 Breakdown Cards purges the trauma and unlocks their <strong>0 AP Ego Skill</strong>.
+          </p>
         </div>
-        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
-          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">DIALLOS</div>
-          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Shield &amp; Mitigation</div>
-          <div style="font-size:0.8rem; color:var(--muted);">Boosts Vanguard shield efficiency by +30%, grants Metallization stacks, and prevents lethal damage once per run.</div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+          <div style="font-size:2rem; margin-bottom:12px;">💥</div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Tenacity &amp; Ravage State</h3>
+          <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+            Depleting an enemy's purple Tenacity gauge forces them into a <strong>Ravage State</strong>. This stuns their Action Counter, mitigates team Stress gain, and immediately awards your squad <strong>+1 bonus AP</strong> for relentless punishment.
+          </p>
         </div>
-        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
-          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">NIHILUM</div>
-          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Card Draw &amp; Hand Cycling</div>
-          <div style="font-size:0.8rem; color:var(--muted);">Increases starting hand draw by +1, retains key cards across turns, and triggers bonus effects on deck reshuffle.</div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+          <div style="font-size:2rem; margin-bottom:12px;">💡</div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Epiphany Mutation System</h3>
+          <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+            Mid-run cards mutate into powerful specialized Epiphany variants (Branches I–V). Epiphanies grant <strong>0 AP cost</strong> casts, draw acceleration, and persistent combat tags, dramatically altering character playstyles.
+          </p>
         </div>
-        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
-          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">SECRED</div>
-          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Pincer Co-op &amp; Assist</div>
-          <div style="font-size:0.8rem; color:var(--muted);">Enables 100% Pincer joint attacks when partner conditions are fulfilled, summoning auxiliary supporter strikes.</div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+          <div style="font-size:2rem; margin-bottom:12px;">🌀</div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Chaos Mode Roguelike Progression</h3>
+          <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+            Explore branching sector paths featuring Combat, Elites, Shrines, Merchants, and Rest stops. Manage Stress and health across consecutive sectors—permadeath claims the run but unlocks permanent account research notes.
+          </p>
         </div>
-        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
-          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">VITOR</div>
-          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Direct DMG Scaling</div>
-          <div style="font-size:0.8rem; color:var(--muted);">Multiplies final damage output by +30%, adds true damage penetration against armored elite bosses, and boosts Bleed.</div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+          <div style="font-size:2rem; margin-bottom:12px;">💾</div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Save Data &amp; Zero System</h3>
+          <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+            Completed runs crystallize into permanent <strong>Save Data</strong> loadouts. Higher Codex heat modifiers expand your Save Value budget, allowing you to lock top-tier mutated cards and relics for boss battles and future conquests.
+          </p>
         </div>
       </div>
     </div>
 
-    <!-- Core Systems Cards -->
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; margin-bottom:40px;">
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
-        <div style="font-size:2rem; margin-bottom:12px;">⚔️</div>
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Turn-Based Card Combat</h3>
-        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
-          At the start of every player turn, your squad draws 5 cards and receives 3 Action Points (AP). Cards can be played in any order, allowing complex synergistic chains between Combatants. Exploiting enemy attribute weaknesses grants a +25% multiplicative damage bonus.
+    <!-- PANE 2: KEYWORDS GLOSSARY -->
+    <div id="tab-glossary" class="tab-pane">
+      <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; margin-bottom:20px;">
+        <input type="text" id="glossarySearch" placeholder="Search keywords (e.g. Agony, Wave, Hunt, Ravage, Retain)..." style="flex:1; min-width:260px; max-width:460px; padding:10px 14px; background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; color:#fff; font-size:0.88rem;">
+        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <button class="g-filter-btn active" data-filter="all" style="padding:6px 12px; font-size:0.78rem; border-radius:4px; background:var(--panel); border:1px solid var(--panel-border); color:var(--text); cursor:pointer;">All</button>
+          <button class="g-filter-btn" data-filter="Debuff" style="padding:6px 12px; font-size:0.78rem; border-radius:4px; background:var(--panel); border:1px solid var(--panel-border); color:var(--red); cursor:pointer;">Debuffs</button>
+          <button class="g-filter-btn" data-filter="Buff" style="padding:6px 12px; font-size:0.78rem; border-radius:4px; background:var(--panel); border:1px solid var(--panel-border); color:var(--emerald); cursor:pointer;">Buffs</button>
+          <button class="g-filter-btn" data-filter="Mechanic" style="padding:6px 12px; font-size:0.78rem; border-radius:4px; background:var(--panel); border:1px solid var(--panel-border); color:var(--cyan); cursor:pointer;">Mechanics</button>
+          <button class="g-filter-btn" data-filter="Card Tag" style="padding:6px 12px; font-size:0.78rem; border-radius:4px; background:var(--panel); border:1px solid var(--panel-border); color:var(--gold); cursor:pointer;">Card Tags</button>
+          <button class="g-filter-btn" data-filter="State" style="padding:6px 12px; font-size:0.78rem; border-radius:4px; background:var(--panel); border:1px solid var(--panel-border); color:var(--purple); cursor:pointer;">States</button>
+        </div>
+      </div>
+      <div id="glossaryCount" style="font-size:0.8rem; color:var(--muted); margin-bottom:14px;">Showing 28 terms</div>
+
+      <div class="glossary-grid" id="glossaryGrid"></div>
+    </div>
+
+    <!-- PANE 3: 6 DEITIES -->
+    <div id="tab-deities" class="tab-pane">
+      <div style="margin-bottom:30px; padding:24px; border-radius:8px; background:linear-gradient(135deg, rgba(16,102,77,0.25), var(--panel) 60%); border:1px solid rgba(22,133,100,0.35);">
+        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.3rem; color:var(--text); margin-bottom:8px;">The 6 Primordial Cosmic Deities &amp; 491 Divine Sparks</h2>
+        <p style="font-size:0.9rem; color:var(--body); line-height:1.6;">
+          During Chaos expeditions, Captains encounter cosmological shrines governed by six cosmic deities. Shrines bestow Divine Sparks—permanent passive card alterations that modify AP costs, damage multipliers, and cooperative pincer triggers.
         </p>
       </div>
 
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
-        <div style="font-size:2rem; margin-bottom:12px;">🧠</div>
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Mental Breakdown &amp; Ego Recovery</h3>
-        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
-          Unblocked enemy damage builds psychological Stress. When Stress reaches 100, the Combatant suffers a Mental Breakdown—locking one-third of team maximum HP and disabling regular skills. Surviving the breakdown unleashes the hero's ultimate 0 AP Ego skill.
-        </p>
-      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:18px;">
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-size:1.15rem; font-weight:800; color:var(--cyan);">CALIGO</span>
+            <span style="font-size:0.75rem; padding:3px 8px; border-radius:4px; background:rgba(34,211,238,0.12); color:var(--cyan); font-weight:600;">Tenacity &amp; Ravage</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Governs break damage and berserker scaling. Sparks provide +100% Ravage scaling, critical damage multipliers, and convert lost squad HP into raw offensive power.</p>
+          <div style="font-size:0.78rem; color:var(--muted);"><strong>Signature Spark:</strong> Increases Ravage state duration and grants true damage on break.</div>
+        </div>
 
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
-        <div style="font-size:2rem; margin-bottom:12px;">💾</div>
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Save Data &amp; Loadout Carryover</h3>
-        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
-          Upon completing or failing a Chaos run, you create permanent Save Data loadouts. Your total Save Value budget determines how many upgraded cards, relics, and Epiphany abilities can be preserved for story bosses and PvP challenges.
-        </p>
-      </div>
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-size:1.15rem; font-weight:800; color:var(--gold);">CIRCEN</span>
+            <span style="font-size:0.75rem; padding:3px 8px; border-radius:4px; background:rgba(223,178,53,0.12); color:var(--gold); font-weight:600;">Action Points &amp; Time</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Master of temporal acceleration and card economy. Sparks grant -1 AP cost reductions on signature skills, energy rebates upon 3+ card chains, and AP refunds.</p>
+          <div style="font-size:0.78rem; color:var(--muted);"><strong>Signature Spark:</strong> Every 4th card played in a turn refunds 1 AP.</div>
+        </div>
 
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
-        <div style="font-size:2rem; margin-bottom:12px;">💡</div>
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Epiphany Mutation System</h3>
-        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
-          Cards evolve dynamically mid-run through Epiphany events. Basic strikes and blocks mutate into character-specific power cards (Branches I through V) featuring 0 AP triggers, card generation, and persistent buffs.
-        </p>
-      </div>
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-size:1.15rem; font-weight:800; color:var(--emerald);">DIALLOS</span>
+            <span style="font-size:0.75rem; padding:3px 8px; border-radius:4px; background:rgba(16,102,77,0.2); color:var(--emerald); font-weight:600;">Shield &amp; Aegis</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Deity of impenetrable bulwarks. Sparks amplify Vanguard shields by +30%, grant Metallization stacks that absorb Stress, and prevent squad lethal damage once per battle.</p>
+          <div style="font-size:0.78rem; color:var(--muted);"><strong>Signature Spark:</strong> Convert 50% of remaining shield at turn end into permanent armor.</div>
+        </div>
 
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
-        <div style="font-size:2rem; margin-bottom:12px;">🌀</div>
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Chaos Mode Roguelike Progression</h3>
-        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
-          Navigate branching paths across Combat, Elite, Mystery Event, Merchant, and Rest zones. Permadeath ends the run but rewards account experience, character potential materials, and currency for permanent baseline upgrades.
-        </p>
-      </div>
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-size:1.15rem; font-weight:800; color:var(--purple);">NIHILUM</span>
+            <span style="font-size:0.75rem; padding:3px 8px; border-radius:4px; background:rgba(168,85,247,0.15); color:var(--purple); font-weight:600;">Void &amp; Hand Flow</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Cosmic void manipulating card cycle. Sparks expand starting hand draw by +1, retain key cards across turns, and trigger bonus AoE burst when deck reshuffles.</p>
+          <div style="font-size:0.78rem; color:var(--muted);"><strong>Signature Spark:</strong> Draw 2 extra cards whenever a card is discarded from hand.</div>
+        </div>
 
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
-        <div style="font-size:2rem; margin-bottom:12px;">⚙️</div>
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Endgame Zero System &amp; Codices</h3>
-        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
-          High-tier endgame mode featuring customizable Codex heat modifiers (enemy buffs, restricted draws, hazardous environments). Higher heat ratings exponentially boost the quality of resulting Save Data and drop exclusive 557-relic tiers.
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-size:1.15rem; font-weight:800; color:var(--blue);">SECRED</span>
+            <span style="font-size:0.75rem; padding:3px 8px; border-radius:4px; background:rgba(38,146,211,0.15); color:var(--blue); font-weight:600;">Pincer &amp; Synergy</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Deity of unison and cooperative tactics. Sparks guarantee 100% Pincer joint attacks when companion conditions are met, triggering auxiliary supporter strikes.</p>
+          <div style="font-size:0.78rem; color:var(--muted);"><strong>Signature Spark:</strong> Supporter partner strikes trigger on every Attack card played.</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-size:1.15rem; font-weight:800; color:var(--red);">VITOR</span>
+            <span style="font-size:0.75rem; padding:3px 8px; border-radius:4px; background:rgba(248,80,88,0.15); color:var(--red); font-weight:600;">Destruction &amp; Bleed</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Lord of absolute slaughter. Multiplies final damage output by +30%, inflicts true damage armor penetration, and triggers catastrophic Bleed explosions.</p>
+          <div style="font-size:0.78rem; color:var(--muted);"><strong>Signature Spark:</strong> Increase card damage by +30% with zero additional AP cost.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANE 4: RELICS SYSTEM -->
+    <div id="tab-relics" class="tab-pane">
+      <div style="margin-bottom:28px; padding:24px; border-radius:8px; background:var(--panel); border:1px solid var(--panel-border);">
+        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.3rem; color:var(--text); margin-bottom:8px;">557 Relics &amp; Equipment Tiers</h2>
+        <p style="font-size:0.9rem; color:var(--body); line-height:1.7; margin-bottom:20px;">
+          Relics in *Chaos Zero Nightmare* are permanent gear artifacts discovered during Chaos explorations, elite boss drops, and simulation runs. Characters equip weapons, armor, and accessories that grant passive stat scaling and combat triggers.
         </p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px;">
+          <div style="background:var(--card-inner); border-left:3px solid var(--gold); border-radius:4px; padding:14px;">
+            <div style="font-family:'Orbitron',sans-serif; font-size:0.95rem; font-weight:700; color:var(--gold); margin-bottom:4px;">Unique Tiers</div>
+            <div style="font-size:0.8rem; color:var(--body);">Game-defining mutation relics with archetype triggers (e.g. Twin Swords, Shell Bug Horn).</div>
+          </div>
+          <div style="background:var(--card-inner); border-left:3px solid var(--purple); border-radius:4px; padding:14px;">
+            <div style="font-family:'Orbitron',sans-serif; font-size:0.95rem; font-weight:700; color:var(--purple); margin-bottom:4px;">Legend Tiers</div>
+            <div style="font-size:0.8rem; color:var(--body);">Endgame artifacts dropping in high-heat Zero System runs with massive dual stats.</div>
+          </div>
+          <div style="background:var(--card-inner); border-left:3px solid var(--cyan); border-radius:4px; padding:14px;">
+            <div style="font-family:'Orbitron',sans-serif; font-size:0.95rem; font-weight:700; color:var(--cyan); margin-bottom:4px;">Rare Tiers</div>
+            <div style="font-size:0.8rem; color:var(--body);">Core mid-game equipment forming baseline set bonuses and stability.</div>
+          </div>
+          <div style="background:var(--card-inner); border-left:3px solid var(--muted); border-radius:4px; padding:14px;">
+            <div style="font-family:'Orbitron',sans-serif; font-size:0.95rem; font-weight:700; color:var(--text); margin-bottom:4px;">Common Tiers</div>
+            <div style="font-size:0.8rem; color:var(--body);">Early progression gear acquired from story stages and standard simulation runs.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </main>
+
+<script>
+// Sub-tabs switcher
+document.querySelectorAll('.sub-tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.sub-tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const target = document.getElementById(btn.getAttribute('data-tab'));
+    if (target) target.classList.add('active');
+  });
+});
+
+// Keywords glossary data
+const glossaryList = [
+  { name: 'Agony', tag: 'Debuff', desc: 'Inflicts Fixed Damage at turn end for 2 turns. Used heavily by Tressa and Lucas.' },
+  { name: 'Fortitude', tag: 'Buff', desc: 'Enhances team defensive stability, damage resistance, and shield efficiency.' },
+  { name: 'Wave', tag: 'Mechanic', desc: 'Mika’s resource. Stacking 3 Waves generates bonus AP and amplifies healing.' },
+  { name: 'Morale', tag: 'Buff', desc: 'Stacks to incrementally increase squad Attack card damage.' },
+  { name: 'Vulnerable', tag: 'Debuff', desc: 'Target takes increased damage from all incoming attacks.' },
+  { name: 'Commence the Hunt', tag: 'Mechanic', desc: 'Hugo’s trait. Targeting attack cards trigger an Extra Attack (+30% dmg per stack, max 5).' },
+  { name: 'Extra Attack', tag: 'Mechanic', desc: 'Automatic follow-up attacks scaling with Critical Chance and Bonus Damage.' },
+  { name: 'Linked', tag: 'Mechanic', desc: 'Heidemarie’s synergy. Playing linked cards consecutively triggers burst bonus damage.' },
+  { name: 'Quietus', tag: 'Mechanic', desc: 'Activates bonus damage, card retrieval, or AP refunds when discarded from hand.' },
+  { name: 'Ravage State', tag: 'State', desc: 'Enemy Tenacity broken: grants +1 AP, delays enemy action count, and reduces team stress.' },
+  { name: 'Mental Breakdown', tag: 'State', desc: 'Occurs at 100 Stress. Team max HP reduced by 1/3; play 5 breakdown cards to recover.' },
+  { name: 'Ego Skill', tag: 'Mechanic', desc: 'Hero’s ultimate 0 AP ability unlocked via EP accumulation or surviving breakdown.' },
+  { name: 'Impair', tag: 'Debuff', desc: 'Reduces enemy combat capabilities, action efficiency, and secondary proc rates.' },
+  { name: 'Weaken', tag: 'Debuff', desc: 'Decreases outgoing damage dealt by afflicted enemy.' },
+  { name: 'Mark', tag: 'Debuff', desc: 'Places tracking beacon on targets, amplifying critical strike vulnerability (Luke / Selena).' },
+  { name: 'Dark Cloud Stance', tag: 'Mechanic', desc: 'Rin’s sword stance enabling Dark Mist Blade Art bonus hits and 0-cost transitions.' },
+  { name: 'Counterattack', tag: 'Mechanic', desc: 'Retaliates with defense-scaled damage when team is hit or gains shields (Maribell / Magna).' },
+  { name: 'Silver Veil', tag: 'Buff', desc: 'Khalipe’s aura mitigating damage and reinforcing shield thresholds based on DEF.' },
+  { name: 'Ember', tag: 'Debuff', desc: 'Mei Lin’s fire debuff. Lingering fire resonance detonating for massive Passion burst.' },
+  { name: 'Retain', tag: 'Card Tag', desc: 'Card remains in hand at turn end instead of going to Graveyard.' },
+  { name: 'Exhaust', tag: 'Card Tag', desc: 'Card is permanently removed from combat upon use.' },
+  { name: 'Haste', tag: 'Card Tag', desc: 'Playing this card does not tick down the enemy’s Action Count.' },
+  { name: 'Lead', tag: 'Card Tag', desc: 'Chance to reduce its own AP cost by 1 at the start of each turn.' },
+  { name: 'Outbreak of War', tag: 'Card Tag', desc: 'Guaranteed to appear in your starting opening hand at battle onset.' },
+  { name: 'Ephemeral', tag: 'Card Tag', desc: 'Temporary card that vanishes at turn end or under specified conditions.' },
+  { name: 'Bullet', tag: 'Card Tag', desc: 'Specialized ammunition card that exhausts upon firing (Lucas, Luke).' },
+  { name: 'Unique', tag: 'Card Tag', desc: 'Only one copy can exist in your operational deck.' },
+  { name: 'Epiphany', tag: 'Mechanic', desc: 'Mid-run mutation transforming basic cards into 0 AP empowered variants.' }
+];
+
+const grid = document.getElementById('glossaryGrid');
+const searchInput = document.getElementById('glossarySearch');
+const filterBtns = document.querySelectorAll('.g-filter-btn');
+const countLabel = document.getElementById('glossaryCount');
+let curFilter = 'all';
+
+function renderGlossary() {
+  const q = (searchInput.value || '').toLowerCase().trim();
+  grid.innerHTML = '';
+  let count = 0;
+  glossaryList.forEach(item => {
+    const matchF = curFilter === 'all' || item.tag === curFilter;
+    const matchQ = !q || item.name.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q);
+    if (matchF && matchQ) {
+      count++;
+      const card = document.createElement('div');
+      card.className = 'glossary-card';
+      // Safe assignment with textContent
+      const header = document.createElement('div');
+      header.className = 'glossary-header';
+      const title = document.createElement('span');
+      title.className = 'glossary-title';
+      title.textContent = item.name;
+      const tag = document.createElement('span');
+      tag.className = 'glossary-tag';
+      tag.textContent = item.tag;
+      header.appendChild(title);
+      header.appendChild(tag);
+      const desc = document.createElement('div');
+      desc.className = 'glossary-desc';
+      desc.textContent = item.desc;
+      card.appendChild(header);
+      card.appendChild(desc);
+      grid.appendChild(card);
+    }
+  });
+  countLabel.textContent = `Showing ${count} terms`;
+}
+
+searchInput.addEventListener('input', renderGlossary);
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    curFilter = btn.getAttribute('data-filter');
+    renderGlossary();
+  });
+});
+renderGlossary();
+</script>
 
 <footer>
   <div class="f-links">

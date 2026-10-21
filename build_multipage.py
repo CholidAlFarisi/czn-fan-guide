@@ -783,7 +783,7 @@ cardSearch.addEventListener('input', applyCardFilters);
     # ==========================================
     # 4. BUILD mechanics.html
     # ==========================================
-    mechanics_html = f'''<!DOCTYPE html>
+    mechanics_template = '''<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -795,119 +795,374 @@ cardSearch.addEventListener('input', applyCardFilters);
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-{make_nav('mechanics.html')}
+__NAV__
 
 <main>
   <header class="page-header">
     <div class="page-pill">Gameplay Engine</div>
-    <h1>Mechanics, Deities &amp; Roguelike Systems</h1>
-    <p>Comprehensive guide to Chaos Zero Nightmare's deckbuilding combat, the 6 Primordial Deities, Divine Sparks, Epiphany transformations, and Save Data loadouts.</p>
+    <h1>Mechanics, Deities &amp; Systems</h1>
+    <p>Comprehensive breakdown of card combat, mental breakdowns, the 6 Primordial Deities, 491 Divine Sparks, 557 Relics, and the complete 28-term combat glossary.</p>
   </header>
 
   <div class="container">
-    <!-- 6 Deities Box -->
-    <div style="margin-bottom:40px; padding:28px; border-radius:8px; background:linear-gradient(135deg, rgba(16,102,77,0.2), var(--panel) 60%); border:1px solid rgba(22,133,100,0.35);">
-      <h2 style="font-family:'Orbitron',sans-serif; font-size:1.3rem; color:var(--text); margin-bottom:8px;">The 6 Primordial Cosmic Deities &amp; 491 Divine Sparks</h2>
-      <p style="font-size:0.9rem; color:var(--body); line-height:1.6; margin-bottom:20px;">
-        During roguelike Chaos runs, players encounter cosmic codices governed by six primordial deities. Interacting with their shrines grants Divine Sparks—permanent passive enhancements that alter card costs, damage scaling, and survivability.
-      </p>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px;">
-        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
-          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">CALIGO</div>
-          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Tenacity &amp; Ravage Focus</div>
-          <div style="font-size:0.8rem; color:var(--muted);">Grants +100% Ravage scaling, critical strike multipliers, and converts lost health into raw offensive power.</div>
+    <div class="sub-tabs">
+      <button class="sub-tab-btn active" data-tab="tab-combat">⚡ Combat &amp; Stress Engine</button>
+      <button class="sub-tab-btn" data-tab="tab-glossary">📖 Keywords Glossary (28)</button>
+      <button class="sub-tab-btn" data-tab="tab-deities">🌌 6 Cosmic Deities &amp; Sparks</button>
+      <button class="sub-tab-btn" data-tab="tab-relics">🛡️ Relics System (557)</button>
+    </div>
+
+    <!-- PANE 1: COMBAT & STRESS ENGINE -->
+    <div id="tab-combat" class="tab-pane active">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; margin-bottom:40px;">
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+          <div style="font-size:2rem; margin-bottom:12px;">⚔️</div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Turn-Based Card Combat</h3>
+          <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+            Every battle turn starts with your 3-hero squad drawing <strong>5 cards</strong> and receiving <strong>3 Action Points (AP)</strong>. Cards share a unified team HP pool and can be cast in any sequence to weave devastating chain reactions.
+          </p>
         </div>
-        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
-          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">CIRCEN</div>
-          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Action Point Acceleration</div>
-          <div style="font-size:0.8rem; color:var(--muted);">Provides -1 AP cost reductions on high-cost signatures, energy rebates upon card combo chains, and AP refunds.</div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+          <div style="font-size:2rem; margin-bottom:12px;">🧠</div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Mental Breakdown &amp; Ego Recovery</h3>
+          <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+            Unblocked damage builds psychological Stress. At <strong>100 Stress</strong>, a hero suffers a <strong>Mental Breakdown</strong>: team max HP drops by 1/3 and normal cards morph into Breakdown Cards. Playing 5 Breakdown Cards purges the trauma and unlocks their <strong>0 AP Ego Skill</strong>.
+          </p>
         </div>
-        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
-          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">DIALLOS</div>
-          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Shield &amp; Mitigation</div>
-          <div style="font-size:0.8rem; color:var(--muted);">Boosts Vanguard shield efficiency by +30%, grants Metallization stacks, and prevents lethal damage once per run.</div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+          <div style="font-size:2rem; margin-bottom:12px;">💥</div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Tenacity &amp; Ravage State</h3>
+          <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+            Depleting an enemy's purple Tenacity gauge forces them into a <strong>Ravage State</strong>. This stuns their Action Counter, mitigates team Stress gain, and immediately awards your squad <strong>+1 bonus AP</strong> for relentless punishment.
+          </p>
         </div>
-        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
-          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">NIHILUM</div>
-          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Card Draw &amp; Hand Cycling</div>
-          <div style="font-size:0.8rem; color:var(--muted);">Increases starting hand draw by +1, retains key cards across turns, and triggers bonus effects on deck reshuffle.</div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+          <div style="font-size:2rem; margin-bottom:12px;">💡</div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Epiphany Mutation System</h3>
+          <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+            Mid-run cards mutate into powerful specialized Epiphany variants (Branches I–V). Epiphanies grant <strong>0 AP cost</strong> casts, draw acceleration, and persistent combat tags, dramatically altering character playstyles.
+          </p>
         </div>
-        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
-          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">SECRED</div>
-          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Pincer Co-op &amp; Assist</div>
-          <div style="font-size:0.8rem; color:var(--muted);">Enables 100% Pincer joint attacks when partner conditions are fulfilled, summoning auxiliary supporter strikes.</div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+          <div style="font-size:2rem; margin-bottom:12px;">🌀</div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Chaos Mode Roguelike Progression</h3>
+          <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+            Explore branching sector paths featuring Combat, Elites, Shrines, Merchants, and Rest stops. Manage Stress and health across consecutive sectors—permadeath claims the run but unlocks permanent account research notes.
+          </p>
         </div>
-        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
-          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">VITOR</div>
-          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Direct DMG Scaling</div>
-          <div style="font-size:0.8rem; color:var(--muted);">Multiplies final damage output by +30%, adds true damage penetration against armored elite bosses, and boosts Bleed.</div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+          <div style="font-size:2rem; margin-bottom:12px;">💾</div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Save Data &amp; Zero System</h3>
+          <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+            Completed runs crystallize into permanent <strong>Save Data</strong> loadouts. Higher Codex heat modifiers expand your Save Value budget, allowing you to lock top-tier mutated cards and relics for boss battles and future conquests.
+          </p>
         </div>
       </div>
     </div>
 
-    <!-- Core Systems Cards -->
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; margin-bottom:40px;">
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
-        <div style="font-size:2rem; margin-bottom:12px;">⚔️</div>
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Turn-Based Card Combat</h3>
-        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
-          At the start of every player turn, your squad draws 5 cards and receives 3 Action Points (AP). Cards can be played in any order, allowing complex synergistic chains between Combatants. Exploiting enemy attribute weaknesses grants a +25% multiplicative damage bonus.
+    <!-- PANE 2: KEYWORDS GLOSSARY -->
+    <div id="tab-glossary" class="tab-pane">
+      <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between; margin-bottom:20px;">
+        <input type="text" id="glossarySearch" placeholder="Search keywords (e.g. Agony, Wave, Hunt, Ravage, Retain)..." style="flex:1; min-width:260px; max-width:460px; padding:10px 14px; background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; color:#fff; font-size:0.88rem;">
+        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <button class="g-filter-btn active" data-filter="all" style="padding:6px 12px; font-size:0.78rem; border-radius:4px; background:var(--panel); border:1px solid var(--panel-border); color:var(--text); cursor:pointer;">All</button>
+          <button class="g-filter-btn" data-filter="Debuff" style="padding:6px 12px; font-size:0.78rem; border-radius:4px; background:var(--panel); border:1px solid var(--panel-border); color:var(--red); cursor:pointer;">Debuffs</button>
+          <button class="g-filter-btn" data-filter="Buff" style="padding:6px 12px; font-size:0.78rem; border-radius:4px; background:var(--panel); border:1px solid var(--panel-border); color:var(--emerald); cursor:pointer;">Buffs</button>
+          <button class="g-filter-btn" data-filter="Mechanic" style="padding:6px 12px; font-size:0.78rem; border-radius:4px; background:var(--panel); border:1px solid var(--panel-border); color:var(--cyan); cursor:pointer;">Mechanics</button>
+          <button class="g-filter-btn" data-filter="Card Tag" style="padding:6px 12px; font-size:0.78rem; border-radius:4px; background:var(--panel); border:1px solid var(--panel-border); color:var(--gold); cursor:pointer;">Card Tags</button>
+          <button class="g-filter-btn" data-filter="State" style="padding:6px 12px; font-size:0.78rem; border-radius:4px; background:var(--panel); border:1px solid var(--panel-border); color:var(--purple); cursor:pointer;">States</button>
+        </div>
+      </div>
+      <div id="glossaryCount" style="font-size:0.8rem; color:var(--muted); margin-bottom:14px;">Showing 28 terms</div>
+
+      <div class="glossary-grid" id="glossaryGrid"></div>
+    </div>
+
+    <!-- PANE 3: 6 DEITIES -->
+    <div id="tab-deities" class="tab-pane">
+      <div style="margin-bottom:30px; padding:24px; border-radius:8px; background:linear-gradient(135deg, rgba(16,102,77,0.25), var(--panel) 60%); border:1px solid rgba(22,133,100,0.35);">
+        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.3rem; color:var(--text); margin-bottom:8px;">The 6 Primordial Cosmic Deities &amp; 491 Divine Sparks</h2>
+        <p style="font-size:0.9rem; color:var(--body); line-height:1.6;">
+          During Chaos expeditions, Captains encounter cosmological shrines governed by six cosmic deities. Shrines bestow Divine Sparks—permanent passive card alterations that modify AP costs, damage multipliers, and cooperative pincer triggers.
         </p>
       </div>
 
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
-        <div style="font-size:2rem; margin-bottom:12px;">🧠</div>
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Mental Breakdown &amp; Ego Recovery</h3>
-        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
-          Unblocked enemy damage builds psychological Stress. When Stress reaches 100, the Combatant suffers a Mental Breakdown—locking one-third of team maximum HP and disabling regular skills. Surviving the breakdown unleashes the hero's ultimate 0 AP Ego skill.
-        </p>
-      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:18px;">
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-size:1.15rem; font-weight:800; color:var(--cyan);">CALIGO</span>
+            <span style="font-size:0.75rem; padding:3px 8px; border-radius:4px; background:rgba(34,211,238,0.12); color:var(--cyan); font-weight:600;">Tenacity &amp; Ravage</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Governs break damage and berserker scaling. Sparks provide +100% Ravage scaling, critical damage multipliers, and convert lost squad HP into raw offensive power.</p>
+          <div style="font-size:0.78rem; color:var(--muted);"><strong>Signature Spark:</strong> Increases Ravage state duration and grants true damage on break.</div>
+        </div>
 
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
-        <div style="font-size:2rem; margin-bottom:12px;">💾</div>
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Save Data &amp; Loadout Carryover</h3>
-        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
-          Upon completing or failing a Chaos run, you create permanent Save Data loadouts. Your total Save Value budget determines how many upgraded cards, relics, and Epiphany abilities can be preserved for story bosses and PvP challenges.
-        </p>
-      </div>
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-size:1.15rem; font-weight:800; color:var(--gold);">CIRCEN</span>
+            <span style="font-size:0.75rem; padding:3px 8px; border-radius:4px; background:rgba(223,178,53,0.12); color:var(--gold); font-weight:600;">Action Points &amp; Time</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Master of temporal acceleration and card economy. Sparks grant -1 AP cost reductions on signature skills, energy rebates upon 3+ card chains, and AP refunds.</p>
+          <div style="font-size:0.78rem; color:var(--muted);"><strong>Signature Spark:</strong> Every 4th card played in a turn refunds 1 AP.</div>
+        </div>
 
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
-        <div style="font-size:2rem; margin-bottom:12px;">💡</div>
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Epiphany Mutation System</h3>
-        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
-          Cards evolve dynamically mid-run through Epiphany events. Basic strikes and blocks mutate into character-specific power cards (Branches I through V) featuring 0 AP triggers, card generation, and persistent buffs.
-        </p>
-      </div>
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-size:1.15rem; font-weight:800; color:var(--emerald);">DIALLOS</span>
+            <span style="font-size:0.75rem; padding:3px 8px; border-radius:4px; background:rgba(16,102,77,0.2); color:var(--emerald); font-weight:600;">Shield &amp; Aegis</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Deity of impenetrable bulwarks. Sparks amplify Vanguard shields by +30%, grant Metallization stacks that absorb Stress, and prevent squad lethal damage once per battle.</p>
+          <div style="font-size:0.78rem; color:var(--muted);"><strong>Signature Spark:</strong> Convert 50% of remaining shield at turn end into permanent armor.</div>
+        </div>
 
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
-        <div style="font-size:2rem; margin-bottom:12px;">🌀</div>
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Chaos Mode Roguelike Progression</h3>
-        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
-          Navigate branching paths across Combat, Elite, Mystery Event, Merchant, and Rest zones. Permadeath ends the run but rewards account experience, character potential materials, and currency for permanent baseline upgrades.
-        </p>
-      </div>
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-size:1.15rem; font-weight:800; color:var(--purple);">NIHILUM</span>
+            <span style="font-size:0.75rem; padding:3px 8px; border-radius:4px; background:rgba(168,85,247,0.15); color:var(--purple); font-weight:600;">Void &amp; Hand Flow</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Cosmic void manipulating card cycle. Sparks expand starting hand draw by +1, retain key cards across turns, and trigger bonus AoE burst when deck reshuffles.</p>
+          <div style="font-size:0.78rem; color:var(--muted);"><strong>Signature Spark:</strong> Draw 2 extra cards whenever a card is discarded from hand.</div>
+        </div>
 
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
-        <div style="font-size:2rem; margin-bottom:12px;">⚙️</div>
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Endgame Zero System &amp; Codices</h3>
-        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
-          High-tier endgame mode featuring customizable Codex heat modifiers (enemy buffs, restricted draws, hazardous environments). Higher heat ratings exponentially boost the quality of resulting Save Data and drop exclusive 557-relic tiers.
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-size:1.15rem; font-weight:800; color:var(--blue);">SECRED</span>
+            <span style="font-size:0.75rem; padding:3px 8px; border-radius:4px; background:rgba(38,146,211,0.15); color:var(--blue); font-weight:600;">Pincer &amp; Synergy</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Deity of unison and cooperative tactics. Sparks guarantee 100% Pincer joint attacks when companion conditions are met, triggering auxiliary supporter strikes.</p>
+          <div style="font-size:0.78rem; color:var(--muted);"><strong>Signature Spark:</strong> Supporter partner strikes trigger on every Attack card played.</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-size:1.15rem; font-weight:800; color:var(--red);">VITOR</span>
+            <span style="font-size:0.75rem; padding:3px 8px; border-radius:4px; background:rgba(248,80,88,0.15); color:var(--red); font-weight:600;">Destruction &amp; Bleed</span>
+          </div>
+          <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Lord of absolute slaughter. Multiplies final damage output by +30%, inflicts true damage armor penetration, and triggers catastrophic Bleed explosions.</p>
+          <div style="font-size:0.78rem; color:var(--muted);"><strong>Signature Spark:</strong> Increase card damage by +30% with zero additional AP cost.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANE 4: RELICS SYSTEM -->
+    <div id="tab-relics" class="tab-pane">
+      <div style="margin-bottom:28px; padding:24px; border-radius:8px; background:var(--panel); border:1px solid var(--panel-border);">
+        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.3rem; color:var(--text); margin-bottom:8px;">557 Relics &amp; Equipment Tiers</h2>
+        <p style="font-size:0.9rem; color:var(--body); line-height:1.7; margin-bottom:20px;">
+          Relics in *Chaos Zero Nightmare* are permanent gear artifacts discovered during Chaos explorations, elite boss drops, and simulation runs. Characters equip weapons, armor, and accessories that grant passive stat scaling and combat triggers.
         </p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px;">
+          <div style="background:var(--card-inner); border-left:3px solid var(--gold); border-radius:4px; padding:14px;">
+            <div style="font-family:'Orbitron',sans-serif; font-size:0.95rem; font-weight:700; color:var(--gold); margin-bottom:4px;">Unique Tiers</div>
+            <div style="font-size:0.8rem; color:var(--body);">Game-defining mutation relics with archetype triggers (e.g. Twin Swords, Shell Bug Horn).</div>
+          </div>
+          <div style="background:var(--card-inner); border-left:3px solid var(--purple); border-radius:4px; padding:14px;">
+            <div style="font-family:'Orbitron',sans-serif; font-size:0.95rem; font-weight:700; color:var(--purple); margin-bottom:4px;">Legend Tiers</div>
+            <div style="font-size:0.8rem; color:var(--body);">Endgame artifacts dropping in high-heat Zero System runs with massive dual stats.</div>
+          </div>
+          <div style="background:var(--card-inner); border-left:3px solid var(--cyan); border-radius:4px; padding:14px;">
+            <div style="font-family:'Orbitron',sans-serif; font-size:0.95rem; font-weight:700; color:var(--cyan); margin-bottom:4px;">Rare Tiers</div>
+            <div style="font-size:0.8rem; color:var(--body);">Core mid-game equipment forming baseline set bonuses and stability.</div>
+          </div>
+          <div style="background:var(--card-inner); border-left:3px solid var(--muted); border-radius:4px; padding:14px;">
+            <div style="font-family:'Orbitron',sans-serif; font-size:0.95rem; font-weight:700; color:var(--text); margin-bottom:4px;">Common Tiers</div>
+            <div style="font-size:0.8rem; color:var(--body);">Early progression gear acquired from story stages and standard simulation runs.</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </main>
 
-{make_footer()}
+<script>
+// Sub-tabs switcher
+document.querySelectorAll('.sub-tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.sub-tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const target = document.getElementById(btn.getAttribute('data-tab'));
+    if (target) target.classList.add('active');
+  });
+});
+
+// Keywords glossary data
+const glossaryList = [
+  { name: 'Agony', tag: 'Debuff', desc: 'Inflicts Fixed Damage at turn end for 2 turns. Used heavily by Tressa and Lucas.' },
+  { name: 'Fortitude', tag: 'Buff', desc: 'Enhances team defensive stability, damage resistance, and shield efficiency.' },
+  { name: 'Wave', tag: 'Mechanic', desc: 'Mika’s resource. Stacking 3 Waves generates bonus AP and amplifies healing.' },
+  { name: 'Morale', tag: 'Buff', desc: 'Stacks to incrementally increase squad Attack card damage.' },
+  { name: 'Vulnerable', tag: 'Debuff', desc: 'Target takes increased damage from all incoming attacks.' },
+  { name: 'Commence the Hunt', tag: 'Mechanic', desc: 'Hugo’s trait. Targeting attack cards trigger an Extra Attack (+30% dmg per stack, max 5).' },
+  { name: 'Extra Attack', tag: 'Mechanic', desc: 'Automatic follow-up attacks scaling with Critical Chance and Bonus Damage.' },
+  { name: 'Linked', tag: 'Mechanic', desc: 'Heidemarie’s synergy. Playing linked cards consecutively triggers burst bonus damage.' },
+  { name: 'Quietus', tag: 'Mechanic', desc: 'Activates bonus damage, card retrieval, or AP refunds when discarded from hand.' },
+  { name: 'Ravage State', tag: 'State', desc: 'Enemy Tenacity broken: grants +1 AP, delays enemy action count, and reduces team stress.' },
+  { name: 'Mental Breakdown', tag: 'State', desc: 'Occurs at 100 Stress. Team max HP reduced by 1/3; play 5 breakdown cards to recover.' },
+  { name: 'Ego Skill', tag: 'Mechanic', desc: 'Hero’s ultimate 0 AP ability unlocked via EP accumulation or surviving breakdown.' },
+  { name: 'Impair', tag: 'Debuff', desc: 'Reduces enemy combat capabilities, action efficiency, and secondary proc rates.' },
+  { name: 'Weaken', tag: 'Debuff', desc: 'Decreases outgoing damage dealt by afflicted enemy.' },
+  { name: 'Mark', tag: 'Debuff', desc: 'Places tracking beacon on targets, amplifying critical strike vulnerability (Luke / Selena).' },
+  { name: 'Dark Cloud Stance', tag: 'Mechanic', desc: 'Rin’s sword stance enabling Dark Mist Blade Art bonus hits and 0-cost transitions.' },
+  { name: 'Counterattack', tag: 'Mechanic', desc: 'Retaliates with defense-scaled damage when team is hit or gains shields (Maribell / Magna).' },
+  { name: 'Silver Veil', tag: 'Buff', desc: 'Khalipe’s aura mitigating damage and reinforcing shield thresholds based on DEF.' },
+  { name: 'Ember', tag: 'Debuff', desc: 'Mei Lin’s fire debuff. Lingering fire resonance detonating for massive Passion burst.' },
+  { name: 'Retain', tag: 'Card Tag', desc: 'Card remains in hand at turn end instead of going to Graveyard.' },
+  { name: 'Exhaust', tag: 'Card Tag', desc: 'Card is permanently removed from combat upon use.' },
+  { name: 'Haste', tag: 'Card Tag', desc: 'Playing this card does not tick down the enemy’s Action Count.' },
+  { name: 'Lead', tag: 'Card Tag', desc: 'Chance to reduce its own AP cost by 1 at the start of each turn.' },
+  { name: 'Outbreak of War', tag: 'Card Tag', desc: 'Guaranteed to appear in your starting opening hand at battle onset.' },
+  { name: 'Ephemeral', tag: 'Card Tag', desc: 'Temporary card that vanishes at turn end or under specified conditions.' },
+  { name: 'Bullet', tag: 'Card Tag', desc: 'Specialized ammunition card that exhausts upon firing (Lucas, Luke).' },
+  { name: 'Unique', tag: 'Card Tag', desc: 'Only one copy can exist in your operational deck.' },
+  { name: 'Epiphany', tag: 'Mechanic', desc: 'Mid-run mutation transforming basic cards into 0 AP empowered variants.' }
+];
+
+const grid = document.getElementById('glossaryGrid');
+const searchInput = document.getElementById('glossarySearch');
+const filterBtns = document.querySelectorAll('.g-filter-btn');
+const countLabel = document.getElementById('glossaryCount');
+let curFilter = 'all';
+
+function renderGlossary() {
+  const q = (searchInput.value || '').toLowerCase().trim();
+  grid.innerHTML = '';
+  let count = 0;
+  glossaryList.forEach(item => {
+    const matchF = curFilter === 'all' || item.tag === curFilter;
+    const matchQ = !q || item.name.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q);
+    if (matchF && matchQ) {
+      count++;
+      const card = document.createElement('div');
+      card.className = 'glossary-card';
+      // Safe assignment with textContent
+      const header = document.createElement('div');
+      header.className = 'glossary-header';
+      const title = document.createElement('span');
+      title.className = 'glossary-title';
+      title.textContent = item.name;
+      const tag = document.createElement('span');
+      tag.className = 'glossary-tag';
+      tag.textContent = item.tag;
+      header.appendChild(title);
+      header.appendChild(tag);
+      const desc = document.createElement('div');
+      desc.className = 'glossary-desc';
+      desc.textContent = item.desc;
+      card.appendChild(header);
+      card.appendChild(desc);
+      grid.appendChild(card);
+    }
+  });
+  countLabel.textContent = `Showing ${count} terms`;
+}
+
+searchInput.addEventListener('input', renderGlossary);
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    filterBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    curFilter = btn.getAttribute('data-filter');
+    renderGlossary();
+  });
+});
+renderGlossary();
+</script>
+
+__FOOTER__
 </body>
 </html>'''
+
+    mechanics_html = mechanics_template.replace('__NAV__', make_nav('mechanics.html')).replace('__FOOTER__', make_footer())
     with open(f'{base_dir}/mechanics.html', 'w', encoding='utf-8') as f:
         f.write(mechanics_html)
 
     # ==========================================
     # 5. BUILD lore.html
     # ==========================================
-    lore_html = f'''<!DOCTYPE html>
+    factions_list = [
+        {
+            'name': 'Terrascion',
+            'hq': 'SS Nightmare & SS Edenity',
+            'desc': 'The frontline military and administrative body responsible for deep space expeditionary fleets and tactical academy studies.',
+            'members': ['Renoa', 'Haru', 'Mei Lin', 'Mika', 'Owen', 'Amir', 'Nia', 'Rei', 'Tressa', 'Yuki', 'Anika', 'Kiara', 'Erica', 'Arwen', 'Wilhelmina', 'Rosaria', 'Eloise', 'Lillian', 'Asteria', 'Westmacott']
+        },
+        {
+            'name': 'Ironrain',
+            'hq': 'Frontier Outposts & Wolf Platoon Deployment Sector',
+            'desc': 'A battle-hardened faction primarily composed of elite Rangers and Hunters. Home of the famous Wolf Platoon vanguard team.',
+            'members': ['Luke', 'Lucas', 'Beryl', 'Maribell', 'Hilde', 'Janet', 'Alyssa', 'Daisy', 'Rachel']
+        },
+        {
+            'name': 'Stella Familia',
+            'hq': 'Altair Sector',
+            'desc': 'A distinctive faction characterized by acute primal instincts, beast-kin traits, and extraordinary resilience in corrupted Chaos Zones.',
+            'members': ['Khalipe', 'Hugo', 'Magna', 'Veronica', 'Marin', 'Carroty', 'Nakia', 'Zatera', 'Raidel', 'Douglas', 'Yuri']
+        },
+        {
+            'name': 'Peltion',
+            'hq': 'Company 110 Headquarters',
+            'desc': 'A corporate-military syndicate specializing in tactical technology, mercenary contracts, and deck modulation algorithms.',
+            'members': ['Cassius', 'Zeta', 'Scarlet', 'Marianne', 'Tina', 'Akad', 'Ritochka']
+        },
+        {
+            'name': 'The Holy Crusaders',
+            'hq': 'The Grand Cathedral & Epione Sanctuaries',
+            'desc': 'A devout religious order dedicated to preaching the divine word and shielding souls from psychological corruption.',
+            'members': ['Orlea', 'Diana', 'Noel', 'Yvonne']
+        },
+        {
+            'name': 'Sileyma',
+            'hq': 'Outer Celestial Spheres',
+            'desc': 'Ancient and enigmatic horned beings wielding immense cosmic energy, acting as formidable auxiliary partners.',
+            'members': ['Solia', 'Eishlen', 'Nyx', 'Anteia', 'Serithea', 'Priscilla']
+        },
+        {
+            'name': 'Wanderers (Independents)',
+            'hq': 'None (Drifting Stars)',
+            'desc': 'Elite independent combatants and master swordsmen operating without imperial or corporate allegiance.',
+            'members': ['Rin', 'Kayron', 'Bria']
+        },
+        {
+            'name': 'Imperial High Command & Allies',
+            'hq': 'Imperial Capital & Dimensional Nexuses',
+            'desc': 'Direct imperial officers, enigmatic entities, and interdimensional collaborators.',
+            'members': ['Adelheid', 'Arabella', 'Chizuru', 'Fei', 'Narja', 'Nine', 'Olga', 'Rita', 'Sereniel', 'Tenebria', 'Tiphera']
+        }
+    ]
+
+    faction_cards_html = []
+    for fac in factions_list:
+        badges = []
+        for mem in fac['members']:
+            mid = name_to_id.get(mem.lower())
+            if mid:
+                img_tag = f'<img src="assets/characters/{mid}.webp" alt="{mem}" loading="lazy">'
+                badges.append(f'<span class="faction-member-badge">{img_tag} {mem}</span>')
+            else:
+                badges.append(f'<span class="faction-member-badge">{mem}</span>')
+        roster_str = ''.join(badges)
+        card_markup = f"""
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+          <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px; flex-wrap:wrap; gap:8px;">
+            <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text);">{fac['name']}</h3>
+            <span style="font-size:0.75rem; color:var(--cyan); font-weight:600;">HQ: {fac['hq']}</span>
+          </div>
+          <p style="font-size:0.86rem; color:var(--body); line-height:1.6; margin-bottom:14px;">{fac['desc']}</p>
+          <div style="font-size:0.75rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.05em; font-weight:700; margin-bottom:6px;">Notable Members ({len(fac['members'])})</div>
+          <div class="faction-roster">{roster_str}</div>
+        </div>"""
+        faction_cards_html.append(card_markup)
+
+    all_factions_html = '\n'.join(faction_cards_html)
+
+    lore_template = '''<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -919,118 +1174,60 @@ cardSearch.addEventListener('input', applyCardFilters);
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-{make_nav('lore.html')}
+__NAV__
 
 <main>
   <header class="page-header">
     <div class="page-pill">Universe &amp; Lore</div>
-    <h1>Story, The SS Nightmare &amp; 7 Factions</h1>
+    <h1>Story, SS Nightmare &amp; 8 Factions</h1>
     <p>Explore the cosmic horror world of Chaos Zero Nightmare, the amnesiac Captain aboard the SS Nightmare, and the sociopolitical factions warring against existential collapse.</p>
   </header>
 
   <div class="container">
-    <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:32px; margin-bottom:40px;">
+    <div style="display:grid; grid-template-columns:1.2fr 0.8fr; gap:28px; margin-bottom:40px;">
       <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:26px;">
         <h2 style="font-family:'Orbitron',sans-serif; font-size:1.3rem; color:var(--text); margin-bottom:12px;">The SS Nightmare &amp; The Amnesiac Captain</h2>
         <p style="font-size:0.9rem; color:var(--body); line-height:1.8; margin-bottom:16px;">
-          The universe of Chaos Zero Nightmare is engulfed by an encroaching eldritch mist known as the existential fog. The remnants of civilization drift inside protected cosmic spheres, reliant on interstellar exploration vessels to scout habitable sectors and harvest energy codices.
+          Eons ago, an incomprehensible extraterrestrial phenomenon known as <strong>Chaos</strong> engulfed Earth, inflicting catastrophic ecological devastation and driving humanity into an interstellar space-faring empire to survive.
         </p>
         <p style="font-size:0.9rem; color:var(--body); line-height:1.8; margin-bottom:16px;">
-          You awaken aboard the command bridge of the <strong>SS Nightmare</strong>—the apex exploration warship of humanity. Stripped of memories, you are addressed only as the "Captain." Through a rare psychic aptitude known as <em>Ego Synchronization</em>, you alone possess the ability to anchor Combatants' minds against the madness-inducing horrors of the void.
+          You awaken as an elite Imperial Officer holding the rank of <strong>Captain</strong> aboard the flagship <strong>SS Nightmare</strong>. During a routine Chaos eradication sortie, an unprecedented spatial convergence wiped your memory clean—a biological impossibility given imperial genetic engineering.
         </p>
         <p style="font-size:0.9rem; color:var(--body); line-height:1.8;">
-          As the vessel plumbs deeper into the uncharted Zero Rift, fragments of your past surface alongside dark truths about the six Primordial Deities that engineered the universe's descent into ruin.
+          Alongside Vice Captain <strong>Renoa</strong> and key operatives, you must unravel the conspiracy inside the Imperial Admiralty, navigate ideological warfare between the corporate syndicate <strong>Peltion</strong> and the religious <strong>Holy Crusaders</strong>, and discover the true purpose of the Chaos infection.
         </p>
       </div>
 
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:26px;">
-        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.3rem; color:var(--text); margin-bottom:12px;">Core Themes</h2>
-        <div style="display:flex; flex-direction:column; gap:14px;">
-          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:12px 16px;">
-            <div style="font-weight:700; color:var(--cyan); font-size:0.9rem; margin-bottom:4px;">Cosmic Horror &amp; Fragile Sanity</div>
-            <div style="font-size:0.8rem; color:var(--muted);">Combatants are human minds pushed to their breaking point. Trauma and psychological fracture fuel their supernatural combat potential.</div>
-          </div>
-          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:12px 16px;">
-            <div style="font-weight:700; color:var(--gold); font-size:0.9rem; margin-bottom:4px;">The 6 Primordial Deities</div>
-            <div style="font-size:0.8rem; color:var(--muted);">Caligo, Circen, Diallos, Nihilum, Secred, and Vitor represent primordial cosmological laws that govern reality and card rules.</div>
-          </div>
-          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:12px 16px;">
-            <div style="font-weight:700; color:var(--red); font-size:0.9rem; margin-bottom:4px;">Save Data Metanarrative</div>
-            <div style="font-size:0.8rem; color:var(--muted);">Roguelike resets are canonized: each failed expedition is stored as quantum Save Data, allowing subsequent iterations to evolve.</div>
-          </div>
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:26px; display:flex; flex-direction:column; justify-content:center;">
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--text); margin-bottom:12px;">The Sanity Loop &amp; Deep Trauma</h3>
+        <p style="font-size:0.88rem; color:var(--body); line-height:1.7; margin-bottom:14px;">
+          Unlike conventional battlefields, warfare within Chaos Zones degrades the human psyche. Combatants exposed to mental horror accumulate <strong>Deep Trauma</strong>, requiring psychiatric restoration at the <strong>Epione Center</strong> in Ark City.
+        </p>
+        <div style="background:var(--card-inner); border-left:3px solid var(--purple); padding:12px; border-radius:4px; font-size:0.82rem; color:var(--muted); line-height:1.6;">
+          <strong style="color:var(--text);">Psychological Awakening:</strong> Agents who confront and survive their deepest trauma achieve psychological clarity, unlocking their catastrophic <strong>Ego Skills</strong>.
         </div>
       </div>
     </div>
 
-    <!-- 7 Factions Breakdown -->
-    <div style="margin-bottom:24px;">
-      <h2 style="font-family:'Orbitron',sans-serif; font-size:1.4rem; color:var(--text); margin-bottom:8px;">The 7 Major Factions</h2>
-      <p style="font-size:0.9rem; color:var(--muted); margin-bottom:20px;">The 38 Combatants and 49 Partners belong to distinct geopolitical and ideological factions.</p>
-    </div>
-
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px;">
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--text); margin-bottom:6px;">Terrascion</h3>
-        <div style="font-size:0.75rem; color:var(--cyan); margin-bottom:10px; font-weight:600;">EARTH HERITAGE DEFENDERS</div>
-        <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Preserves the original cultural records, martial doctrines, and technological roots of old Earth. Disciplined and steadfast.</p>
-        <div style="font-size:0.8rem; color:var(--muted); border-top:1px solid var(--panel-border); padding-top:8px;"><strong>Notable Members:</strong> Renoa, Amir, Nia, Tressa, Selena</div>
-      </div>
-
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--text); margin-bottom:6px;">Stella</h3>
-        <div style="font-size:0.75rem; color:var(--gold); margin-bottom:10px; font-weight:600;">HIGH-ORBIT ADVANCED FEDERATION</div>
-        <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Elite space fleet pioneers who command beam weaponry, energy shielding, and advanced targeting arrays.</p>
-        <div style="font-size:0.8rem; color:var(--muted); border-top:1px solid var(--panel-border); padding-top:8px;"><strong>Notable Members:</strong> Hugo, Khalipe, Magna, Mei Lin</div>
-      </div>
-
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--text); margin-bottom:6px;">Ironrain</h3>
-        <div style="font-size:0.75rem; color:var(--red); margin-bottom:10px; font-weight:600;">MECHANIZED HEAVY ARTILLERY</div>
-        <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Industrial legion relying on heavy munitions, mechanical prosthetics, and devastating suppressive firepower.</p>
-        <div style="font-size:0.8rem; color:var(--muted); border-top:1px solid var(--panel-border); padding-top:8px;"><strong>Notable Members:</strong> Luke, Maribell, Beryl, Veronica</div>
-      </div>
-
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--text); margin-bottom:6px;">Peltion</h3>
-        <div style="font-size:0.75rem; color:var(--purple); margin-bottom:10px; font-weight:600;">SHADOW GUILD &amp; COVERT OPS</div>
-        <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Covert information brokers and tactical saboteurs adept at stealth strikes, quests, and hand-cycling deceit.</p>
-        <div style="font-size:0.8rem; color:var(--muted); border-top:1px solid var(--panel-border); padding-top:8px;"><strong>Notable Members:</strong> Cassius, Owen, Rei</div>
-      </div>
-
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--text); margin-bottom:6px;">Crusaders</h3>
-        <div style="font-size:0.75rem; color:#ffcf56; margin-bottom:10px; font-weight:600;">SACRED ORDER OF CONTAINMENT</div>
-        <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Religious knights dedicated to purifying corrupted anomalies and sealing cosmic breaches through unyielding faith.</p>
-        <div style="font-size:0.8rem; color:var(--muted); border-top:1px solid var(--panel-border); padding-top:8px;"><strong>Notable Members:</strong> Orlea, Adelheid</div>
-      </div>
-
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--text); margin-bottom:6px;">Far East</h3>
-        <div style="font-size:0.75rem; color:#ff7a7a; margin-bottom:10px; font-weight:600;">BLADEMASTERS &amp; PSYCHIC MARTIALISTS</div>
-        <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Traditional swordsmiths and psychic dualists who harness the flow of Void, swift multi-hit slashes, and stances.</p>
-        <div style="font-size:0.8rem; color:var(--muted); border-top:1px solid var(--panel-border); padding-top:8px;"><strong>Notable Members:</strong> Chizuru, Rin, Yuki, Fei</div>
-      </div>
-
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--text); margin-bottom:6px;">Wanderers &amp; Collab Outcasts</h3>
-        <div style="font-size:0.75rem; color:#c084fc; margin-bottom:10px; font-weight:600;">INTERDIMENSIONAL DRIFTERS</div>
-        <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:12px;">Enigmatic figures summoned across dimensions or wandering outside the laws of any sovereign faction.</p>
-        <div style="font-size:0.8rem; color:var(--muted); border-top:1px solid var(--panel-border); padding-top:8px;"><strong>Notable Members:</strong> Kayron, Tenebria, Nine</div>
-      </div>
+    <h2 style="font-family:'Orbitron',sans-serif; font-size:1.3rem; color:var(--text); margin-bottom:20px;">The 8 Major Galactic Factions</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:20px; margin-bottom:40px;">
+__FACTIONS__
     </div>
   </div>
 </main>
 
-{make_footer()}
+__FOOTER__
 </body>
 </html>'''
+
+    lore_html = lore_template.replace('__NAV__', make_nav('lore.html')).replace('__FOOTER__', make_footer()).replace('__FACTIONS__', all_factions_html)
     with open(f'{base_dir}/lore.html', 'w', encoding='utf-8') as f:
         f.write(lore_html)
 
     # ==========================================
     # 6. BUILD guides.html
     # ==========================================
-    guides_html = f'''<!DOCTYPE html>
+    guides_template = '''<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -1042,86 +1239,238 @@ cardSearch.addEventListener('input', applyCardFilters);
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-{make_nav('guides.html')}
+__NAV__
 
 <main>
   <header class="page-header">
     <div class="page-pill">Strategy &amp; Progression</div>
     <h1>Game Guides &amp; Squad Synergies</h1>
-    <p>Proven roadmaps from beginner progression to advanced endgame team compositions and Save Data loadout optimization.</p>
+    <p>Complete compendium covering early game onboarding, the 3-combatant deck rule, meta synergy archetypes, progression priorities, and squad readiness.</p>
   </header>
 
   <div class="container">
-    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:24px;">
-      <!-- Guide 1 -->
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:26px;">
-        <div style="font-size:2rem; margin-bottom:10px;">🌱</div>
-        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--text); margin-bottom:10px;">Beginner Starter Roadmap</h2>
-        <p style="font-size:0.88rem; color:var(--body); line-height:1.7; margin-bottom:14px;">
-          Starting your journey as Captain on the SS Nightmare:
-        </p>
-        <ul style="font-size:0.85rem; color:var(--body); line-height:1.8; margin-left:20px; margin-bottom:16px;">
-          <li><strong>Reroll Targets:</strong> Prioritize 5★ Renoa (versatile Vanguard/Damage), Luke (raw Order damage), or Khalipe (indomitable tanking).</li>
-          <li><strong>Aether Stamina:</strong> Spend all early stamina clearing the Main Campaign to unlock Basin of Hyperspace farm zones.</li>
-          <li><strong>Account Milestones:</strong> Push squad to Lv20 within Day 1 to unlock first Promotion and Epiphany branches.</li>
-          <li><strong>Save Data Habits:</strong> Always preserve at least one high-shield deck before tackling Sector 4 elite bosses.</li>
-        </ul>
+    <div class="sub-tabs">
+      <button class="sub-tab-btn active" data-tab="tab-beginner">🌱 Beginner Roadmap</button>
+      <button class="sub-tab-btn" data-tab="tab-teambuilding">⚔️ Team Building &amp; Synergies</button>
+      <button class="sub-tab-btn" data-tab="tab-progression">📈 Account &amp; Progression</button>
+      <button class="sub-tab-btn" data-tab="tab-checklist">📋 Squad Readiness Checklist</button>
+    </div>
+
+    <!-- PANE 1: BEGINNER ROADMAP -->
+    <div id="tab-beginner" class="tab-pane active">
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px; margin-bottom:24px;">
+        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--text); margin-bottom:12px;">First Things to Do as Captain</h2>
+        <div class="table-responsive">
+          <table class="guide-table">
+            <thead>
+              <tr><th>Step</th><th>Action</th><th>Key Benefit</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>1</strong></td><td>Finish Tutorial (Prologue)</td><td>Unlocks the in-game Shop, Mailbox, and Rescue Gacha banners.</td></tr>
+              <tr><td><strong>2</strong></td><td>Claim Entire Mailbox</td><td>Converts pre-registration bundles and launch gifts into instant pull currency.</td></tr>
+              <tr><td><strong>3</strong></td><td>Reach Chapter 1 Ep 4</td><td>Unlocks the <em>Register Coupon</em> feature to redeem launch gift codes.</td></tr>
+              <tr><td><strong>4</strong></td><td>Rush Campaign Stages</td><td>Highest stamina-to-resource yield in the early game; unlocks Ark City and farm modes.</td></tr>
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      <!-- Guide 2 -->
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:26px;">
-        <div style="font-size:2rem; margin-bottom:10px;">🤝</div>
-        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--text); margin-bottom:10px;">Top Team Synergies</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; margin-bottom:24px;">
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--cyan); margin-bottom:10px;">⚡ Aether (Stamina) Allocation</h3>
+          <ul style="font-size:0.85rem; color:var(--body); line-height:1.8; margin-left:18px;">
+            <li><strong>Early Game:</strong> Spend 100% on Main Campaign to unlock Simulation modes.</li>
+            <li><strong>Level 25+:</strong> Farm <em>Simulation: Memory Fragments</em> (60 Aether/run) for core gear sets.</li>
+            <li><strong>Daily Routine:</strong> Never let Aether cap—visit the Garden Café in Ark City to claim 80 free daily Aether.</li>
+          </ul>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--gold); margin-bottom:10px;">📅 Daily Captain Routine</h3>
+          <ul style="font-size:0.85rem; color:var(--body); line-height:1.8; margin-left:18px;">
+            <li>Clear all Daily Missions for steady pull crystals and upgrade tokens.</li>
+            <li>Spend 3 <strong>Communication Passes</strong> in Ark City to raise Hero Affinity.</li>
+            <li>Dispatch agents at the <strong>Policy Office</strong> to earn Nono Shop points.</li>
+            <li>Treat agents with Deep Trauma at the <strong>Epione Center</strong>.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--text); margin-bottom:10px;">Account Progression Milestones</h3>
+        <div class="table-responsive">
+          <table class="guide-table">
+            <thead>
+              <tr><th>Level</th><th>Milestone</th><th>Significance</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Lv 10</strong></td><td>Promotion Unlocks</td><td>Break character level ceilings using Class Striker Manuals.</td></tr>
+              <tr><td><strong>Lv 25</strong></td><td>Memory Fragment Simulation</td><td>Primary gear artifact farming mode (60 Aether per run).</td></tr>
+              <tr><td><strong>Lv 30</strong></td><td>Basin of Hyperspace</td><td>Mid-game challenge sectors yielding high-grade potential nodes.</td></tr>
+              <tr><td><strong>Lv 40</strong></td><td>Zero System Codices</td><td>Endgame heat-modifier roguelike mode dropping 557-relic tiers.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANE 2: TEAM BUILDING -->
+    <div id="tab-teambuilding" class="tab-pane">
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px; margin-bottom:24px;">
+        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--text); margin-bottom:10px;">The 3-Combatant Rule &amp; Deck Economy</h2>
         <p style="font-size:0.88rem; color:var(--body); line-height:1.7; margin-bottom:14px;">
-          High-performing 3-member team compositions:
+          Every team consists of exactly <strong>3 Combatants</strong> sharing one combined 24-card deck (4 starting + 4 unique cards per hero) and one shared HP bar. Exploiting enemy elemental weaknesses grants a <strong>+25% multiplicative attack bonus</strong> and accelerates Tenacity breaks.
         </p>
-        <div style="display:flex; flex-direction:column; gap:12px;">
-          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:12px;">
-            <div style="font-weight:700; color:var(--cyan); font-size:0.88rem; margin-bottom:4px;">Bleed Chain Combo</div>
-            <div style="font-size:0.8rem; color:var(--muted);"><strong>Rin + Luke + Nia:</strong> Rin applies massive Vulnerable and multi-hit slashes, while Luke converts bleed stacks into lethal Order burst.</div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;">
+          <div style="background:var(--card-inner); border-left:3px solid var(--cyan); padding:12px; border-radius:4px;">
+            <div style="font-size:0.85rem; font-weight:700; color:var(--text);">Damage Dealer (DPS)</div>
+            <div style="font-size:0.8rem; color:var(--muted);">Finisher dealing high single-target or AoE burst (Hugo, Mei Lin, Renoa).</div>
           </div>
-          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:12px;">
-            <div style="font-weight:700; color:var(--gold); font-size:0.88rem; margin-bottom:4px;">Metallization Fortress</div>
-            <div style="font-weight:400; font-size:0.8rem; color:var(--muted);"><strong>Amir + Beryl + Khalipe:</strong> Stacks Metallization every turn. Amir's <em>Steel Resolve</em> converts shields into insurmountable team barriers.</div>
+          <div style="background:var(--card-inner); border-left:3px solid var(--gold); padding:12px; border-radius:4px;">
+            <div style="font-size:0.85rem; font-weight:700; color:var(--text);">Card Cycler / AP Enabler</div>
+            <div style="font-size:0.8rem; color:var(--muted);">Filters hands, generates AP, and prevents bad opening draws (Cassius, Mika, Nia).</div>
           </div>
-          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:12px;">
-            <div style="font-weight:700; color:var(--purple); font-size:0.88rem; margin-bottom:4px;">Quest Acceleration Engine</div>
-            <div style="font-weight:400; font-size:0.8rem; color:var(--muted);"><strong>Cassius + Hugo + Tressa:</strong> Cassius generates high-value Quest conditions that Hugo's continuous skill triggers solve in a single turn.</div>
+          <div style="background:var(--card-inner); border-left:3px solid var(--emerald); padding:12px; border-radius:4px;">
+            <div style="font-size:0.85rem; font-weight:700; color:var(--text);">Sustain &amp; Vanguard Shield</div>
+            <div style="font-size:0.8rem; color:var(--muted);">Absorbs unblocked hits to keep team Stress below 100 (Khalipe, Magna, Hilde).</div>
           </div>
         </div>
       </div>
 
-      <!-- Guide 3 -->
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:26px;">
-        <div style="font-size:2rem; margin-bottom:10px;">⚙️</div>
-        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--text); margin-bottom:10px;">Zero System &amp; Save Optimization</h2>
-        <p style="font-size:0.88rem; color:var(--body); line-height:1.7; margin-bottom:14px;">
-          Mastering the endgame roguelike loops:
+      <h2 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--text); margin-bottom:14px;">Proven Meta Compositions</h2>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; margin-bottom:30px;">
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:22px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--cyan);">The Apex Hunt Barrage</span>
+            <span style="font-size:0.75rem; color:var(--gold);">Order / Void / Instinct</span>
+          </div>
+          <div style="font-size:0.85rem; color:var(--text); margin-bottom:8px;"><strong>Squad:</strong> Hugo (5★) + Tressa (4★) + Cassius (4★)</div>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            Tressa applies 0 AP Agony debuffs and Shadow Daggers, feeding Hugo’s <em>Commence the Hunt</em> for relentless Extra Attacks (+30% per stack). Cassius manages the draw deck, purges curses, and fixes hands.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted); border-top:1px solid var(--panel-border); padding-top:8px;">
+            <strong>Strength:</strong> Rapid boss melting without heavy AP expenditure.
+          </div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:22px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--red);">Passion Firestorm</span>
+            <span style="font-size:0.75rem; color:var(--gold);">Passion / Order / Instinct</span>
+          </div>
+          <div style="font-size:0.85rem; color:var(--text); margin-bottom:8px;"><strong>Squad:</strong> Heidemarie (5★) + Hugo (5★) + Cassius (4★)</div>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            Heidemarie unleashes explosive Passion burst chains with Linked cards, triggering Hugo’s targeting follow-ups on every volley. Cassius guarantees smooth card draw.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted); border-top:1px solid var(--panel-border); padding-top:8px;">
+            <strong>Strength:</strong> Extreme AoE wave clear and burst scaling.
+          </div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:22px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--emerald);">The Iron Bulwark</span>
+            <span style="font-size:0.75rem; color:var(--gold);">Justice / Instinct</span>
+          </div>
+          <div style="font-size:0.85rem; color:var(--text); margin-bottom:8px;"><strong>Squad:</strong> Magna (5★) + Khalipe (5★) + Mika (4★)</div>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            Near-zero Stress accumulation. Khalipe stacks Silver Veil defense scaling, Magna casts massive shields and triggers Counterattacks, while Mika accelerates AP through Wave resonance.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted); border-top:1px solid var(--panel-border); padding-top:8px;">
+            <strong>Strength:</strong> Safest squad for high-heat Zero System codices.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANE 3: PROGRESSION -->
+    <div id="tab-progression" class="tab-pane">
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px; margin-bottom:24px;">
+        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--text); margin-bottom:10px;">Hero Investment Priority</h2>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;">
+          <div style="background:var(--card-inner); border-radius:6px; padding:16px;">
+            <div style="font-size:0.85rem; font-weight:700; color:var(--cyan); margin-bottom:6px;">1. Rank Promotion</div>
+            <div style="font-size:0.82rem; color:var(--body); line-height:1.6;">Breakthrough levels at 20/40/60/80 using Striker Manuals to unlock higher base stats and card skill upgrades.</div>
+          </div>
+          <div style="background:var(--card-inner); border-radius:6px; padding:16px;">
+            <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:700; color:var(--gold); margin-bottom:6px;">2. Potential Skill Tree</div>
+            <div style="font-size:0.82rem; color:var(--body); line-height:1.6;">Unlock character-specific nodes that permanently mutate starting card effects and enhance critical multipliers.</div>
+          </div>
+          <div style="background:var(--card-inner); border-radius:6px; padding:16px;">
+            <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:700; color:var(--emerald); margin-bottom:6px;">3. Memory Fragments</div>
+            <div style="font-size:0.82rem; color:var(--body); line-height:1.6;">Farm set bonuses (4-piece Attack / 2-piece Defense) to reinforce baseline survival before entering Chaos zones.</div>
+          </div>
+          <div style="background:var(--card-inner); border-radius:6px; padding:16px;">
+            <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:700; color:var(--purple); margin-bottom:6px;">4. Save Data Carryover</div>
+            <div style="font-size:0.82rem; color:var(--body); line-height:1.6;">Lock optimal high-roll Epiphany cards and rare relics in the Zero System to create perfect loadouts.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANE 4: CHECKLIST -->
+    <div id="tab-checklist" class="tab-pane">
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px; max-width:680px; margin:0 auto;">
+        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--text); margin-bottom:12px;">Squad Pre-Sortie Checklist</h2>
+        <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:20px;">
+          Before launching into difficult Chaos sectors or high-heat Zero System runs, check your squad against these core tactical criteria:
         </p>
-        <ul style="font-size:0.85rem; color:var(--body); line-height:1.8; margin-left:20px;">
-          <li><strong>Circen First:</strong> Always target Circen shrines early in Chaos runs to obtain AP cost reduction sparks.</li>
-          <li><strong>Trim the Starter Cards:</strong> Use Merchant rest stops to purge basic 1 AP strikes and concentrate your deck on 0 AP Epiphanies.</li>
-          <li><strong>Save Value Ceiling:</strong> Maximize heat modifiers in Zero System to expand Save Value budget from 200 to 500+.</li>
-          <li><strong>Relic Hoarding:</strong> Collect universal rare relics (e.g. Aether Reactor, Chrono Seal) to boost baseline draw.</li>
-        </ul>
+
+        <div style="display:flex; flex-direction:column; gap:12px;" id="squadChecklist">
+          <label style="display:flex; align-items:center; gap:10px; background:var(--card-inner); padding:12px 16px; border-radius:6px; cursor:pointer;">
+            <input type="checkbox" style="width:18px; height:18px; accent-color:var(--cyan);">
+            <span style="font-size:0.88rem; color:var(--text);">At least 1 hero matches the recommended sector attribute (+25% DMG bonus).</span>
+          </label>
+          <label style="display:flex; align-items:center; gap:10px; background:var(--card-inner); padding:12px 16px; border-radius:6px; cursor:pointer;">
+            <input type="checkbox" style="width:18px; height:18px; accent-color:var(--cyan);">
+            <span style="font-size:0.88rem; color:var(--text);">Squad includes adequate shields or healing to prevent Stress reaching 100.</span>
+          </label>
+          <label style="display:flex; align-items:center; gap:10px; background:var(--card-inner); padding:12px 16px; border-radius:6px; cursor:pointer;">
+            <input type="checkbox" style="width:18px; height:18px; accent-color:var(--cyan);">
+            <span style="font-size:0.88rem; color:var(--text);">Deck has sufficient 0-cost or 1-cost cards to sustain 3 AP per turn flow.</span>
+          </label>
+          <label style="display:flex; align-items:center; gap:10px; background:var(--card-inner); padding:12px 16px; border-radius:6px; cursor:pointer;">
+            <input type="checkbox" style="width:18px; height:18px; accent-color:var(--cyan);">
+            <span style="font-size:0.88rem; color:var(--text);">Includes a dedicated card cycling mechanism (Nia, Cassius, or draw items).</span>
+          </label>
+          <label style="display:flex; align-items:center; gap:10px; background:var(--card-inner); padding:12px 16px; border-radius:6px; cursor:pointer;">
+            <input type="checkbox" style="width:18px; height:18px; accent-color:var(--cyan);">
+            <span style="font-size:0.88rem; color:var(--text);">Card synergy triggers are aligned (e.g. Extra Attacks, Discard procs, Wave stacks).</span>
+          </label>
+        </div>
       </div>
     </div>
   </div>
 </main>
 
-{make_footer()}
+<script>
+// Sub-tabs switcher
+document.querySelectorAll('.sub-tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.sub-tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const target = document.getElementById(btn.getAttribute('data-tab'));
+    if (target) target.classList.add('active');
+  });
+});
+</script>
+
+__FOOTER__
 </body>
 </html>'''
+
+    guides_html = guides_template.replace('__NAV__', make_nav('guides.html')).replace('__FOOTER__', make_footer())
     with open(f'{base_dir}/guides.html', 'w', encoding='utf-8') as f:
         f.write(guides_html)
 
-    print("Successfully built all 6 multi-page website files:")
-    print(" - index.html (Portal/Home)")
-    print(" - characters.html (Roster & Partners)")
-    print(" - cards.html (Card Database)")
-    print(" - mechanics.html (Mechanics & Deities)")
-    print(" - lore.html (Universe & Factions)")
-    print(" - guides.html (Strategy Guides)")
+    print("Successfully built all 6 multi-page website files with rich content:")
+    print(" - index.html (Portal/Home with stats banner)")
+    print(" - characters.html (38 Combatants & 49 Partners with portraits & modal starter art)")
+    print(" - cards.html (1,157 Unique Cards with 782 illustrations & AP filters)")
+    print(" - mechanics.html (Interactive sub-tabs, 28-term Glossary search, 6 Deities, Relics)")
+    print(" - lore.html (Story narrative & 8 Factions with 87 member avatar badges)")
+    print(" - guides.html (Beginner Roadmap, 3 Meta Squads, Progression & Interactive Checklist)")
 
 if __name__ == '__main__':
     run()
