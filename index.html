@@ -11,14 +11,16 @@
 </head>
 <body>
 <nav>
-  <a href="index.html" class="nav-brand"><span>CZN</span> DATABASE</a>
+  <div class="nav-top">
+    <a href="index.html" class="nav-brand"><span>CZN</span> DATABASE</a>
+    <a href="https://github.com/CholidAlFarisi/czn-fan-guide" target="_blank" class="nav-btn">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+  </div>
   <ul class="nav-links">
     <li><a href="index.html" class="active">Home</a></li> <li><a href="characters.html" class="">Characters</a></li> <li><a href="cards.html" class="">Cards</a></li> <li><a href="mechanics.html" class="">Mechanics</a></li> <li><a href="lore.html" class="">Lore</a></li> <li><a href="guides.html" class="">Guides</a></li>
   </ul>
-  <a href="https://github.com/CholidAlFarisi/czn-fan-guide" target="_blank" class="nav-btn">
-    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-    GitHub
-  </a>
 </nav>
 
 <main>
@@ -92,63 +94,75 @@
     <div class="char-grid">
       
         <div class="char-card" data-r="5" onclick="location.href='characters.html'">
-          <div class="char-icon">🛡️</div>
-          <div class="char-name">Adelheid</div>
-          <div class="char-stars">★★★★★</div>
-          <div class="char-tags">
-            <span class="tag">Vanguard</span>
-            <span class="tag attr">Void (Dark)</span>
-            <span class="tag">Empire Vanguard</span>
+          <div class="char-icon"><img src="assets/characters/1055.webp" alt="Adelheid" loading="lazy" onerror="this.parentElement.textContent='🛡️'"></div>
+          <div class="char-info">
+            <div class="char-name">Adelheid</div>
+            <div class="char-stars">★★★★★</div>
+            <div class="char-tags">
+              <span class="tag">Vanguard</span>
+              <span class="tag attr">Void (Dark)</span>
+              <span class="tag">Empire Vanguard</span>
+            </div>
           </div>
         </div>
         <div class="char-card" data-r="5" onclick="location.href='characters.html'">
-          <div class="char-icon">⚔️</div>
-          <div class="char-name">Arabella</div>
-          <div class="char-stars">★★★★★</div>
-          <div class="char-tags">
-            <span class="tag">Striker</span>
-            <span class="tag attr">Instinct (Eye)</span>
-            <span class="tag">Empire Striker</span>
+          <div class="char-icon"><img src="assets/characters/30115.webp" alt="Arabella" loading="lazy" onerror="this.parentElement.textContent='⚔️'"></div>
+          <div class="char-info">
+            <div class="char-name">Arabella</div>
+            <div class="char-stars">★★★★★</div>
+            <div class="char-tags">
+              <span class="tag">Striker</span>
+              <span class="tag attr">Instinct (Eye)</span>
+              <span class="tag">Empire Striker</span>
+            </div>
           </div>
         </div>
         <div class="char-card" data-r="5" onclick="location.href='characters.html'">
-          <div class="char-icon">🔮</div>
-          <div class="char-name">Chizuru</div>
-          <div class="char-stars">★★★★★</div>
-          <div class="char-tags">
-            <span class="tag">Psionic</span>
-            <span class="tag attr">Void (Dark)</span>
-            <span class="tag">Far East Psionic</span>
+          <div class="char-icon"><img src="assets/characters/1060.webp" alt="Chizuru" loading="lazy" onerror="this.parentElement.textContent='🔮'"></div>
+          <div class="char-info">
+            <div class="char-name">Chizuru</div>
+            <div class="char-stars">★★★★★</div>
+            <div class="char-tags">
+              <span class="tag">Psionic</span>
+              <span class="tag attr">Void (Dark)</span>
+              <span class="tag">Far East Psionic</span>
+            </div>
           </div>
         </div>
         <div class="char-card" data-r="5" onclick="location.href='characters.html'">
-          <div class="char-icon">🏹</div>
-          <div class="char-name">Diana</div>
-          <div class="char-stars">★★★★★</div>
-          <div class="char-tags">
-            <span class="tag">Hunter</span>
-            <span class="tag attr">Passion (Fire)</span>
-            <span class="tag">The Holy Crusaders</span>
+          <div class="char-icon"><img src="assets/characters/1061.webp" alt="Diana" loading="lazy" onerror="this.parentElement.textContent='🏹'"></div>
+          <div class="char-info">
+            <div class="char-name">Diana</div>
+            <div class="char-stars">★★★★★</div>
+            <div class="char-tags">
+              <span class="tag">Hunter</span>
+              <span class="tag attr">Passion (Fire)</span>
+              <span class="tag">The Holy Crusaders</span>
+            </div>
           </div>
         </div>
         <div class="char-card" data-r="5" onclick="location.href='characters.html'">
-          <div class="char-icon">🎯</div>
-          <div class="char-name">Fei</div>
-          <div class="char-stars">★★★★★</div>
-          <div class="char-tags">
-            <span class="tag">Ranger</span>
-            <span class="tag attr">Void (Dark)</span>
-            <span class="tag">Unknown Origin</span>
+          <div class="char-icon"><img src="assets/characters/30048.webp" alt="Fei" loading="lazy" onerror="this.parentElement.textContent='🎯'"></div>
+          <div class="char-info">
+            <div class="char-name">Fei</div>
+            <div class="char-stars">★★★★★</div>
+            <div class="char-tags">
+              <span class="tag">Ranger</span>
+              <span class="tag attr">Void (Dark)</span>
+              <span class="tag">Unknown Origin</span>
+            </div>
           </div>
         </div>
         <div class="char-card" data-r="5" onclick="location.href='characters.html'">
-          <div class="char-icon">⚔️</div>
-          <div class="char-name">Haru</div>
-          <div class="char-stars">★★★★★</div>
-          <div class="char-tags">
-            <span class="tag">Striker</span>
-            <span class="tag attr">Justice (Scale)</span>
-            <span class="tag">Terrascion</span>
+          <div class="char-icon"><img src="assets/characters/1062.webp" alt="Haru" loading="lazy" onerror="this.parentElement.textContent='⚔️'"></div>
+          <div class="char-info">
+            <div class="char-name">Haru</div>
+            <div class="char-stars">★★★★★</div>
+            <div class="char-tags">
+              <span class="tag">Striker</span>
+              <span class="tag attr">Justice (Scale)</span>
+              <span class="tag">Terrascion</span>
+            </div>
           </div>
         </div>
     </div>

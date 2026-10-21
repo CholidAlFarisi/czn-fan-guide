@@ -10,7 +10,28 @@ def clean_desc(text):
 def run():
     base_dir = 'D:/agents/czn-fan-guide'
 
-    # 1. Load Combatants from data/characters/
+    # 1. Load Character Database from e7bot
+    with open(f'{base_dir}/raw-data/e7bot/characters-en.json', encoding='utf-8') as f:
+        chars_raw = json.load(f)['data']
+    name_to_id = {c['name'].lower(): str(c['id']) for c in chars_raw if 'name' in c and 'id' in c}
+    id_map = {str(c['id']): c['name'] for c in chars_raw if 'id' in c and 'name' in c}
+
+    # 2. Load Cards Database from e7bot & build illustration lookup
+    with open(f'{base_dir}/raw-data/e7bot/cards-en.json', encoding='utf-8') as f:
+        cards_raw = json.load(f)['data']
+
+    card_name_to_sct = {}
+    for c in cards_raw:
+        c_name = c.get('name', '').lower().strip()
+        sct = c.get('sct_name', '')
+        bc = c.get('base_combatant')
+        bc_id = str(bc.get('id')) if (bc and isinstance(bc, dict) and 'id' in bc) else ''
+        if c_name and sct:
+            card_name_to_sct[(c_name, bc_id)] = sct
+            if c_name not in card_name_to_sct:
+                card_name_to_sct[c_name] = sct
+
+    # 3. Load Combatants from data/characters/
     combatants = []
     for p in sorted(glob.glob(f'{base_dir}/data/characters/*/*.md')):
         fname = os.path.basename(p)
@@ -21,6 +42,7 @@ def run():
         
         name_m = re.search(r'^#\s+(.+)$', content, re.M)
         name = name_m.group(1).strip() if name_m else fname.replace('.md', '').capitalize()
+        cid = name_to_id.get(name.lower(), '')
         
         norm_p = p.replace('\\', '/')
         if '5-star' in norm_p:
@@ -43,7 +65,7 @@ def run():
         overview = over_m.group(1).strip() if over_m else f'{name} is a {rarity}★ {job} affiliated with {faction}.'
         
         starters = re.findall(r'\|\s*\*\*([^*]+)\*\*\s*\|\s*(\d+)\s*\|\s*([^|]+)\|\s*([^|]+)\|', content)
-        card_list = [{'name': c[0].strip(), 'cost': c[1].strip(), 'type': c[2].strip(), 'effect': c[3].strip()} for c in starters[:6]]
+        card_list = [{'name': c[0].strip(), 'cost': c[1].strip(), 'type': c[2].strip(), 'effect': c[3].strip(), 'image': card_name_to_sct.get((c[0].strip().lower(), cid), card_name_to_sct.get(c[0].strip().lower(), ''))} for c in starters[:6]]
         
         icons = {
             'Vanguard': '🛡️',
@@ -57,6 +79,7 @@ def run():
         
         combatants.append({
             'name': name,
+            'id': cid,
             'rarity': rarity,
             'job': job,
             'ego': ego,
@@ -75,10 +98,8 @@ def run():
             unique_combatants.append(c)
     unique_combatants.sort(key=lambda x: (-x['rarity'], x['name']))
 
-    # 2. Load Partners from characters-en.json
+    # 4. Load Partners from characters-en.json
     supporters = []
-    with open(f'{base_dir}/raw-data/e7bot/characters-en.json', encoding='utf-8') as f:
-        chars_raw = json.load(f)['data']
     for cr in chars_raw:
         if cr.get('char_type') == 'CHAR_SUPPORTER':
             supporters.append({
@@ -90,7 +111,7 @@ def run():
             })
     supporters.sort(key=lambda x: (-x['rarity'], x['name']))
 
-    # 3. Load cards from cards-en.json with proper category and character mappings
+    # 5. Load cards from cards-en.json with proper category and character mappings
     category_map = {
         'CARD_ATK': 'Attack',
         'CARD_SKILL': 'Skill',
@@ -98,11 +119,7 @@ def run():
         'CARD_CURSE': 'Curse',
         'CARD_ABNORM': 'Abnormality'
     }
-    id_map = {str(c['id']): c['name'] for c in chars_raw if 'id' in c and 'name' in c}
 
-    with open(f'{base_dir}/raw-data/e7bot/cards-en.json', encoding='utf-8') as f:
-        cards_raw = json.load(f)['data']
-    
     cards_list = []
     seen_cards = set()
     for c in cards_raw:
@@ -124,6 +141,7 @@ def run():
         if bc and isinstance(bc, dict) and 'id' in bc:
             owner = id_map.get(str(bc['id']), 'General')
             
+        sct = c.get('sct_name', '')
         key = (name, cost, card_type, owner)
         if key in seen_cards:
             continue
@@ -133,7 +151,8 @@ def run():
             'cost': cost,
             'type': card_type,
             'effect': cleaned,
-            'owner': owner
+            'owner': owner,
+            'image': sct
         })
 
     # Helper for navigation
@@ -152,14 +171,16 @@ def run():
             html_links.append(f'<li><a href="{href}" class="{cls}">{label}</a></li>')
         
         return f'''<nav>
-  <a href="index.html" class="nav-brand"><span>CZN</span> DATABASE</a>
+  <div class="nav-top">
+    <a href="index.html" class="nav-brand"><span>CZN</span> DATABASE</a>
+    <a href="https://github.com/CholidAlFarisi/czn-fan-guide" target="_blank" class="nav-btn">
+      <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+  </div>
   <ul class="nav-links">
     {' '.join(html_links)}
   </ul>
-  <a href="https://github.com/CholidAlFarisi/czn-fan-guide" target="_blank" class="nav-btn">
-    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-    GitHub
-  </a>
 </nav>'''
 
     def make_footer():
@@ -182,15 +203,18 @@ def run():
     featured_cards_html = []
     for c in featured:
         stars = '★' * c['rarity']
+        img_tag = f'<img src="assets/characters/{c["id"]}.webp" alt="{c["name"]}" loading="lazy" onerror="this.parentElement.textContent=\'{c["icon"]}\'">' if c.get('id') else c['icon']
         featured_cards_html.append(f'''
         <div class="char-card" data-r="{c['rarity']}" onclick="location.href='characters.html'">
-          <div class="char-icon">{c['icon']}</div>
-          <div class="char-name">{c['name']}</div>
-          <div class="char-stars">{stars}</div>
-          <div class="char-tags">
-            <span class="tag">{c['job']}</span>
-            <span class="tag attr">{c['ego']}</span>
-            <span class="tag">{c['faction']}</span>
+          <div class="char-icon">{img_tag}</div>
+          <div class="char-info">
+            <div class="char-name">{c['name']}</div>
+            <div class="char-stars">{stars}</div>
+            <div class="char-tags">
+              <span class="tag">{c['job']}</span>
+              <span class="tag attr">{c['ego']}</span>
+              <span class="tag">{c['faction']}</span>
+            </div>
           </div>
         </div>''')
 
@@ -426,14 +450,17 @@ function renderCombatants(items) {{
     el.dataset.r = c.rarity;
     el.dataset.job = c.job;
     const stars = '★'.repeat(c.rarity);
+    const imgHtml = c.id ? `<img src="assets/characters/${{c.id}}.webp" alt="${{c.name}}" loading="lazy" onerror="this.parentElement.textContent='${{c.icon}}'">` : c.icon;
     el.innerHTML = `
-      <div class="char-icon">${{c.icon}}</div>
-      <div class="char-name">${{c.name}}</div>
-      <div class="char-stars">${{stars}}</div>
-      <div class="char-tags">
-        <span class="tag">${{c.job}}</span>
-        <span class="tag attr">${{c.ego}}</span>
-        <span class="tag">${{c.faction}}</span>
+      <div class="char-icon">${{imgHtml}}</div>
+      <div class="char-info">
+        <div class="char-name">${{c.name}}</div>
+        <div class="char-stars">${{stars}}</div>
+        <div class="char-tags">
+          <span class="tag">${{c.job}}</span>
+          <span class="tag attr">${{c.ego}}</span>
+          <span class="tag">${{c.faction}}</span>
+        </div>
       </div>
     `;
     el.addEventListener('click', () => openModal(c));
@@ -457,13 +484,16 @@ function renderPartners(items) {{
     el.className = 'char-card';
     el.dataset.r = p.rarity;
     const stars = '★'.repeat(p.rarity);
+    const imgHtml = p.id ? `<img src="assets/characters/${{p.id}}.webp" alt="${{p.name}}" loading="lazy" onerror="this.parentElement.textContent='🤝'">` : '🤝';
     el.innerHTML = `
-      <div class="char-icon" style="border-color:${{p.color}}">🤝</div>
-      <div class="char-name">${{p.name}}</div>
-      <div class="char-stars">${{stars}}</div>
-      <div class="char-tags">
-        <span class="tag" style="border-color:${{p.color}}; color:${{p.color}}">Partner</span>
-        <span class="tag">ID: ${{p.id}}</span>
+      <div class="char-icon" style="border-color:${{p.color}}">${{imgHtml}}</div>
+      <div class="char-info">
+        <div class="char-name">${{p.name}}</div>
+        <div class="char-stars">${{stars}}</div>
+        <div class="char-tags">
+          <span class="tag" style="border-color:${{p.color}}; color:${{p.color}}">Partner</span>
+          <span class="tag">ID: ${{p.id}}</span>
+        </div>
       </div>
     `;
     suppGrid.appendChild(el);
@@ -474,7 +504,12 @@ function renderPartners(items) {{
 const modal = document.getElementById('charModal');
 const modalClose = document.getElementById('modalClose');
 function openModal(c) {{
-  document.getElementById('mIcon').textContent = c.icon;
+  const mIcon = document.getElementById('mIcon');
+  if (c.id) {{
+    mIcon.innerHTML = `<img src="assets/characters/${{c.id}}.webp" alt="${{c.name}}" onerror="this.parentElement.textContent='${{c.icon}}'">`;
+  }} else {{
+    mIcon.textContent = c.icon;
+  }}
   document.getElementById('mName').textContent = c.name;
   document.getElementById('mStars').textContent = '★'.repeat(c.rarity);
   document.getElementById('mDesc').textContent = c.overview;
@@ -492,7 +527,9 @@ function openModal(c) {{
     c.cards.forEach(card => {{
       const row = document.createElement('div');
       row.className = 'm-card-row';
+      const artHtml = card.image ? `<img src="assets/cards/${{card.image}}.webp" class="m-card-art" alt="${{card.name}}" onerror="this.style.display='none'">` : '';
       row.innerHTML = `
+        ${{artHtml}}
         <div class="m-card-cost">${{card.cost}}</div>
         <div class="m-card-body">
           <div class="m-card-name">
@@ -671,7 +708,10 @@ function renderCards() {{
     else if (c.type === 'Curse') typeClass = 'type-curse';
     else if (c.type === 'Abnormality') typeClass = 'type-abnorm';
 
+    const artHtml = c.image ? `<div class="card-art-box"><img src="assets/cards/${{c.image}}.webp" alt="${{c.name}}" loading="lazy" onerror="this.parentElement.style.display='none'"></div>` : '';
+
     el.innerHTML = `
+      ${{artHtml}}
       <div class="c-top">
         <div class="c-cost">${{c.cost}}</div>
         <div class="c-type ${{typeClass}}">${{c.type}}</div>
