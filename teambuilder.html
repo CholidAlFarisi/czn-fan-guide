@@ -964,9 +964,10 @@ function renderSquadColumns() {
 function getHeroCardsList(heroId, slotNum) {
   const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
   if (!hero) return [];
-  let list = (hero.starters || []).concat(hero.uniques || []);
-  const extra = currentSquad.extraCards[slotNum] || [];
-  return list.concat(extra);
+  const starters = (hero.starters || []).map(c => ({ ...c, isBasic: true }));
+  const uniques = (hero.uniques || []).map(c => ({ ...c, isUnique: true }));
+  const extra = (currentSquad.extraCards[slotNum] || []).map(c => ({ ...c, isExtra: true }));
+  return starters.concat(uniques).concat(extra);
 }
 
 function isCardRemoved(heroId, cardName) {
@@ -979,25 +980,31 @@ function renderLaneCards(heroId, slotNum) {
 
   return cards.map(c => {
     const isRemoved = isCardRemoved(heroId, c.name);
-    const hasVariants = c.variants && c.variants.length > 0;
-    const activeBranch = currentSquad.branches?.[heroId]?.[c.name] || 0;
+    const isBasic = c.isBasic || (hero && (hero.starters || []).some(s => s.name === c.name));
+    const hasVariants = !isBasic && c.variants && c.variants.length > 0;
+    const activeBranch = isBasic ? 0 : (currentSquad.branches?.[heroId]?.[c.name] || 0);
     const activeVar = (hasVariants && activeBranch > 0) ? c.variants[activeBranch - 1] : null;
 
     const displayDesc = activeVar ? activeVar.desc : (c.desc || '');
     const displayCat = activeVar ? activeVar.category : (c.category || c.type || 'Attack');
     let apCost = activeVar ? activeVar.cost : (c.cost !== undefined ? c.cost : 1);
 
-    const epTier = currentSquad.epiphanies[heroId]?.[c.name] || 'none';
+    const epTier = isBasic ? 'none' : (currentSquad.epiphanies[heroId]?.[c.name] || 'none');
     const deityKey = currentSquad.deities[heroId]?.[c.name] || getDefaultDeityForCard(c);
-    if (epTier === 'unique' || epTier === 'divine') apCost = Math.max(0, apCost - 1);
+    if (!isBasic && (epTier === 'unique' || epTier === 'divine')) apCost = Math.max(0, apCost - 1);
 
     let epClass = '';
-    if (activeBranch > 0 || epTier === 'unique') epClass = 'epiphany-unique';
-    else if (epTier === 'common') epClass = 'epiphany-common';
-    else if (epTier === 'divine') epClass = 'epiphany-divine';
+    if (!isBasic) {
+      if (activeBranch > 0 || epTier === 'unique') epClass = 'epiphany-unique';
+      else if (epTier === 'common') epClass = 'epiphany-common';
+      else if (epTier === 'divine') epClass = 'epiphany-divine';
+    }
 
     let branchSelectHtml = '';
-    if (hasVariants) {
+    let epiphanyButtonHtml = '';
+    if (isBasic) {
+      branchSelectHtml = `<span style="font-size:0.62rem; color:var(--muted); padding:1px 6px; background:rgba(255,255,255,0.04); border-radius:3px; border:1px solid rgba(255,255,255,0.08);" title="Basic cards cannot have Epiphany">Basic Card</span>`;
+    } else if (hasVariants) {
       branchSelectHtml = `
         <select class="branch-picker" style="background:var(--card-inner); border:1px solid #dfb235; border-radius:3px; color:#dfb235; font-size:0.65rem; padding:1px 3px; max-width:130px;" onchange="setCardBranch('${heroId}', '${c.name.replace(/'/g, "\\'")}', this.value)" title="Choose Unique Epiphany Branch">
           <option value="0" ${activeBranch === 0 ? 'selected' : ''}>Base Card</option>
@@ -1008,6 +1015,7 @@ function renderLaneCards(heroId, slotNum) {
           `).join('')}
         </select>
       `;
+      epiphanyButtonHtml = `<button class="builder-btn" style="padding:1px 5px; font-size:0.65rem; color:#dfb235; border-color:rgba(223,178,53,0.4);" onclick="openEpiphanyModal('${heroId}', '${c.name.replace(/'/g, "\\'")}', ${slotNum})" title="Inspect Epiphany Details">🔍</button>`;
     } else {
       branchSelectHtml = `
         <select style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:3px; color:#dfb235; font-size:0.65rem; padding:1px 3px;" onchange="setCardEpiphany('${heroId}', '${c.name.replace(/'/g, "\\'")}', this.value)">
@@ -1016,6 +1024,7 @@ function renderLaneCards(heroId, slotNum) {
           <option value="divine" ${epTier === 'divine' ? 'selected' : ''}>✨ Divine (+100%, Deity)</option>
         </select>
       `;
+      epiphanyButtonHtml = `<button class="builder-btn" style="padding:1px 5px; font-size:0.65rem; color:#dfb235; border-color:rgba(223,178,53,0.4);" onclick="openEpiphanyModal('${heroId}', '${c.name.replace(/'/g, "\\'")}', ${slotNum})" title="Inspect Epiphany Details">🔍</button>`;
     }
 
     return `
@@ -1043,7 +1052,7 @@ function renderLaneCards(heroId, slotNum) {
             <option value="secred" ${deityKey === 'secred' ? 'selected' : ''}>Secred</option>
           </select>
 
-          <button class="builder-btn" style="padding:1px 5px; font-size:0.65rem; color:#dfb235; border-color:rgba(223,178,53,0.4);" onclick="openEpiphanyModal('${heroId}', '${c.name.replace(/'/g, "\\'")}', ${slotNum})" title="Inspect Epiphany Details">🔍</button>
+          ${epiphanyButtonHtml}
 
           <button class="builder-btn" style="padding:2px 6px; font-size:0.65rem; ${isRemoved ? 'border-color:var(--cyan); color:var(--cyan);' : 'border-color:var(--red); color:var(--red);'}" onclick="toggleCardRemoved('${heroId}', '${c.name.replace(/'/g, "\\'")}')">
             ${isRemoved ? 'Restore' : 'Remove'}
@@ -1189,27 +1198,38 @@ function renderDeckCustomizer() {
 
   cardsToShow.forEach(c => {
     const isRemoved = isCardRemoved(activeHeroId, c.name);
-    const epTier = currentSquad.epiphanies[activeHeroId]?.[c.name] || 'none';
+    const isBasic = c.isBasic || (activeHero && (activeHero.starters || []).some(s => s.name === c.name));
+    const epTier = isBasic ? 'none' : (currentSquad.epiphanies[activeHeroId]?.[c.name] || 'none');
     const deityKey = currentSquad.deities[activeHeroId]?.[c.name] || getDefaultDeityForCard(c);
     const deity = window.CZN_DATA.deities?.[deityKey];
 
-    const hasVariants = c.variants && c.variants.length > 0;
-    const activeBranch = currentSquad.branches?.[activeHeroId]?.[c.name] || 0;
+    const hasVariants = !isBasic && c.variants && c.variants.length > 0;
+    const activeBranch = isBasic ? 0 : (currentSquad.branches?.[activeHeroId]?.[c.name] || 0);
     const activeVar = (hasVariants && activeBranch > 0) ? c.variants[activeBranch - 1] : null;
 
     const displayDesc = activeVar ? activeVar.desc : (c.desc || '');
     const displayCat = activeVar ? activeVar.category : (c.category || c.type || 'Attack');
     let apCost = activeVar ? activeVar.cost : (c.cost !== undefined ? c.cost : 1);
 
-    if (epTier === 'unique' || epTier === 'divine') apCost = Math.max(0, apCost - 1);
+    if (!isBasic && (epTier === 'unique' || epTier === 'divine')) apCost = Math.max(0, apCost - 1);
 
     let epClass = '';
-    if (activeBranch > 0 || epTier === 'unique') epClass = 'epiphany-unique';
-    else if (epTier === 'common') epClass = 'epiphany-common';
-    else if (epTier === 'divine') epClass = 'epiphany-divine';
+    if (!isBasic) {
+      if (activeBranch > 0 || epTier === 'unique') epClass = 'epiphany-unique';
+      else if (epTier === 'common') epClass = 'epiphany-common';
+      else if (epTier === 'divine') epClass = 'epiphany-divine';
+    }
 
     let branchSelectHtml = '';
-    if (hasVariants) {
+    let detailsBtnHtml = '';
+    if (isBasic) {
+      branchSelectHtml = `
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <span style="font-size:0.68rem; color:var(--muted); font-weight:700;">TYPE:</span>
+          <span style="font-size:0.7rem; color:var(--muted); background:rgba(255,255,255,0.05); padding:2px 8px; border-radius:3px; border:1px solid rgba(255,255,255,0.08);">Basic Starter (No Epiphany)</span>
+        </div>
+      `;
+    } else if (hasVariants) {
       branchSelectHtml = `
         <div style="display:flex; justify-content:space-between; align-items:center;">
           <span style="font-size:0.68rem; color:#dfb235; font-weight:700;">UNIQUE BRANCH:</span>
@@ -1223,6 +1243,11 @@ function renderDeckCustomizer() {
           </select>
         </div>
       `;
+      detailsBtnHtml = `
+        <button class="builder-btn" style="flex:1; padding:4px 8px; font-size:0.74rem; color:#dfb235; border-color:rgba(223,178,53,0.4);" onclick="openEpiphanyModal('${activeHeroId}', '${c.name.replace(/'/g, "\\\\\'")}', ${activeSlotNum})">
+          🔍 Epiphany Details
+        </button>
+      `;
     } else {
       branchSelectHtml = `
         <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -1234,6 +1259,11 @@ function renderDeckCustomizer() {
             <option value="divine" ${epTier === 'divine' ? 'selected' : ''}>✨ Divine (+100%, Deity)</option>
           </select>
         </div>
+      `;
+      detailsBtnHtml = `
+        <button class="builder-btn" style="flex:1; padding:4px 8px; font-size:0.74rem; color:#dfb235; border-color:rgba(223,178,53,0.4);" onclick="openEpiphanyModal('${activeHeroId}', '${c.name.replace(/'/g, "\\\\\'")}', ${activeSlotNum})">
+          🔍 Epiphany Details
+        </button>
       `;
     }
 
@@ -1268,9 +1298,7 @@ function renderDeckCustomizer() {
       </div>
 
       <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-top:10px;">
-        <button class="builder-btn" style="flex:1; padding:4px 8px; font-size:0.74rem; color:#dfb235; border-color:rgba(223,178,53,0.4);" onclick="openEpiphanyModal('${activeHeroId}', '${c.name.replace(/'/g, "\\\\\'")}', ${activeSlotNum})">
-          🔍 Epiphany Details
-        </button>
+        ${detailsBtnHtml}
         <button class="builder-btn" style="flex:1; padding:4px 8px; font-size:0.74rem; ${isRemoved ? 'border-color:var(--cyan); color:var(--cyan);' : 'border-color:var(--red); color:var(--red);'}" onclick="toggleCardRemoved('${activeHeroId}', '${c.name.replace(/'/g, "\\\\\'")}')">
           ${isRemoved ? '✅ Restore' : '🗑️ Remove'}
         </button>
@@ -1282,6 +1310,11 @@ function renderDeckCustomizer() {
 }
 
 function setCardEpiphany(heroId, cardName, epiphanyType) {
+  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
+  if (hero && (hero.starters || []).some(s => s.name === cardName)) {
+    showToast(`Basic Card (${cardName}) tidak dapat memiliki Epiphany.`);
+    return;
+  }
   if (!currentSquad.epiphanies[heroId]) currentSquad.epiphanies[heroId] = {};
   currentSquad.epiphanies[heroId][cardName] = epiphanyType;
   renderAll();
@@ -1309,7 +1342,7 @@ function quickAwakenAllDivine() {
   const hid = currentSquad['hero' + activeSlotNum];
   const hero = window.CZN_DATA.combatants.find(c => c.id === hid);
   if (!hero) return;
-  (hero.starters || []).concat(hero.uniques || []).forEach(c => {
+  (hero.uniques || []).forEach(c => {
     if (!currentSquad.epiphanies[hid]) currentSquad.epiphanies[hid] = {};
     currentSquad.epiphanies[hid][c.name] = 'divine';
     if (!currentSquad.deities[hid]) currentSquad.deities[hid] = {};
@@ -1324,7 +1357,7 @@ function quickAwakenAllUnique() {
   const hid = currentSquad['hero' + activeSlotNum];
   const hero = window.CZN_DATA.combatants.find(c => c.id === hid);
   if (!hero) return;
-  (hero.starters || []).concat(hero.uniques || []).forEach(c => {
+  (hero.uniques || []).forEach(c => {
     if (!currentSquad.epiphanies[hid]) currentSquad.epiphanies[hid] = {};
     currentSquad.epiphanies[hid][c.name] = 'unique';
   });
@@ -1370,26 +1403,28 @@ function getCombinedDeckCards() {
       const allHeroCards = getHeroCardsList(hid, slotNum);
       allHeroCards.forEach(c => {
         if (!isCardRemoved(hid, c.name)) {
-          const hasVariants = c.variants && c.variants.length > 0;
-          const activeBranch = currentSquad.branches?.[hid]?.[c.name] || 0;
+          const isBasic = c.isBasic || (hero.starters || []).some(s => s.name === c.name);
+          const hasVariants = !isBasic && c.variants && c.variants.length > 0;
+          const activeBranch = isBasic ? 0 : (currentSquad.branches?.[hid]?.[c.name] || 0);
           const activeVar = (hasVariants && activeBranch > 0) ? c.variants[activeBranch - 1] : null;
 
-          const epTier = currentSquad.epiphanies[hid]?.[c.name] || 'none';
+          const epTier = isBasic ? 'none' : (currentSquad.epiphanies[hid]?.[c.name] || 'none');
           const deityKey = currentSquad.deities[hid]?.[c.name] || getDefaultDeityForCard(c);
           
           let cost = activeVar ? activeVar.cost : (c.cost !== undefined ? c.cost : 1);
-          if (epTier === 'unique' || epTier === 'divine' || activeBranch > 0) {
+          if (!isBasic && (epTier === 'unique' || epTier === 'divine' || activeBranch > 0)) {
             if (epTier === 'unique' || epTier === 'divine') cost = Math.max(0, cost - 1);
           }
 
           deck.push({
             ...c,
+            isBasic: isBasic,
             desc: activeVar ? activeVar.desc : c.desc,
             category: activeVar ? activeVar.category : (c.category || c.type || 'Attack'),
-            mult: activeVar ? activeVar.mult : (c.mult || c.dmg_mult || 120),
-            dmg_mult: activeVar ? activeVar.mult : (c.dmg_mult || 120),
-            shield: activeVar ? activeVar.shield : (c.shield || 0),
-            hits: activeVar ? activeVar.hits : (c.hits || 1),
+            mult: isBasic ? (c.mult || c.dmg_mult || 100) : (activeVar ? activeVar.mult : (c.mult || c.dmg_mult || 120)),
+            dmg_mult: isBasic ? (c.dmg_mult || 100) : (activeVar ? activeVar.mult : (c.dmg_mult || 120)),
+            shield: isBasic ? (c.shield || 0) : (activeVar ? activeVar.shield : (c.shield || 0)),
+            hits: isBasic ? (c.hits || 1) : (activeVar ? activeVar.hits : (c.hits || 1)),
             branch: activeBranch,
             cost: cost,
             ownerHeroId: hid,
@@ -1698,6 +1733,11 @@ function addCardToHero(slotNum, card) {
 let activeEpiphanyContext = { heroId: null, cardName: null, slotNum: 1, tab: 'unique' };
 
 function setCardBranch(heroId, cardName, branchVal) {
+  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
+  if (hero && (hero.starters || []).some(s => s.name === cardName)) {
+    showToast(`Basic Card (${cardName}) tidak dapat memiliki Epiphany.`);
+    return;
+  }
   if (!currentSquad.branches) currentSquad.branches = {};
   if (!currentSquad.branches[heroId]) currentSquad.branches[heroId] = {};
   const b = parseInt(branchVal, 10);
@@ -1709,10 +1749,18 @@ function setCardBranch(heroId, cardName, branchVal) {
 }
 
 function openEpiphanyModal(heroId, cardName, slotNum) {
-  activeEpiphanyContext = { heroId, cardName, slotNum, tab: 'unique' };
   const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
   const cardList = getHeroCardsList(heroId, slotNum);
   const card = cardList.find(c => c.name === cardName);
+  if (!card) return;
+
+  const isBasic = card.isBasic || (hero && (hero.starters || []).some(s => s.name === cardName));
+  if (isBasic) {
+    showToast(`Basic Card (${cardName}) tidak dapat memiliki Epiphany.`);
+    return;
+  }
+
+  activeEpiphanyContext = { heroId, cardName, slotNum, tab: 'unique' };
 
   document.getElementById('epModalCardName').innerText = `${cardName} — Epiphany Evolution`;
   document.getElementById('epModalSubtitle').innerText = `${hero ? hero.name : 'Hero'} • ${card ? (card.category || 'Skill') : 'Card'} (Base Cost: ${card ? (card.cost || 1) : 1} AP)`;
@@ -2421,9 +2469,11 @@ function simPlayCard(handIndex) {
 
   if (cat === 'Attack') {
     let mult = card.mult || card.dmg_mult || 120;
-    if (card.epiphany === 'common') mult *= 1.25;
-    else if (card.epiphany === 'unique' && !card.branch) mult *= 1.50;
-    else if (card.epiphany === 'divine') mult *= 2.00;
+    if (!card.isBasic) {
+      if (card.epiphany === 'common') mult *= 1.25;
+      else if (card.epiphany === 'unique' && !card.branch) mult *= 1.50;
+      else if (card.epiphany === 'divine') mult *= 2.00;
+    }
 
     let baseDmg = stats.atk * (mult / 100);
     if (card.hits && card.hits > 1) {
