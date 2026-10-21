@@ -144,26 +144,46 @@ __NAV__
 
       <!-- TARGET DUMMY / ENEMY BOSS HUD -->
       <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:8px; padding:16px; margin-bottom:16px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; flex-wrap:wrap; gap:8px;">
+        <!-- Top Row: Icon, Dummy Name, Level Dropdown, Weakness Dropdown, State Badge -->
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:10px;">
           <div style="display:flex; align-items:center; gap:12px;">
-            <div style="font-size:1.8rem;">👾</div>
+            <div style="font-size:1.8rem;" id="dummyIcon">👾</div>
             <div>
-              <div style="font-family:'Orbitron',sans-serif; font-size:1.05rem; font-weight:800; color:var(--text);">Subject Zero (Simulation Dummy)</div>
-              <div style="font-size:0.75rem; color:var(--muted);">Category: Chaos Elite Aberration &bull; Level: 60 Target</div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span style="font-family:'Orbitron',sans-serif; font-size:1.05rem; font-weight:800; color:var(--text);" id="dummyNameLabel">Subject Zero</span>
+                <span id="dummyLevelBadge" style="font-size:0.7rem; padding:2px 6px; border-radius:3px; background:rgba(168,85,247,0.2); color:var(--purple); font-weight:700;">Lv. 60</span>
+              </div>
+              <div style="font-size:0.75rem; color:var(--muted);" id="dummySubLabel">Category: Chaos Elite Aberration &bull; Base DEF: 350</div>
             </div>
           </div>
 
-          <div style="display:flex; align-items:center; gap:10px;">
-            <label style="font-size:0.78rem; color:var(--muted);">Elemental Weakness:</label>
-            <select id="dummyWeaknessSelect" style="padding:4px 8px; background:var(--panel); border:1px solid var(--panel-border); border-radius:4px; color:#fff; font-size:0.8rem;" onchange="updateDummyWeakness()">
-              <option value="None">None (Neutral)</option>
-              <option value="Passion">🔥 Passion Weakness</option>
-              <option value="Order">⚖️ Order Weakness</option>
-              <option value="Justice">⚔️ Justice Weakness</option>
-              <option value="Void">🌌 Void Weakness</option>
-              <option value="Instinct">⚡ Instinct Weakness</option>
-            </select>
-            <span id="dummyStateBadge" style="font-size:0.72rem; padding:3px 8px; border-radius:4px; background:rgba(38,146,211,0.2); color:var(--cyan); font-weight:700;">Shield Active</span>
+          <div style="display:flex; align-items:center; gap:10px; flex-wrap:wrap;">
+            <!-- Level Selector -->
+            <div style="display:flex; align-items:center; gap:6px;">
+              <label style="font-size:0.75rem; color:var(--muted);">Tier:</label>
+              <select id="dummyLevelSelect" style="padding:4px 8px; background:var(--panel); border:1px solid var(--panel-border); border-radius:4px; color:#fff; font-size:0.78rem;" onchange="changeDummyLevel(this.value)">
+                <option value="20">Lv. 20 (Story Aberration — 5k HP / 4 Tenacity / 120 DEF)</option>
+                <option value="40">Lv. 40 (Mid-Tier Harbinger — 7.5k HP / 5 Tenacity / 220 DEF)</option>
+                <option value="60" selected>Lv. 60 (Standard Elite — 10k HP / 6 Tenacity / 350 DEF)</option>
+                <option value="80">Lv. 80 (Nightmare Dreadfiend — 16k HP / 8 Tenacity / 520 DEF)</option>
+                <option value="100">Lv. 100 (Abyss Sovereign — 25k HP / 10 Tenacity / 750 DEF)</option>
+              </select>
+            </div>
+
+            <!-- Weakness Selector -->
+            <div style="display:flex; align-items:center; gap:6px;">
+              <label style="font-size:0.75rem; color:var(--muted);">Weakness:</label>
+              <select id="dummyWeaknessSelect" style="padding:4px 8px; background:var(--panel); border:1px solid var(--panel-border); border-radius:4px; color:#fff; font-size:0.78rem;" onchange="updateDummyWeakness()">
+                <option value="None">None (Neutral)</option>
+                <option value="Passion">🔥 Passion</option>
+                <option value="Order">⚖️ Order</option>
+                <option value="Justice">⚔️ Justice</option>
+                <option value="Void">🌌 Void</option>
+                <option value="Instinct">⚡ Instinct</option>
+              </select>
+            </div>
+
+            <span id="dummyStateBadge" style="font-size:0.72rem; padding:3px 8px; border-radius:4px; background:rgba(38,146,211,0.2); color:var(--cyan); font-weight:700;">Tenacity Active</span>
           </div>
         </div>
 
@@ -179,13 +199,37 @@ __NAV__
         </div>
 
         <!-- Target Tenacity Bar -->
-        <div>
+        <div style="margin-bottom:12px;">
           <div style="display:flex; justify-content:space-between; font-size:0.78rem; margin-bottom:3px;">
             <span style="color:var(--muted);">Tenacity Shield (Depletes to trigger Ravage &amp; +1 AP):</span>
             <span style="font-weight:700; color:var(--gold);" id="dummyTenacityText">6 / 6 Bars (100%)</span>
           </div>
           <div style="background:var(--panel); height:8px; border-radius:4px; overflow:hidden; border:1px solid var(--panel-border);">
             <div id="dummyTenacityBar" style="width:100%; height:100%; background:linear-gradient(90deg, var(--gold), #fbbf24); transition:width 0.25s ease;"></div>
+          </div>
+        </div>
+
+        <!-- Row: Enemy DEF Mitigation Option & Active DoT / Status Effects -->
+        <div style="display:flex; justify-content:space-between; align-items:center; padding-top:10px; border-top:1px dashed var(--panel-border); flex-wrap:wrap; gap:10px;">
+          <!-- DEF Mitigation Toggle -->
+          <label style="display:flex; align-items:center; gap:6px; font-size:0.78rem; color:var(--muted); cursor:pointer;">
+            <input type="checkbox" id="chkApplyDef" onchange="toggleApplyDef()" checked style="accent-color:var(--accent);">
+            <span>Apply Enemy DEF Mitigation (<strong style="color:var(--text);" id="dummyDefValueText">DEF: 350 &rarr; ~26% DMG Reduction</strong>)</span>
+          </label>
+
+          <!-- Status DoT Counters & Quick Controls -->
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span style="font-size:0.72rem; color:var(--muted); text-transform:uppercase;">Status DoT:</span>
+            <span id="badgeBleed" style="font-size:0.75rem; padding:2px 8px; border-radius:4px; background:rgba(248,80,88,0.15); border:1px solid var(--red); color:var(--red); font-weight:600; opacity:0.5;">🩸 Bleed: <strong id="valBleed">0</strong></span>
+            <span id="badgeBurn" style="font-size:0.75rem; padding:2px 8px; border-radius:4px; background:rgba(249,115,22,0.15); border:1px solid #f97316; color:#f97316; font-weight:600; opacity:0.5;">🔥 Burn: <strong id="valBurn">0</strong></span>
+            <span id="badgeVuln" style="font-size:0.75rem; padding:2px 8px; border-radius:4px; background:rgba(223,178,53,0.15); border:1px solid var(--gold); color:var(--gold); font-weight:600; opacity:0.5;">⚡ Vuln: <strong id="valVuln">0</strong></span>
+
+            <div style="display:flex; gap:4px; margin-left:4px;">
+              <button class="builder-btn" style="padding:2px 6px; font-size:0.68rem;" onclick="addDebuff('bleed', 2)">+2 🩸</button>
+              <button class="builder-btn" style="padding:2px 6px; font-size:0.68rem;" onclick="addDebuff('burn', 2)">+2 🔥</button>
+              <button class="builder-btn" style="padding:2px 6px; font-size:0.68rem;" onclick="addDebuff('vuln', 1)">+1 ⚡</button>
+              <button class="builder-btn" style="padding:2px 6px; font-size:0.68rem; color:var(--muted);" onclick="clearDebuffs()">✕ Clear</button>
+            </div>
           </div>
         </div>
       </div>
@@ -795,6 +839,14 @@ function updateAnalytics() {
 // ==========================================
 // 4. COMBAT ENGINE & UN-GEARED DAMAGE SIMULATOR
 // ==========================================
+const DUMMY_PRESETS = {
+  20: { name: "Story Aberration", level: 20, icon: "👾", maxHp: 5000, tenacity: 4, def: 120, sub: "Category: Low-Threat Abnormality &bull; Base DEF: 120" },
+  40: { name: "Mid-Tier Harbinger", level: 40, icon: "👹", maxHp: 7500, tenacity: 5, def: 220, sub: "Category: Manifested Nightmare &bull; Base DEF: 220" },
+  60: { name: "Subject Zero", level: 60, icon: "👾", maxHp: 10000, tenacity: 6, def: 350, sub: "Category: Chaos Elite Aberration &bull; Base DEF: 350" },
+  80: { name: "Nightmare Dreadfiend", level: 80, icon: "💀", maxHp: 16000, tenacity: 8, def: 520, sub: "Category: High-Madness Harbinger &bull; Base DEF: 520" },
+  100: { name: "Abyss Sovereign Chaos", level: 100, icon: "👑", maxHp: 25000, tenacity: 10, def: 750, sub: "Category: Primeval Cosmic Entity &bull; Base DEF: 750" }
+};
+
 function initSimState() {
   const deck = getCombinedDeckCards();
   sim.drawPile = [...deck];
@@ -804,21 +856,115 @@ function initSimState() {
   sim.maxAp = 3;
   sim.turn = 1;
   sim.shield = 0;
-  sim.dummyMaxHp = 10000;
-  sim.dummyHp = 10000;
-  sim.dummyMaxTenacity = 6;
-  sim.dummyTenacity = 6;
+  
+  const p = DUMMY_PRESETS[sim.dummyLevel || 60];
+  sim.dummyLevel = p.level;
+  sim.dummyMaxHp = p.maxHp;
+  sim.dummyHp = p.maxHp;
+  sim.dummyMaxTenacity = p.tenacity;
+  sim.dummyTenacity = p.tenacity;
+  sim.dummyDef = p.def;
+  sim.applyDef = true;
+  sim.dummyWeakness = 'None';
   sim.isRavage = false;
+  sim.debuffs = { bleed: 0, burn: 0, vuln: 0 };
+  
   sim.totalDamage = 0;
   sim.turnDamage = 0;
   sim.highestHit = 0;
   sim.critHits = 0;
+
+  updateDefUI();
+  updateDebuffUI();
   updateSimUI();
+}
+
+function changeDummyLevel(lvl) {
+  const p = DUMMY_PRESETS[lvl] || DUMMY_PRESETS[60];
+  sim.dummyLevel = p.level;
+  sim.dummyMaxHp = p.maxHp;
+  sim.dummyHp = p.maxHp;
+  sim.dummyMaxTenacity = p.tenacity;
+  sim.dummyTenacity = p.tenacity;
+  sim.dummyDef = p.def;
+  sim.isRavage = false;
+
+  document.getElementById('dummyNameLabel').textContent = p.name;
+  document.getElementById('dummyIcon').textContent = p.icon;
+  document.getElementById('dummyLevelBadge').textContent = `Lv. ${p.level}`;
+  document.getElementById('dummySubLabel').innerHTML = p.sub;
+  updateDefUI();
+  updateSimUI();
+  logTerminal(`[Target Config] Switched target to <strong>${p.name} (Lv. ${p.level})</strong>: ${p.maxHp.toLocaleString()} HP, ${p.tenacity} Tenacity bars, ${p.def} DEF.`, 'highlight');
+}
+
+function toggleApplyDef() {
+  sim.applyDef = document.getElementById('chkApplyDef').checked;
+  updateDefUI();
+  logTerminal(`[Target Config] Enemy DEF mitigation ${sim.applyDef ? 'ENABLED (Damage x 1000/(1000+DEF))' : 'DISABLED (Pure Raw Damage)'}.`, 'normal');
+}
+
+function updateDefUI() {
+  const def = sim.dummyDef || 350;
+  const reductionPct = Math.round((1 - (1000 / (1000 + def))) * 100);
+  const defEl = document.getElementById('dummyDefValueText');
+  if (defEl) {
+    defEl.innerHTML = sim.applyDef 
+      ? `DEF: ${def} &rarr; ~${reductionPct}% DMG Reduction`
+      : `DEF: ${def} (Disabled / Raw Damage)`;
+  }
+}
+
+function addDebuff(type, count) {
+  if (!sim.debuffs) sim.debuffs = { bleed: 0, burn: 0, vuln: 0 };
+  if (!sim.debuffs[type]) sim.debuffs[type] = 0;
+  sim.debuffs[type] += count;
+  updateDebuffUI();
+  const icon = type === 'bleed' ? '🩸' : (type === 'burn' ? '🔥' : '⚡');
+  logTerminal(`[Manual Debuff] Added +${count} ${icon} ${type.toUpperCase()} to Target! (Total: ${sim.debuffs[type]})`, 'highlight');
+}
+
+function clearDebuffs() {
+  sim.debuffs = { bleed: 0, burn: 0, vuln: 0 };
+  updateDebuffUI();
+  logTerminal(`[Debuff Cleared] Removed all active status debuffs from Target.`, 'normal');
+}
+
+function updateDebuffUI() {
+  if (!sim.debuffs) sim.debuffs = { bleed: 0, burn: 0, vuln: 0 };
+  const bEl = document.getElementById('valBleed');
+  const buEl = document.getElementById('valBurn');
+  const vEl = document.getElementById('valVuln');
+  if (bEl) bEl.textContent = sim.debuffs.bleed || 0;
+  if (buEl) buEl.textContent = sim.debuffs.burn || 0;
+  if (vEl) vEl.textContent = sim.debuffs.vuln || 0;
+
+  const bBadge = document.getElementById('badgeBleed');
+  const buBadge = document.getElementById('badgeBurn');
+  const vBadge = document.getElementById('badgeVuln');
+  if (bBadge) bBadge.style.opacity = (sim.debuffs.bleed > 0) ? '1' : '0.5';
+  if (buBadge) buBadge.style.opacity = (sim.debuffs.burn > 0) ? '1' : '0.5';
+  if (vBadge) vBadge.style.opacity = (sim.debuffs.vuln > 0) ? '1' : '0.5';
+}
+
+function getSquadAvgAtk() {
+  const heroIds = [currentSquad.hero1, currentSquad.hero2, currentSquad.hero3];
+  let sumAtk = 0;
+  heroIds.forEach((hid, idx) => {
+    const hero = window.CZN_DATA.combatants.find(c => c.id === hid);
+    const partner = window.CZN_DATA.partners.find(p => p.id === currentSquad[`partner${idx + 1}`]);
+    if (hero) {
+      const pAtkPct = partner && partner.stat_boost ? partner.stat_boost.atk_pct : 0;
+      const pFlat = partner && partner.stat_boost ? partner.stat_boost.flat_atk : 0;
+      sumAtk += Math.round(hero.stats.atk * (1 + pAtkPct / 100) + pFlat);
+    }
+  });
+  return Math.round(sumAtk / 3);
 }
 
 function updateDummyWeakness() {
   sim.dummyWeakness = document.getElementById('dummyWeaknessSelect').value;
-  logTerminal(`[Target] Subject Zero weakness set to: ${sim.dummyWeakness}`, 'highlight');
+  logTerminal(`[Target] Weakness set to: ${sim.dummyWeakness}`, 'highlight');
 }
 
 function updateSimUI() {
@@ -942,12 +1088,28 @@ function simPlayCard(handIndex) {
   sim.hand.splice(handIndex, 1);
   sim.discardPile.push(card);
 
+  // Auto-proc Status Effects based on card keywords
+  const descLower = ((card.name || '') + ' ' + (card.desc || '')).toLowerCase();
+  if (descLower.includes('bleed') || descLower.includes('fracture') || descLower.includes('lacerat') || descLower.includes('wound')) {
+    sim.debuffs.bleed = (sim.debuffs.bleed || 0) + 2;
+    logTerminal(`🩸 [Status Proc] [${card.name}] inflicted +2 Bleed (Fracture) stacks on Target!`, 'normal');
+  }
+  if (descLower.includes('burn') || descLower.includes('scorch') || descLower.includes('flame') || descLower.includes('fire')) {
+    sim.debuffs.burn = (sim.debuffs.burn || 0) + 2;
+    logTerminal(`🔥 [Status Proc] [${card.name}] inflicted +2 Burn (Scorched) stacks on Target!`, 'normal');
+  }
+  if (descLower.includes('vulnerab') || descLower.includes('weaken') || descLower.includes('curse')) {
+    sim.debuffs.vuln = (sim.debuffs.vuln || 0) + 2;
+    logTerminal(`⚡ [Status Proc] [${card.name}] inflicted +2 Vulnerable stacks on Target!`, 'normal');
+  }
+  updateDebuffUI();
+
   // UN-GEARED DAMAGE CALCULATION FORMULA
   if (card.category === 'Attack') {
     const heroStats = card.heroStats || { atk: 450, crit_rate: 5, crit_dmg: 150 };
     const pStats = card.partnerStats || { atk_pct: 0, flat_atk: 0 };
 
-    // 1. Calculate un-geared Base ATK
+    // 1. Calculate un-geared Base ATK with partner bonus
     const finalAtk = Math.round(heroStats.atk * (1 + (pStats.atk_pct || 0) / 100) + (pStats.flat_atk || 0));
     
     // 2. Card Skill Multiplier
@@ -966,7 +1128,23 @@ function simPlayCard(handIndex) {
     // 5. Ravage State multiplier (+50% DMG taken)
     const ravageMod = sim.isRavage ? 1.50 : 1.0;
 
-    const finalDamage = Math.round(baseDmg * weaknessMod * critMod * ravageMod);
+    // 6. Vulnerable amplifier (+30% DMG amplification, consumes 1 stack)
+    let vulnMod = 1.0;
+    let consumedVuln = false;
+    if (sim.debuffs && sim.debuffs.vuln > 0) {
+      vulnMod = 1.30;
+      sim.debuffs.vuln--;
+      consumedVuln = true;
+      updateDebuffUI();
+    }
+
+    // 7. Enemy DEF Mitigation calculation
+    const rawDamage = Math.round(baseDmg * weaknessMod * critMod * ravageMod * vulnMod);
+    let defMod = 1.0;
+    if (sim.applyDef && sim.dummyDef > 0) {
+      defMod = 1000 / (1000 + sim.dummyDef);
+    }
+    const finalDamage = Math.round(rawDamage * defMod);
 
     // Apply Damage to Target Dummy
     sim.dummyHp = Math.max(0, sim.dummyHp - finalDamage);
@@ -975,8 +1153,7 @@ function simPlayCard(handIndex) {
     if (finalDamage > sim.highestHit) sim.highestHit = finalDamage;
     if (isCrit) sim.critHits++;
 
-    // 6. Tenacity Damage calculation:
-    // Single-target: 1/3 bar per AP; with weakness match: 1 full bar per AP!
+    // 8. Tenacity Damage calculation:
     const tenacityDmgPerAp = isWeakness ? 1.0 : (1.0 / 3.0);
     const tenacityCost = card.cost === 0 ? (1.0 / 6.0) : (card.cost * tenacityDmgPerAp);
     
@@ -992,10 +1169,12 @@ function simPlayCard(handIndex) {
 
     // Terminal Logging
     let logMsg = `[Turn ${sim.turn}] <strong>${card.heroName}</strong> played [${card.name}] (-${card.cost} AP) &rarr; <strong style="color:var(--red);">${finalDamage.toLocaleString()} DMG</strong>! `;
+    if (sim.applyDef) logMsg += `<span style="font-size:0.72rem; color:var(--muted);">(Raw: ${rawDamage.toLocaleString()} &minus; DEF ${sim.dummyDef})</span> `;
     if (isCrit) logMsg += `<span style="color:var(--gold); font-weight:700;">[CRIT! 💥]</span> `;
-    if (isWeakness) logMsg += `<span style="color:var(--cyan); font-weight:700;">[WEAKNESS MATCH +25%]</span> `;
+    if (isWeakness) logMsg += `<span style="color:var(--cyan); font-weight:700;">[WEAKNESS +25%]</span> `;
+    if (consumedVuln) logMsg += `<span style="color:var(--gold); font-weight:700;">[VULNERABLE +30%]</span> `;
     if (sim.isRavage && !tenacityBroken) logMsg += `<span style="color:var(--gold);">[RAVAGE +50%]</span> `;
-    if (tenacityBroken) logMsg += `<br>&nbsp;&nbsp;&nbsp;&nbsp;↳ ⚡ <strong>TENACITY SHIELD BROKEN!</strong> Subject Zero enters Ravage State! +1 Bonus AP granted to Squad!`;
+    if (tenacityBroken) logMsg += `<br>&nbsp;&nbsp;&nbsp;&nbsp;↳ ⚡ <strong>TENACITY SHIELD BROKEN!</strong> Target enters Ravage State! +1 Bonus AP granted to Squad!`;
     
     logTerminal(logMsg, 'action');
   } else if (card.shield > 0) {
@@ -1039,6 +1218,44 @@ function simEndTurn() {
     sim.discardPile.push(sim.hand.pop());
   }
 
+  // ==========================================
+  // ENEMY PHASE: STATUS DOT RESOLUTION (BLEED & BURN)
+  // ==========================================
+  const avgAtk = getSquadAvgAtk();
+
+  // 1. Burn DoT (Scorched): Passion element DoT, 80% ATK per stack
+  if (sim.debuffs && sim.debuffs.burn > 0) {
+    const burnDmg = Math.round(sim.debuffs.burn * (avgAtk * 0.8));
+    sim.dummyHp = Math.max(0, sim.dummyHp - burnDmg);
+    sim.totalDamage += burnDmg;
+    sim.turnDamage += burnDmg;
+    const oldBurn = sim.debuffs.burn;
+    sim.debuffs.burn = Math.max(0, sim.debuffs.burn - 1); // Decays by 1 stack
+    logTerminal(`🔥 [Enemy Phase - Burn DoT] Scorched flame detonated for <strong style="color:#f97316;">${burnDmg.toLocaleString()} DMG</strong>! (${oldBurn} stacks &rarr; decayed to ${sim.debuffs.burn})`, 'action');
+  }
+
+  // 2. Bleed DoT (Fracture): Physical hemorrhage DoT, 40% ATK per stack
+  if (sim.debuffs && sim.debuffs.bleed > 0) {
+    const bleedDmg = Math.round(sim.debuffs.bleed * (avgAtk * 0.4));
+    sim.dummyHp = Math.max(0, sim.dummyHp - bleedDmg);
+    sim.totalDamage += bleedDmg;
+    sim.turnDamage += bleedDmg;
+    const oldBleed = sim.debuffs.bleed;
+    sim.debuffs.bleed = Math.floor(sim.debuffs.bleed / 2); // Stacks halved
+    logTerminal(`🩸 [Enemy Phase - Bleed DoT] Fracture hemorrhage lacerated target for <strong style="color:var(--red);">${bleedDmg.toLocaleString()} DMG</strong>! (${oldBleed} stacks &rarr; halved to ${sim.debuffs.bleed})`, 'action');
+  }
+
+  updateDebuffUI();
+
+  // Check if Target Dummy died from DoT
+  if (sim.dummyHp <= 0) {
+    const dName = document.getElementById('dummyNameLabel').textContent;
+    logTerminal(`💀 [Target Neutralized] <strong>${dName}</strong> was eliminated by status DoT damage! Restoring full HP &amp; Tenacity for next test round.`, 'highlight');
+    sim.dummyHp = sim.dummyMaxHp;
+    sim.dummyTenacity = sim.dummyMaxTenacity;
+    sim.isRavage = false;
+  }
+
   sim.turn++;
   sim.ap = 3;
   sim.maxAp = 3;
@@ -1048,7 +1265,7 @@ function simEndTurn() {
   if (sim.isRavage) {
     sim.isRavage = false;
     sim.dummyTenacity = sim.dummyMaxTenacity;
-    logTerminal(`[Turn ${sim.turn}] Ravage state ended. Subject Zero's Tenacity bar fully restored to 6 bars.`, 'normal');
+    logTerminal(`[Turn ${sim.turn}] Ravage state ended. Tenacity shield fully restored to ${sim.dummyMaxTenacity} bars.`, 'normal');
   }
 
   // Draw 5 cards
@@ -1076,7 +1293,7 @@ function simForceRavage() {
   sim.isRavage = true;
   sim.dummyTenacity = 0;
   sim.ap = Math.min(sim.maxAp + 1, sim.ap + 1);
-  logTerminal(`[Manual] Forced Subject Zero into Ravage State! (+1 Bonus AP granted)`, 'highlight');
+  logTerminal(`[Manual] Forced target into Ravage State! (+1 Bonus AP granted)`, 'highlight');
   updateSimUI();
 }
 
@@ -1084,7 +1301,8 @@ function simResetDummy() {
   sim.dummyHp = sim.dummyMaxHp;
   sim.dummyTenacity = sim.dummyMaxTenacity;
   sim.isRavage = false;
-  logTerminal(`[Reset] Subject Zero HP restored to 10,000 HP. Tenacity reset to 6 bars.`, 'normal');
+  clearDebuffs();
+  logTerminal(`[Reset] Target HP restored to ${sim.dummyMaxHp.toLocaleString()} HP. Tenacity reset to ${sim.dummyMaxTenacity} bars. Debuffs cleared.`, 'normal');
   updateSimUI();
 }
 
@@ -1103,7 +1321,6 @@ function logTerminal(msg, type = 'normal') {
   term.scrollTop = term.scrollHeight;
 }
 
-// ==========================================
 // 5. MODALS & PICKERS
 // ==========================================
 function openHeroModal(slotNum) {
