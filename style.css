@@ -929,3 +929,53 @@ footer p { font-size: 0.76rem; color: var(--faint); line-height: 1.7; }
   margin-bottom: 6px;
   object-fit: cover;
 }
+
+/* 3-Combatant + 3-Partner Squad Stations */
+.squad-stations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+.squad-station {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.squad-station.active {
+  border-color: var(--accent);
+  box-shadow: 0 0 16px rgba(38,146,211,0.2);
+}
+.station-hero {
+  padding: 16px;
+  border-bottom: 1px dashed var(--panel-border);
+  background: rgba(255, 255, 255, 0.015);
+}
+.station-partner {
+  padding: 14px 16px;
+  background: rgba(0, 0, 0, 0.15);
+}
+.stat-badge-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-top: 10px;
+}
+.stat-badge {
+  background: var(--card-inner);
+  border: 1px solid var(--panel-border);
+  border-radius: 4px;
+  padding: 4px 6px;
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-align: center;
+}
+.stat-badge strong {
+  color: var(--text);
+  display: block;
+  font-size: 0.82rem;
+}
