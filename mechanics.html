@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mechanics &amp; Systems — Chaos Zero Nightmare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand"><span>CZN</span> DATABASE</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="">Home</a></li> <li><a href="characters.html" class="">Characters</a></li> <li><a href="cards.html" class="">Cards</a></li> <li><a href="mechanics.html" class="active">Mechanics</a></li> <li><a href="lore.html" class="">Lore</a></li> <li><a href="guides.html" class="">Guides</a></li>
+  </ul>
+  <a href="https://github.com/CholidAlFarisi/czn-fan-guide" target="_blank" class="nav-btn">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+    GitHub
+  </a>
+</nav>
+
+<main>
+  <header class="page-header">
+    <div class="page-pill">Gameplay Engine</div>
+    <h1>Mechanics, Deities &amp; Roguelike Systems</h1>
+    <p>Comprehensive guide to Chaos Zero Nightmare's deckbuilding combat, the 6 Primordial Deities, Divine Sparks, Epiphany transformations, and Save Data loadouts.</p>
+  </header>
+
+  <div class="container">
+    <!-- 6 Deities Box -->
+    <div style="margin-bottom:40px; padding:28px; border-radius:8px; background:linear-gradient(135deg, rgba(16,102,77,0.2), var(--panel) 60%); border:1px solid rgba(22,133,100,0.35);">
+      <h2 style="font-family:'Orbitron',sans-serif; font-size:1.3rem; color:var(--text); margin-bottom:8px;">The 6 Primordial Cosmic Deities &amp; 491 Divine Sparks</h2>
+      <p style="font-size:0.9rem; color:var(--body); line-height:1.6; margin-bottom:20px;">
+        During roguelike Chaos runs, players encounter cosmic codices governed by six primordial deities. Interacting with their shrines grants Divine Sparks—permanent passive enhancements that alter card costs, damage scaling, and survivability.
+      </p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px;">
+        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
+          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">CALIGO</div>
+          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Tenacity &amp; Ravage Focus</div>
+          <div style="font-size:0.8rem; color:var(--muted);">Grants +100% Ravage scaling, critical strike multipliers, and converts lost health into raw offensive power.</div>
+        </div>
+        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
+          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">CIRCEN</div>
+          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Action Point Acceleration</div>
+          <div style="font-size:0.8rem; color:var(--muted);">Provides -1 AP cost reductions on high-cost signatures, energy rebates upon card combo chains, and AP refunds.</div>
+        </div>
+        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
+          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">DIALLOS</div>
+          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Shield &amp; Mitigation</div>
+          <div style="font-size:0.8rem; color:var(--muted);">Boosts Vanguard shield efficiency by +30%, grants Metallization stacks, and prevents lethal damage once per run.</div>
+        </div>
+        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
+          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">NIHILUM</div>
+          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Card Draw &amp; Hand Cycling</div>
+          <div style="font-size:0.8rem; color:var(--muted);">Increases starting hand draw by +1, retains key cards across turns, and triggers bonus effects on deck reshuffle.</div>
+        </div>
+        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
+          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">SECRED</div>
+          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Pincer Co-op &amp; Assist</div>
+          <div style="font-size:0.8rem; color:var(--muted);">Enables 100% Pincer joint attacks when partner conditions are fulfilled, summoning auxiliary supporter strikes.</div>
+        </div>
+        <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
+          <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin-bottom:4px;">VITOR</div>
+          <div style="font-size:0.75rem; color:var(--cyan); font-weight:600; margin-bottom:6px;">Direct DMG Scaling</div>
+          <div style="font-size:0.8rem; color:var(--muted);">Multiplies final damage output by +30%, adds true damage penetration against armored elite bosses, and boosts Bleed.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Systems Cards -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; margin-bottom:40px;">
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+        <div style="font-size:2rem; margin-bottom:12px;">⚔️</div>
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Turn-Based Card Combat</h3>
+        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+          At the start of every player turn, your squad draws 5 cards and receives 3 Action Points (AP). Cards can be played in any order, allowing complex synergistic chains between Combatants. Exploiting enemy attribute weaknesses grants a +25% multiplicative damage bonus.
+        </p>
+      </div>
+
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+        <div style="font-size:2rem; margin-bottom:12px;">🧠</div>
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Mental Breakdown &amp; Ego Recovery</h3>
+        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+          Unblocked enemy damage builds psychological Stress. When Stress reaches 100, the Combatant suffers a Mental Breakdown—locking one-third of team maximum HP and disabling regular skills. Surviving the breakdown unleashes the hero's ultimate 0 AP Ego skill.
+        </p>
+      </div>
+
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+        <div style="font-size:2rem; margin-bottom:12px;">💾</div>
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Save Data &amp; Loadout Carryover</h3>
+        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+          Upon completing or failing a Chaos run, you create permanent Save Data loadouts. Your total Save Value budget determines how many upgraded cards, relics, and Epiphany abilities can be preserved for story bosses and PvP challenges.
+        </p>
+      </div>
+
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+        <div style="font-size:2rem; margin-bottom:12px;">💡</div>
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Epiphany Mutation System</h3>
+        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+          Cards evolve dynamically mid-run through Epiphany events. Basic strikes and blocks mutate into character-specific power cards (Branches I through V) featuring 0 AP triggers, card generation, and persistent buffs.
+        </p>
+      </div>
+
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+        <div style="font-size:2rem; margin-bottom:12px;">🌀</div>
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Chaos Mode Roguelike Progression</h3>
+        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+          Navigate branching paths across Combat, Elite, Mystery Event, Merchant, and Rest zones. Permadeath ends the run but rewards account experience, character potential materials, and currency for permanent baseline upgrades.
+        </p>
+      </div>
+
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
+        <div style="font-size:2rem; margin-bottom:12px;">⚙️</div>
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:8px;">Endgame Zero System &amp; Codices</h3>
+        <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
+          High-tier endgame mode featuring customizable Codex heat modifiers (enemy buffs, restricted draws, hazardous environments). Higher heat ratings exponentially boost the quality of resulting Save Data and drop exclusive 557-relic tiers.
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="f-links">
+    <a href="index.html">Home</a>
+    <a href="characters.html">Characters</a>
+    <a href="cards.html">Cards</a>
+    <a href="mechanics.html">Mechanics</a>
+    <a href="lore.html">Lore</a>
+    <a href="guides.html">Guides</a>
+  </div>
+  <p>Chaos Zero Nightmare Fan Guide &amp; Database. Community project by CholidAlFarisi.<br>All game assets, character designs, and lore © Smilegate.</p>
+</footer>
+</body>
+</html>

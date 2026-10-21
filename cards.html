@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Card Database — Chaos Zero Nightmare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand"><span>CZN</span> DATABASE</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="">Home</a></li> <li><a href="characters.html" class="">Characters</a></li> <li><a href="cards.html" class="active">Cards</a></li> <li><a href="mechanics.html" class="">Mechanics</a></li> <li><a href="lore.html" class="">Lore</a></li> <li><a href="guides.html" class="">Guides</a></li>
+  </ul>
+  <a href="https://github.com/CholidAlFarisi/czn-fan-guide" target="_blank" class="nav-btn">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+    GitHub
+  </a>
+</nav>
+
+<main>
+  <header class="page-header">
+    <div class="page-pill">Card Database</div>
+    <h1>Card Database &amp; Synergies</h1>
+    <p>Search through Chaos Zero Nightmare cards. Filter by AP Cost, Card Type (Attack, Skill, Power, Epiphany), or find signature cards by character owner.</p>
+  </header>
+
+  <div class="container">
+    <div class="toolbar">
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div class="filter-bar" id="typeFilters">
+          <span style="font-size:0.75rem; color:var(--muted); align-self:center; margin-right:4px;">TYPE:</span>
+          <button class="f-btn active" data-t="all">All</button>
+          <button class="f-btn" data-t="Attack">Attack</button>
+          <button class="f-btn" data-t="Skill">Skill</button>
+          <button class="f-btn" data-t="Power">Power</button>
+        </div>
+        <div class="filter-bar" id="costFilters">
+          <span style="font-size:0.75rem; color:var(--muted); align-self:center; margin-right:4px;">COST:</span>
+          <button class="f-btn active" data-c="all">All Costs</button>
+          <button class="f-btn" data-c="0">0 AP</button>
+          <button class="f-btn" data-c="1">1 AP</button>
+          <button class="f-btn" data-c="2">2 AP</button>
+          <button class="f-btn" data-c="3">3+ AP</button>
+        </div>
+      </div>
+      <div class="search-inline">
+        <input type="text" id="cardSearch" placeholder="Search cards by name, effect, or owner...">
+      </div>
+    </div>
+
+    <div style="margin-bottom:16px; font-size:0.8rem; color:var(--muted);" id="cardCountInfo">Showing cards...</div>
+    <div class="cards-grid" id="cardsGrid"></div>
+  </div>
+</main>
+
+<footer>
+  <div class="f-links">
+    <a href="index.html">Home</a>
+    <a href="characters.html">Characters</a>
+    <a href="cards.html">Cards</a>
+    <a href="mechanics.html">Mechanics</a>
+    <a href="lore.html">Lore</a>
+    <a href="guides.html">Guides</a>
+  </div>
+  <p>Chaos Zero Nightmare Fan Guide &amp; Database. Community project by CholidAlFarisi.<br>All game assets, character designs, and lore © Smilegate.</p>
+</footer>
+
+<script>
+const CARDS = [{"name": "Prepare to Subdue", "cost": 0, "type": "Skill", "effect": "Draw 1 Attack Card(s) of this unitIncrease Damage Amount of those cards by 40% for 1 turn", "owner": "General"}, {"name": "Flash Slash", "cost": 2, "type": "Skill", "effect": "400% Damage+150% Damage Amount for each card of this unit Drawn that turn (max 5)", "owner": "General"}, {"name": "Flash Slash", "cost": 3, "type": "Skill", "effect": "360% Damage to all enemiesWhen activated, decrease Cost by 1If there is only a single target, increase Damage Amount by 50%", "owner": "General"}, {"name": "Trickery Strike", "cost": 1, "type": "Skill", "effect": "180% DamageEnable the Inspiration effect for 1 random card(s) of this unit in hand", "owner": "General"}, {"name": "Freezing Blade", "cost": 1, "type": "Skill", "effect": "When an Inspiration-enabled card of this unit is activated, 120% Damage to all enemies", "owner": "General"}, {"name": "Freezing Blade", "cost": 0, "type": "Skill", "effect": "When an Inspiration-enabled card of this unit is activated, 120% Damage to all enemies", "owner": "General"}, {"name": "Iceberg Cleave", "cost": 1, "type": "Skill", "effect": "180% Damage to all enemiesInspiration: Add 1 Hit", "owner": "General"}, {"name": "Skyscraper Cleave", "cost": 1, "type": "Skill", "effect": "450% Damage to all enemiesMove all Attack Cards of this unit in hand to the top of Draw Pile+100% base Damage Amount for each card moved", "owner": "General"}, {"name": "Longsword Slash", "cost": 1, "type": "Skill", "effect": "100% DamageInspiration: Decrease Cost by 1", "owner": "General"}, {"name": "Rapid Slash", "cost": 2, "type": "Skill", "effect": "220% DamageInspiration: Increase Damage Amount by 30%", "owner": "General"}, {"name": "Impulse", "cost": 0, "type": "Skill", "effect": "Has a low chance for unexpected results to occur on use.", "owner": "General"}, {"name": "Chrono Archon", "cost": 1, "type": "Skill", "effect": "When a card is activated, 1 Chronicle for each Cost of that card", "owner": "General"}, {"name": "Time Axis Collapse", "cost": 2, "type": "Skill", "effect": "300% DamageIncrease Damage Amount by 20% for each Cost of cards in hand(max 200%)", "owner": "General"}, {"name": "Time Axis Collapse", "cost": 1, "type": "Skill", "effect": "300% DamageIncrease Damage Amount by 30% for each 1-Cost or lower card in hand", "owner": "General"}, {"name": "Time Axis Collapse", "cost": 3, "type": "Skill", "effect": "Increase Damage Amount to the next 3 Attack Card(s) of this unit activated by 100%", "owner": "General"}, {"name": "Future Decreed", "cost": 1, "type": "Skill", "effect": "Increase Cost of 1 2-Cost or lower card(s) in hand by 1 until activated, then proc 1 random 3-Cost card(s)", "owner": "General"}, {"name": "Future Decreed", "cost": 0, "type": "Skill", "effect": "Increase Cost of 1 2-Cost or lower card(s) in hand by 1 until activated, then proc 1 random 3-Cost card(s)", "owner": "General"}, {"name": "Future Decreed", "cost": 3, "type": "Skill", "effect": "Proc 1 random 3-Cost card(s) in Draw Pile", "owner": "General"}, {"name": "Future Decreed", "cost": 2, "type": "Skill", "effect": "Proc 2 random 2-Cost card(s) in hand", "owner": "General"}, {"name": "Chrono Circle", "cost": 1, "type": "Skill", "effect": "Create 2 Fate Imprint", "owner": "General"}, {"name": "Chrono Circle", "cost": 2, "type": "Skill", "effect": "When Chronal Ascension is gained, move all Basic Cards of this unit to hand", "owner": "General"}, {"name": "Chrono Circle", "cost": 3, "type": "Skill", "effect": "When Chronal Ascension is gained, Draw 3 2-Cost Attack Card(s)", "owner": "General"}, {"name": "Time Paradox", "cost": 0, "type": "Skill", "effect": "Decrease all ChronicleGain Chronal Ascension for each descreased", "owner": "General"}, {"name": "Hour of Glory", "cost": 1, "type": "Skill", "effect": "6 Chronal AscensionIncrease Damage Amount of the next Attack Card of this unit activated by 10% for each Cost of cards activated this battle (max 200%)", "owner": "General"}, {"name": "Fate Imprint", "cost": 2, "type": "Skill", "effect": "120% Damage for each Cost of this cardIncrease Cost of all Fate Imprint in hand by 1When this card leaves the hand, change Cost to 2", "owner": "General"}, {"name": "Fate Distortion", "cost": 0, "type": "Skill", "effect": "Increase Damage Amount of the next Attack Card of this unit activated by 30%Increase Damage Amount by an additional 10% for each Cost of that card", "owner": "General"}, {"name": "Confusion", "cost": 0, "type": "Skill", "effect": "Has a low chance for unexpected results to occur on use.", "owner": "General"}, {"name": "Sound Check", "cost": 1, "type": "Skill", "effect": "100% DamageIncinerate: Heal 50%", "owner": "General"}, {"name": "Music, Start!", "cost": 0, "type": "Skill", "effect": "Exhaust all Basic Attack CardsCreate and give each ally 2 of their own Rhythm in Draw PileApply Haste to Rhythm cards of this unit", "owner": "General"}, {"name": "Spotlight", "cost": 1, "type": "Skill", "effect": "140% DamageMove 1 Rhythm card(s) to handDecrease Cost of those cards by 2 until activated", "owner": "General"}, {"name": "Spotlight", "cost": 2, "type": "Skill", "effect": "350% DamageSelect and move up to 2 Rhythm cards to hand, then proc those cards", "owner": "General"}, {"name": "Spotlight", "cost": 0, "type": "Skill", "effect": "Select up to 3 Rhythm cards from among Draw Pile and Graveyard and move those cards to the top of Draw PileDraw 1 of those cards", "owner": "General"}, {"name": "Call & Response", "cost": 1, "type": "Skill", "effect": "200% DamageIf in hand, treat as a Rhythm cardAttunement: Draw 1 Rhythm card(s)", "owner": "General"}, {"name": "Call & Response", "cost": 2, "type": "Skill", "effect": "240% DamageIf in Draw Pile or in hand, proc this card when a Rhythm card is activated", "owner": "General"}, {"name": "Encore", "cost": 1, "type": "Skill", "effect": "120% DamageIf the last card activated was a Rhythm card, proc that card", "owner": "General"}, {"name": "Encore", "cost": 3, "type": "Skill", "effect": "Proc all Rhythm cards in Graveyard", "owner": "General"}, {"name": "Encore", "cost": 0, "type": "Skill", "effect": "Draw 1If that card was a Rhythm card, increase Damage Amount by 100% until activated for 1 turn and repeat 1 more time (max 2 times)", "owner": "General"}, {"name": "Photo Time", "cost": 1, "type": "Skill", "effect": "+1 Performance BuzzIf a Rhythm card is activated or moved to hand, increase Performance Buzz by 1 until this card is activated (max 9 times)", "owner": "General"}, {"name": "Everyone’s Idol", "cost": 1, "type": "Skill", "effect": "For the next 7 Rhythm cards activated, increase Damage Amount of Rhythm cards by 7%If activated 7 times, add 1 Hit(s) to the next 7 Rhythm card(s) activated", "owner": "General"}, {"name": "Rhythm", "cost": 2, "type": "Skill", "effect": "60% Damage+30% base Damage Amount for each RhythmProc 1 Rhythm in hand", "owner": "General"}, {"name": "Rhythm: Crescendo", "cost": 2, "type": "Skill", "effect": "180% Damage+40% base Damage Amount for each Rhythm in GraveyardFor 1 turn, decrease Cost of the next Rhythm card activated by 1", "owner": "General"}, {"name": "Rhythm: Staccato", "cost": 1, "type": "Skill", "effect": "80% Damage+50% base Damage Amount for each RhythmIf the last card activated was a Rhythm card, increase Cost by 1", "owner": "General"}, {"name": "Rhythm: Fortissimo", "cost": 2, "type": "Skill", "effect": "90% Damage+55% base Damage Amount for each Linked Rhythm before activationWhen 3 or more cards are Linked, add 1 Hit", "owner": "General"}, {"name": "Rhythm: Fermata", "cost": 1, "type": "Skill", "effect": "Select 1 of 4 Rhythm cardsChange all Rhythm cards into the selected card for 1 turn and Draw 2 of them", "owner": "General"}, {"name": "Rhythm: Arpeggio", "cost": 0, "type": "Skill", "effect": "15% Damage for each RhythmDraw 1 of the lowest-Cost Rhythm cards and decrease Cost by 1 until activated", "owner": "General"}, {"name": "Rhythm: Arpeggio", "cost": 1, "type": "Skill", "effect": "20% Damage for each RhythmDraw 2 of the lowest-Cost Rhythm cards and decrease Cost by 1 until activated", "owner": "General"}, {"name": "Rhythm: Arpeggio", "cost": 2, "type": "Skill", "effect": "40% Damage for each RhythmProc 1 of the highest-Cost Rhythm cards in hand", "owner": "General"}, {"name": "Rhythm: Arpeggio", "cost": 3, "type": "Skill", "effect": "50% Damage for each RhythmProc 1 of the highest-Cost Rhythm card(s) from among Draw Pile and Discard Pile", "owner": "General"}, {"name": "Charm", "cost": 0, "type": "Skill", "effect": "Has a low chance for unexpected results to occur on use.", "owner": "General"}, {"name": "Reaping Slash", "cost": 1, "type": "Skill", "effect": "100% Damage1 Fracture1 Agony", "owner": "General"}, {"name": "Rift of Severance", "cost": 1, "type": "Skill", "effect": "80% Damage and 2 Fracture, then activate Fracture inflicted by this unit", "owner": "General"}, {"name": "Dispersed Desire", "cost": 1, "type": "Skill", "effect": "80% Damage and 4 Agony, then activate Agony inflicted by this unit", "owner": "General"}, {"name": "Break Apart & Renew", "cost": 1, "type": "Skill", "effect": "1 Brand of Agony4 Agony to the enemy with the highest HP", "owner": "General"}, {"name": "Break Apart & Renew", "cost": 0, "type": "Skill", "effect": "1 Brand of Agony4 Agony to the enemy with the highest HP", "owner": "General"}, {"name": "Break Apart & Renew", "cost": 2, "type": "Skill", "effect": "2 Brand of Fracture2 Brand of AgonyAt the start of the turn, 1 Brand of Fracture or 1 Brand of Agony", "owner": "General"}, {"name": "Insatiable Cravings", "cost": 1, "type": "Skill", "effect": "When Fracture or Agony is activated through a Targeting Card, 2 Fracture and 3 Agony to the target (3 time(s) per turn)", "owner": "General"}, {"name": "Insatiable Cravings", "cost": 0, "type": "Skill", "effect": "When Fracture or Agony is activated through a Targeting Card, 2 Fracture and 3 Agony to the target (3 time(s) per turn)", "owner": "General"}, {"name": "End of the Line", "cost": 1, "type": "Skill", "effect": "2 Shattering, 200% Damage, 2 Fracture, and 4 AgonyWhen this card is activated, change into Reckoning", "owner": "General"}, {"name": "Reckoning", "cost": 0, "type": "Skill", "effect": "400% Damage+20% base Damage Amount for each RapacityActivate Agony and Fracture inflicted by this unitWhen this card is activated, change into End of the Line", "owner": "General"}, {"name": "End of the Line", "cost": 0, "type": "Skill", "effect": "2 Shattering, 200% Damage, 2 Fracture, and 4 AgonyWhen this card is activated, change into Reckoning", "owner": "General"}, {"name": "Maelstrom of Oblivion", "cost": 1, "type": "Skill", "effect": "400% Damage to all enemiesFor each Fracture, Agony, and Scorched activated this turn, +50%, +20%, and +30% base Damage Amount, respectively (max 300%)", "owner": "General"}, {"name": "Fear", "cost": 0, "type": "Skill", "effect": "Has a low chance for unexpected results to occur on use.", "owner": "General"}, {"name": "Bloom: Sorrowful Godfather", "cost": 1, "type": "Skill", "effect": "50% x 4 Damage × 43 AgonyInflict Agony for each Agony", "owner": "General"}, {"name": "Bloom: Gloomy Godmother", "cost": 0, "type": "Skill", "effect": "At the end of the turn, 100% Extra Attack to a random enemyCreate 1 of this card in Draw Pile (5 times per battle)", "owner": "General"}, {"name": "Distortion: Automata Cavalry", "cost": 2, "type": "Skill", "effect": "150% Damage10 Vulnerable", "owner": "General"}, {"name": "Distortion: Dominion", "cost": 2, "type": "Skill", "effect": "1 MoraleAt the start of the turn, 1 Morale", "owner": "General"}, {"name": "Bloom: Slaughter", "cost": 2, "type": "Skill", "effect": "300% ShieldInflict Fixed Damage to all enemies equal to Shield held", "owner": "General"}, {"name": "Bloom: Beam Shooter", "cost": 3, "type": "Skill", "effect": "350% DamageIf the target has Shield, increase Damage Amount by 200%Retain: 120% Shield", "owner": "General"}, {"name": "Harmonization: Winged Humanoid Beast", "cost": 2, "type": "Skill", "effect": "50% x 10 Damage × 10 to random enemiesInspiration: Decrease Cost by 1", "owner": "General"}, {"name": "Harmonization: Wolves Bane", "cost": 1, "type": "Skill", "effect": "150% Damage to all enemies, 3 Weaken", "owner": "General"}, {"name": "Bloom: Dark Grip", "cost": 1, "type": "Skill", "effect": "200% Damage to all enemiesDefeat: 200% Damage to all enemies (max 3 times)", "owner": "General"}, {"name": "Harmonization: Seraphim of Pain", "cost": 3, "type": "Skill", "effect": "500% Damage, and if this is the only card in hand, decrease Cost by 3", "owner": "General"}, {"name": "Bloom: Evil Spirit Salamander", "cost": 1, "type": "Skill", "effect": "Draw 4, and if 7 or more cards are in hand, decrease Cost by 1", "owner": "General"}, {"name": "Harmonization: Elemental Phoenix", "cost": 1, "type": "Skill", "effect": "3 ResolveGain Fixed Shield equal to lost HP", "owner": "General"}, {"name": "Harmonization: Spirit Kefox", "cost": 1, "type": "Skill", "effect": "Select and Draw 1 card(s) from Draw Pile, then apply 2 Retrieve to those cards", "owner": "General"}, {"name": "Mutation: Evil Spirit Dullahan", "cost": 1, "type": "Skill", "effect": "At the start of the turn, 1 Scorched to random enemies for each Attack Card activated the previous turn", "owner": "General"}, {"name": "Bloom: Abyssal Bug", "cost": 0, "type": "Skill", "effect": "Decrease 1 Morale of all enemiesHarmonization: Decrease 2 Morale of all enemies", "owner": "General"}, {"name": "Distortion: Shell Bug", "cost": 2, "type": "Skill", "effect": "7 Crystallization", "owner": "General"}, {"name": "Bloom: Soldier Prime", "cost": 2, "type": "Skill", "effect": "300% Damage and 1 Tenacity DamageRavage: Gain 2 AP", "owner": "General"}, {"name": "Harmonization: Seven Arms", "cost": 0, "type": "Skill", "effect": "200% DamageIf Action Count of the target is 5 or more, gain 2 AP", "owner": "General"}, {"name": "Mutation: Trapper", "cost": 1, "type": "Skill", "effect": "3 vulnerableIf the target has not acted, 250% Shield", "owner": "General"}, {"name": "Mutation: Cultist Arbiter", "cost": 1, "type": "Skill", "effect": "At the end of the turn, 200% ShieldAt the end of the next turn, 200% Shield", "owner": "General"}, {"name": "Harmonization: Rotten Ripper", "cost": 1, "type": "Skill", "effect": "160% DamageIncrease Action Count by 5", "owner": "General"}, {"name": "Distortion: Chilling Godfather", "cost": 2, "type": "Skill", "effect": "Draw 1, and if that card was an Attack Card, procRepeat until a card that is not an Attack Card is Drawn (max 4 times)", "owner": "General"}, {"name": "Distortion: Hunger of Loss", "cost": 1, "type": "Skill", "effect": "Draw 1If there are no cards in hand, add 9 Draw", "owner": "General"}, {"name": "Distortion: Vine Lord", "cost": 1, "type": "Skill", "effect": "Draw 2 Exhaust card(s), then decrease Cost of those cards by 1", "owner": "General"}, {"name": "Mutation: Enforcer Slaughter", "cost": 2, "type": "Skill", "effect": "70% Shield Retention (cannot stack)", "owner": "General"}, {"name": "Mutation: Automata Hussar", "cost": 2, "type": "Skill", "effect": "200% Defense-Based Damage200% ShieldWhen Shield is gained, decrease Cost of this card by 1 for 1 turn until activated", "owner": "General"}, {"name": "Mutation: Evil Spirit Salamander of Desolation", "cost": 0, "type": "Skill", "effect": "Exhaust all cards in handDraw 3", "owner": "General"}, {"name": "Mutation: Evil Spirit Dullahan of Desolation", "cost": 1, "type": "Skill", "effect": "3 Fortitude for 1 turn equal to X3 Morale for 1 turn on the next turn equal to X", "owner": "General"}, {"name": "Mutation: Wanderer Abyssal Bug", "cost": 1, "type": "Skill", "effect": "Each time Damage is taken, Fixed Heal 80%", "owner": "General"}, {"name": "Mutation: Wanderer Soldier Prime", "cost": 3, "type": "Skill", "effect": "500% DamageDefeat: Recover 3 AP, then move this card to hand", "owner": "General"}, {"name": "Mutation: Revenant Arbiter", "cost": 1, "type": "Skill", "effect": "Select and proc 1 Upgrade Cards in Draw Pile", "owner": "General"}, {"name": "Mutation: Rusted Nail Rotten Ripper", "cost": 0, "type": "Skill", "effect": "150% x 4 Damage × 4 to random enemiesAfter the end of 3 turns, remove Unactivatable", "owner": "General"}, {"name": "Mutation: Rusted Nail Seven Arms", "cost": 3, "type": "Skill", "effect": "When 7 Attack Cards are activated, 100% Damage × 7 to all enemies", "owner": "General"}, {"name": "Mutation: Judge Dominion", "cost": 2, "type": "Skill", "effect": "Remove Impair from allies700% Shield", "owner": "General"}, {"name": "Mutation: The Cold Godmother", "cost": 1, "type": "Skill", "effect": "Recover 3 APOn Hit, decrease Cost by 1 until activated", "owner": "General"}, {"name": "Mutation: Venom Spirit Kefox", "cost": 0, "type": "Skill", "effect": "Select and Duplicate 1 card(s) from Draw Pile to hand, then apply Spectral Poison to those cards", "owner": "General"}, {"name": "Old Sword", "cost": 2, "type": "Skill", "effect": "360% DamageWhen activated, -120% base Damage Amount", "owner": "General"}, {"name": "Mutate", "cost": 1, "type": "Skill", "effect": "If this card is in hand, when a card is activated, 15% Fixed Damage to allies", "owner": "General"}, {"name": "Poacher’s First Aid Kit", "cost": 1, "type": "Skill", "effect": "At the end of battle, Recover 20% of Max HP", "owner": "General"}, {"name": "Paralysis Trap", "cost": 1, "type": "Skill", "effect": "2 Weaken, 2 Vulnerable", "owner": "General"}, {"name": "Vicious Instincts", "cost": 0, "type": "Skill", "effect": "2 Morale5% HP Reduction", "owner": "General"}, {"name": "Distortion: Horrifying Memory", "cost": 1, "type": "Skill", "effect": "When Discarded, Exhaust itIncinerate: Draw 2", "owner": "General"}, {"name": "Essence", "cost": 0, "type": "Skill", "effect": "Gain 1 APDraw 1Attunement: Proc this card", "owner": "General"}, {"name": "Bloom: Judgment", "cost": 0, "type": "Skill", "effect": "50% DamageDecrease 3 MoraleDecrease 3 Fortitude10 Tenacity Damage+50% base Damage Amount for each card in Deck", "owner": "General"}, {"name": "Mutation: HA-00", "cost": 0, "type": "Skill", "effect": "200% Damage to random enemiesAdd Hit Count for each Status Ailment and Curse Card in All Piles", "owner": "General"}, {"name": "Unknown: Hunk of Meat", "cost": 0, "type": "Skill", "effect": "Recover 15% of max HPDecrease ally Morale by 1", "owner": "General"}, {"name": "Unknown: Fluider", "cost": 0, "type": "Skill", "effect": "When a Targeting Attack Card of this unit is activated, 1 Scorched to the target", "owner": "General"}, {"name": "Unknown: Fragrant Bait", "cost": 0, "type": "Skill", "effect": "1 Weaken to all enemies, then add Weaken for each enemy present", "owner": "General"}, {"name": "Unknown: Order’s Bible Page", "cost": 0, "type": "Skill", "effect": "Incinerate: 30 Credit", "owner": "General"}, {"name": "Unknown: Elixir of Mutation", "cost": 0, "type": "Skill", "effect": "Gain 5 APAt the start of the next turn, decrease AP by 3", "owner": "General"}, {"name": "Unknown: Black Stain Bundle", "cost": 0, "type": "Skill", "effect": "Recover 20% of max HPDecrease ally Morale by 2", "owner": "General"}, {"name": "Unknown: Heavenly Judgment", "cost": 2, "type": "Skill", "effect": "320% DamageDraw 1 Celestial card(s)", "owner": "General"}, {"name": "Unknown: Tactical Debilitation", "cost": 0, "type": "Skill", "effect": "If the target has Shield, increase Damage Amount of this unit by 20%If the target is in a Impair state, increase Damage Amount of this unit by 20%", "owner": "General"}, {"name": "Unknown: Purple Duty", "cost": 1, "type": "Skill", "effect": "Duplicate a random card in hand and add it to hand, then apply Exhaust and Ephemeral to that card", "owner": "General"}, {"name": "Unknown: Abyssalization", "cost": 0, "type": "Skill", "effect": "Increase Damage Amount of the next activated Attack Card of this unit by 200%", "owner": "General"}, {"name": "Unknown: Infection", "cost": 1, "type": "Skill", "effect": "300% DamageCreate 2 0-Cost Stickiness and apply Exhaust to those cards", "owner": "General"}, {"name": "Unknown: Mutant Sample", "cost": 0, "type": "Skill", "effect": "If in hand, +40% Damage Amount to 1-Cost or lower Attack Cards of this unit", "owner": "General"}, {"name": "Unknown: Hyper Regeneration", "cost": 0, "type": "Skill", "effect": "1 Hyper Regeneration", "owner": "General"}];
+let curType = 'all';
+let curCost = 'all';
+
+const grid = document.getElementById('cardsGrid');
+const countInfo = document.getElementById('cardCountInfo');
+
+function renderCards(items) {
+  grid.innerHTML = '';
+  countInfo.textContent = `Showing ${items.length} cards`;
+  if (items.length === 0) {
+    grid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px; color:var(--muted);">No matching cards found.</div>';
+    return;
+  }
+  items.forEach(c => {
+    const el = document.createElement('div');
+    el.className = 'card-item';
+    
+    let typeClass = 'type-skill';
+    if (c.type === 'Attack') typeClass = 'type-atk';
+    else if (c.type === 'Power') typeClass = 'type-power';
+
+    el.innerHTML = `
+      <div class="c-top">
+        <div class="c-cost">${c.cost}</div>
+        <div class="c-type ${typeClass}">${c.type}</div>
+      </div>
+      <h4>${c.name}</h4>
+      <div class="c-effect">${c.effect}</div>
+      <div class="c-meta">
+        <span>${c.owner}</span>
+        <span style="text-transform:uppercase; font-size:0.65rem;">${c.cost} AP</span>
+      </div>
+    `;
+    grid.appendChild(el);
+  });
+}
+renderCards(CARDS);
+
+// Filter Event Listeners
+const typeBtns = document.querySelectorAll('#typeFilters .f-btn');
+typeBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    typeBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    curType = btn.dataset.t;
+    applyCardFilters();
+  });
+});
+
+const costBtns = document.querySelectorAll('#costFilters .f-btn');
+costBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    costBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    curCost = btn.dataset.c;
+    applyCardFilters();
+  });
+});
+
+const cardSearch = document.getElementById('cardSearch');
+function applyCardFilters() {
+  const q = cardSearch.value.toLowerCase().trim();
+  const res = CARDS.filter(c => {
+    const matchT = curType === 'all' || c.type.toLowerCase() === curType.toLowerCase();
+    const matchC = curCost === 'all' || (curCost === '3' ? c.cost >= 3 : String(c.cost) === curCost);
+    const matchQ = !q || c.name.toLowerCase().includes(q) || c.effect.toLowerCase().includes(q) || c.owner.toLowerCase().includes(q);
+    return matchT && matchC && matchQ;
+  });
+  renderCards(res);
+}
+cardSearch.addEventListener('input', applyCardFilters);
+</script>
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Characters — Chaos Zero Nightmare Database</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-brand"><span>CZN</span> DATABASE</a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="">Home</a></li> <li><a href="characters.html" class="active">Characters</a></li> <li><a href="cards.html" class="">Cards</a></li> <li><a href="mechanics.html" class="">Mechanics</a></li> <li><a href="lore.html" class="">Lore</a></li> <li><a href="guides.html" class="">Guides</a></li>
+  </ul>
+  <a href="https://github.com/CholidAlFarisi/czn-fan-guide" target="_blank" class="nav-btn">
+    <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+    GitHub
+  </a>
+</nav>
+
+<main>
+  <header class="page-header">
+    <div class="page-pill">Roster Archive</div>
+    <h1>Characters &amp; Partners</h1>
+    <p>Complete roster of 38 playable Combatants and 49 Supporter Partners. Click on any Combatant to inspect their starter cards, signature decks, and background lore.</p>
+  </header>
+
+  <div class="container">
+    <!-- View Switcher -->
+    <div style="display:flex; gap:12px; margin-bottom:20px; border-bottom:1px solid var(--panel-border); padding-bottom:12px;">
+      <button class="f-btn active" id="tabComb" style="font-size:0.9rem; padding:8px 18px;">Combatants (38)</button>
+      <button class="f-btn" id="tabSupp" style="font-size:0.9rem; padding:8px 18px;">Partners (49)</button>
+    </div>
+
+    <!-- Combatants View -->
+    <div id="viewCombatants">
+      <div class="toolbar">
+        <div class="filter-bar" id="combFilters">
+          <button class="f-btn active" data-f="all">All (38)</button>
+          <button class="f-btn" data-f="5">5★ (26)</button>
+          <button class="f-btn" data-f="4">4★ (12)</button>
+          <button class="f-btn" data-job="Vanguard">Vanguard</button>
+          <button class="f-btn" data-job="Striker">Striker</button>
+          <button class="f-btn" data-job="Hunter">Hunter</button>
+          <button class="f-btn" data-job="Ranger">Ranger</button>
+          <button class="f-btn" data-job="Psionic">Psionic</button>
+          <button class="f-btn" data-job="Controller">Controller</button>
+        </div>
+        <div class="search-inline">
+          <input type="text" id="combSearch" placeholder="Search combatants, jobs, factions...">
+        </div>
+      </div>
+      <div class="char-grid" id="combGrid"></div>
+    </div>
+
+    <!-- Partners View -->
+    <div id="viewPartners" style="display:none;">
+      <div class="toolbar">
+        <div class="filter-bar" id="suppFilters">
+          <button class="f-btn active" data-sf="all">All Partners (49)</button>
+          <button class="f-btn" data-sf="5">5★</button>
+          <button class="f-btn" data-sf="4">4★</button>
+          <button class="f-btn" data-sf="3">3★</button>
+        </div>
+        <div class="search-inline">
+          <input type="text" id="suppSearch" placeholder="Search partner names...">
+        </div>
+      </div>
+      <div class="char-grid" id="suppGrid"></div>
+    </div>
+  </div>
+</main>
+
+<!-- Modal -->
+<div class="modal-overlay" id="charModal">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose">&times;</button>
+    <div class="modal-head">
+      <div class="modal-icon" id="mIcon">⚔️</div>
+      <div class="modal-title">
+        <h2 id="mName">Character Name</h2>
+        <div class="stars" id="mStars">★★★★★</div>
+        <div class="modal-meta" id="mMeta"></div>
+      </div>
+    </div>
+    <div class="modal-desc" id="mDesc"></div>
+    <div class="modal-cards">
+      <h4>Starter &amp; Signature Cards</h4>
+      <div class="modal-card-list" id="mCardList"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="f-links">
+    <a href="index.html">Home</a>
+    <a href="characters.html">Characters</a>
+    <a href="cards.html">Cards</a>
+    <a href="mechanics.html">Mechanics</a>
+    <a href="lore.html">Lore</a>
+    <a href="guides.html">Guides</a>
+  </div>
+  <p>Chaos Zero Nightmare Fan Guide &amp; Database. Community project by CholidAlFarisi.<br>All game assets, character designs, and lore © Smilegate.</p>
+</footer>
+
+<script>
+const COMBATANTS = [{"name": "Adelheid", "rarity": 4, "job": "Vanguard", "ego": "Void (Dark)", "faction": "Empire Vanguard", "overview": "Adelheid is a 5★ Vanguard affiliated with Empire Vanguard, harnessing the Void (Dark) attribute in combat.", "icon": "🛡️", "cards": [{"name": "Gather Around", "cost": "1", "type": "Atk", "effect": "100% Defense-Based Damage"}, {"name": "Fairy's Protection", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Happy Ending", "cost": "6", "type": "Skill", "effect": "300% Shield Fixed Heal equal to Shield in possession (cannot exceed 30% of max HP)"}, {"name": "Happy Ending", "cost": "6", "type": "Skill", "effect": "500% Shield Fixed Heal equal to Shield in possession (cannot exceed 50% of max HP)"}]}, {"name": "Amir", "rarity": 4, "job": "Vanguard", "ego": "Order (Cross)", "faction": "Terrascion", "overview": "Amir is a 4★ Vanguard affiliated with Terrascion, harnessing the Order (Cross) attribute in combat.", "icon": "🛡️", "cards": [{"name": "Rapier", "cost": "1", "type": "Atk", "effect": "100% Defense-Based Damage"}, {"name": "Steel Barrier", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Steel Barrier", "cost": "1", "type": "Skill", "effect": "100% Shield 1 Metallization"}, {"name": "Steel Resolve", "cost": "4", "type": "Skill", "effect": "120% Shield for each Metallization Remove Metallization At the start of the next turn, 3 Metallization"}, {"name": "Steel Resolve", "cost": "4", "type": "Skill", "effect": "150% Shield for each Metallization Remove Metallization At the start of the next turn, 5 Metallization"}]}, {"name": "Anika", "rarity": 4, "job": "Striker", "ego": "Order (Cross)", "faction": "Order Striker", "overview": "Anika is a 4★ Striker affiliated with Order Striker, harnessing the Order (Cross) attribute in combat.", "icon": "⚔️", "cards": [{"name": "Blaster Swing", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Hold Position", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Buffalo Dive", "cost": "5", "type": "Atk", "effect": "250% Damage to all enemies 2 Tenacity Damage"}, {"name": "Buffalo Dive", "cost": "5", "type": "Atk", "effect": "300% Damage to all enemies 3 Tenacity Damage"}]}, {"name": "Arabella", "rarity": 4, "job": "Striker", "ego": "Instinct (Eye)", "faction": "Empire Striker", "overview": "Arabella is a 5★ Striker affiliated with Empire Striker, harnessing the Instinct (Eye) attribute in combat.", "icon": "⚔️", "cards": [{"name": "Diagonal Slash", "cost": "1", "type": "Atk", "effect": "60% Damage to all enemies"}, {"name": "Crimson Domain", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Diagonal Slash", "cost": "1", "type": "Atk", "effect": "60% Damage to all enemies 1 Fracture"}, {"name": "Pathetic End", "cost": "5", "type": "Atk", "effect": "600% Damage For 2 turn(s), inflict Fixed Damage to the target equal to 30% of Damage Amount taken by all enemies (cannot exceed 1000% of Arabella’s Attack per turn)"}, {"name": "Pathetic End", "cost": "5", "type": "Atk", "effect": "800% Damage For 2 turn(s), inflict Fixed Damage to the target equal to 50% of Damage Amount taken by all enemies (cannot exceed 1500% of Arabella’s Attack per turn)"}]}, {"name": "Beryl", "rarity": 4, "job": "Ranger", "ego": "Justice (Scale)", "faction": "Ironrain", "overview": "Beryl is a 4★ Ranger affiliated with Ironrain, harnessing the Justice (Scale) attribute in combat.", "icon": "🎯", "cards": [{"name": "Launcher", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Charge Launcher", "cost": "2", "type": "Atk", "effect": "220% Damage"}, {"name": "Barrier", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Launcher", "cost": "1", "type": "Atk", "effect": "120% Damage"}, {"name": "Charge Launcher", "cost": "2", "type": "Atk", "effect": "240% Damage"}, {"name": "Max Output Charged Shot", "cost": "5", "type": "Atk", "effect": "350% Damage to all enemies​"}]}, {"name": "Cassius", "rarity": 4, "job": "Controller", "ego": "Instinct (Eye)", "faction": "Peltion", "overview": "Cassius is a 4★ Controller affiliated with Peltion, harnessing the Instinct (Eye) attribute in combat.", "icon": "✨", "cards": [{"name": "Cards", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Cards", "cost": "1", "type": "Atk", "effect": "100% Damage 30% chance to Draw 1"}, {"name": "Wild Card", "cost": "2", "type": "Atk", "effect": "220% Damage"}, {"name": "Wild Card", "cost": "2", "type": "Atk", "effect": "220% Damage 30% chance to Draw 1"}, {"name": "Mana Field", "cost": "1", "type": "Skill", "effect": "Heal 100%"}, {"name": "Death Trick", "cost": "4", "type": "Skill", "effect": "Create 2 Quest card(s) Decrease Morale of all enemies by 3 for 1 turn"}]}, {"name": "Chizuru", "rarity": 4, "job": "Psionic", "ego": "Void (Dark)", "faction": "Far East Psionic", "overview": "Chizuru is a 5★ Psionic affiliated with Far East Psionic, harnessing the Void (Dark) attribute in combat.", "icon": "🔮", "cards": [{"name": "Moonslash", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Moonslash", "cost": "1", "type": "Atk", "effect": "70% x 2 Damage"}, {"name": "Spiritflame’s Ward", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Moonlight of High Tide", "cost": "5", "type": "Atk", "effect": "500% Damage +100% Damage Amount for each Shadow of the Moon created (max 10)"}, {"name": "Moonlight of High Tide", "cost": "5", "type": "Atk", "effect": "700% Damage +150% Damage Amount for each Shadow of the Moon created (max 10)"}]}, {"name": "Diana", "rarity": 4, "job": "Hunter", "ego": "Passion (Fire)", "faction": "The Holy Crusaders", "overview": "Diana is a 5★ Hunter affiliated with The Holy Crusaders, harnessing the Passion (Fire) attribute in combat.", "icon": "🏹", "cards": [{"name": "Disruption Fire", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Disruption Fire", "cost": "1", "type": "Atk", "effect": "100% Damage Discard 1 random card(s) of this unit"}, {"name": "Protect Me", "cost": "1", "type": "Skill", "effect": "Heal 100%"}, {"name": "Radiant Smile", "cost": "5", "type": "Skill", "effect": "Create 1 Cupid Shot Create 2 Heart Bullet"}, {"name": "Radiant Smile", "cost": "4", "type": "Skill", "effect": "Create 1 Cupid Shot Create 4 Heart Bullet"}]}, {"name": "Fei", "rarity": 4, "job": "Ranger", "ego": "Void (Dark)", "faction": "Unknown Origin", "overview": "Fei is a 5★ Ranger affiliated with Unknown Origin, harnessing the Void (Dark) attribute in combat.", "icon": "🎯", "cards": [{"name": "Azure Flame", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Azure Flame", "cost": "1", "type": "Atk", "effect": "100% Damage 1 Flame Arts"}, {"name": "Melancholy", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Heavenscleaver", "cost": "5", "type": "Skill", "effect": "8 Descent For 2 turn(s), at the start of the turn, 8 Descent Increase Damage Amount of the next Heavensfall by 100%"}, {"name": "Heavenscleaver", "cost": "5", "type": "Skill", "effect": "10 Descent For 2 turn(s), at the start of the turn, 10 Descent Increase Damage Amount of the next Heavensfall by 100% and add 2 Hit(s)"}]}, {"name": "Haru", "rarity": 4, "job": "Combatant", "ego": "Instinct", "faction": "Terrascion", "overview": "Haru is a 4★ Combatant affiliated with Terrascion.", "icon": "⚡", "cards": [{"name": "Anchor", "cost": "1", "type": "Attack", "effect": "100% Damage"}, {"name": "Anchor Drop", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Anchor Pointer", "cost": "0", "type": "Skill", "effect": "From Draw Pile or Graveyard, move Anchor Shot to hand"}, {"name": "Anchor Shot", "cost": "2", "type": "Attack", "effect": "240% Damage ・+60% Damage for each time this card has been used (Max 5 times)"}, {"name": "Lift Anchor", "cost": "0", "type": "Skill", "effect": "For Anchor Shot in hand, +1 Cost, +70% Damage for 1 turn"}, {"name": "Power Anchor", "cost": "2", "type": "Attack", "effect": "220% Damage"}]}, {"name": "Heidemarie", "rarity": 4, "job": "Ranger", "ego": "Passion (Fire)", "faction": "Independent (Limited)", "overview": "Heidemarie is a 5★ Ranger affiliated with Independent (Limited), harnessing the Passion (Fire) attribute in combat.", "icon": "🎯", "cards": [{"name": "Sword Flash", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Sword Flash", "cost": "1", "type": "Atk", "effect": "100% Damage +30% Damage Amount to Effulgent Blade for 1 turn"}, {"name": "Sword Barrier", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Elysium of Blades", "cost": "5", "type": "Atk", "effect": "400% Damage +80% Damage Amount for each card Discarded this battle (max 20 cards)"}, {"name": "Elysium of Blades", "cost": "5", "type": "Atk", "effect": "600% Damage +100% Damage Amount for each card Discarded this battle (max 30 cards)"}]}, {"name": "Hilde", "rarity": 4, "job": "Ranger", "ego": "Instinct (Eye)", "faction": "Ironrain Ally", "overview": "Hilde is a 5★ Ranger affiliated with Ironrain Ally, harnessing the Instinct (Eye) attribute in combat.", "icon": "🎯", "cards": [{"name": "Multishot", "cost": "1", "type": "Atk", "effect": "60% Damage to all enemies"}, {"name": "Multishot", "cost": "1", "type": "Atk", "effect": "80% Damage to all enemies"}, {"name": "Bowguard", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Matrix Overlay", "cost": "4", "type": "Skill", "effect": "+15% Weakness Damage Amount taken to all enemies for 1 turn(s) Draw 3 Attack Card(s) of this unit Apply Weakness Attack to those cards for 1 turn"}, {"name": "Matrix Overlay", "cost": "4", "type": "Skill", "effect": "+25% Weakness Damage Amount taken to all enemies for 1 turn(s) Draw 3 Attack Card(s) of this unit Apply Weakness Attack to those cards for 1 turn"}]}, {"name": "Hugo", "rarity": 4, "job": "Ranger", "ego": "Order (Cross)", "faction": "Stella Familia", "overview": "Hugo is a 5★ Ranger affiliated with Stella Familia, harnessing the Order (Cross) attribute in combat.", "icon": "🎯", "cards": [{"name": "Knife Toss", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Knife Toss", "cost": "1", "type": "Atk", "effect": "100% Damage 50% Chance for 1 Commence the Hunt"}, {"name": "Defense System", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Last Resort", "cost": "6", "type": "Atk", "effect": "250% Damage to all enemies Increase Damage of Commence the Hunt by 30%"}, {"name": "Last Resort", "cost": "6", "type": "Atk", "effect": "250% Damage to all enemies Increase Damage of Commence the Hunt by 30% Increase max stack of Commence the Hunt by 1"}]}, {"name": "Kayron", "rarity": 4, "job": "Psionic", "ego": "Void (Dark)", "faction": "Wanderer", "overview": "Kayron is a 5★ Psionic affiliated with Wanderer, harnessing the Void (Dark) attribute in combat.", "icon": "🔮", "cards": [{"name": "Elimination", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Elimination", "cost": "1", "type": "Atk", "effect": "150% Damage Create 1 Futility"}, {"name": "Sphere", "cost": "1", "type": "Skill", "effect": "Heal 100%"}, {"name": "Sphere", "cost": "1", "type": "Skill", "effect": "Heal 150% Create 1 Futility"}, {"name": "Rift of Nothingness", "cost": "5", "type": "Skill", "effect": "200% Damage to all enemies Exhaust all Futility in hand +80% base Damage Amount for each Exhausted"}, {"name": "Rift of Nothingness", "cost": "5", "type": "Skill", "effect": "200% Damage to all enemies Exhaust all Futility in hand and Graveyard +80% base Damage Amount for each Exhausted"}]}, {"name": "Khalipe", "rarity": 4, "job": "Vanguard", "ego": "Instinct (Eye)", "faction": "Stella Familia", "overview": "Khalipe is a 5★ Vanguard affiliated with Stella Familia, harnessing the Instinct (Eye) attribute in combat.", "icon": "🛡️", "cards": [{"name": "Lashing", "cost": "1", "type": "Atk", "effect": "100% Defense-Based Damage"}, {"name": "Upward Slash", "cost": "2", "type": "Atk", "effect": "220% Defense-Based Damage"}, {"name": "Tyr’s Vow", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Upward Slash", "cost": "2", "type": "Atk", "effect": "180% Defense-Based Damage to all enemies"}, {"name": "Charisma of Resolve", "cost": "5", "type": "Atk", "effect": "300% Defense-Based Damage to all enemies Create 1 Vulture Ejection"}, {"name": "Charisma of Resolve", "cost": "5", "type": "Atk", "effect": "350% Defense-Based Damage to all enemies Create 1 Vulture Ejection 1 Silver Veil"}]}, {"name": "Lucas", "rarity": 4, "job": "Hunter", "ego": "Passion (Fire)", "faction": "Ironrain", "overview": "Lucas is a 4★ Hunter affiliated with Ironrain, harnessing the Passion (Fire) attribute in combat.", "icon": "🏹", "cards": [{"name": "Machine Gun", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Shielding Incendiary Bomb", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Full Burst", "cost": "5", "type": "Atk", "effect": "Draw 2 250% Damage to all enemies​"}, {"name": "Full Burst", "cost": "5", "type": "Atk", "effect": "Draw 3 300% Damage to all enemies​"}]}, {"name": "Luke", "rarity": 4, "job": "Hunter", "ego": "Order (Cross)", "faction": "Ironrain", "overview": "Luke is a 5★ Hunter affiliated with Ironrain, harnessing the Order (Cross) attribute in combat.", "icon": "🏹", "cards": [{"name": "Single Shot", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Shadow Concealment", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Lethal Design", "cost": "5", "type": "Atk", "effect": "450% Damage +25% base Damage Amount for each card in hand"}, {"name": "Lethal Design", "cost": "5", "type": "Atk", "effect": "550% Damage +35% base Damage Amount for each card in hand"}]}, {"name": "Magna", "rarity": 4, "job": "Vanguard", "ego": "Justice (Scale)", "faction": "Stella Familia", "overview": "Magna is a 5★ Vanguard affiliated with Stella Familia, harnessing the Justice (Scale) attribute in combat.", "icon": "🛡️", "cards": [{"name": "Frozen Fist", "cost": "1", "type": "Atk", "effect": "100% Defense-Based Damage"}, {"name": "Frost Shield", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Frozen Fist", "cost": "1", "type": "Atk", "effect": "100% Defense-Based Damage 1 Counterattack"}, {"name": "Frost Shield", "cost": "1", "type": "Skill", "effect": "100% Shield 1 Counterattack"}, {"name": "Absolute Zero", "cost": "6", "type": "Atk", "effect": "300% Defense-Based Damage Increases Damage Amount by 20% for each Counterattack on this unit"}, {"name": "Absolute Zero", "cost": "6", "type": "Atk", "effect": "300% Defense-Based Damage Increases Damage Amount by 30% for each Counterattack on this unit"}]}, {"name": "Maribell", "rarity": 4, "job": "Vanguard", "ego": "Passion (Fire)", "faction": "Ironrain", "overview": "Maribell is a 4★ Vanguard affiliated with Ironrain, harnessing the Passion (Fire) attribute in combat.", "icon": "🛡️", "cards": [{"name": "Shelter Kick", "cost": "1", "type": "Atk", "effect": "100% Defense-Based Damage"}, {"name": "Shelter Defense", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Shelter Hold", "cost": "2", "type": "Skill", "effect": "220% Shield"}, {"name": "Shelter Defense", "cost": "1", "type": "Skill", "effect": "100% Shield 1 Counterattack"}, {"name": "Shelter Hold", "cost": "2", "type": "Skill", "effect": "220% Shield 1 Counterattack"}, {"name": "Unbreakable", "cost": "4", "type": "Skill", "effect": "350% Shield"}]}, {"name": "Mei Lin", "rarity": 4, "job": "Striker", "ego": "Passion (Fire)", "faction": "Terrascion", "overview": "Mei Lin is a 5★ Striker affiliated with Terrascion, harnessing the Passion (Fire) attribute in combat.", "icon": "⚔️", "cards": [{"name": "Strike", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Strike", "cost": "1", "type": "Atk", "effect": "100% Damage 1 Ember"}, {"name": "Flame Dragon Guardian", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Heavenly Flame Dragon", "cost": "6", "type": "Skill", "effect": "Add 1 Hit(s) to the next 4 Basic Attack Card(s) of this unit activated"}, {"name": "Heavenly Flame Dragon", "cost": "6", "type": "Skill", "effect": "Add 1 Hit(s) to the next 6 Basic Attack Card(s) of this unit activated"}]}, {"name": "Mika", "rarity": 4, "job": "Controller", "ego": "Justice (Scale)", "faction": "Terrascion", "overview": "Mika is a 4★ Controller affiliated with Terrascion, harnessing the Justice (Scale) attribute in combat.", "icon": "✨", "cards": [{"name": "Water Arrow", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Water Barrier", "cost": "1", "type": "Skill", "effect": "Heal 100%"}, {"name": "Water Barrier", "cost": "1", "type": "Skill", "effect": "Heal 130%"}, {"name": "Surge", "cost": "6", "type": "Skill", "effect": "Create 2 Source of Water Card(s), grant Exhaust to it"}, {"name": "Surge", "cost": "6", "type": "Skill", "effect": "Create 2 Source of Water Card(s), grant Exhaust and Retain to it"}]}, {"name": "Narja", "rarity": 4, "job": "Controller", "ego": "Instinct (Eye)", "faction": "Terrascion Controller", "overview": "Narja is a 5★ Controller affiliated with Terrascion Controller, harnessing the Instinct (Eye) attribute in combat.", "icon": "✨", "cards": [{"name": "NA: Attack Response", "cost": "1", "type": "Atk", "effect": "100% Defense-Based Damage"}, {"name": "NA: Defense Response", "cost": "1", "type": "Skill", "effect": "Heal 100%"}, {"name": "NA: Defense Response", "cost": "1", "type": "Skill", "effect": "Heal 100% 2 Voracity"}, {"name": "Predator's Hunting Method", "cost": "5", "type": "Atk", "effect": "10 Voracity 250% Defense-Based Damage If Mealtime is in Graveyard, 5 Predation"}, {"name": "Predator's Hunting Method", "cost": "5", "type": "Atk", "effect": "10 Voracity 250% Defense-Based Damage If Mealtime is in Graveyard, 8 Predation"}]}, {"name": "Nia", "rarity": 4, "job": "Controller", "ego": "Instinct (Eye)", "faction": "Terrascion", "overview": "Nia is a 4★ Controller affiliated with Terrascion, harnessing the Instinct (Eye) attribute in combat.", "icon": "✨", "cards": [{"name": "Stroke", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Amp Therapy", "cost": "1", "type": "Skill", "effect": "Heal 100%"}, {"name": "Amp Therapy", "cost": "1", "type": "Skill", "effect": "Heal 100% 2 Elasticity"}, {"name": "Rock and Roll", "cost": "5", "type": "Atk", "effect": "200% Damage to all enemies 3 Decibel Discard all cards in Draw Pile"}, {"name": "Rock and Roll", "cost": "5", "type": "Atk", "effect": "200% Damage to all enemies 5 Decibel Discard all cards in Draw Pile"}]}, {"name": "Nine", "rarity": 4, "job": "Vanguard", "ego": "Order (Cross)", "faction": "Order Vanguard", "overview": "Nine is a 5★ Vanguard affiliated with Order Vanguard, harnessing the Order (Cross) attribute in combat.", "icon": "🛡️", "cards": [{"name": "Slash", "cost": "1", "type": "Atk", "effect": "100% Defense-Based Damage"}, {"name": "Slash", "cost": "1", "type": "Atk", "effect": "130% Defense-Based Damage Increase Damage Amount of Exhaust cards by 15% for 1 turn (max 2 stacks)"}, {"name": "Back-Edge Parry", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Reflection: Zero", "cost": "6", "type": "Atk", "effect": "250% Defense-Based Damage to all enemies +50% Damage Amount for each point of the combined Cost of the 2 highest-Cost cards, then Exhaust those cards"}, {"name": "Reflection: Zero", "cost": "6", "type": "Atk", "effect": "400% Defense-Based Damage to all enemies +100% Damage Amount for each point of the combined Cost of the 2 highest-Cost cards, then Exhaust those cards"}]}, {"name": "Olga", "rarity": 4, "job": "Psionic", "ego": "Instinct (Eye)", "faction": "Empire Psionic", "overview": "Olga is a 5★ Psionic affiliated with Empire Psionic, harnessing the Instinct (Eye) attribute in combat.", "icon": "🔮", "cards": [{"name": "Reaping Slash", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Reaping Slash", "cost": "1", "type": "Atk", "effect": "100% Damage 1 Fracture 1 Agony"}, {"name": "Slake Thirst", "cost": "1", "type": "Skill", "effect": "Heal 100%"}, {"name": "Maelstrom of Oblivion", "cost": "5", "type": "Atk", "effect": "400% Damage to all enemies For each Fracture, Agony, and Scorched activated this turn, +50%, +20%, and +30% base Damage Amount, respectively (max 300%)"}, {"name": "Maelstrom of Oblivion", "cost": "5", "type": "Atk", "effect": "600% Damage to all enemies For each Fracture, Agony, and Scorched activated this turn, +50%, +20%, and +30% base Damage Amount, respectively (max 450%)"}]}, {"name": "Orlea", "rarity": 4, "job": "Controller", "ego": "Instinct (Eye)", "faction": "The Holy Crusaders", "overview": "Orlea is a 5★ Controller affiliated with The Holy Crusaders, harnessing the Instinct (Eye) attribute in combat.", "icon": "✨", "cards": [{"name": "Attack, My Minions", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Healing of Light", "cost": "1", "type": "Skill", "effect": "Heal 100%"}, {"name": "Attack, My Minions", "cost": "1", "type": "Atk", "effect": "100% Damage Has a 30% chance to create 1 Creation★"}, {"name": "Healing of Light", "cost": "1", "type": "Skill", "effect": "Heal 100% Has a 50% chance to create 1 Creation★"}, {"name": "Salvation", "cost": "6", "type": "Skill", "effect": "Create 1 of each Creation★★"}, {"name": "Salvation", "cost": "6", "type": "Skill", "effect": "Create 1 of each Creation★★ Evolve created Creation"}]}, {"name": "Owen", "rarity": 4, "job": "Striker", "ego": "Passion (Fire)", "faction": "Terrascion", "overview": "Owen is a 4★ Striker affiliated with Terrascion, harnessing the Passion (Fire) attribute in combat.", "icon": "⚔️", "cards": [{"name": "Downward Cut", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Weapon Block", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Downward Cut", "cost": "1", "type": "Atk", "effect": "130% Damage"}, {"name": "Raging Storm", "cost": "5", "type": "Atk", "effect": "250% Damage 250% Shield​"}, {"name": "Raging Storm", "cost": "5", "type": "Atk", "effect": "300% Damage 300% Shield​"}]}, {"name": "Rei", "rarity": 4, "job": "Controller", "ego": "Void (Dark)", "faction": "Terrascion", "overview": "Rei is a 4★ Controller affiliated with Terrascion, harnessing the Void (Dark) attribute in combat.", "icon": "✨", "cards": [{"name": "Dark Blade", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Dark Blade", "cost": "1", "type": "Atk", "effect": "100% Damage 20% DMG-Based Recovery"}, {"name": "Material Regeneration", "cost": "1", "type": "Skill", "effect": "Heal 100%"}, {"name": "Final Shadow", "cost": "4", "type": "Atk", "effect": "300% Damage 15% DMG-Based Recovery Gain 1 AP"}, {"name": "Final Shadow", "cost": "4", "type": "Atk", "effect": "400% Damage 15% DMG-Based Recovery Gain 1 AP"}]}, {"name": "Renoa", "rarity": 4, "job": "Hunter", "ego": "Void (Dark)", "faction": "Terrascion", "overview": "Renoa is a 5★ Hunter affiliated with Terrascion, harnessing the Void (Dark) attribute in combat.", "icon": "🏹", "cards": [{"name": "Annihilation Shot", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Black Veil", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Black Thorn", "cost": "4", "type": "Atk", "effect": "Move all Dirge Bullet from Draw Pile and Graveyard to hand 300% Damage"}, {"name": "Black Thorn", "cost": "4", "type": "Atk", "effect": "Move all Dirge Bullet from Draw Pile and Graveyard to hand 500% Damage"}]}, {"name": "Rin", "rarity": 4, "job": "Striker", "ego": "Void (Dark)", "faction": "Wanderer", "overview": "Rin is a 5★ Striker affiliated with Wanderer, harnessing the Void (Dark) attribute in combat.", "icon": "⚔️", "cards": [{"name": "Dark Mist Sword: First Form", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Dark Mist Sword: First Form", "cost": "1", "type": "Atk", "effect": "100% Damage Gain Dark Mist Stance"}, {"name": "Dark Mist Sword: Third Form", "cost": "2", "type": "Atk", "effect": "220% Damage"}, {"name": "Dark Mist Sword: Third Form", "cost": "2", "type": "Atk", "effect": "220% Damage Gain Dark Mist Stance"}, {"name": "Protection", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Dark Mist Secret Art: Slash", "cost": "6", "type": "Atk", "effect": "400% Damage 6 Vulnerable​"}]}, {"name": "Rita", "rarity": 4, "job": "Psionic", "ego": "Justice (Scale)", "faction": "Empire Psionic", "overview": "Rita is a 5★ Psionic affiliated with Empire Psionic, harnessing the Justice (Scale) attribute in combat.", "icon": "🔮", "cards": [{"name": "Time Acceleration", "cost": "3", "type": "Atk", "effect": "350% Damage"}, {"name": "Time Acceleration", "cost": "3", "type": "Atk", "effect": "400% Damage"}, {"name": "Rewind", "cost": "1", "type": "Skill", "effect": "Heal 100%"}, {"name": "Hour of Glory", "cost": "5", "type": "Skill", "effect": "6 Chronal Ascension Increase Damage Amount of the next Attack Card of this unit activated by 10% for each Cost of cards activated this battle (max 200%)"}, {"name": "Hour of Glory", "cost": "5", "type": "Skill", "effect": "6 Chronal Ascension Increase Damage Amount of the next Attack Card of this unit activated by 20% for each Cost of cards activated this battle (max 300%)"}]}, {"name": "Selena", "rarity": 4, "job": "Ranger", "ego": "Passion (Fire)", "faction": "Unaffiliated", "overview": "Selena is a 4★ Ranger affiliated with Unaffiliated, harnessing the Passion (Fire) attribute in combat.", "icon": "🎯", "cards": [{"name": "Engagement Fire", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Engagement Fire", "cost": "1", "type": "Atk", "effect": "100% Piercing Damage"}, {"name": "Emergency Shielding", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Final Shot", "cost": "5", "type": "Atk", "effect": "300% Damage 3 Mark​"}, {"name": "Final Shot", "cost": "5", "type": "Atk", "effect": "350% Damage 4 Mark​"}]}, {"name": "Sereniel", "rarity": 4, "job": "Hunter", "ego": "Instinct (Eye)", "faction": "Celestial Hunter", "overview": "Sereniel is a 5★ Hunter affiliated with Celestial Hunter, harnessing the Instinct (Eye) attribute in combat.", "icon": "🏹", "cards": [{"name": "Pulse Fire", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Pulse Fire", "cost": "1", "type": "Atk", "effect": "100% Damage 50% chance to create 1 Homing Laser L"}, {"name": "Magnetic Field", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Death Halo", "cost": "6", "type": "Atk", "effect": "500% Damage to all enemies Move all Homing Laser L in Exhaust Pile to hand"}, {"name": "Death Halo", "cost": "6", "type": "Atk", "effect": "650% Damage to all enemies Move all Homing Laser L from Exhaust Pile to hand, apply Haste to those cards"}]}, {"name": "Tenebria", "rarity": 4, "job": "Psionic", "ego": "Passion (Fire)", "faction": "Epic Seven Collab", "overview": "Tenebria is a 5★ Psionic affiliated with Epic Seven Collab, harnessing the Passion (Fire) attribute in combat.", "icon": "🔮", "cards": [{"name": "Sound Check", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Sound Check", "cost": "1", "type": "Atk", "effect": "100% Damage Incinerate: Heal 50%"}, {"name": "Fan Service", "cost": "1", "type": "Skill", "effect": "Heal 100%"}, {"name": "Rhythm", "cost": "2", "type": "Atk", "effect": "60% Damage +30% base Damage Amount for each Rhythm Proc 1 Rhythm in hand"}, {"name": "Rhythm: Crescendo", "cost": "2", "type": "Atk", "effect": "180% Damage +40% base Damage Amount for each Rhythm in Graveyard For 1 turn, decrease Cost of the next Rhythm card activated by 1"}, {"name": "Rhythm: Staccato", "cost": "1", "type": "Atk", "effect": "80% Damage +50% base Damage Amount for each Rhythm If the last card activated was a Rhythm card, increase Cost by 1"}]}, {"name": "Tiphera", "rarity": 4, "job": "Controller", "ego": "Order (Cross)", "faction": "Order Controller", "overview": "Tiphera is a 5★ Controller affiliated with Order Controller, harnessing the Order (Cross) attribute in combat.", "icon": "✨", "cards": [{"name": "Matter Disintegration", "cost": "1", "type": "Atk", "effect": "100% Defense-Based Damage"}, {"name": "Barrier Deployment", "cost": "1", "type": "Skill", "effect": "Heal 100%"}, {"name": "Barrier Deployment", "cost": "1", "type": "Skill", "effect": "Heal 70% 70% Shield"}, {"name": "Archetype Resonance", "cost": "5", "type": "Skill", "effect": "Select and create 1 Archetype card The next 2 times an Ego Skill is used, create an additional card Decrease Cost of the next Ego Skill used by 2"}, {"name": "Archetype Resonance", "cost": "5", "type": "Skill", "effect": "Select and create 1 Archetype card The next 3 times an Ego Skill is used, create an additional card Decrease Cost of the next Ego Skill used by 3"}]}, {"name": "Tressa", "rarity": 4, "job": "Psionic", "ego": "Void (Dark)", "faction": "Terrascion", "overview": "Tressa is a 4★ Psionic affiliated with Terrascion, harnessing the Void (Dark) attribute in combat.", "icon": "🔮", "cards": [{"name": "Dagger Throw", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Touch of Darkness", "cost": "1", "type": "Skill", "effect": "Heal 100%"}, {"name": "Dagger Throw", "cost": "1", "type": "Atk", "effect": "100% Damage 2 Agony"}, {"name": "Wave of Darkness", "cost": "5", "type": "Skill", "effect": "Create 2 Shadow Dagger 2 Agony × 2"}, {"name": "Wave of Darkness", "cost": "5", "type": "Skill", "effect": "Create 2 Shadow Dagger 4 Agony × 2"}]}, {"name": "Veronica", "rarity": 4, "job": "Ranger", "ego": "Passion (Fire)", "faction": "Stella Familia", "overview": "Veronica is a 5★ Ranger affiliated with Stella Familia, harnessing the Passion (Fire) attribute in combat.", "icon": "🎯", "cards": [{"name": "Rapid Fire", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Rapid Fire", "cost": "1", "type": "Atk", "effect": "100% Damage 20% chance to create 1 Ballista card"}, {"name": "Illusion of Golden Daffodils", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Hunting Time", "cost": "5", "type": "Atk", "effect": "250% Piercing Damage to all enemies Gain Maximum Reload"}, {"name": "Hunting Time", "cost": "5", "type": "Atk", "effect": "250% Piercing Damage to all enemies Gain maximum Reload Create 1 random Ballista card(s)"}]}, {"name": "Yuki", "rarity": 4, "job": "Striker", "ego": "Order (Cross)", "faction": "Terrascion", "overview": "Yuki is a 5★ Striker affiliated with Terrascion, harnessing the Order (Cross) attribute in combat.", "icon": "⚔️", "cards": [{"name": "Longsword Slash", "cost": "1", "type": "Atk", "effect": "100% Damage"}, {"name": "Rapid Slash", "cost": "2", "type": "Atk", "effect": "220% Damage"}, {"name": "Flowing Parry", "cost": "1", "type": "Skill", "effect": "100% Shield"}, {"name": "Longsword Slash", "cost": "1", "type": "Atk", "effect": "100% Damage Inspiration: Decrease Cost by 1"}, {"name": "Rapid Slash", "cost": "2", "type": "Atk", "effect": "220% Damage Inspiration: Increase Damage Amount by 30%"}, {"name": "Skyscraper Cleave", "cost": "5", "type": "Atk", "effect": "450% Damage to all enemies Move all Attack Cards of this unit in hand to the top of Draw Pile +100% base Damage Amount for each card moved"}]}];
+const PARTNERS = [{"name": "Alcea", "rarity": 5, "color": "#B172DE", "job": "Partner", "id": "30091"}, {"name": "Anteia", "rarity": 5, "color": "#9d91bf", "job": "Partner", "id": "20008"}, {"name": "Aria", "rarity": 5, "color": "#8a85ec", "job": "Partner", "id": "1070"}, {"name": "Asteria", "rarity": 5, "color": "#7d52bf", "job": "Partner", "id": "30045"}, {"name": "Bria", "rarity": 5, "color": "#380c55", "job": "Partner", "id": "20021"}, {"name": "Clara", "rarity": 5, "color": "#FD8D88", "job": "Partner", "id": "30095"}, {"name": "Eishlen", "rarity": 5, "color": "#50acae", "job": "Partner", "id": "20005"}, {"name": "Emilie", "rarity": 5, "color": "#C42A61", "job": "Partner", "id": "30118"}, {"name": "Erica", "rarity": 5, "color": "#9c9cec", "job": "Partner", "id": "30054"}, {"name": "Eunie", "rarity": 5, "color": "#7592D7", "job": "Partner", "id": "30114"}, {"name": "Gaya", "rarity": 5, "color": "#659aa4", "job": "Partner", "id": "20002"}, {"name": "Itsuku", "rarity": 5, "color": "#9c9cec", "job": "Partner", "id": "30046"}, {"name": "Ivy", "rarity": 5, "color": "#7257a8", "job": "Partner", "id": "1025"}, {"name": "Janet", "rarity": 5, "color": "#626d42", "job": "Partner", "id": "20004"}, {"name": "Kiara", "rarity": 5, "color": "#815895", "job": "Partner", "id": "20030"}, {"name": "Licinia", "rarity": 5, "color": "#7592D7", "job": "Partner", "id": "30116"}, {"name": "Marianne", "rarity": 5, "color": "#a02540", "job": "Partner", "id": "20037"}, {"name": "Marin", "rarity": 5, "color": "#7072c3", "job": "Partner", "id": "30051"}, {"name": "Noel", "rarity": 5, "color": "#d08c3b", "job": "Partner", "id": "30052"}, {"name": "Nyx", "rarity": 5, "color": "#686ea3", "job": "Partner", "id": "20006"}, {"name": "Peko", "rarity": 5, "color": "#94b956", "job": "Partner", "id": "30076"}, {"name": "Priscilla", "rarity": 5, "color": "#c73945", "job": "Partner", "id": "20019"}, {"name": "Ruixiang", "rarity": 5, "color": "#3FC9C9", "job": "Partner", "id": "30092"}, {"name": "Scarlet", "rarity": 5, "color": "#7d52bf", "job": "Partner", "id": "20034"}, {"name": "Serithea", "rarity": 5, "color": "#8981a9", "job": "Partner", "id": "20014"}, {"name": "Solia", "rarity": 5, "color": "#8981a9", "job": "Partner", "id": "1058"}, {"name": "Sophia", "rarity": 5, "color": "#8ecae1", "job": "Partner", "id": "30053"}, {"name": "Sylvia", "rarity": 5, "color": "#0D89A4", "job": "Partner", "id": "30094"}, {"name": "Tiana", "rarity": 5, "color": "#3A7EC4", "job": "Partner", "id": "30085"}, {"name": "Tina", "rarity": 5, "color": "#92a1ea", "job": "Partner", "id": "20038"}, {"name": "Westmacott", "rarity": 5, "color": "#903f42", "job": "Partner", "id": "30044"}, {"name": "Zeta", "rarity": 5, "color": "#c73945", "job": "Partner", "id": "20009"}, {"name": "Akad", "rarity": 4, "color": "#4174a3", "job": "Partner", "id": "20007"}, {"name": "Alyssa", "rarity": 4, "color": "#f38100", "job": "Partner", "id": "20003"}, {"name": "Arwen", "rarity": 4, "color": "#74a491", "job": "Partner", "id": "20001"}, {"name": "Carroty", "rarity": 4, "color": "#d18e3d", "job": "Partner", "id": "20036"}, {"name": "Daisy", "rarity": 4, "color": "#c54f61", "job": "Partner", "id": "20011"}, {"name": "Eloise", "rarity": 4, "color": "#c866b4", "job": "Partner", "id": "20027"}, {"name": "Lillian", "rarity": 4, "color": "#c6586a", "job": "Partner", "id": "20033"}, {"name": "Rachel", "rarity": 4, "color": "#94b956", "job": "Partner", "id": "20032"}, {"name": "Ritochka", "rarity": 4, "color": "#7d52bf", "job": "Partner", "id": "20035"}, {"name": "Rosaria", "rarity": 4, "color": "#956c60", "job": "Partner", "id": "20025"}, {"name": "Wilhelmina", "rarity": 4, "color": "#495083", "job": "Partner", "id": "20024"}, {"name": "Douglas", "rarity": 3, "color": "#516c68", "job": "Partner", "id": "20015"}, {"name": "Nakia", "rarity": 3, "color": "#d33e3b", "job": "Partner", "id": "20010"}, {"name": "Raidel", "rarity": 3, "color": "#6b768c", "job": "Partner", "id": "20013"}, {"name": "Yuri", "rarity": 3, "color": "#816f7e", "job": "Partner", "id": "20016"}, {"name": "Yvonne", "rarity": 3, "color": "#9c7139", "job": "Partner", "id": "20026"}, {"name": "Zatera", "rarity": 3, "color": "#bd6b76", "job": "Partner", "id": "20012"}];
+
+// Tab Switching
+const tabComb = document.getElementById('tabComb');
+const tabSupp = document.getElementById('tabSupp');
+const viewComb = document.getElementById('viewCombatants');
+const viewSupp = document.getElementById('viewPartners');
+
+tabComb.addEventListener('click', () => {
+  tabComb.classList.add('active');
+  tabSupp.classList.remove('active');
+  viewComb.style.display = 'block';
+  viewSupp.style.display = 'none';
+});
+
+tabSupp.addEventListener('click', () => {
+  tabSupp.classList.add('active');
+  tabComb.classList.remove('active');
+  viewSupp.style.display = 'block';
+  viewComb.style.display = 'none';
+  renderPartners(PARTNERS);
+});
+
+// Render Combatants
+const combGrid = document.getElementById('combGrid');
+function renderCombatants(items) {
+  combGrid.innerHTML = '';
+  if (items.length === 0) {
+    combGrid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px; color:var(--muted);">No matching combatants found.</div>';
+    return;
+  }
+  items.forEach(c => {
+    const el = document.createElement('div');
+    el.className = 'char-card';
+    el.dataset.r = c.rarity;
+    el.dataset.job = c.job;
+    const stars = '★'.repeat(c.rarity);
+    el.innerHTML = `
+      <div class="char-icon">${c.icon}</div>
+      <div class="char-name">${c.name}</div>
+      <div class="char-stars">${stars}</div>
+      <div class="char-tags">
+        <span class="tag">${c.job}</span>
+        <span class="tag attr">${c.ego}</span>
+        <span class="tag">${c.faction}</span>
+      </div>
+    `;
+    el.addEventListener('click', () => openModal(c));
+    combGrid.appendChild(el);
+  });
+}
+renderCombatants(COMBATANTS);
+
+// Render Partners
+const suppGrid = document.getElementById('suppGrid');
+function renderPartners(items) {
+  suppGrid.innerHTML = '';
+  if (items.length === 0) {
+    suppGrid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px; color:var(--muted);">No matching partners found.</div>';
+    return;
+  }
+  items.forEach(p => {
+    const el = document.createElement('div');
+    el.className = 'char-card';
+    el.dataset.r = p.rarity;
+    const stars = '★'.repeat(p.rarity);
+    el.innerHTML = `
+      <div class="char-icon" style="border-color:${p.color}">🤝</div>
+      <div class="char-name">${p.name}</div>
+      <div class="char-stars">${stars}</div>
+      <div class="char-tags">
+        <span class="tag" style="border-color:${p.color}; color:${p.color}">Partner</span>
+        <span class="tag">ID: ${p.id}</span>
+      </div>
+    `;
+    suppGrid.appendChild(el);
+  });
+}
+
+// Modal
+const modal = document.getElementById('charModal');
+const modalClose = document.getElementById('modalClose');
+function openModal(c) {
+  document.getElementById('mIcon').textContent = c.icon;
+  document.getElementById('mName').textContent = c.name;
+  document.getElementById('mStars').textContent = '★'.repeat(c.rarity);
+  document.getElementById('mDesc').textContent = c.overview;
+  
+  const meta = document.getElementById('mMeta');
+  meta.innerHTML = `
+    <span class="tag" style="background:var(--accent);color:#fff">${c.job}</span>
+    <span class="tag attr">${c.ego}</span>
+    <span class="tag">${c.faction}</span>
+  `;
+  
+  const cardList = document.getElementById('mCardList');
+  cardList.innerHTML = '';
+  if (c.cards && c.cards.length > 0) {
+    c.cards.forEach(card => {
+      const row = document.createElement('div');
+      row.className = 'm-card-row';
+      row.innerHTML = `
+        <div class="m-card-cost">${card.cost}</div>
+        <div class="m-card-body">
+          <div class="m-card-name">
+            <span>${card.name}</span>
+            <span class="m-card-type">${card.type}</span>
+          </div>
+          <div class="m-card-desc">${card.effect}</div>
+        </div>
+      `;
+      cardList.appendChild(row);
+    });
+  } else {
+    cardList.innerHTML = '<div style="color:var(--muted);font-size:0.8rem">No starter card dossier available.</div>';
+  }
+  modal.classList.add('open');
+}
+
+modalClose.addEventListener('click', () => modal.classList.remove('open'));
+modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('open'); });
+window.addEventListener('keydown', (e) => { if (e.key === 'Escape') modal.classList.remove('open'); });
+
+// Combatant Filtering
+let combRarity = 'all';
+let combJob = null;
+const combBtns = document.querySelectorAll('#combFilters .f-btn');
+combBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    combBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    if (btn.dataset.f) {
+      combRarity = btn.dataset.f;
+      combJob = null;
+    } else if (btn.dataset.job) {
+      combRarity = null;
+      combJob = btn.dataset.job;
+    }
+    filterCombatants();
+  });
+});
+
+const combSearch = document.getElementById('combSearch');
+function filterCombatants() {
+  const q = combSearch.value.toLowerCase().trim();
+  const res = COMBATANTS.filter(c => {
+    const matchR = combRarity === 'all' || !combRarity || String(c.rarity) === combRarity;
+    const matchJ = !combJob || c.job.toLowerCase() === combJob.toLowerCase();
+    const matchQ = !q || c.name.toLowerCase().includes(q) || c.job.toLowerCase().includes(q) || c.ego.toLowerCase().includes(q) || c.faction.toLowerCase().includes(q);
+    return matchR && matchJ && matchQ;
+  });
+  renderCombatants(res);
+}
+combSearch.addEventListener('input', filterCombatants);
+
+// Partner Filtering
+let suppRarity = 'all';
+const suppBtns = document.querySelectorAll('#suppFilters .f-btn');
+suppBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    suppBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    suppRarity = btn.dataset.sf;
+    filterPartners();
+  });
+});
+const suppSearch = document.getElementById('suppSearch');
+function filterPartners() {
+  const q = suppSearch.value.toLowerCase().trim();
+  const res = PARTNERS.filter(p => {
+    const matchR = suppRarity === 'all' || String(p.rarity) === suppRarity;
+    const matchQ = !q || p.name.toLowerCase().includes(q);
+    return matchR && matchQ;
+  });
+  renderPartners(res);
+}
+suppSearch.addEventListener('input', filterPartners);
+</script>
+</body>
+</html>
