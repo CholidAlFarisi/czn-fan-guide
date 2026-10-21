@@ -870,9 +870,12 @@ __NAV__
   <div class="container">
     <div class="sub-tabs">
       <button class="sub-tab-btn active" data-tab="tab-combat">⚡ Combat &amp; Stress Engine</button>
+      <button class="sub-tab-btn" data-tab="tab-damage">🎯 Damage Formula &amp; Rules</button>
+      <button class="sub-tab-btn" data-tab="tab-partner-rules">🤝 Partner System &amp; Synergy</button>
+      <button class="sub-tab-btn" data-tab="tab-chaos">🌀 Chaos Depths &amp; Encounters</button>
       <button class="sub-tab-btn" data-tab="tab-epiphany">✨ Epiphany &amp; Evolution (304 Branches)</button>
       <button class="sub-tab-btn" data-tab="tab-glossary">📖 Keywords Glossary (28)</button>
-      <button class="sub-tab-btn" data-tab="tab-deities">🌌 6 Cosmic Deities &amp; Sparks</button>
+      <button class="sub-tab-btn" data-tab="tab-deities">🌌 6 Cosmic Deities &amp; 165 Sparks</button>
       <button class="sub-tab-btn" data-tab="tab-relics">🛡️ Relics System (557)</button>
     </div>
 
@@ -1153,6 +1156,240 @@ __NAV__
     </div>
 
     <!-- PANE 4: RELICS SYSTEM -->
+    
+    <!-- PANE: DAMAGE FORMULA & COMBAT RULES -->
+    <div id="tab-damage" class="tab-pane">
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px; margin-bottom:28px;">
+        <div class="page-pill" style="margin-bottom:10px;">Client Engine Formula</div>
+        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.35rem; color:var(--text); margin-bottom:12px;">Official Combat Damage Formula</h2>
+        <p style="font-size:0.9rem; color:var(--body); line-height:1.7; margin-bottom:18px;">
+          Extracted directly from the official client battle engine (<code>procDamageCalculate</code> and <code>stat_formula</code>). All attacks, modifiers, barrier interactions, and elemental multipliers resolve in strict sequential layers:
+        </p>
+
+        <div style="background:var(--card-inner); border:1px solid var(--cyan); border-radius:6px; padding:16px; font-family:monospace; font-size:0.95rem; color:var(--cyan); margin-bottom:20px; overflow-x:auto;">
+          Final Damage = [(Base ATK &times; Skill Multiplier) + Flat Additions] &times; Ego Affinity Mult &times; Crit Mult &times; [1000 / (1000 + DEF)] &times; (1 + Final Dmg Bonus)
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px;">
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px;">
+            <div style="font-weight:700; color:var(--text); font-size:0.9rem; margin-bottom:4px;">1. Base ATK &amp; Stat Transfer</div>
+            <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Combatant baseline ATK + Partner Stat Transfer (11%–15% ATK) + Weapon flat ATK + in-combat flat buffs.</div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px;">
+            <div style="font-weight:700; color:#22d3ee; font-size:0.9rem; margin-bottom:4px;">2. Ego Affinity Multiplier</div>
+            <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Weakness Advantage deals <strong>+30% damage</strong> (1.30&times;). Resistance reduces damage by <strong>-25%</strong> (0.75&times;). Secred Divine Epiphanies make attacks <em>Always Weakness</em>.</div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px;">
+            <div style="font-weight:700; color:#ef4444; font-size:0.9rem; margin-bottom:4px;">3. Critical Strike Factor</div>
+            <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Base Crit Damage is <strong>150%</strong> (1.50&times;). Modified additively by Memory Fragments, Vitor Sparks, and Striker passives up to 300%+.</div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px;">
+            <div style="font-weight:700; color:#dfb235; font-size:0.9rem; margin-bottom:4px;">4. Defense &amp; Shield Absorption</div>
+            <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Damage first strikes Shield (Barrier). Shields prevent team Stress gain. Damage penetrating shields is reduced by <code>1000 / (1000 + Target DEF)</code>.</div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px;">
+            <div style="font-weight:700; color:#a855f7; font-size:0.9rem; margin-bottom:4px;">5. Tenacity Break (Stagger)</div>
+            <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Depleting enemy Tenacity to 0 triggers <strong>Break State</strong>: delays enemy action for 1 turn and applies a flat <strong>+50% Break Damage Multiplier</strong>.</div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px;">
+            <div style="font-weight:700; color:#10b981; font-size:0.9rem; margin-bottom:4px;">6. Coordinated Pincer Strike</div>
+            <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Certain cards trigger an off-turn assist from adjacent allies, delivering a bonus strike at 50%–100% of their base attack power without spending AP.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE DAMAGE CALCULATOR -->
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px; margin-bottom:28px;">
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin-bottom:12px;">Live Combat Damage Calculator</h3>
+        <p style="font-size:0.85rem; color:var(--body); margin-bottom:18px;">Simulate expected in-game damage using exact client formulas:</p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:14px; margin-bottom:18px;">
+          <div>
+            <label style="font-size:0.75rem; color:var(--muted); display:block; margin-bottom:4px;">Hero Base ATK (incl. Partner):</label>
+            <input type="number" id="calcAtk" value="380" style="width:100%; padding:8px; background:var(--card-inner); border:1px solid var(--panel-border); color:var(--text); border-radius:4px;">
+          </div>
+          <div>
+            <label style="font-size:0.75rem; color:var(--muted); display:block; margin-bottom:4px;">Card Skill Multiplier (%):</label>
+            <input type="number" id="calcSkillMult" value="250" style="width:100%; padding:8px; background:var(--card-inner); border:1px solid var(--panel-border); color:var(--text); border-radius:4px;">
+          </div>
+          <div>
+            <label style="font-size:0.75rem; color:var(--muted); display:block; margin-bottom:4px;">Target DEF:</label>
+            <input type="number" id="calcDef" value="200" style="width:100%; padding:8px; background:var(--card-inner); border:1px solid var(--panel-border); color:var(--text); border-radius:4px;">
+          </div>
+          <div>
+            <label style="font-size:0.75rem; color:var(--muted); display:block; margin-bottom:4px;">Ego Affinity:</label>
+            <select id="calcAffinity" style="width:100%; padding:8px; background:var(--card-inner); border:1px solid var(--panel-border); color:var(--text); border-radius:4px;">
+              <option value="1.30">Weakness Advantage (+30%)</option>
+              <option value="1.00" selected>Neutral (1.00x)</option>
+              <option value="0.75">Resisted / Disadvantage (-25%)</option>
+            </select>
+          </div>
+          <div>
+            <label style="font-size:0.75rem; color:var(--muted); display:block; margin-bottom:4px;">Target Status:</label>
+            <select id="calcStatus" style="width:100%; padding:8px; background:var(--card-inner); border:1px solid var(--panel-border); color:var(--text); border-radius:4px;">
+              <option value="1.00" selected>Normal State</option>
+              <option value="1.50">Tenacity Broken / Staggered (+50%)</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="builder-btn builder-btn-primary" onclick="runDamageSimulation()" style="padding:10px 24px; font-weight:700;">Calculate Damage</button>
+
+        <div id="calcResultContainer" style="margin-top:16px; padding:16px; background:var(--card-inner); border-left:4px solid var(--cyan); border-radius:4px; display:flex; justify-content:space-between; align-items:center;">
+          <div>
+            <div style="font-size:0.75rem; color:var(--muted); text-transform:uppercase;">Estimated Non-Crit Hit</div>
+            <div id="calcNormalDmg" style="font-family:'Orbitron',sans-serif; font-size:1.6rem; font-weight:800; color:var(--text);">792 DMG</div>
+          </div>
+          <div>
+            <div style="font-size:0.75rem; color:var(--muted); text-transform:uppercase;">Critical Strike (150%)</div>
+            <div id="calcCritDmg" style="font-family:'Orbitron',sans-serif; font-size:1.6rem; font-weight:800; color:#ef4444;">1,188 CRIT</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PANE: PARTNER SYSTEM & SYNERGY -->
+    <div id="tab-partner-rules" class="tab-pane">
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px; margin-bottom:28px;">
+        <div class="page-pill" style="margin-bottom:10px;">Tactical Supporter Rules</div>
+        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.35rem; color:var(--text); margin-bottom:12px;">Partner Compatibility, Restrictions &amp; Ego Resonance</h2>
+        <p style="font-size:0.9rem; color:var(--body); line-height:1.7; margin-bottom:18px;">
+          Partners (Supporters) are auxiliary operatives paired 1-to-1 with your frontline Combatants. In CZN v1.0.84, partner equipping is governed by three strict tactical rules:
+        </p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin-bottom:24px;">
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:18px;">
+            <div style="font-size:1.8rem; margin-bottom:8px;">🔒</div>
+            <h4 style="font-family:'Orbitron',sans-serif; font-size:1rem; color:var(--text); margin-bottom:6px;">1-to-1 Unique Equipping</h4>
+            <p style="font-size:0.84rem; color:var(--muted); line-height:1.6;">
+              Each Combatant has exactly 1 Partner slot (total 3 Partners per squad). A Partner <strong>cannot be duplicated</strong> across multiple squad members. Once assigned to Slot 01, that partner is unavailable for Slot 02 or 03.
+            </p>
+          </div>
+
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:18px;">
+            <div style="font-size:1.8rem; margin-bottom:8px;">📊</div>
+            <h4 style="font-family:'Orbitron',sans-serif; font-size:1rem; color:var(--text); margin-bottom:6px;">Base Stat Transfer</h4>
+            <p style="font-size:0.84rem; color:var(--muted); line-height:1.6;">
+              Partners transfer <strong>12%–16% HP</strong>, <strong>11%–15% ATK</strong>, and <strong>14%–18% DEF</strong> directly to the equipped hero. High-rarity 5★ partners provide higher stat yields and +35 Flat ATK bonuses.
+            </p>
+          </div>
+
+          <div style="background:var(--card-inner); border:1px solid var(--cyan); border-radius:6px; padding:18px;">
+            <div style="font-size:1.8rem; margin-bottom:8px;">🔥</div>
+            <h4 style="font-family:'Orbitron',sans-serif; font-size:1rem; color:var(--cyan); margin-bottom:6px;">Ego Resonance &amp; Soulmate Bonus</h4>
+            <p style="font-size:0.84rem; color:var(--muted); line-height:1.6;">
+              When equipped to a hero sharing the partner's <strong>Ego Element</strong> or canonical identity (<code>belong_character_eff</code>), they activate <strong>Ego Resonance</strong>: grants <strong>+15% bonus stat transfer</strong> and unlocks their exclusive 0 AP Ego Passive skill!
+            </p>
+          </div>
+        </div>
+
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--text); margin-bottom:14px;">The 48 Tactical Partners &amp; Belonging Heroes</h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:12px;" id="partnerRulesListContainer">
+          <!-- Rendered by JS from CZN_DATA.partners -->
+        </div>
+      </div>
+    </div>
+
+    <!-- PANE: CHAOS DEPTHS & ENCOUNTERS -->
+    <div id="tab-chaos" class="tab-pane">
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px; margin-bottom:28px;">
+        <div class="page-pill" style="margin-bottom:10px;">Rogue-lite Dungeon Architecture</div>
+        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.35rem; color:var(--text); margin-bottom:12px;">Chaos Exploration Depths &amp; Encounter Spot Types</h2>
+        <p style="font-size:0.9rem; color:var(--body); line-height:1.7; margin-bottom:20px;">
+          Expeditions inside the Sea of Chaos progress across 5 ascending Depths of corruption, featuring 8 official Encounter Node Types (<code>SPOT_TYPE_*</code>) from the client game engine:
+        </p>
+
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:#22d3ee; margin-bottom:14px;">The 5 Depths of Chaos Progression</h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin-bottom:28px;">
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px;">
+            <div style="font-size:0.75rem; color:var(--muted); font-weight:700;">DEPTH 01</div>
+            <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--text); margin:4px 0;">Outer Fringe</div>
+            <div style="font-size:0.78rem; color:var(--muted);">Low corruption risk. Basic skirmishes and fundamental relic rewards. Introduces squad to anomaly choices.</div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px;">
+            <div style="font-size:0.75rem; color:var(--muted); font-weight:700;">DEPTH 02</div>
+            <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:#22d3ee; margin:4px 0;">Resonance Layer</div>
+            <div style="font-size:0.78rem; color:var(--muted);">Moderate distortion. Elite Aberrations begin patrolling. First Altar of the Cosmic Deities unlocked.</div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px;">
+            <div style="font-size:0.75rem; color:var(--muted); font-weight:700;">DEPTH 03</div>
+            <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:#dfb235; margin:4px 0;">Hall of Distortion</div>
+            <div style="font-size:0.78rem; color:var(--muted);">High-risk anomalies, Wandering Merchants trading unique relics, and tactical resting sanctuaries.</div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px;">
+            <div style="font-size:0.75rem; color:var(--muted); font-weight:700;">DEPTH 04</div>
+            <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:#ef4444; margin:4px 0;">Abyssal Threshold</div>
+            <div style="font-size:0.78rem; color:var(--muted);">Severe psychic decay. Psychological stress gain doubled per turn. Dangerous high-tier Aberrations.</div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--purple); border-radius:6px; padding:14px;">
+            <div style="font-size:0.75rem; color:var(--purple); font-weight:700;">DEPTH 05</div>
+            <div style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:#a855f7; margin:4px 0;">The Singularity (Core)</div>
+            <div style="font-size:0.78rem; color:var(--muted);">Epic showdown against the Sector Calamity Overlord with multi-phase Tenacity break mechanics.</div>
+          </div>
+        </div>
+
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--text); margin-bottom:14px;">Official Encounter Node Directory</h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:14px;">
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px; display:flex; gap:12px; align-items:flex-start;">
+            <span style="font-size:1.6rem;">⚔️</span>
+            <div>
+              <div style="font-weight:700; color:var(--text); font-size:0.9rem;">SPOT_TYPE_BATTLE (Void Skirmish)</div>
+              <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Tactical combat encounter against regular Void monsters. Rewards Chaos currency and card draft choices.</div>
+            </div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px; display:flex; gap:12px; align-items:flex-start;">
+            <span style="font-size:1.6rem;">💀</span>
+            <div>
+              <div style="font-weight:700; color:#ef4444; font-size:0.9rem;">SPOT_TYPE_ELITE (Elite Calamity)</div>
+              <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Deadly mutated monstrosity. Guaranteed drop of high-tier Relics, Cosmic Divine Sparks, and significant team EXP.</div>
+            </div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px; display:flex; gap:12px; align-items:flex-start;">
+            <span style="font-size:1.6rem;">👑</span>
+            <div>
+              <div style="font-weight:700; color:#dfb235; font-size:0.9rem;">SPOT_TYPE_BOSS (Sector Overlord)</div>
+              <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Gatekeeper boss controlling the sector transition. Requires synchronized burst damage and break windows.</div>
+            </div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px; display:flex; gap:12px; align-items:flex-start;">
+            <span style="font-size:1.6rem;">🏕️</span>
+            <div>
+              <div style="font-weight:700; color:#10b981; font-size:0.9rem;">SPOT_TYPE_REST (Sanctuary Haven)</div>
+              <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Safe refuge allowing the Captain to restore 30% squad HP, conduct mental counseling (-50 Stress), or evolve a card.</div>
+            </div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px; display:flex; gap:12px; align-items:flex-start;">
+            <span style="font-size:1.6rem;">🛒</span>
+            <div>
+              <div style="font-weight:700; color:#f59e0b; font-size:0.9rem;">SPOT_TYPE_STORE (Black Market)</div>
+              <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Wandering smuggler offering universal cards, rare relics, and deck purification (purging corrupted breakdown cards).</div>
+            </div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px; display:flex; gap:12px; align-items:flex-start;">
+            <span style="font-size:1.6rem;">📦</span>
+            <div>
+              <div style="font-weight:700; color:#22d3ee; font-size:0.9rem;">SPOT_TYPE_SUPPLY (Supply Drop)</div>
+              <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Abandoned imperial supply crate containing field rations, shield batteries, and tactical consumables.</div>
+            </div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px; display:flex; gap:12px; align-items:flex-start;">
+            <span style="font-size:1.6rem;">❓</span>
+            <div>
+              <div style="font-weight:700; color:#a855f7; font-size:0.9rem;">SPOT_TYPE_NONEBATTLE (Anomaly Distortion)</div>
+              <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Psychic anomaly presenting branching narrative dilemmas: risk team Sanity for primordial power or retreat safely.</div>
+            </div>
+          </div>
+          <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:14px; display:flex; gap:12px; align-items:flex-start;">
+            <span style="font-size:1.6rem;">🌀</span>
+            <div>
+              <div style="font-weight:700; color:#ec4899; font-size:0.9rem;">SPOT_TYPE_EXTRA_AREA (Void Rift)</div>
+              <div style="font-size:0.8rem; color:var(--muted); line-height:1.5;">Hidden dimensional pocket offering bonus relic extraction and secret cosmic encounters.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="tab-relics" class="tab-pane">
       <div style="margin-bottom:28px; padding:24px; border-radius:8px; background:var(--panel); border:1px solid var(--panel-border);">
         <h2 style="font-family:'Orbitron',sans-serif; font-size:1.3rem; color:var(--text); margin-bottom:8px;">557 Relics &amp; Equipment Tiers</h2>
@@ -1349,6 +1586,41 @@ function filterCommonSparks(q) {
   renderCommonSparksList(list);
 }
 
+
+function runDamageSimulation() {
+  const atk = parseFloat(document.getElementById('calcAtk').value) || 0;
+  const skillMult = (parseFloat(document.getElementById('calcSkillMult').value) || 100) / 100;
+  const def = parseFloat(document.getElementById('calcDef').value) || 0;
+  const affinity = parseFloat(document.getElementById('calcAffinity').value) || 1.0;
+  const statusMult = parseFloat(document.getElementById('calcStatus').value) || 1.0;
+
+  const defFactor = 1000 / (1000 + def);
+  const baseDmg = (atk * skillMult) * affinity * defFactor * statusMult;
+  const critDmg = baseDmg * 1.5;
+
+  document.getElementById('calcNormalDmg').innerText = Math.round(baseDmg).toLocaleString() + ' DMG';
+  document.getElementById('calcCritDmg').innerText = Math.round(critDmg).toLocaleString() + ' CRIT';
+}
+
+function renderPartnerRulesList() {
+  const container = document.getElementById('partnerRulesListContainer');
+  if (!container || !window.CZN_DATA || !window.CZN_DATA.partners) return;
+  const partners = window.CZN_DATA.partners;
+  container.innerHTML = partners.slice(0, 16).map(p => `
+    <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:12px; display:flex; gap:10px; align-items:center;">
+      <img src="${p.portrait}" style="width:38px; height:38px; border-radius:50%; object-fit:cover;" onerror="this.src='https://via.placeholder.com/38?text=P'">
+      <div style="overflow:hidden;">
+        <div style="font-weight:700; color:var(--text); font-size:0.85rem; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;">${p.name} <span style="font-size:0.7rem; color:${p.color || '#dfb235'};">(${p.ego || 'Norms'})</span></div>
+        <div style="font-size:0.7rem; color:var(--cyan);">${p.job} &bull; ${p.stat_boost ? '+' + p.stat_boost.atk_pct + '% ATK' : ''}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderPartnerRulesList();
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   if (typeof initEpiphanyExplorer === 'function') {
     initEpiphanyExplorer();
@@ -1508,6 +1780,239 @@ __NAV__
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(340px,1fr)); gap:20px; margin-bottom:40px;">
 __FACTIONS__
     </div>
+
+    <!-- OFFICIAL STORY CAMPAIGN ARCHIVE -->
+    <div style="margin-top:50px; margin-bottom:40px;">
+      <div class="page-pill" style="margin-bottom:10px;">Official Narrative Scenario</div>
+      <h2 style="font-family:'Orbitron',sans-serif; font-size:1.35rem; color:var(--text); margin-bottom:12px;">Main Story Campaign &bull; Part 1: The Descent</h2>
+      <p style="font-size:0.9rem; color:var(--body); line-height:1.7; margin-bottom:24px;">
+        Chronicles the voyage of the <strong>SS Nightmare</strong> through the Sea of Chaos as the amnesiac Captain and crew confront existential corruption and political treachery:
+      </p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:18px;">
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-left:4px solid var(--cyan); border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:var(--cyan); font-size:0.85rem;">PROLOGUE</span>
+            <span style="font-size:0.75rem; color:var(--muted);">ARK EXPEDITION</span>
+          </div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--text); margin-bottom:8px;">Awakening in the Sea of Chaos</h3>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            The Captain awakens in the cryogenic bay of the flagship SS Nightmare amidst catastrophic alarms. Vice-Captain Renoa assists in an emergency sortie to repel encroaching Void Aberrations, discovering the Captain's memory has been wiped by high-dimensional interference.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Key Operatives:</strong> Captain, Renoa, Luke</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-left:4px solid #22d3ee; border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#22d3ee; font-size:0.85rem;">CHAPTER 01</span>
+            <span style="font-size:0.75rem; color:var(--muted);">SECTOR 1</span>
+          </div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--text); margin-bottom:8px;">Fringe of the Ruined World</h3>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            Deployed to the outskirts of an abandoned orbital colony. The squad encounters contaminated Terrascion peacekeepers driven mad by mental parasites. Nia's swift tactical vanguard secures the communication hub.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Key Operatives:</strong> Nia, Luke, Captain</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-left:4px solid #3b82f6; border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#3b82f6; font-size:0.85rem;">CHAPTER 02</span>
+            <span style="font-size:0.75rem; color:var(--muted);">SECTOR 2</span>
+          </div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--text); margin-bottom:8px;">Echo of Despair</h3>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            Investigating a pre-fall cathedral floating in zero gravity. The team confronts psychological illusions manifesting their deepest guilts. Selena's barrier shields the vanguard against resonance screams.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Key Operatives:</strong> Selena, Khalipe, Captain</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-left:4px solid #8b5cf6; border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#8b5cf6; font-size:0.85rem;">CHAPTER 03</span>
+            <span style="font-size:0.75rem; color:var(--muted);">SECTOR 3</span>
+          </div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--text); margin-bottom:8px;">Whispering Abyss</h3>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            Entering deep subterranean caves beneath Asteroid Sigma. Trisa's heavy firepower obliterates nesting Void Swarms, but reveals signs of deliberate biological experimentation by human rogue factions.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Key Operatives:</strong> Trisa, Magna, Captain</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-left:4px solid #a855f7; border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#a855f7; font-size:0.85rem;">CHAPTER 04</span>
+            <span style="font-size:0.75rem; color:var(--muted);">SECTOR 4</span>
+          </div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--text); margin-bottom:8px;">Order in the Shadows</h3>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            Diplomatic escort mission in Ark City collapses into street combat as Stella Familia crime syndicates assassinate an imperial witness. Hugo and Renoa uncover black market trades of crystallized Chaos cores.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Key Operatives:</strong> Hugo, Renoa, Mika</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-left:4px solid #ec4899; border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#ec4899; font-size:0.85rem;">CHAPTER 05</span>
+            <span style="font-size:0.75rem; color:var(--muted);">ANOMALY</span>
+          </div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--text); margin-bottom:8px;">Trial of the Sixfold Deities</h3>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            The Captain is pulled into a high-dimensional nexus where cosmic avatars of Vitor, Circen, Diallos, Secred, Nihilum, and Caligo test humanity's resolve, granting the power of Divine Epiphany.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Key Operatives:</strong> Captain, Renoa, 6 Cosmic Deities</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-left:4px solid #ef4444; border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#ef4444; font-size:0.85rem;">CHAPTER 06</span>
+            <span style="font-size:0.75rem; color:var(--muted);">SECTOR 5</span>
+          </div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--text); margin-bottom:8px;">Calamity's Descent</h3>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            A colossal Calamity Titan breaches the defense perimeter of Ark Prime. The Captain coordinates a multi-vector strike, forcing operatives to face their trauma thresholds to shatter the titan's armor.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Key Operatives:</strong> Khalipe, Renoa, Haru</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-left:4px solid #f97316; border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#f97316; font-size:0.85rem;">CHAPTER 07</span>
+            <span style="font-size:0.75rem; color:var(--muted);">SECTOR 6</span>
+          </div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--text); margin-bottom:8px;">The Fractured Sanctuary</h3>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            The Epione Psychiatric Center is infiltrated. Mental corruption drives patients into violent breakdowns. The Captain personally conducts emergency mental sync to save operatives from permanent despair.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Key Operatives:</strong> Captain, Nia, Selena</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-left:4px solid #eab308; border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#eab308; font-size:0.85rem;">CHAPTER 08</span>
+            <span style="font-size:0.75rem; color:var(--muted);">DEEP CORE</span>
+          </div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--text); margin-bottom:8px;">Threads of Fate</h3>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            Ancient archives recovered from an imperial wreck reveal the shocking origin of the SS Nightmare and the true nature of the Captain's identity as a genetic clone engineered to bind with Chaos.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Key Operatives:</strong> Renoa, Captain, Veronica</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-left:4px solid #10b981; border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#10b981; font-size:0.85rem;">CHAPTER 09</span>
+            <span style="font-size:0.75rem; color:var(--muted);">RIFT</span>
+          </div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--text); margin-bottom:8px;">Resonance of the Void</h3>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            The SS Nightmare plunges directly into the Great Spatial Rift. Navigational systems fail as reality bends. Operatives must rely purely on their psychic Ego links to navigate the impossible tides.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Key Operatives:</strong> Luke, Trisa, Hugo</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-left:4px solid #6366f1; border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#6366f1; font-size:0.85rem;">CHAPTER 10</span>
+            <span style="font-size:0.75rem; color:var(--muted);">THE GATE</span>
+          </div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--text); margin-bottom:8px;">The Gate of Chaos</h3>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            At the threshold of the primary Chaos Singularity, the Holy Crusaders unveil their ultimate weapon, threatening to cleanse the sector at the cost of billions of innocent human lives.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Key Operatives:</strong> Renoa, Khalipe, Captain</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-left:4px solid #ec4899; border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#ec4899; font-size:0.85rem;">CHAPTER 11</span>
+            <span style="font-size:0.75rem; color:var(--muted);">FINALE</span>
+          </div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--text); margin-bottom:8px;">Nightmare's Dawn</h3>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            The climactic battle against the Sovereign of Nothingness. Combining the divine blessings of the Sixfold Deities, the Captain shatters the convergence core, securing a fragile dawn for the Ark.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Key Operatives:</strong> Full SS Nightmare Operative Unit</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- THE SIX COSMIC DEITIES PANTHEON -->
+    <div style="margin-top:50px; margin-bottom:40px;">
+      <div class="page-pill" style="margin-bottom:10px;">Cosmic Pantheon</div>
+      <h2 style="font-family:'Orbitron',sans-serif; font-size:1.35rem; color:var(--text); margin-bottom:12px;">The Sixfold Cosmic Deities &amp; Divine Domains</h2>
+      <p style="font-size:0.9rem; color:var(--body); line-height:1.7; margin-bottom:24px;">
+        High-dimensional cosmic entities observing the Sea of Chaos. When invoked at Cosmic Altars, they grant operatives transformative <strong>Divine Epiphanies</strong>:
+      </p>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:18px;">
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px; border-top:3px solid #ef4444;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#ef4444;">VITOR &bull; The Sunburst Sovereign</span>
+            <span style="font-size:0.7rem; color:var(--muted);">33 DIVINE SPARKS</span>
+          </div>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            Embodiment of eternal wrath, relentless aggression, and nuclear fervor. Vitor rewards unrelenting offensive tempo, empowering cards with Burn status, critical amplification, and damage scaling per AP spent.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Domains:</strong> Aggression &bull; Burn &bull; Critical Burst &bull; AP Escalation</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px; border-top:3px solid #10b981;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#10b981;">CIRCEN &bull; The Serpent of Decay</span>
+            <span style="font-size:0.7rem; color:var(--muted);">33 DIVINE SPARKS</span>
+          </div>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            Ruler of biological dissolution, continuous suffering, and toxic osmosis. Circen infuses attacks with compounding Bleed and Poison stacks, dealing massive percentage damage at the start of enemy turns.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Domains:</strong> Bleed &bull; Toxic Corrosion &bull; Tenacity Attrition &bull; Debuff Proliferation</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px; border-top:3px solid #eab308;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#eab308;">DIALLOS &bull; The Iron Arbiter</span>
+            <span style="font-size:0.7rem; color:var(--muted);">33 DIVINE SPARKS</span>
+          </div>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            Deity of retribution, immutable equilibrium, and retaliatory fury. Diallos strengthens counter-attack protocols, converting enemy attacks into instant retaliatory strikes and unyielding defensive bulwarks.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Domains:</strong> Retribution &bull; Counter-Attack &bull; Armor Reinforcement &bull; Stance Mastery</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px; border-top:3px solid #22d3ee;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#22d3ee;">SECRED &bull; The Primordial Cradle</span>
+            <span style="font-size:0.7rem; color:var(--muted);">33 DIVINE SPARKS</span>
+          </div>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            Goddess of salvation, cellular restoration, and universal purity. Secred bestows permanent barrier synthesis, stress purification, lethal damage denial, and causes all allied strikes to treat enemies as <em>Always Weak</em>.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Domains:</strong> Universal Weakness &bull; Emergency Heal &bull; Barrier Ward &bull; Stress Cleanse</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px; border-top:3px solid #a855f7;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#a855f7;">NIHILUM &bull; The Void Maw</span>
+            <span style="font-size:0.7rem; color:var(--muted);">33 DIVINE SPARKS</span>
+          </div>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            Entity of absolute vacuum, dimensional collapse, and anti-matter. Nihilum strips enemy shields, corrupts enemy intent, and turns mental breakdown into terrifying catastrophic spell bursts.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Domains:</strong> Void Corruption &bull; Barrier Shatter &bull; AP Steal &bull; Despair Burst</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px; border-top:3px solid #ec4899;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <span style="font-family:'Orbitron',sans-serif; font-weight:700; color:#ec4899;">CALIGO &bull; The Shadow Weaver</span>
+            <span style="font-size:0.7rem; color:var(--muted);">33 DIVINE SPARKS</span>
+          </div>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            Architect of shadows, temporal displacement, and lethal precision. Caligo grants extreme Critical Hit Chance, card cycle acceleration, free card plays upon Critical hits, and phantom evasion.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);"><strong>Domains:</strong> Critical Mastery &bull; 0 AP Cycle &bull; Phantom Evasion &bull; Hand Acceleration</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </main>
 

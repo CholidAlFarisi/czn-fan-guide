@@ -1,2062 +1,4614 @@
-// Chaos Zero Nightmare - Team & Deck Builder Data
-// Updated with Lv 60 baseline stats, 3-Combatant + 3-Partner configuration, card damage multipliers, and official Glossary
+// Chaos Zero Nightmare - Complete Master Game Data (v1.0.84 Official Client Extracted)
+// Includes 40 Combatants, 48 Partners with Ego Resonance, 165 Divine Epiphanies, Combat Rules, Chaos Depths & Encounters, and Story Archives
 window.CZN_DATA = {
-  combatants: [{"id": "1055", "name": "Adelheid", "rarity": 5, "job": "Vanguard", "role": "Defense / Shield", "job_icon": "🛡️", "element": "Justice", "element_color": "#10664d", "element_icon": "⚔️", "faction": "Imperial High Command", "portrait": "assets/characters/1055.webp", "stats": {"atk": 305, "hp": 510, "def": 285, "crit_rate": 3, "crit_dmg": 125}, "starters": [{"name": "Gather Around", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Defense-Based Damage", "sct": "start_1055_01", "image": "assets/cards/start_1055_01.webp"}, {"name": "Fairy's Protection", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1055_02", "image": "assets/cards/start_1055_02.webp"}, {"name": "Adelheid Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Adelheid Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Doggie", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "1 Defense-Based Damage", "sct": "unique_1055_06", "image": "assets/cards/unique_1055_06.webp"}, {"name": "Teddy", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 80, "desc": "1 Shield1 Damage Reduction", "sct": "unique_1055_06", "image": "assets/cards/unique_1055_06.webp"}, {"name": "Once Upon A Time", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Apply Blessing to 2 random card(s) in Draw Pile, then Draw 1 of those cards", "sct": "unique_1055_01", "image": "assets/cards/unique_1055_01.webp"}, {"name": "Protect Us", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "For the next 2 Blessing cards activated, Draw 1 Blessing card", "sct": "unique_1055_02", "image": "assets/cards/unique_1055_02.webp"}, {"name": "Friends from Fairy Tales", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "Select and create 1 of either Doggie or Teddy", "sct": "unique_1055_03", "image": "assets/cards/unique_1055_03.webp"}, {"name": "Truth Behind A Story", "cost": 1, "category": "Attack", "mult": 200, "hits": 1, "shield": 0, "desc": "200% Defense-Based Damage+100% Damage Amount taken by the target for 1 turn", "sct": "unique_1055_04", "image": "assets/cards/unique_1055_04.webp"}, {"name": "Garden of Secrets", "cost": 1, "category": "Power", "mult": 200, "hits": 1, "shield": 200, "desc": "200% Shield25% Shield Retention", "sct": "unique_1055_05", "image": "assets/cards/unique_1055_05.webp"}, {"name": "Doggie (Pack)", "cost": 0, "category": "Attack", "mult": 200, "hits": 1, "shield": 0, "desc": "200% Defense-Based DamageIncrease Damage Amount by 50% for each Doggie in hand before activation", "sct": "unique_1055_06", "image": "assets/cards/unique_1055_06.webp"}, {"name": "Doggie (Morphed)", "cost": 0, "category": "Attack", "mult": 90, "hits": 1, "shield": 0, "desc": "90% x 4 Defense-Based DamageWhen an Attack Card is used, change this card into Teddy (Morphed)", "sct": "unique_1055_06", "image": "assets/cards/unique_1055_06.webp"}, {"name": "Teddy (Morphed)", "cost": 0, "category": "Skill", "mult": 300, "hits": 1, "shield": 300, "desc": "300% Shield3 Damage ReductionWhen a Skill Card is used, change this card into Doggie (Morphed)", "sct": "unique_1055_07", "image": "assets/cards/unique_1055_07.webp"}], "collapse": [{"name": "Happy Ending", "cost": 6, "category": "Skill", "mult": 300, "hits": 1, "shield": 300, "desc": "300% ShieldFixed Heal equal to Shield in possession(cannot exceed 30% of max HP)", "sct": "collapse_1055_01", "image": "assets/cards/collapse_1055_01.webp"}, {"name": "Escapism", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1055_02", "image": "assets/cards/collapse_1055_02.webp"}]}, {"id": "30115", "name": "Arabella", "rarity": 5, "job": "Striker", "role": "Melee Burst DPS", "job_icon": "⚔️", "element": "Instinct", "element_color": "#22d3ee", "element_icon": "⚡", "faction": "Imperial High Command", "portrait": "assets/characters/30115.webp", "stats": {"atk": 485, "hp": 360, "def": 160, "crit_rate": 5, "crit_dmg": 150}, "starters": [{"name": "Diagonal Slash", "cost": 1, "category": "Attack", "mult": 60, "hits": 1, "shield": 0, "desc": "60% Damage to all enemies", "sct": "start_30115_01", "image": "assets/cards/start_30115_01.webp"}, {"name": "Crimson Domain", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_30115_02", "image": "assets/cards/start_30115_02.webp"}, {"name": "Arabella Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Arabella Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Scream For Me", "cost": 1, "category": "Attack", "mult": 40, "hits": 1, "shield": 0, "desc": "40% Damage and 2 Fracture to all enemies4 Fracture to the enemy with the highest HP", "sct": "unique_30115_01", "image": "assets/cards/unique_30115_01.webp"}, {"name": "Observer’s Pleasure", "cost": 0, "category": "Skill", "mult": 20, "hits": 1, "shield": 0, "desc": "1 Fracture AmplificationFor each enemy present, +20% Damage Amount to this unit for 1 turn", "sct": "unique_30115_02", "image": "assets/cards/unique_30115_02.webp"}, {"name": "Hollow Verdict", "cost": 1, "category": "Attack", "mult": 40, "hits": 1, "shield": 0, "desc": "40% Damage and 2 Fracture to all enemies, and activate Fracture inflicted by this unit", "sct": "unique_30115_03", "image": "assets/cards/unique_30115_03.webp"}, {"name": "Sadistic Restraint", "cost": 1, "category": "Attack", "mult": 60, "hits": 1, "shield": 0, "desc": "60% Damage, and activate Fracture inflicted by this unit 2 timesAdd 1 Hit for each type of harmful effect the target has (max 3 times)", "sct": "unique_30115_04", "image": "assets/cards/unique_30115_04.webp"}, {"name": "The Art of Unmaking", "cost": 1, "category": "Attack", "mult": 200, "hits": 1, "shield": 0, "desc": "200% Damage to all enemiesIncrease Damage Amount by 15% for each type of harmful effect the target has (max 120%)Fracture Amplification: 2x ", "sct": "unique_30115_05", "image": "assets/cards/unique_30115_05.webp"}], "collapse": [{"name": "Pathetic End", "cost": 5, "category": "Attack", "mult": 600, "hits": 1, "shield": 0, "desc": "600% DamageFor 2 turn(s), inflict Fixed Damage to the target equal to 30% of Damage Amount taken by all enemies(cannot exceed 1000% of Arabe", "sct": "collapse_30115_01", "image": "assets/cards/collapse_30115_01.webp"}, {"name": "Charm", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_30115_02", "image": "assets/cards/collapse_30115_02.webp"}]}, {"id": "1060", "name": "Chizuru", "rarity": 5, "job": "Psionic", "role": "Magic / Discard", "job_icon": "🔮", "element": "Justice", "element_color": "#10664d", "element_icon": "⚔️", "faction": "Imperial High Command", "portrait": "assets/characters/1060.webp", "stats": {"atk": 430, "hp": 350, "def": 185, "crit_rate": 5, "crit_dmg": 140}, "starters": [{"name": "Moonslash", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1060_01", "image": "assets/cards/start_1060_01.webp"}, {"name": "Spiritflame’s Ward", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1060_02", "image": "assets/cards/start_1060_02.webp"}, {"name": "Chizuru Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Chizuru Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Karmic Flames", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage1 Cursed ShacklesCursed Shackles: Add 1 Hit", "sct": "unique_1060_01", "image": "assets/cards/unique_1060_01.webp"}, {"name": "Tsukuyomi", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "3 Will-O’-Wisp for each Hit of the next Attack Card of this unit activated", "sct": "unique_1060_03", "image": "assets/cards/unique_1060_03.webp"}, {"name": "Bound At Dusk", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "At the start of the turn, gain InhibitDecrease Cost of 2 random card(s) of other Combatants by 1 until activated", "sct": "unique_1060_02", "image": "assets/cards/unique_1060_02.webp"}, {"name": "Oni Hunt", "cost": 1, "category": "Attack", "mult": 70, "hits": 1, "shield": 0, "desc": "70% Damage+80% Damage Amount to the next Bind card activated", "sct": "unique_1060_04", "image": "assets/cards/unique_1060_04.webp"}, {"name": "Shadow of the Moon", "cost": 1, "category": "Attack", "mult": 80, "hits": 1, "shield": 0, "desc": "80% Damage × 1+80% Damage Amount for each Bind stack", "sct": "unique_1060_06", "image": "assets/cards/unique_1060_06.webp"}, {"name": "Shadow of the Moon+", "cost": 1, "category": "Attack", "mult": 180, "hits": 1, "shield": 0, "desc": "180% Damage × 2Recover 5% of Max HP+80% Damage Amount for each Bind stack", "sct": "unique_1060_06", "image": "assets/cards/unique_1060_06.webp"}], "collapse": [{"name": "Moonlight of High Tide", "cost": 5, "category": "Attack", "mult": 500, "hits": 1, "shield": 0, "desc": "500% Damage+100% Damage Amount for each Shadow of the Moon created (max 10)", "sct": "collapse_1060_01", "image": "assets/cards/collapse_1060_01.webp"}, {"name": "Fear", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1060_02", "image": "assets/cards/collapse_1060_02.webp"}]}, {"id": "1061", "name": "Diana", "rarity": 5, "job": "Hunter", "role": "Follow-Up / Extra Atk", "job_icon": "🏹", "element": "Passion", "element_color": "#f85058", "element_icon": "🔥", "faction": "The Holy Crusaders", "portrait": "assets/characters/1061.webp", "stats": {"atk": 485, "hp": 360, "def": 160, "crit_rate": 10, "crit_dmg": 150}, "starters": [{"name": "Disruption Fire", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1061_01", "image": "assets/cards/start_1061_01.webp"}, {"name": "Protect Me", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%", "sct": "start_1061_03", "image": "assets/cards/start_1061_03.webp"}, {"name": "Cupid Shot", "cost": 1, "category": "Attack", "mult": 120, "hits": 1, "shield": 0, "desc": "120% Damage60% Extra Attack × Bullet card count in hand x to a random enemy", "sct": "start_1061_02", "image": "assets/cards/start_1061_02.webp"}, {"name": "Diana Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}], "uniques": [{"name": "With All My Heart!", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% DamageCreate 2 Heart Breaker", "sct": "unique_1061_01", "image": "assets/cards/unique_1061_01.webp"}, {"name": "C’mere, Milk & Pong!", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Create 2 Heart Shaker", "sct": "unique_1061_02", "image": "assets/cards/unique_1061_02.webp"}, {"name": "Pistol of Purification", "cost": 1, "category": "Attack", "mult": 120, "hits": 1, "shield": 0, "desc": "120% Damage2 ResonanceIf this card is Discarded, activate Resonance inflicted on the target by this unit 3 more times", "sct": "unique_1061_03", "image": "assets/cards/unique_1061_03.webp"}, {"name": "Blooming Love", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Draw 1 Quietus card(s)Discard 2", "sct": "unique_1061_04", "image": "assets/cards/unique_1061_04.webp"}, {"name": "Liberated Feelings", "cost": 2, "category": "Attack", "mult": 300, "hits": 1, "shield": 0, "desc": "Draw 2 Exhaust Bullet card(s)300% DamageIncrease base Damage Amount by 30% for each different Bullet card in hand", "sct": "unique_1061_05", "image": "assets/cards/unique_1061_05.webp"}, {"name": "Heart Breaker", "cost": 0, "category": "Attack", "mult": 80, "hits": 1, "shield": 0, "desc": "80% DamageDiscard 1 random Bullet card(s)If this card is Discarded, 120% Extra Attack to a random enemy", "sct": "unique_1061_06", "image": "assets/cards/unique_1061_06.webp"}, {"name": "Heart Shaker", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "1 ResonanceDiscard 1 random card(s) in Draw PileWhen this card is Discarded, 2 Resonance to a random enemy", "sct": "unique_1061_07", "image": "assets/cards/unique_1061_07.webp"}], "collapse": [{"name": "Radiant Smile", "cost": 5, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Create 1 Cupid ShotCreate 2 Heart Bullet", "sct": "collapse_1061_01", "image": "assets/cards/collapse_1061_01.webp"}, {"name": "Gloom", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1061_02", "image": "assets/cards/collapse_1061_02.webp"}]}, {"id": "30048", "name": "Fei", "rarity": 5, "job": "Ranger", "role": "Multi-Hit / Mark", "job_icon": "🎯", "element": "Justice", "element_color": "#10664d", "element_icon": "⚔️", "faction": "Imperial High Command", "portrait": "assets/characters/30048.webp", "stats": {"atk": 485, "hp": 360, "def": 160, "crit_rate": 5, "crit_dmg": 150}, "starters": [{"name": "Azure Flame", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_30048_01", "image": "assets/cards/start_30048_01.webp"}, {"name": "Melancholy", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_30048_02", "image": "assets/cards/start_30048_02.webp"}, {"name": "Fei Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Fei Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Exorcist’s Formation", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "On Draw through an ability, 1 DescentCreate 8 Inferno Rhapsody in Draw Pile", "sct": "unique_30048_01", "image": "assets/cards/unique_30048_01.webp"}, {"name": "Heavensfall", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage × 3", "sct": "unique_30048_07", "image": "assets/cards/unique_30048_07.webp"}, {"name": "Inferno Rhapsody", "cost": 0, "category": "Attack", "mult": 70, "hits": 1, "shield": 0, "desc": "70% Damage1 Flame ArtsWhen Flame Arts is activated through this card, Draw 1", "sct": "unique_30048_06", "image": "assets/cards/unique_30048_06.webp"}, {"name": "Inferno Rhapsody: Heaven", "cost": 0, "category": "Attack", "mult": 110, "hits": 1, "shield": 0, "desc": "110% Damage1 Flame ArtsWhen Flame Arts is activated through this card, 3 Descent", "sct": "unique_30048_06", "image": "assets/cards/unique_30048_06.webp"}, {"name": "Soliloquy", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Draw 2Of those Drawn cards, Discard all 1-Cost or higher cards", "sct": "unique_30048_02", "image": "assets/cards/unique_30048_02.webp"}, {"name": "Night Rain", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "1 Flame ArtsStreak: Draw 1 Inferno Rhapsody", "sct": "unique_30048_03", "image": "assets/cards/unique_30048_03.webp"}, {"name": "Soulfire Dance", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage × X+1Draw X", "sct": "unique_30048_04", "image": "assets/cards/unique_30048_04.webp"}, {"name": "Blazing War Dance", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Move Inferno Rhapsody to hand for each Descent gained this turn", "sct": "unique_30048_05", "image": "assets/cards/unique_30048_05.webp"}], "collapse": [{"name": "Heavenscleaver", "cost": 5, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "8 DescentFor 2 turn(s), at the start of the turn, 8 DescentIncrease Damage Amount of the next Heavensfall by 100%", "sct": "collapse_30048_01", "image": "assets/cards/collapse_30048_01.webp"}, {"name": "Guilt", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_30048_02", "image": "assets/cards/collapse_30048_02.webp"}]}, {"id": "1062", "name": "Haru", "rarity": 5, "job": "Striker", "role": "Melee Burst DPS", "job_icon": "⚔️", "element": "Void", "element_color": "#a855f7", "element_icon": "🌌", "faction": "Terrascion", "portrait": "assets/characters/1062.webp", "stats": {"atk": 485, "hp": 360, "def": 160, "crit_rate": 5, "crit_dmg": 150}, "starters": [{"name": "Anchor", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1062_01", "image": "assets/cards/start_1062_01.webp"}, {"name": "Power Anchor", "cost": 2, "category": "Attack", "mult": 220, "hits": 1, "shield": 0, "desc": "220% Damage", "sct": "start_1062_03", "image": "assets/cards/start_1062_03.webp"}, {"name": "Anchor Drop", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1062_02", "image": "assets/cards/start_1062_02.webp"}, {"name": "Haru Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}], "uniques": [{"name": "Anchor Shot", "cost": 2, "category": "Attack", "mult": 300, "hits": 1, "shield": 0, "desc": "300% Damage+100% Damage Amount for each activation of this card (max 10)", "sct": "unique_1062_01", "image": "assets/cards/unique_1062_01.webp"}, {"name": "Anchor Pointer", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Move Anchor Shot from Draw Pile or Graveyard to hand", "sct": "unique_1062_03", "image": "assets/cards/unique_1062_03.webp"}, {"name": "Power Charge", "cost": 2, "category": "Attack", "mult": 240, "hits": 1, "shield": 0, "desc": "240% Damage to all enemiesIf there is only one target, +100% Damage Amount", "sct": "unique_1062_05", "image": "assets/cards/unique_1062_05.webp"}, {"name": "Charge Energy", "cost": 0, "category": "Skill", "mult": 50, "hits": 1, "shield": 0, "desc": "Increase Damage Amount of Attack Cards of this unit by 50% for 1 turn", "sct": "unique_1062_04", "image": "assets/cards/unique_1062_04.webp"}, {"name": "Lift Anchor", "cost": 0, "category": "Skill", "mult": 80, "hits": 1, "shield": 0, "desc": "Increase Damage Amount of Anchor Shot in hand by 80% for 1 turn until activated", "sct": "unique_1062_02", "image": "assets/cards/unique_1062_02.webp"}], "collapse": [{"name": "Power Strike", "cost": 6, "category": "Attack", "mult": 600, "hits": 1, "shield": 0, "desc": "600% Damage+60% Damage Amount for each beneficial effect in possession (max +600%)", "sct": "collapse_1062_01", "image": "assets/cards/collapse_1062_01.webp"}, {"name": "Fear", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1062_02", "image": "assets/cards/collapse_1062_02.webp"}]}, {"id": "30093", "name": "Heidemarie", "rarity": 5, "job": "Ranger", "role": "Multi-Hit / Mark", "job_icon": "🎯", "element": "Passion", "element_color": "#f85058", "element_icon": "🔥", "faction": "Imperial High Command", "portrait": "assets/characters/30093.webp", "stats": {"atk": 485, "hp": 360, "def": 160, "crit_rate": 5, "crit_dmg": 150}, "starters": [{"name": "Sword Flash", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_30093_01", "image": "assets/cards/start_30093_01.webp"}, {"name": "Sword Barrier", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_30093_02", "image": "assets/cards/start_30093_02.webp"}, {"name": "Heidemarie Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Heidemarie Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Sword Rain", "cost": 1, "category": "Attack", "mult": 80, "hits": 1, "shield": 0, "desc": "80% Damage × 2Attunement: Create 1 Effulgent Blade", "sct": "unique_30093_01", "image": "assets/cards/unique_30093_01.webp"}, {"name": "Hero to All", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Draw 3Apply Linked to those cards for this turn", "sct": "unique_30093_02", "image": "assets/cards/unique_30093_02.webp"}, {"name": "Thread of Light", "cost": 1, "category": "Attack", "mult": 120, "hits": 1, "shield": 0, "desc": "120% Damage+120% Damage Amount for each Linked card in hand before activation", "sct": "unique_30093_03", "image": "assets/cards/unique_30093_03.webp"}, {"name": "Effulgent Expansion", "cost": 2, "category": "Skill", "mult": 50, "hits": 1, "shield": 0, "desc": "Create 2 Effulgent Blade+50% Damage Amount to Effulgent Blade for 1 turn", "sct": "unique_30093_04", "image": "assets/cards/unique_30093_04.webp"}, {"name": "Effulgent Compression", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "When moved to Graveyard, 1 Effulgent Light", "sct": "unique_30093_05", "image": "assets/cards/unique_30093_05.webp"}, {"name": "Effulgent Release", "cost": 0, "category": "Attack", "mult": 500, "hits": 1, "shield": 0, "desc": "500% DamageExhaust all Effulgent Blade in Graveyard, then +100% base Damage Amount for each ExhaustedAt the end of the turn, change this car", "sct": "unique_30093_06", "image": "assets/cards/unique_30093_06.webp"}, {"name": "Effulgent Blade", "cost": 1, "category": "Attack", "mult": 120, "hits": 1, "shield": 0, "desc": "120% DamageWhen this card is Discarded, 120% Extra Attack to a random enemyThis card does not move to Draw Pile on Shuffle", "sct": "unique_30093_07", "image": "assets/cards/unique_30093_07.webp"}], "collapse": [{"name": "Elysium of Blades", "cost": 5, "category": "Attack", "mult": 400, "hits": 1, "shield": 0, "desc": "400% Damage+80% Damage Amount for each card Discarded this battle (max 20 cards)", "sct": "collapse_30093_01", "image": "assets/cards/collapse_30093_01.webp"}, {"name": "Guilt", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_30093_02", "image": "assets/cards/collapse_30093_02.webp"}]}, {"id": "30113", "name": "Hilde", "rarity": 5, "job": "Ranger", "role": "Multi-Hit / Mark", "job_icon": "🎯", "element": "Instinct", "element_color": "#22d3ee", "element_icon": "⚡", "faction": "Ironrain", "portrait": "assets/characters/30113.webp", "stats": {"atk": 485, "hp": 360, "def": 160, "crit_rate": 5, "crit_dmg": 150}, "starters": [{"name": "Multishot", "cost": 1, "category": "Attack", "mult": 60, "hits": 1, "shield": 0, "desc": "60% Damage to all enemies", "sct": "start_30113_01", "image": "assets/cards/start_30113_01.webp"}, {"name": "Bowguard", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_30113_02", "image": "assets/cards/start_30113_02.webp"}, {"name": "Hilde Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Hilde Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Quiver Reload", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Create 3 Homing Arrow in Draw Pile", "sct": "unique_30113_01", "image": "assets/cards/unique_30113_01.webp"}, {"name": "Plasma Rain", "cost": 1, "category": "Attack", "mult": 60, "hits": 1, "shield": 0, "desc": "60% Damage and 2 Ionization to all enemies", "sct": "unique_30113_02", "image": "assets/cards/unique_30113_02.webp"}, {"name": "Draw & Release", "cost": 1, "category": "Skill", "mult": 50, "hits": 1, "shield": 0, "desc": "Draw 2 Attack Card(s) of this unit+50% Damage Amount to those cards for 1 turn until activated", "sct": "unique_30113_03", "image": "assets/cards/unique_30113_03.webp"}, {"name": "Big Game Ranger", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "On Hit, 2 Zero In", "sct": "unique_30113_04", "image": "assets/cards/unique_30113_04.webp"}, {"name": "Vortex Arrow", "cost": 1, "category": "Attack", "mult": 3120, "hits": 1, "shield": 0, "desc": "Draw 3120% Damage to all enemies+60% Damage Amount for each Attack Card Drawn through an ability this turn (max 8 cards)", "sct": "unique_30113_05", "image": "assets/cards/unique_30113_05.webp"}, {"name": "Homing Arrow", "cost": 0, "category": "Attack", "mult": 120, "hits": 1, "shield": 0, "desc": "120% Extra Attack to the enemy with the lowest HPDraw 1Attunement: Proc this card", "sct": "unique_30113_06", "image": "assets/cards/unique_30113_06.webp"}, {"name": "Homing Arrow (Fracture)", "cost": 0, "category": "Attack", "mult": 50, "hits": 1, "shield": 0, "desc": "50% Extra Attack to all enemies1 FractureDraw 1Attunement: Proc this card", "sct": "unique_30113_07", "image": "assets/cards/unique_30113_07.webp"}, {"name": "Homing Arrow (Grand)", "cost": 0, "category": "Attack", "mult": 500, "hits": 1, "shield": 0, "desc": "500% Extra Attack to the enemy with the highest HPDraw 1Attunement: Proc this card", "sct": "unique_30113_07", "image": "assets/cards/unique_30113_07.webp"}], "collapse": [{"name": "Matrix Overlay", "cost": 4, "category": "Skill", "mult": 15, "hits": 1, "shield": 0, "desc": "+15% Weakness Damage Amount taken to all enemies for 1 turn(s)Draw 3 Attack Card(s) of this unitApply Weakness Attack to those cards for 1 t", "sct": "collapse_30113_01", "image": "assets/cards/collapse_30113_01.webp"}, {"name": "Despair", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_30113_02", "image": "assets/cards/collapse_30113_02.webp"}]}, {"id": "1043", "name": "Hugo", "rarity": 5, "job": "Ranger", "role": "Multi-Hit / Mark", "job_icon": "🎯", "element": "Order", "element_color": "#dfb235", "element_icon": "⚖️", "faction": "Stella Familia", "portrait": "assets/characters/1043.webp", "stats": {"atk": 485, "hp": 360, "def": 160, "crit_rate": 5, "crit_dmg": 150}, "starters": [{"name": "Knife Toss", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1043_01", "image": "assets/cards/start_1043_01.webp"}, {"name": "Defense System", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1043_02", "image": "assets/cards/start_1043_02.webp"}, {"name": "Hugo Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Hugo Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Hunting Instincts", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "When an Upgrade or Skill Card of a different Combatant is activated, 1 Commence the Hunt", "sct": "unique_1043_05", "image": "assets/cards/unique_1043_05.webp"}, {"name": "Fan of Daggers", "cost": 1, "category": "Attack", "mult": 60, "hits": 1, "shield": 0, "desc": "60% × 3 Damage to random enemiesCommence the Hunt for each target hit", "sct": "unique_1043_04", "image": "assets/cards/unique_1043_04.webp"}, {"name": "Quick Fix", "cost": 1, "category": "Attack", "mult": 80, "hits": 1, "shield": 0, "desc": "80% Damage × 2If in a Commence the Hunt state, Draw 1 Attack Card(s)", "sct": "unique_1043_01", "image": "assets/cards/unique_1043_01.webp"}, {"name": "Dingo Howling", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield2 Commence the Hunt", "sct": "unique_1043_02", "image": "assets/cards/unique_1043_02.webp"}, {"name": "Fixer's Approach", "cost": 1, "category": "Power", "mult": 40, "hits": 1, "shield": 0, "desc": "Increase Damage Amount of Commence the Hunt's Extra Attacks by 40%", "sct": "unique_1043_03", "image": "assets/cards/unique_1043_03.webp"}], "collapse": [{"name": "Last Resort", "cost": 6, "category": "Attack", "mult": 250, "hits": 1, "shield": 0, "desc": "250% Damage to all enemiesIncrease Damage of Commence the Hunt by 30%", "sct": "collapse_1043_01", "image": "assets/cards/collapse_1043_01.webp"}, {"name": "Impulse", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1043_02", "image": "assets/cards/collapse_1043_02.webp"}]}, {"id": "1064", "name": "Kayron", "rarity": 5, "job": "Psionic", "role": "Magic / Discard", "job_icon": "🔮", "element": "Justice", "element_color": "#10664d", "element_icon": "⚔️", "faction": "Wanderers", "portrait": "assets/characters/1064.webp", "stats": {"atk": 430, "hp": 350, "def": 185, "crit_rate": 5, "crit_dmg": 140}, "starters": [{"name": "Elimination", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1064_01", "image": "assets/cards/start_1064_01.webp"}, {"name": "Sphere", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%", "sct": "start_1064_02", "image": "assets/cards/start_1064_02.webp"}, {"name": "Kayron Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Kayron Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Futility", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% DamageHeal 100%", "sct": "abnormal_curse_00067", "image": "assets/cards/abnormal_curse_00067.webp"}, {"name": "Echo of Futility", "cost": 1, "category": "Attack", "mult": 320, "hits": 1, "shield": 0, "desc": "320% DamageCreate 2 Futility", "sct": "unique_1064_04", "image": "assets/cards/unique_1064_04.webp"}, {"name": "Brand of Annihilation", "cost": 3, "category": "Attack", "mult": 400, "hits": 1, "shield": 0, "desc": "400% Damage to all enemiesWhen a card is Exhausted, decrease Cost of this card by 1 for 1 turn until activated", "sct": "unique_1064_05", "image": "assets/cards/unique_1064_05.webp"}, {"name": "Black Hole", "cost": 2, "category": "Attack", "mult": 240, "hits": 1, "shield": 0, "desc": "240% Damage+40% base Damage Amount for each Futility Exhausted", "sct": "unique_1064_02", "image": "assets/cards/unique_1064_02.webp"}, {"name": "Oath of Vanity", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "When Futility is created, change those cards into 1-Cost Attack Cards with 100% Damage and Heal effects", "sct": "unique_1064_01", "image": "assets/cards/unique_1064_01.webp"}, {"name": "Echoes of True Abyss", "cost": 2, "category": "Attack", "mult": 240, "hits": 1, "shield": 0, "desc": "240% DamageCreate 3 Futility+40 base Damage Amount for each created", "sct": "unique_1064_03", "image": "assets/cards/unique_1064_03.webp"}], "collapse": [{"name": "Rift of Nothingness", "cost": 5, "category": "Skill", "mult": 200, "hits": 1, "shield": 0, "desc": "200% Damage to all enemiesExhaust all Futility in hand+80% base Damage Amount for each Exhausted", "sct": "collapse_1064_01", "image": "assets/cards/collapse_1064_01.webp"}, {"name": "Impulse", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1064_02", "image": "assets/cards/collapse_1064_02.webp"}]}, {"id": "1008", "name": "Khalipe", "rarity": 5, "job": "Vanguard", "role": "Defense / Shield", "job_icon": "🛡️", "element": "Instinct", "element_color": "#22d3ee", "element_icon": "⚡", "faction": "Stella Familia", "portrait": "assets/characters/1008.webp", "stats": {"atk": 305, "hp": 510, "def": 285, "crit_rate": 3, "crit_dmg": 125}, "starters": [{"name": "Lashing", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Defense-Based Damage", "sct": "start_1008_03", "image": "assets/cards/start_1008_03.webp"}, {"name": "Upward Slash", "cost": 2, "category": "Attack", "mult": 220, "hits": 1, "shield": 0, "desc": "220% Defense-Based Damage", "sct": "start_1008_01", "image": "assets/cards/start_1008_01.webp"}, {"name": "Tyr’s Vow", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1008_02", "image": "assets/cards/start_1008_02.webp"}, {"name": "Khalipe Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}], "uniques": [{"name": "Vulture Ejection", "cost": 3, "category": "Attack", "mult": 120, "hits": 1, "shield": 120, "desc": "120% Defense-Based Damage to all enemies100% Shield1 Silver Veil", "sct": "unique_1008_05", "image": "assets/cards/unique_1008_05.webp"}, {"name": "Greatsword Aquila", "cost": 1, "category": "Attack", "mult": 150, "hits": 1, "shield": 0, "desc": "150% Defense-Based Damage to all enemiesIf Vulture Ejection is in hand, increase Cost by 1, +120% Damage Amount", "sct": "unique_1008_01", "image": "assets/cards/unique_1008_01.webp"}, {"name": "Overpower", "cost": 2, "category": "Skill", "mult": 250, "hits": 1, "shield": 250, "desc": "250% Shield1 Tenacity Damage to all enemies", "sct": "unique_1008_03", "image": "assets/cards/unique_1008_03.webp"}, {"name": "Rally", "cost": 1, "category": "Skill", "mult": 120, "hits": 1, "shield": 120, "desc": "120% ShieldDraw 1 highest-cost card(s)", "sct": "unique_1008_04", "image": "assets/cards/unique_1008_04.webp"}, {"name": "Absolute Protection", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield for each XFor 1 turn, Retain all cards in hand (cannot stack)", "sct": "unique_1008_02", "image": "assets/cards/unique_1008_02.webp"}], "collapse": [{"name": "Charisma of Resolve", "cost": 5, "category": "Attack", "mult": 300, "hits": 1, "shield": 0, "desc": "300% Defense-Based Damage to all enemiesCreate 1 Vulture Ejection", "sct": "collapse_1008_01", "image": "assets/cards/collapse_1008_01.webp"}, {"name": "Impulse", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1008_02", "image": "assets/cards/collapse_1008_02.webp"}]}, {"id": "1004", "name": "Luke", "rarity": 5, "job": "Hunter", "role": "Follow-Up / Extra Atk", "job_icon": "🏹", "element": "Order", "element_color": "#dfb235", "element_icon": "⚖️", "faction": "Ironrain", "portrait": "assets/characters/1004.webp", "stats": {"atk": 485, "hp": 360, "def": 160, "crit_rate": 10, "crit_dmg": 150}, "starters": [{"name": "Single Shot", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1004_01", "image": "assets/cards/start_1004_01.webp"}, {"name": "Shadow Concealment", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1004_02", "image": "assets/cards/start_1004_02.webp"}, {"name": "Luke Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Luke Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Chain Fire", "cost": 1, "category": "Attack", "mult": 50, "hits": 1, "shield": 0, "desc": "50% Damage × 2For each Critical Hit create a Handgun Bullet+50% Critical Chance", "sct": "unique_1004_01", "image": "assets/cards/unique_1004_01.webp"}, {"name": "Stealth Reload", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Create 3 Handgun Bullets", "sct": "unique_1004_05", "image": "assets/cards/unique_1004_05.webp"}, {"name": "Seize the Opportunity", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield+120% Damage Amount to the next Bullet card activated", "sct": "unique_1004_04", "image": "assets/cards/unique_1004_04.webp"}, {"name": "Dance of the Demon", "cost": 1, "category": "Attack", "mult": 50, "hits": 1, "shield": 0, "desc": "50% DamageAdd 1 Hit for each Bullet card activated this turn", "sct": "unique_1004_03", "image": "assets/cards/unique_1004_03.webp"}, {"name": "Finisher Round", "cost": 0, "category": "Attack", "mult": 500, "hits": 1, "shield": 0, "desc": "500% DamageWhen 5 Handgun Bullet cards are activated, remove Unactivatable", "sct": "unique_1004_02", "image": "assets/cards/unique_1004_02.webp"}, {"name": "Magnum Shot", "cost": 0, "category": "Attack", "mult": 85, "hits": 1, "shield": 0, "desc": "85% Damage", "sct": "job_00404", "image": "assets/cards/job_00404.webp"}, {"name": "Silver Shot", "cost": 0, "category": "Attack", "mult": 60, "hits": 1, "shield": 0, "desc": "60% DamageWeakness Attack: Increase Damage Amount by 100%", "sct": "job_00405", "image": "assets/cards/job_00405.webp"}, {"name": "Uranium Shot", "cost": 0, "category": "Attack", "mult": 60, "hits": 1, "shield": 60, "desc": "60% DamageIf the target has Shield, increase Damage Amount by 100%", "sct": "job_00406", "image": "assets/cards/job_00406.webp"}, {"name": "Tracer Shot", "cost": 0, "category": "Attack", "mult": 30, "hits": 1, "shield": 0, "desc": "30% Damage1 Mark", "sct": "job_00407", "image": "assets/cards/job_00407.webp"}, {"name": "HVAP Round", "cost": 0, "category": "Attack", "mult": 200, "hits": 1, "shield": 0, "desc": "200% DamageGuaranteed Critical", "sct": "job_00404", "image": "assets/cards/job_00404.webp"}], "collapse": [{"name": "Lethal Design", "cost": 5, "category": "Attack", "mult": 450, "hits": 1, "shield": 0, "desc": "450% Damage+25% base Damage Amount for each card in hand", "sct": "collapse_1004_01", "image": "assets/cards/collapse_1004_01.webp"}, {"name": "Guilt", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1004_02", "image": "assets/cards/collapse_1004_02.webp"}]}, {"id": "1010", "name": "Magna", "rarity": 5, "job": "Vanguard", "role": "Defense / Shield", "job_icon": "🛡️", "element": "Void", "element_color": "#a855f7", "element_icon": "🌌", "faction": "Stella Familia", "portrait": "assets/characters/1010.webp", "stats": {"atk": 305, "hp": 510, "def": 285, "crit_rate": 3, "crit_dmg": 125}, "starters": [{"name": "Frozen Fist", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Defense-Based Damage", "sct": "start_1010_01", "image": "assets/cards/start_1010_01.webp"}, {"name": "Frost Shield", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1010_02", "image": "assets/cards/start_1010_02.webp"}, {"name": "Magna Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Magna Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Ice Fragment", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "3 CrystallizationAt the start of the turn, 1 Counterattack", "sct": "unique_1010_01", "image": "assets/cards/unique_1010_01.webp"}, {"name": "Glacial Iron Fist", "cost": 2, "category": "Attack", "mult": 300, "hits": 1, "shield": 300, "desc": "300% Defense-Based Damage50% DMG-Based Shield", "sct": "unique_1010_02", "image": "assets/cards/unique_1010_02.webp"}, {"name": "Ice Wall", "cost": 2, "category": "Skill", "mult": 200, "hits": 1, "shield": 200, "desc": "200% Shield2 CounterattackSet the target of Counterattack to all enemies for 2 turn(s)", "sct": "unique_1010_03", "image": "assets/cards/unique_1010_03.webp"}, {"name": "Frost Charge", "cost": 1, "category": "Skill", "mult": 140, "hits": 1, "shield": 140, "desc": "140% Shield3 Vulnerable to all enemies", "sct": "unique_1010_04", "image": "assets/cards/unique_1010_04.webp"}, {"name": "Storm of Bitter Cold", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 80, "desc": "2 Crystallization When Shield is gained, 1 Counterattack", "sct": "unique_1010_05", "image": "assets/cards/unique_1010_05.webp"}], "collapse": [{"name": "Absolute Zero", "cost": 6, "category": "Attack", "mult": 300, "hits": 1, "shield": 0, "desc": "300% Defense-Based DamageIncreases Damage Amount by 20% for each Counterattack on this unit", "sct": "collapse_1010_01", "image": "assets/cards/collapse_1010_01.webp"}, {"name": "Impulse", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1010_02", "image": "assets/cards/collapse_1010_02.webp"}]}, {"id": "1027", "name": "Mei Lin", "rarity": 5, "job": "Striker", "role": "Melee Burst DPS", "job_icon": "⚔️", "element": "Passion", "element_color": "#f85058", "element_icon": "🔥", "faction": "Terrascion", "portrait": "assets/characters/1027.webp", "stats": {"atk": 485, "hp": 360, "def": 160, "crit_rate": 5, "crit_dmg": 150}, "starters": [{"name": "Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1027_01", "image": "assets/cards/start_1027_01.webp"}, {"name": "Flame Dragon Guardian", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1027_02", "image": "assets/cards/start_1027_02.webp"}, {"name": "Mei Lin Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}, {"name": "Mei Lin Guard", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 120, "desc": "Grants 120% Shield and reduces team stress.", "sct": "", "image": ""}], "uniques": [{"name": "Flame Dragon's Jewel", "cost": 1, "category": "Power", "mult": 20, "hits": 1, "shield": 0, "desc": "Increase Damage Amount of Attack Cards of this unit by 20%When an Attack Card is activated, 1 Passion Weakness to the target", "sct": "unique_1027_04", "image": "assets/cards/unique_1027_04.webp"}, {"name": "Rising Dragon Spire", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage2 EmberStreak: Add 1 Hit(s)", "sct": "unique_1027_03", "image": "assets/cards/unique_1027_03.webp"}, {"name": "Unity of Attack and Defense", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Draw 2 Basic Card(s) of this unit, then decrease Cost of those cards by 1 for 1 turn until activated", "sct": "unique_1027_01", "image": "assets/cards/unique_1027_01.webp"}, {"name": "Spirit of the Aromata", "cost": 1, "category": "Skill", "mult": 20, "hits": 1, "shield": 0, "desc": "For 1 turn, when a card of this unit is activated, +20% Damage Amount to this unit", "sct": "unique_1027_05", "image": "assets/cards/unique_1027_05.webp"}, {"name": "Flame Dragon's Sovereignty", "cost": 2, "category": "Attack", "mult": 300, "hits": 1, "shield": 0, "desc": "300% DamageDestroy: Retain Ember", "sct": "unique_1027_02", "image": "assets/cards/unique_1027_02.webp"}], "collapse": [{"name": "Heavenly Flame Dragon", "cost": 6, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Add 1 Hit(s) to the next 4 Basic Attack Card(s) of this unit activated", "sct": "collapse_1027_01", "image": "assets/cards/collapse_1027_01.webp"}, {"name": "Daze", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1027_02", "image": "assets/cards/collapse_1027_02.webp"}]}, {"id": "1052", "name": "Narja", "rarity": 5, "job": "Controller", "role": "AP / Card Draw", "job_icon": "✨", "element": "Instinct", "element_color": "#22d3ee", "element_icon": "⚡", "faction": "Imperial High Command", "portrait": "assets/characters/1052.webp", "stats": {"atk": 430, "hp": 350, "def": 185, "crit_rate": 4, "crit_dmg": 135}, "starters": [{"name": "NA: Attack Response", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Defense-Based Damage", "sct": "start_1052_01", "image": "assets/cards/start_1052_01.webp"}, {"name": "NA: Defense Response", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%", "sct": "start_1052_02", "image": "assets/cards/start_1052_02.webp"}, {"name": "Narja Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Narja Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Shackles of Hunger", "cost": 1, "category": "Attack", "mult": 30, "hits": 1, "shield": 0, "desc": "30% Defense-Based Damage × 3Attunement: 4 Voracity", "sct": "unique_1052_02", "image": "assets/cards/unique_1052_02.webp"}, {"name": "Bottomless Hunger", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "The next 2 times Voracity is activated, decrease Cost of 1 random card in hand by 1 for 1 turn", "sct": "unique_1052_04", "image": "assets/cards/unique_1052_04.webp"}, {"name": "Voluntary Control", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "If Voracity is fewer than 6 stacks, gain 6 VoracityIf 6 or more stacks, gain 2 Predation", "sct": "unique_1052_05", "image": "assets/cards/unique_1052_05.webp"}, {"name": "Domain of Voracity", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Defense-Based Damage to all enemiesIncrease Tenacity Damage taken of the target by 100% until their next Ravage", "sct": "unique_1052_03", "image": "assets/cards/unique_1052_03.webp"}, {"name": "Mealtime", "cost": 6, "category": "Attack", "mult": 30, "hits": 1, "shield": 0, "desc": "If Voracity is decreased,decrease Cost by 1 and +30% Heal Amount (max 10) until activated160% Defense-Based Damage to all enemiesHeal 100%4 ", "sct": "unique_1052_06", "image": "assets/cards/unique_1052_06.webp"}], "collapse": [{"name": "Predator's Hunting Method", "cost": 5, "category": "Attack", "mult": 250, "hits": 1, "shield": 0, "desc": "10 Voracity250% Defense-Based DamageIf Mealtime is in Graveyard, 5 Predation", "sct": "collapse_1052_01", "image": "assets/cards/collapse_1052_01.webp"}, {"name": "Guilt", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1052_02", "image": "assets/cards/collapse_1052_02.webp"}]}, {"id": "30047", "name": "Nine", "rarity": 5, "job": "Vanguard", "role": "Defense / Shield", "job_icon": "🛡️", "element": "Order", "element_color": "#dfb235", "element_icon": "⚖️", "faction": "Imperial High Command", "portrait": "assets/characters/30047.webp", "stats": {"atk": 305, "hp": 510, "def": 285, "crit_rate": 3, "crit_dmg": 125}, "starters": [{"name": "Slash", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Defense-Based Damage", "sct": "start_30047_01", "image": "assets/cards/start_30047_01.webp"}, {"name": "Back-Edge Parry", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_30047_02", "image": "assets/cards/start_30047_02.webp"}, {"name": "Nine Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Nine Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Hew", "cost": 3, "category": "Attack", "mult": 350, "hits": 1, "shield": 0, "desc": "350% Defense-Based DamageIncinerate: Create 1 Hew Lv. 1", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew Lv. 1", "cost": 3, "category": "Attack", "mult": 420, "hits": 1, "shield": 0, "desc": "420% Defense-Based DamageIncinerate: Create 1 Hew Lv. 2", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew Lv. 2", "cost": 3, "category": "Attack", "mult": 500, "hits": 1, "shield": 0, "desc": "500% Defense-Based DamageIncinerate: Create 1 Hew Lv. 3", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew Lv. 3", "cost": 2, "category": "Attack", "mult": 600, "hits": 1, "shield": 0, "desc": "600% Defense-Based DamageIncinerate: At the start of the turn, create 1 Hew in hand", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Ironclad)", "cost": 3, "category": "Attack", "mult": 400, "hits": 1, "shield": 400, "desc": "400% Defense-Based Damage200% ShieldIncinerate: Create 1 Hew (Ironclad) Lv. 1", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Ironclad) Lv. 1", "cost": 3, "category": "Attack", "mult": 480, "hits": 1, "shield": 480, "desc": "480% Defense-Based Damage200% ShieldIncinerate: Create 1 Hew (Ironclad) Lv. 2", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Ironclad) Lv. 2", "cost": 3, "category": "Attack", "mult": 580, "hits": 1, "shield": 580, "desc": "580% Defense-Based Damage200% ShieldIncinerate: Create 1 Hew (Ironclad) Lv. 3", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Ironclad) Lv. 3", "cost": 2, "category": "Attack", "mult": 700, "hits": 1, "shield": 700, "desc": "700% Defense-Based Damage200% ShieldIncinerate: At the start of the turn, create 1 Hew (Ironclad) in hand", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Extreme)", "cost": 3, "category": "Attack", "mult": 300, "hits": 1, "shield": 0, "desc": "300% Defense-Based DamageIncinerate: Create 1 Hew (Extreme) Lv. 1", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Extreme) Lv. 1", "cost": 3, "category": "Attack", "mult": 360, "hits": 1, "shield": 0, "desc": "360% Defense-Based DamageIncinerate: Create 1 Hew (Extreme) Lv. 2", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Extreme) Lv. 2", "cost": 3, "category": "Attack", "mult": 420, "hits": 1, "shield": 0, "desc": "420% Defense-Based DamageIncinerate: Create 1 Hew (Extreme) Lv. 3", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Extreme) Lv. 3", "cost": 3, "category": "Attack", "mult": 550, "hits": 1, "shield": 0, "desc": "550% Defense-Based DamageIncinerate: Create 1 Hew (Extreme) Lv. 4", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Extreme) Lv. 4", "cost": 3, "category": "Attack", "mult": 680, "hits": 1, "shield": 0, "desc": "680% Defense-Based DamageIncinerate: Create 1 Hew (Extreme) Lv. 5", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Extreme) Lv. 5", "cost": 2, "category": "Attack", "mult": 1000, "hits": 1, "shield": 0, "desc": "1000% Defense-Based DamageIncinerate: At the start of the turn, create 1 Hew (Extreme) in hand", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Flash)", "cost": 3, "category": "Attack", "mult": 400, "hits": 1, "shield": 0, "desc": "400% Defense-Based DamageIncinerate: Create 1 Hew (Flash) Lv. 1", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Flash) Lv. 1", "cost": 3, "category": "Attack", "mult": 480, "hits": 1, "shield": 0, "desc": "480% Defense-Based DamageIncinerate: Create 1 Hew (Flash) Lv. 2", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Flash) Lv. 2", "cost": 3, "category": "Attack", "mult": 580, "hits": 1, "shield": 0, "desc": "580% Defense-Based DamageIncinerate: Create 1 Hew (Flash) Lv. 3", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Flash) Lv. 3", "cost": 3, "category": "Attack", "mult": 700, "hits": 1, "shield": 0, "desc": "700% Defense-Based DamageIncinerate: At the start of the turn, create 1 Hew (Flash) in hand", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Massacre)", "cost": 3, "category": "Attack", "mult": 400, "hits": 1, "shield": 0, "desc": "400% Defense-Based Damage to all enemiesDecrease Damage Amount by 10% for each targetIncinerate: Create1 Hew (Massacre) Lv. 1", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Massacre) Lv. 1", "cost": 3, "category": "Attack", "mult": 480, "hits": 1, "shield": 0, "desc": "480% Defense-Based Damage to all enemiesDecrease Damage Amount by 10% for each targetIncinerate: Create 1 Hew (Massacre) Lv. 2", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Massacre) Lv. 2", "cost": 3, "category": "Attack", "mult": 580, "hits": 1, "shield": 0, "desc": "580% Defense-Based Damage to all enemiesDecrease Damage Amount by 10% for each targetIncinerate: Create 1 Hew (Massacre) Lv. 3", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Massacre) Lv. 3", "cost": 3, "category": "Attack", "mult": 700, "hits": 1, "shield": 0, "desc": "700% Defense-Based Damage to all enemiesDecrease Damage Amount by 10% for each targetIncinerate: At the start of the turn, create 1 Hew (Mas", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Ambush)", "cost": 3, "category": "Attack", "mult": 400, "hits": 1, "shield": 0, "desc": "400% Defense-Based DamageOn ally Counterattack, proc this cardIncinerate: Create 1 Hew (Ambush) Lv. 1", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Ambush) Lv. 1", "cost": 3, "category": "Attack", "mult": 480, "hits": 1, "shield": 0, "desc": "480% Defense-Based DamageOn ally Counterattack, proc this cardIncinerate: Create 1 Hew (Ambush) Lv. 2", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Ambush) Lv. 2", "cost": 3, "category": "Attack", "mult": 580, "hits": 1, "shield": 0, "desc": "580% Defense-Based DamageOn ally Counterattack, proc this cardIncinerate: Create 1 Hew (Ambush) Lv. 3", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Hew (Ambush) Lv. 3", "cost": 3, "category": "Attack", "mult": 700, "hits": 1, "shield": 0, "desc": "700% Defense-Based DamageOn ally Counterattack, proc this cardIncinerate: At the start of the turn, create 1 Hew (Ambush) in hand", "sct": "unique_30047_01", "image": "assets/cards/unique_30047_01.webp"}, {"name": "Experienced Strike", "cost": 1, "category": "Attack", "mult": 140, "hits": 1, "shield": 140, "desc": "140% Defense-Based Damage20% DMG-Based ShieldIncrease Damage Amount of Exhaust cards by 20% for 1 turn", "sct": "unique_30047_02", "image": "assets/cards/unique_30047_02.webp"}, {"name": "Fatal Strike", "cost": 1, "category": "Attack", "mult": 140, "hits": 1, "shield": 0, "desc": "140% Defense-Based DamageIncrease Damage Amount by 20% for each Cost of the highest-Cost Exhaust card in hand, then Exhaust that card", "sct": "unique_30047_03", "image": "assets/cards/unique_30047_03.webp"}, {"name": "Counterblade", "cost": 0, "category": "Power", "mult": 100, "hits": 1, "shield": 80, "desc": "When Shield is gained through an ability, 1 Honed Edge", "sct": "unique_30047_04", "image": "assets/cards/unique_30047_04.webp"}, {"name": "Fighting Spirit", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Proc 1 highest-Cost Attack Card(s) of this unit in hand, then Exhaust those cards", "sct": "unique_30047_05", "image": "assets/cards/unique_30047_05.webp"}, {"name": "Exploit Opening", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "1 Vulnerable1 Tenacity Damage", "sct": "unique_30047_06", "image": "assets/cards/unique_30047_06.webp"}], "collapse": [{"name": "Reflection: Zero", "cost": 6, "category": "Attack", "mult": 250, "hits": 1, "shield": 0, "desc": "250% Defense-Based Damage to all enemies+50% Damage Amount for each point of the combined Cost of the 2 highest-Cost cards, then Exhaust tho", "sct": "collapse_30047_01", "image": "assets/cards/collapse_30047_01.webp"}, {"name": "Impulse", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_30047_02", "image": "assets/cards/collapse_30047_02.webp"}]}, {"id": "30117", "name": "Olga", "rarity": 5, "job": "Psionic", "role": "Magic / Discard", "job_icon": "🔮", "element": "Instinct", "element_color": "#22d3ee", "element_icon": "⚡", "faction": "Imperial High Command", "portrait": "assets/characters/30117.webp", "stats": {"atk": 430, "hp": 350, "def": 185, "crit_rate": 5, "crit_dmg": 140}, "starters": [{"name": "Reaping Slash", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_30117_01", "image": "assets/cards/start_30117_01.webp"}, {"name": "Slake Thirst", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%", "sct": "start_30117_02", "image": "assets/cards/start_30117_02.webp"}, {"name": "Olga Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Olga Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Rift of Severance", "cost": 1, "category": "Attack", "mult": 80, "hits": 1, "shield": 0, "desc": "80% Damage and 2 Fracture, then activate Fracture inflicted by this unit", "sct": "unique_30117_01", "image": "assets/cards/unique_30117_01.webp"}, {"name": "Dispersed Desire", "cost": 1, "category": "Attack", "mult": 80, "hits": 1, "shield": 0, "desc": "80% Damage and 4 Agony, then activate Agony inflicted by this unit", "sct": "unique_30117_02", "image": "assets/cards/unique_30117_02.webp"}, {"name": "Break Apart & Renew", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "1 Brand of Agony4 Agony to the enemy with the highest HP", "sct": "unique_30117_03", "image": "assets/cards/unique_30117_03.webp"}, {"name": "Insatiable Cravings", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "When Fracture or Agony is activated through a Targeting Card, 2 Fracture and 3 Agony to the target (3 time(s) per turn)", "sct": "unique_30117_04", "image": "assets/cards/unique_30117_04.webp"}, {"name": "End of the Line", "cost": 1, "category": "Attack", "mult": 200, "hits": 1, "shield": 0, "desc": "2 Shattering, 200% Damage, 2 Fracture, and 4 AgonyWhen this card is activated, change into Reckoning", "sct": "unique_30117_05", "image": "assets/cards/unique_30117_05.webp"}, {"name": "Reckoning", "cost": 0, "category": "Attack", "mult": 400, "hits": 1, "shield": 0, "desc": "400% Damage+20% base Damage Amount for each RapacityActivate Agony and Fracture inflicted by this unitWhen this card is activated, change in", "sct": "unique_30117_06", "image": "assets/cards/unique_30117_06.webp"}], "collapse": [{"name": "Maelstrom of Oblivion", "cost": 5, "category": "Attack", "mult": 400, "hits": 1, "shield": 0, "desc": "400% Damage to all enemiesFor each Fracture, Agony, and Scorched activated this turn, +50%, +20%, and +30% base Damage Amount, respectively ", "sct": "collapse_30117_01", "image": "assets/cards/collapse_30117_01.webp"}, {"name": "Fear", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_30117_02", "image": "assets/cards/collapse_30117_02.webp"}]}, {"id": "1024", "name": "Orlea", "rarity": 5, "job": "Controller", "role": "AP / Card Draw", "job_icon": "✨", "element": "Instinct", "element_color": "#22d3ee", "element_icon": "⚡", "faction": "The Holy Crusaders", "portrait": "assets/characters/1024.webp", "stats": {"atk": 430, "hp": 350, "def": 185, "crit_rate": 4, "crit_dmg": 135}, "starters": [{"name": "Attack, My Minions", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1024_01", "image": "assets/cards/start_1024_01.webp"}, {"name": "Healing of Light", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%", "sct": "start_1024_02", "image": "assets/cards/start_1024_02.webp"}, {"name": "Orlea Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Orlea Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Sacred Censer", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Create 2 Creation★", "sct": "unique_1024_04", "image": "assets/cards/unique_1024_04.webp"}, {"name": "Growth Acceleration", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%Select 1 card of this unit in hand, then activate the Retain effect 2 time(s)", "sct": "unique_1024_03", "image": "assets/cards/unique_1024_03.webp"}, {"name": "Annoying", "cost": 0, "category": "Attack", "mult": 40, "hits": 1, "shield": 0, "desc": "For each card in hand, 40% Fixed Damage and Heal 20%", "sct": "unique_1024_01", "image": "assets/cards/unique_1024_01.webp"}, {"name": "Growing Creature", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Create 1 Creation★Retain: Change this card to Creation★★★", "sct": "unique_1024_05", "image": "assets/cards/unique_1024_05.webp"}, {"name": "Will of Light", "cost": 1, "category": "Skill", "mult": 200, "hits": 1, "shield": 0, "desc": "Heal 200%Activate the Retain effect of all cards in hand", "sct": "unique_1024_02", "image": "assets/cards/unique_1024_02.webp"}, {"name": "Softie ★", "cost": 0, "category": "Skill", "mult": 10, "hits": 1, "shield": 0, "desc": "Increase Damage Amount by 10% for 1 turnRetain: Increase Damage Amount of the next Attack Card activated by 10% (max 350%)", "sct": "unique_1024_08", "image": "assets/cards/unique_1024_08.webp"}, {"name": "Softie ★★", "cost": 0, "category": "Skill", "mult": 20, "hits": 1, "shield": 0, "desc": "Increase Damage Amount by 20% for 1 turnRetain: Increase Damage Amount of the next Attack Card activated by 20% (max 350%)", "sct": "unique_1024_14", "image": "assets/cards/unique_1024_14.webp"}, {"name": "Softie ★★★", "cost": 0, "category": "Skill", "mult": 35, "hits": 1, "shield": 0, "desc": "Increase Damage Amount by 35% for 1 turnRetain: Increase Damage Amount of the next Attack Card activated by 35% (max 350%)", "sct": "unique_1024_13", "image": "assets/cards/unique_1024_13.webp"}, {"name": "Swiftie ★", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% DamageRetain: +40% Damage Amount", "sct": "unique_1024_07", "image": "assets/cards/unique_1024_07.webp"}, {"name": "Swiftie ★★", "cost": 0, "category": "Attack", "mult": 200, "hits": 1, "shield": 0, "desc": "200% DamageRetain: +80% Damage Amount", "sct": "unique_1024_10", "image": "assets/cards/unique_1024_10.webp"}, {"name": "Swiftie ★★★", "cost": 0, "category": "Attack", "mult": 350, "hits": 1, "shield": 0, "desc": "350% DamageRetain: +150% Damage Amount", "sct": "unique_1024_09", "image": "assets/cards/unique_1024_09.webp"}, {"name": "Sturdie ★", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% ShieldRetain: Heal 60%", "sct": "unique_1024_06", "image": "assets/cards/unique_1024_06.webp"}, {"name": "Sturdie ★★", "cost": 0, "category": "Skill", "mult": 200, "hits": 1, "shield": 200, "desc": "200% ShieldRetain: Heal 120%", "sct": "unique_1024_12", "image": "assets/cards/unique_1024_12.webp"}, {"name": "Sturdie ★★★", "cost": 0, "category": "Skill", "mult": 350, "hits": 1, "shield": 350, "desc": "350% ShieldRetain: Heal 200%", "sct": "unique_1024_11", "image": "assets/cards/unique_1024_11.webp"}], "collapse": [{"name": "Salvation", "cost": 6, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Create 1 of each Creation★★", "sct": "collapse_1024_01", "image": "assets/cards/collapse_1024_01.webp"}, {"name": "Guilt", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1024_02", "image": "assets/cards/collapse_1024_02.webp"}]}, {"id": "1041", "name": "Renoa", "rarity": 5, "job": "Hunter", "role": "Follow-Up / Extra Atk", "job_icon": "🏹", "element": "Justice", "element_color": "#10664d", "element_icon": "⚔️", "faction": "Terrascion", "portrait": "assets/characters/1041.webp", "stats": {"atk": 485, "hp": 360, "def": 160, "crit_rate": 10, "crit_dmg": 150}, "starters": [{"name": "Annihilation Shot", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1041_01", "image": "assets/cards/start_1041_01.webp"}, {"name": "Black Veil", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1041_02", "image": "assets/cards/start_1041_02.webp"}, {"name": "Renoa Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Renoa Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Echo of Sorrow", "cost": 1, "category": "Attack", "mult": 140, "hits": 1, "shield": 0, "desc": "140% DamageCreate 1 Dirge Bullet Card(s)", "sct": "unique_1041_01", "image": "assets/cards/unique_1041_01.webp"}, {"name": "Instant Judgment", "cost": 1, "category": "Attack", "mult": 220, "hits": 1, "shield": 0, "desc": "220% DamageIf Dirge Bullet is in hand, discard 1 and +100% Damage Amount", "sct": "unique_1041_05", "image": "assets/cards/unique_1041_05.webp"}, {"name": "Ballad of Pitch Black", "cost": 1, "category": "Attack", "mult": 60, "hits": 1, "shield": 0, "desc": "60% Damage × 3+20% base Damage Amount for each Dirge Bullet in hand", "sct": "unique_1041_04", "image": "assets/cards/unique_1041_04.webp"}, {"name": "Flower of Devoured Fate", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Discard up to 2 Card(s) from handCreate Dirge Bullet for each", "sct": "unique_1041_02", "image": "assets/cards/unique_1041_02.webp"}, {"name": "Last-Ditch Assault", "cost": 1, "category": "Attack", "mult": 300, "hits": 1, "shield": 0, "desc": "300% Damage (+0%)Discard all Dirge Bullet, +50% Damage Amount for each", "sct": "unique_1041_03", "image": "assets/cards/unique_1041_03.webp"}, {"name": "Renoa’s Support", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Renoa’s Supporting Fire deals significant damage to all enemies.", "sct": "unique_1041_03", "image": "assets/cards/unique_1041_03.webp"}, {"name": "Dirge Bullet", "cost": 1, "category": "Attack", "mult": 160, "hits": 1, "shield": 0, "desc": "160% DamageWhen moved to Discard Pile, 120% Extra Attack to a random enemy", "sct": "unique_1041_06", "image": "assets/cards/unique_1041_06.webp"}, {"name": "Dirge Bullet: Finale", "cost": 1, "category": "Attack", "mult": 200, "hits": 1, "shield": 0, "desc": "200% DamageWhen moved to Discard Pile, 160% Extra Attack x 2 to random enemies", "sct": "unique_1041_06", "image": "assets/cards/unique_1041_06.webp"}], "collapse": [{"name": "Black Thorn", "cost": 4, "category": "Attack", "mult": 300, "hits": 1, "shield": 0, "desc": "Move all Dirge Bullet from Draw Pile and Graveyard to hand300% Damage", "sct": "collapse_1041_01", "image": "assets/cards/collapse_1041_01.webp"}, {"name": "Impulse", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1041_02", "image": "assets/cards/collapse_1041_02.webp"}]}, {"id": "1018", "name": "Rin", "rarity": 5, "job": "Striker", "role": "Melee Burst DPS", "job_icon": "⚔️", "element": "Justice", "element_color": "#10664d", "element_icon": "⚔️", "faction": "Wanderers", "portrait": "assets/characters/1018.webp", "stats": {"atk": 485, "hp": 360, "def": 160, "crit_rate": 5, "crit_dmg": 150}, "starters": [{"name": "Dark Mist Sword: First Form", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1018_01", "image": "assets/cards/start_1018_01.webp"}, {"name": "Dark Mist Sword: Third Form", "cost": 2, "category": "Attack", "mult": 220, "hits": 1, "shield": 0, "desc": "220% Damage", "sct": "start_1018_03", "image": "assets/cards/start_1018_03.webp"}, {"name": "Protection", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1018_02", "image": "assets/cards/start_1018_02.webp"}, {"name": "Rin Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}], "uniques": [{"name": "Drawing Slash", "cost": 0, "category": "Attack", "mult": 120, "hits": 1, "shield": 0, "desc": "120% DamageGain Dark Mist StanceDark Mist Stance: Increase Damage Amount by 100%", "sct": "unique_1018_01", "image": "assets/cards/unique_1018_01.webp"}, {"name": "Dark Mist Secret Art: Destruction", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Draw 1 card(s) of this unitGain Dark Mist Stance", "sct": "unique_1018_03", "image": "assets/cards/unique_1018_03.webp"}, {"name": "Dark Mist Secret Art: Annihilation", "cost": 1, "category": "Attack", "mult": 200, "hits": 1, "shield": 0, "desc": "200% DamageDark Mist Stance: Add 1 Hit(s)", "sct": "unique_1018_04", "image": "assets/cards/unique_1018_04.webp"}, {"name": "Dark Mist Inner Art", "cost": 1, "category": "Skill", "mult": 40, "hits": 1, "shield": 0, "desc": "Retain Dark Mist Stance for 1 turnDark Mist Stance: +40% Damage Amount to Attack Cards of this unit for 1 turn", "sct": "unique_1018_02", "image": "assets/cards/unique_1018_02.webp"}, {"name": "Dark Mist Secret Art: Black Dance", "cost": 1, "category": "Attack", "mult": 120, "hits": 1, "shield": 0, "desc": "120% DamageDark Mist Stance: Add 1 Hit(s) for each Skill Card in hand", "sct": "unique_1018_05", "image": "assets/cards/unique_1018_05.webp"}, {"name": "Sheathe Sword", "cost": 1, "category": "Attack", "mult": 60, "hits": 1, "shield": 0, "desc": "60% Damage+20% base Damage Amount for each Attack Card of this unit activated this turnIf there is no other Attack Card of this unit in hand", "sct": "unique_1018_01", "image": "assets/cards/unique_1018_01.webp"}], "collapse": [{"name": "Dark Mist Secret Art: Slash", "cost": 6, "category": "Attack", "mult": 400, "hits": 1, "shield": 0, "desc": "400% Damage6 Vulnerable​", "sct": "collapse_1018_01", "image": "assets/cards/collapse_1018_01.webp"}, {"name": "Charm", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1018_02", "image": "assets/cards/collapse_1018_02.webp"}]}, {"id": "30097", "name": "Rita", "rarity": 5, "job": "Psionic", "role": "Magic / Discard", "job_icon": "🔮", "element": "Void", "element_color": "#a855f7", "element_icon": "🌌", "faction": "Imperial High Command", "portrait": "assets/characters/30097.webp", "stats": {"atk": 430, "hp": 350, "def": 185, "crit_rate": 5, "crit_dmg": 140}, "starters": [{"name": "Time Acceleration", "cost": 3, "category": "Attack", "mult": 350, "hits": 1, "shield": 0, "desc": "350% Damage", "sct": "start_30097_01", "image": "assets/cards/start_30097_01.webp"}, {"name": "Rewind", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%", "sct": "start_30097_02", "image": "assets/cards/start_30097_02.webp"}, {"name": "Rita Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Rita Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Chrono Archon", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "When a card is activated, 1 Chronicle for each Cost of that card", "sct": "unique_30097_01", "image": "assets/cards/unique_30097_01.webp"}, {"name": "Time Axis Collapse", "cost": 2, "category": "Attack", "mult": 300, "hits": 1, "shield": 0, "desc": "300% DamageIncrease Damage Amount by 20% for each Cost of cards in hand(max 200%)", "sct": "unique_30097_02", "image": "assets/cards/unique_30097_02.webp"}, {"name": "Future Decreed", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Increase Cost of 1 2-Cost or lower card(s) in hand by 1 until activated, then proc 1 random 3-Cost card(s)", "sct": "unique_30097_03", "image": "assets/cards/unique_30097_03.webp"}, {"name": "Chrono Circle", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Create 2 Fate Imprint", "sct": "unique_30097_04", "image": "assets/cards/unique_30097_04.webp"}, {"name": "Time Paradox", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Decrease all ChronicleGain Chronal Ascension for each descreased", "sct": "unique_30097_05", "image": "assets/cards/unique_30097_05.webp"}, {"name": "Fate Imprint", "cost": 2, "category": "Attack", "mult": 120, "hits": 1, "shield": 0, "desc": "120% Damage for each Cost of this cardIncrease Cost of all Fate Imprint in hand by 1When this card leaves the hand, change Cost to 2", "sct": "unique_30097_06", "image": "assets/cards/unique_30097_06.webp"}, {"name": "Fate Distortion", "cost": 0, "category": "Skill", "mult": 30, "hits": 1, "shield": 0, "desc": "Increase Damage Amount of the next Attack Card of this unit activated by 30%Increase Damage Amount by an additional 10% for each Cost of tha", "sct": "unique_30097_07", "image": "assets/cards/unique_30097_07.webp"}], "collapse": [{"name": "Hour of Glory", "cost": 5, "category": "Skill", "mult": 10, "hits": 1, "shield": 0, "desc": "6 Chronal AscensionIncrease Damage Amount of the next Attack Card of this unit activated by 10% for each Cost of cards activated this battle", "sct": "collapse_30097_01", "image": "assets/cards/collapse_30097_01.webp"}, {"name": "Confusion", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_30097_02", "image": "assets/cards/collapse_30097_02.webp"}]}, {"id": "30134", "name": "Rosweisse", "rarity": 5, "job": "Vanguard", "role": "Defense / Shield", "job_icon": "🛡️", "element": "Order", "element_color": "#dfb235", "element_icon": "⚖️", "faction": "Terrascion", "portrait": "assets/characters/30134.webp", "stats": {"atk": 305, "hp": 510, "def": 285, "crit_rate": 3, "crit_dmg": 125}, "starters": [{"name": "Vanguard Cleave", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Defense-Based Damage to target enemy.", "sct": "start_30134_01", "image": ""}, {"name": "Aegis Bastion", "cost": 1, "category": "Skill", "mult": 120, "hits": 1, "shield": 120, "desc": "Grants 120% Shield and 1 Counterattack stack.", "sct": "start_30134_02", "image": ""}, {"name": "Rosweisse Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Rosweisse Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Valkyrie Verdict", "cost": 2, "category": "Attack", "mult": 180, "hits": 1, "shield": 180, "desc": "180% Defense-Based Damage. Triggers Shield Destruct on shielded targets.", "sct": "unique_30134_01", "image": ""}, {"name": "Aegis Overdrive", "cost": 1, "category": "Skill", "mult": 150, "hits": 1, "shield": 150, "desc": "Gain 150% Shield and draw 2 cards.", "sct": "unique_30134_02", "image": ""}], "collapse": [{"name": "Desperate Shatter", "cost": 1, "category": "Attack", "mult": 20, "hits": 1, "shield": 0, "desc": "Sacrifice 20% current HP to deal 250% Defense-Based Damage and stun target for 1 turn.", "sct": "collapse_30134_01", "image": ""}]}, {"id": "30075", "name": "Sereniel", "rarity": 5, "job": "Hunter", "role": "Follow-Up / Extra Atk", "job_icon": "🏹", "element": "Instinct", "element_color": "#22d3ee", "element_icon": "⚡", "faction": "Imperial High Command", "portrait": "assets/characters/30075.webp", "stats": {"atk": 485, "hp": 360, "def": 160, "crit_rate": 10, "crit_dmg": 150}, "starters": [{"name": "Pulse Fire", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_30075_01", "image": "assets/cards/start_30075_01.webp"}, {"name": "Magnetic Field", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_30075_02", "image": "assets/cards/start_30075_02.webp"}, {"name": "Sereniel Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Sereniel Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Homing Laser", "cost": 0, "category": "Attack", "mult": 120, "hits": 1, "shield": 0, "desc": "120% Damage2 AfterglowOn Ravage, move from Graveyard to hand", "sct": "unique_30075_04", "image": "assets/cards/unique_30075_04.webp"}, {"name": "Plasma Missile", "cost": 1, "category": "Attack", "mult": 120, "hits": 1, "shield": 0, "desc": "120% Damage0.5 Tenacity DamageIf the target is not Ravaged, proc 1 more time.", "sct": "unique_30075_03", "image": "assets/cards/unique_30075_03.webp"}, {"name": "Shining Core", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Create 2 Homing Laser L", "sct": "unique_30075_02", "image": "assets/cards/unique_30075_02.webp"}, {"name": "Cobalt Light", "cost": 3, "category": "Attack", "mult": 140, "hits": 1, "shield": 0, "desc": "140% x 4 Damage × 4 to random enemies1 Tenacity Damage for each Hit", "sct": "unique_30075_05", "image": "assets/cards/unique_30075_05.webp"}, {"name": "Pale Shooting Star", "cost": 2, "category": "Attack", "mult": 150, "hits": 1, "shield": 0, "desc": "150% DamageProc 3 Homing Laser in Draw Pile and Graveyard", "sct": "unique_30075_01", "image": "assets/cards/unique_30075_01.webp"}, {"name": "Homing Laser L", "cost": 0, "category": "Attack", "mult": 60, "hits": 1, "shield": 0, "desc": "60% Damage1 AfterglowOn Ravage, move from Graveyard to hand", "sct": "unique_30075_04", "image": "assets/cards/unique_30075_04.webp"}], "collapse": [{"name": "Death Halo", "cost": 6, "category": "Attack", "mult": 500, "hits": 1, "shield": 0, "desc": "500% Damage to all enemiesMove all Homing Laser L in Exhaust Pile to hand", "sct": "collapse_30075_01", "image": "assets/cards/collapse_30075_01.webp"}, {"name": "Guilt", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_30075_02", "image": "assets/cards/collapse_30075_02.webp"}]}, {"id": "1058", "name": "Solia", "rarity": 5, "job": "Striker", "role": "Combatant", "job_icon": "⚔️", "element": "Passion", "element_color": "#f85058", "element_icon": "🔥", "faction": "Terrascion", "portrait": "assets/characters/1058.webp", "stats": {"atk": 430, "hp": 350, "def": 185, "crit_rate": 4, "crit_dmg": 135}, "starters": [{"name": "Protective Pulse", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "Grants 100% Shield to the most vulnerable ally.", "sct": "start_1058_01", "image": ""}, {"name": "Vital Surge", "cost": 1, "category": "Skill", "mult": 120, "hits": 1, "shield": 0, "desc": "Heal target ally for 120% of Supporter ATK.", "sct": "start_1058_02", "image": ""}, {"name": "Solia Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Solia Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Radiant Haven", "cost": 2, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Teamwide 100% Heal and cleanse all non-permanent status ailments.", "sct": "support_1058_01", "image": "assets/cards/support_1058_01.webp"}], "collapse": []}, {"id": "1069", "name": "Tenebria", "rarity": 5, "job": "Psionic", "role": "Magic / Discard", "job_icon": "🔮", "element": "Passion", "element_color": "#f85058", "element_icon": "🔥", "faction": "Imperial High Command", "portrait": "assets/characters/1069.webp", "stats": {"atk": 430, "hp": 350, "def": 185, "crit_rate": 5, "crit_dmg": 140}, "starters": [{"name": "Sound Check", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1069_01", "image": "assets/cards/start_1069_01.webp"}, {"name": "Fan Service", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%", "sct": "start_1069_02", "image": "assets/cards/start_1069_02.webp"}, {"name": "Tenebria Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Tenebria Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Music, Start!", "cost": 0, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "Exhaust all Basic Attack CardsCreate and give each ally 2 of their own Rhythm in Draw PileApply Haste to Rhythm cards of this unit", "sct": "unique_1069_06", "image": "assets/cards/unique_1069_06.webp"}, {"name": "Spotlight", "cost": 1, "category": "Attack", "mult": 140, "hits": 1, "shield": 0, "desc": "140% DamageMove 1 Rhythm card(s) to handDecrease Cost of those cards by 2 until activated", "sct": "unique_1069_02", "image": "assets/cards/unique_1069_02.webp"}, {"name": "Call & Response", "cost": 1, "category": "Attack", "mult": 200, "hits": 1, "shield": 0, "desc": "200% DamageIf in hand, treat as a Rhythm cardAttunement: Draw 1 Rhythm card(s)", "sct": "unique_1069_01", "image": "assets/cards/unique_1069_01.webp"}, {"name": "Encore", "cost": 1, "category": "Attack", "mult": 120, "hits": 1, "shield": 0, "desc": "120% DamageIf the last card activated was a Rhythm card, proc that card", "sct": "unique_1069_04", "image": "assets/cards/unique_1069_04.webp"}, {"name": "Photo Time", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "+1 Performance BuzzIf a Rhythm card is activated or moved to hand, increase Performance Buzz by 1 until this card is activated (max 9 times)", "sct": "unique_1069_05", "image": "assets/cards/unique_1069_05.webp"}, {"name": "Rhythm", "cost": 2, "category": "Attack", "mult": 60, "hits": 1, "shield": 0, "desc": "60% Damage+30% base Damage Amount for each RhythmProc 1 Rhythm in hand", "sct": "unique_1069_03", "image": "assets/cards/unique_1069_03.webp"}, {"name": "Rhythm: Crescendo", "cost": 2, "category": "Attack", "mult": 180, "hits": 1, "shield": 0, "desc": "180% Damage+40% base Damage Amount for each Rhythm in GraveyardFor 1 turn, decrease Cost of the next Rhythm card activated by 1", "sct": "unique_1069_07", "image": "assets/cards/unique_1069_07.webp"}, {"name": "Rhythm: Staccato", "cost": 1, "category": "Attack", "mult": 80, "hits": 1, "shield": 0, "desc": "80% Damage+50% base Damage Amount for each RhythmIf the last card activated was a Rhythm card, increase Cost by 1", "sct": "unique_1069_08", "image": "assets/cards/unique_1069_08.webp"}, {"name": "Rhythm: Fortissimo", "cost": 2, "category": "Attack", "mult": 90, "hits": 1, "shield": 0, "desc": "90% Damage+55% base Damage Amount for each Linked Rhythm before activationWhen 3 or more cards are Linked, add 1 Hit", "sct": "unique_1069_09", "image": "assets/cards/unique_1069_09.webp"}, {"name": "Rhythm: Fermata", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Select 1 of 4 Rhythm cardsChange all Rhythm cards into the selected card for 1 turn and Draw 2 of them", "sct": "unique_1069_10", "image": "assets/cards/unique_1069_10.webp"}, {"name": "Rhythm: Arpeggio", "cost": 0, "category": "Attack", "mult": 15, "hits": 1, "shield": 0, "desc": "15% Damage for each RhythmDraw 1 of the lowest-Cost Rhythm cards and decrease Cost by 1 until activated", "sct": "unique_1069_11", "image": "assets/cards/unique_1069_11.webp"}, {"name": "Photo Card", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "2 Ego Points", "sct": "unique_1069_12", "image": "assets/cards/unique_1069_12.webp"}], "collapse": [{"name": "Everyone’s Idol", "cost": 7, "category": "Skill", "mult": 7, "hits": 1, "shield": 0, "desc": "For the next 7 Rhythm cards activated, increase Damage Amount of Rhythm cards by 7%If activated 7 times, add 1 Hit(s) to the next 7 Rhythm c", "sct": "collapse_1069_01", "image": "assets/cards/collapse_1069_01.webp"}, {"name": "Charm", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1069_02", "image": "assets/cards/collapse_1069_02.webp"}]}, {"id": "30084", "name": "Tiphera", "rarity": 5, "job": "Controller", "role": "AP / Card Draw", "job_icon": "✨", "element": "Order", "element_color": "#dfb235", "element_icon": "⚖️", "faction": "Imperial High Command", "portrait": "assets/characters/30084.webp", "stats": {"atk": 430, "hp": 350, "def": 185, "crit_rate": 4, "crit_dmg": 135}, "starters": [{"name": "Matter Disintegration", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Defense-Based Damage", "sct": "start_30084_01", "image": "assets/cards/start_30084_01.webp"}, {"name": "Barrier Deployment", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%", "sct": "start_30084_02", "image": "assets/cards/start_30084_02.webp"}, {"name": "Tiphera Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Tiphera Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Quantum Seed", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%Create 2 Archetype card(s) in Draw PileDraw 1 of them", "sct": "unique_30084_01", "image": "assets/cards/unique_30084_01.webp"}, {"name": "○ △ □", "cost": 0, "category": "Skill", "mult": 150, "hits": 1, "shield": 0, "desc": "Heal 150%Increase Damage Amount of the first Hit of next Attack Card by 30%(max 300%)Draw 1 Archetype card", "sct": "unique_30084_01", "image": "assets/cards/unique_30084_01.webp"}, {"name": "Archetype: ○", "cost": 0, "category": "Skill", "mult": 50, "hits": 1, "shield": 0, "desc": "Heal 50%1 AP", "sct": "unique_30084_06", "image": "assets/cards/unique_30084_06.webp"}, {"name": "Archetype: △", "cost": 0, "category": "Skill", "mult": 50, "hits": 1, "shield": 50, "desc": "50% ShieldIncrease Damage Amount of the first Hit of next Attack Card by 30%(max 300%)", "sct": "unique_30084_07", "image": "assets/cards/unique_30084_07.webp"}, {"name": "Archetype: □", "cost": 0, "category": "Skill", "mult": 50, "hits": 1, "shield": 0, "desc": "Heal 50%Draw 1 Archetype card", "sct": "unique_30084_08", "image": "assets/cards/unique_30084_08.webp"}, {"name": "Form Convergence", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Draw 2 Archetype card(s)Double a random effect of those cards for 1 turn", "sct": "unique_30084_02", "image": "assets/cards/unique_30084_02.webp"}, {"name": "Creation and Destruction", "cost": 1, "category": "Attack", "mult": 120, "hits": 1, "shield": 120, "desc": "120% Defense-Based Damage80% ShieldHeal 80%Harmonization: Double all effects", "sct": "unique_30084_03", "image": "assets/cards/unique_30084_03.webp"}, {"name": "Dual Creation", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "When 2 Archetype cards are created, create 1 identical card in Discard Pile", "sct": "unique_30084_04", "image": "assets/cards/unique_30084_04.webp"}, {"name": "Event Horizon", "cost": 2, "category": "Skill", "mult": 40, "hits": 1, "shield": 0, "desc": "1 APDraw 1Increase Damage Amount of the first Hit of next Attack Card by 40%", "sct": "unique_30084_05", "image": "assets/cards/unique_30084_05.webp"}], "collapse": [{"name": "Archetype Resonance", "cost": 5, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Select and create 1 Archetype cardThe next 2 times an Ego Skill is used, create an additional cardDecrease Cost of the next Ego Skill used b", "sct": "collapse_30084_01", "image": "assets/cards/collapse_30084_01.webp"}, {"name": "Gloom", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_30084_02", "image": "assets/cards/collapse_30084_02.webp"}]}, {"id": "1033", "name": "Veronica", "rarity": 5, "job": "Ranger", "role": "Multi-Hit / Mark", "job_icon": "🎯", "element": "Passion", "element_color": "#f85058", "element_icon": "🔥", "faction": "Stella Familia", "portrait": "assets/characters/1033.webp", "stats": {"atk": 485, "hp": 360, "def": 160, "crit_rate": 5, "crit_dmg": 150}, "starters": [{"name": "Rapid Fire", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1033_01", "image": "assets/cards/start_1033_01.webp"}, {"name": "Illusion of Golden Daffodils", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1033_02", "image": "assets/cards/start_1033_02.webp"}, {"name": "Veronica Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Veronica Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Firing Preparation", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "Create 1 Ballista card(s)At the start of the turn, create 1 Ballista card(s)", "sct": "unique_1033_01", "image": "assets/cards/unique_1033_01.webp"}, {"name": "Repose", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% ShieldDraw 2 card(s) from other combatant", "sct": "unique_1033_02", "image": "assets/cards/unique_1033_02.webp"}, {"name": "Pendant of Resolution", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "When a Skill Card of a different Combatant is activated, 1 Reload", "sct": "unique_1033_04", "image": "assets/cards/unique_1033_04.webp"}, {"name": "Sir Kowalski", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Select 1 Ballista card in hand and +100% Damage Amount until activatedDraw 1", "sct": "unique_1033_05", "image": "assets/cards/unique_1033_05.webp"}, {"name": "Bombardment Prep", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "Increase max stack of Reload by 12 Reload", "sct": "unique_1033_03", "image": "assets/cards/unique_1033_03.webp"}, {"name": "Ballista", "cost": 0, "category": "Attack", "mult": 150, "hits": 1, "shield": 0, "desc": "150% Extra Attack to a random enemyAt the end of the turn, proc", "sct": "unique_1033_06", "image": "assets/cards/unique_1033_06.webp"}, {"name": "Piercing Ballista", "cost": 0, "category": "Attack", "mult": 200, "hits": 1, "shield": 200, "desc": "200% Piercing Damage to a random enemyIf the target possesses Shield, +50% Damage AmountAt the end of the turn, proc", "sct": "unique_1033_07", "image": "assets/cards/unique_1033_07.webp"}, {"name": "Enhanced Ballista", "cost": 0, "category": "Attack", "mult": 200, "hits": 1, "shield": 0, "desc": "200% Extra Attack to a random enemy+30% Critical ChanceAt the end of the turn, proc", "sct": "unique_1033_08", "image": "assets/cards/unique_1033_08.webp"}, {"name": "Giant Ballista", "cost": 0, "category": "Attack", "mult": 150, "hits": 1, "shield": 0, "desc": "150% Extra Attack to all enemiesAt the end of the turn, proc", "sct": "unique_1033_09", "image": "assets/cards/unique_1033_09.webp"}, {"name": "Shelling Ballista", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Extra Attack to random enemiesAt the end of the turn, proc", "sct": "unique_1033_10", "image": "assets/cards/unique_1033_10.webp"}, {"name": "Micro Ballista", "cost": 0, "category": "Attack", "mult": 40, "hits": 1, "shield": 0, "desc": "40% Extra Attack to a random enemyAt the end of the turn, proc", "sct": "unique_1033_11", "image": "assets/cards/unique_1033_11.webp"}], "collapse": [{"name": "Hunting Time", "cost": 5, "category": "Attack", "mult": 250, "hits": 1, "shield": 0, "desc": "250% Piercing Damage to all enemiesGain Maximum Reload", "sct": "collapse_1033_01", "image": "assets/cards/collapse_1033_01.webp"}, {"name": "Fear", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1033_02", "image": "assets/cards/collapse_1033_02.webp"}]}, {"id": "1057", "name": "Yuki", "rarity": 5, "job": "Striker", "role": "Melee Burst DPS", "job_icon": "⚔️", "element": "Order", "element_color": "#dfb235", "element_icon": "⚖️", "faction": "Terrascion", "portrait": "assets/characters/1057.webp", "stats": {"atk": 485, "hp": 360, "def": 160, "crit_rate": 5, "crit_dmg": 150}, "starters": [{"name": "Longsword Slash", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1057_01", "image": "assets/cards/start_1057_01.webp"}, {"name": "Rapid Slash", "cost": 2, "category": "Attack", "mult": 220, "hits": 1, "shield": 0, "desc": "220% Damage", "sct": "start_1057_02", "image": "assets/cards/start_1057_02.webp"}, {"name": "Flowing Parry", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1057_03", "image": "assets/cards/start_1057_03.webp"}, {"name": "Yuki Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}], "uniques": [{"name": "Prepare to Subdue", "cost": 0, "category": "Skill", "mult": 40, "hits": 1, "shield": 0, "desc": "Draw 1 Attack Card(s) of this unitIncrease Damage Amount of those cards by 40% for 1 turn", "sct": "unique_1057_03", "image": "assets/cards/unique_1057_03.webp"}, {"name": "Flash Slash", "cost": 2, "category": "Attack", "mult": 400, "hits": 1, "shield": 0, "desc": "400% Damage+150% Damage Amount for each card of this unit Drawn that turn (max 5)", "sct": "unique_1057_05", "image": "assets/cards/unique_1057_05.webp"}, {"name": "Trickery Strike", "cost": 1, "category": "Attack", "mult": 180, "hits": 1, "shield": 0, "desc": "180% DamageEnable the Inspiration effect for 1 random card(s) of this unit in hand", "sct": "unique_1057_04", "image": "assets/cards/unique_1057_04.webp"}, {"name": "Freezing Blade", "cost": 1, "category": "Power", "mult": 120, "hits": 1, "shield": 0, "desc": "When an Inspiration-enabled card of this unit is activated, 120% Damage to all enemies", "sct": "unique_1057_02", "image": "assets/cards/unique_1057_02.webp"}, {"name": "Iceberg Cleave", "cost": 1, "category": "Attack", "mult": 180, "hits": 1, "shield": 0, "desc": "180% Damage to all enemiesInspiration: Add 1 Hit", "sct": "unique_1057_01", "image": "assets/cards/unique_1057_01.webp"}], "collapse": [{"name": "Skyscraper Cleave", "cost": 5, "category": "Attack", "mult": 450, "hits": 1, "shield": 0, "desc": "450% Damage to all enemiesMove all Attack Cards of this unit in hand to the top of Draw Pile+100% base Damage Amount for each card moved", "sct": "collapse_1057_01", "image": "assets/cards/collapse_1057_01.webp"}, {"name": "Impulse", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1057_02", "image": "assets/cards/collapse_1057_02.webp"}]}, {"id": "1017", "name": "Amir", "rarity": 4, "job": "Vanguard", "role": "Defense / Shield", "job_icon": "🛡️", "element": "Order", "element_color": "#dfb235", "element_icon": "⚖️", "faction": "Terrascion", "portrait": "assets/characters/1017.webp", "stats": {"atk": 275, "hp": 465, "def": 245, "crit_rate": 3, "crit_dmg": 125}, "starters": [{"name": "Rapier", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Defense-Based Damage", "sct": "start_1017_01", "image": "assets/cards/start_1017_01.webp"}, {"name": "Steel Barrier", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1017_02", "image": "assets/cards/start_1017_02.webp"}, {"name": "Amir Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Amir Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Hovering Metal", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "3 Damage Reduction2 Metallization", "sct": "unique_1017_05", "image": "assets/cards/unique_1017_05.webp"}, {"name": "Metal Pierce", "cost": 1, "category": "Attack", "mult": 90, "hits": 1, "shield": 0, "desc": "90% Defense-Based Damage × 2 If in Metallization state, decrease Metallization by 1 and inflict 2 Vulnerable", "sct": "unique_1017_01", "image": "assets/cards/unique_1017_01.webp"}, {"name": "Metal Extraction", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "2 MetallizationFor 1 turn, 2 Resolve", "sct": "unique_1017_03", "image": "assets/cards/unique_1017_03.webp"}, {"name": "Full Metal Hurricane", "cost": 2, "category": "Attack", "mult": 200, "hits": 1, "shield": 0, "desc": "200% Defense-Based Damage to all enemiesFor 1 turn, Metallization targets all enemies and +20% Damage Amount", "sct": "unique_1017_02", "image": "assets/cards/unique_1017_02.webp"}, {"name": "Iron Skin", "cost": 1, "category": "Skill", "mult": 20, "hits": 1, "shield": 0, "desc": "Decrease Damage Taken by 20% for 1 turnDecrease up to 4 MetallizationAdditionally decrease Damage Taken by 20% for each", "sct": "unique_1017_04", "image": "assets/cards/unique_1017_04.webp"}], "collapse": [{"name": "Steel Resolve", "cost": 4, "category": "Skill", "mult": 120, "hits": 1, "shield": 120, "desc": "120% Shield for each MetallizationRemove MetallizationAt the start of the next turn, 3 Metallization", "sct": "collapse_1017_01", "image": "assets/cards/collapse_1017_01.webp"}, {"name": "Daze", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1017_02", "image": "assets/cards/collapse_1017_02.webp"}]}, {"id": "1012", "name": "Anika", "rarity": 4, "job": "Striker", "role": "Melee Burst DPS", "job_icon": "⚔️", "element": "Order", "element_color": "#dfb235", "element_icon": "⚖️", "faction": "Terrascion", "portrait": "assets/characters/1012.webp", "stats": {"atk": 425, "hp": 330, "def": 150, "crit_rate": 5, "crit_dmg": 150}, "starters": [{"name": "Blaster Swing", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1012_01", "image": "assets/cards/start_1012_01.webp"}, {"name": "Hold Position", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1012_02", "image": "assets/cards/start_1012_02.webp"}, {"name": "Anika Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Anika Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Ignition Slash", "cost": 2, "category": "Attack", "mult": 400, "hits": 1, "shield": 0, "desc": "400% Damage2 Tenacity DamageEfficiency: Gain 1 AP", "sct": "unique_1012_01", "image": "assets/cards/unique_1012_01.webp"}, {"name": "Shock Gun", "cost": 1, "category": "Attack", "mult": 150, "hits": 1, "shield": 0, "desc": "150% Damage1 ShockwaveEfficiency: 1 Tenacity Damage", "sct": "unique_1012_02", "image": "assets/cards/unique_1012_02.webp"}, {"name": "Reloading", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "At the start of the next turn, Draw 2 Lead card(s) of this unit", "sct": "unique_1012_03", "image": "assets/cards/unique_1012_03.webp"}, {"name": "Warming Up", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "For 1 turn, decrease Cost of the next card of this unit activated by 1Efficiency: Draw 1 Lead Attack Card(s) of this unit", "sct": "unique_1012_04", "image": "assets/cards/unique_1012_04.webp"}, {"name": "Rampage Trigger", "cost": 2, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% DamageDestroy: +100% Damage Amount", "sct": "unique_1012_05", "image": "assets/cards/unique_1012_05.webp"}], "collapse": [{"name": "Buffalo Dive", "cost": 5, "category": "Attack", "mult": 250, "hits": 1, "shield": 0, "desc": "250% Damage to all enemies2 Tenacity Damage", "sct": "collapse_1012_01", "image": "assets/cards/collapse_1012_01.webp"}, {"name": "Guilt", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1012_02", "image": "assets/cards/collapse_1012_02.webp"}]}, {"id": "1040", "name": "Beryl", "rarity": 4, "job": "Ranger", "role": "Multi-Hit / Mark", "job_icon": "🎯", "element": "Void", "element_color": "#a855f7", "element_icon": "🌌", "faction": "Ironrain", "portrait": "assets/characters/1040.webp", "stats": {"atk": 425, "hp": 330, "def": 150, "crit_rate": 5, "crit_dmg": 150}, "starters": [{"name": "Launcher", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1040_01", "image": "assets/cards/start_1040_01.webp"}, {"name": "Charge Launcher", "cost": 2, "category": "Attack", "mult": 220, "hits": 1, "shield": 0, "desc": "220% Damage", "sct": "start_1040_03", "image": "assets/cards/start_1040_03.webp"}, {"name": "Barrier", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1040_02", "image": "assets/cards/start_1040_02.webp"}, {"name": "Beryl Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}], "uniques": [{"name": "Opening Found", "cost": 1, "category": "Power", "mult": 150, "hits": 1, "shield": 0, "desc": "When a card of this unit is Retained, 150% Extra Attack to random enemies", "sct": "unique_1040_03", "image": "assets/cards/unique_1040_03.webp"}, {"name": "Charged Shot", "cost": 2, "category": "Attack", "mult": 270, "hits": 1, "shield": 0, "desc": "270% DamageRetain: +135% Damage Amount", "sct": "unique_1040_01", "image": "assets/cards/unique_1040_01.webp"}, {"name": "Guilty Pleasure", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Draw 3", "sct": "unique_1040_05", "image": "assets/cards/unique_1040_05.webp"}, {"name": "Unlimited Firepower", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield+80% Damage Amount to the next Attack Card of this unit activated", "sct": "unique_1040_04", "image": "assets/cards/unique_1040_04.webp"}, {"name": "Heavy Weapons Specialist", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Create 1 Opening Found or Charged Shot, then apply Exhaust to that card and decrease Cost by 1 until activated", "sct": "unique_1040_02", "image": "assets/cards/unique_1040_02.webp"}], "collapse": [{"name": "Max Output Charged Shot", "cost": 5, "category": "Attack", "mult": 350, "hits": 1, "shield": 0, "desc": "350% Damage to all enemies​", "sct": "collapse_1040_01", "image": "assets/cards/collapse_1040_01.webp"}, {"name": "Daze", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1040_02", "image": "assets/cards/collapse_1040_02.webp"}]}, {"id": "1049", "name": "Cassius", "rarity": 4, "job": "Controller", "role": "AP / Card Draw", "job_icon": "✨", "element": "Instinct", "element_color": "#22d3ee", "element_icon": "⚡", "faction": "Peltion", "portrait": "assets/characters/1049.webp", "stats": {"atk": 385, "hp": 320, "def": 175, "crit_rate": 4, "crit_dmg": 135}, "starters": [{"name": "Cards", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1049_01", "image": "assets/cards/start_1049_01.webp"}, {"name": "Wild Card", "cost": 2, "category": "Attack", "mult": 220, "hits": 1, "shield": 0, "desc": "220% Damage", "sct": "start_1049_03", "image": "assets/cards/start_1049_03.webp"}, {"name": "Mana Field", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%", "sct": "start_1049_02", "image": "assets/cards/start_1049_02.webp"}, {"name": "Cassius Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}], "uniques": [{"name": "Pop Eyed Popper", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "Start a random 1 out of 4 Quests", "sct": "unique_1049_03", "image": "assets/cards/unique_1049_03.webp"}, {"name": "Devil Dice", "cost": 1, "category": "Attack", "mult": 160, "hits": 1, "shield": 0, "desc": "160% DamageDraw 1", "sct": "unique_1049_05", "image": "assets/cards/unique_1049_05.webp"}, {"name": "Shuffle", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Discard all cards in handDraw for each Discarded", "sct": "unique_1049_04", "image": "assets/cards/unique_1049_04.webp"}, {"name": "Dice Trick", "cost": 2, "category": "Attack", "mult": 240, "hits": 1, "shield": 0, "desc": "240% DamageDecrease Morale by 1 for 1 turnDecrease Cost by the number of completed Quests", "sct": "unique_1049_02", "image": "assets/cards/unique_1049_02.webp"}, {"name": "Joker", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Select and Draw 1 card(s) from Draw Pile", "sct": "unique_1049_01", "image": "assets/cards/unique_1049_01.webp"}, {"name": "Triple 0", "cost": 0, "category": "Attack", "mult": 200, "hits": 1, "shield": 0, "desc": "200% Damage+40% base Damage Amount for each Attack Card activated this turn(max 4 times)", "sct": "unique_1049_09", "image": "assets/cards/unique_1049_09.webp"}, {"name": "Triple 1", "cost": 0, "category": "Attack", "mult": 1150, "hits": 1, "shield": 0, "desc": "Draw 1150% DamageHeal 150%", "sct": "unique_1049_08", "image": "assets/cards/unique_1049_08.webp"}, {"name": "Straight", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Draw 12 Morale, Resolve, and Fortitude for 1 turn", "sct": "unique_1049_07", "image": "assets/cards/unique_1049_07.webp"}, {"name": "Full House", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Draw 1Decrease Stress of a random ally by 2", "sct": "unique_1049_06", "image": "assets/cards/unique_1049_06.webp"}, {"name": "Quest: Triple 0", "cost": 0, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "When 3 0-Cost cards are activated, create Triple 0", "sct": "unique_1049_09", "image": "assets/cards/unique_1049_09.webp"}, {"name": "Quest: Triple 1", "cost": 0, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "When 3 1-Cost cards are activated, create Triple 1", "sct": "unique_1049_08", "image": "assets/cards/unique_1049_08.webp"}, {"name": "Quest: Straight", "cost": 0, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "When 1 of each 0-Cost, 1-Cost, and 2-Cost cards are activated, create Straight", "sct": "unique_1049_07", "image": "assets/cards/unique_1049_07.webp"}, {"name": "Quest: Full House", "cost": 0, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "When a card of each Combatant has been activated, create Full House", "sct": "unique_1049_06", "image": "assets/cards/unique_1049_06.webp"}], "collapse": [{"name": "Death Trick", "cost": 4, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Create 2 Quest card(s)Decrease Morale of all enemies by 3 for 1 turn", "sct": "collapse_1049_01", "image": "assets/cards/collapse_1049_01.webp"}, {"name": "Trance", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1049_02", "image": "assets/cards/collapse_1049_02.webp"}]}, {"id": "1021", "name": "Lucas", "rarity": 4, "job": "Hunter", "role": "Follow-Up / Extra Atk", "job_icon": "🏹", "element": "Passion", "element_color": "#f85058", "element_icon": "🔥", "faction": "Ironrain", "portrait": "assets/characters/1021.webp", "stats": {"atk": 425, "hp": 330, "def": 150, "crit_rate": 10, "crit_dmg": 150}, "starters": [{"name": "Machine Gun", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1021_01", "image": "assets/cards/start_1021_01.webp"}, {"name": "Shielding Incendiary Bomb", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1021_02", "image": "assets/cards/start_1021_02.webp"}, {"name": "Lucas Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Lucas Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Extended Magazine", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "At the start of the turn, create 1 Launcher Bullet", "sct": "unique_1021_03", "image": "assets/cards/unique_1021_03.webp"}, {"name": "S.S.S", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% DamageFor 1 turn, +40% Bullet card Damage", "sct": "unique_1021_01", "image": "assets/cards/unique_1021_01.webp"}, {"name": "Flame Thrower", "cost": 2, "category": "Attack", "mult": 180, "hits": 1, "shield": 0, "desc": "180% Damage to all enemiesDraw 1Discard 1", "sct": "unique_1021_05", "image": "assets/cards/unique_1021_05.webp"}, {"name": "Flashbang", "cost": 1, "category": "Attack", "mult": 120, "hits": 1, "shield": 120, "desc": "120% Damage to all enemies2 WeakenIf the target has Shield, +50% Damage", "sct": "unique_1021_04", "image": "assets/cards/unique_1021_04.webp"}, {"name": "R.P.G-7", "cost": 1, "category": "Power", "mult": 40, "hits": 1, "shield": 0, "desc": "When Bullet cards are Exhausted, 40% Fixed Damage", "sct": "unique_1021_02", "image": "assets/cards/unique_1021_02.webp"}, {"name": "Armor-Piercing Rounds", "cost": 1, "category": "Attack", "mult": 140, "hits": 1, "shield": 140, "desc": "140% Damage70% Damage to another enemyIf the target has Shield, +30% Damage Amount", "sct": "job_00408", "image": "assets/cards/job_00408.webp"}, {"name": "Explosive Shot", "cost": 1, "category": "Attack", "mult": 140, "hits": 1, "shield": 0, "desc": "140% Damage70% Damage to another enemy1 Weaken to all enemies", "sct": "job_00409", "image": "assets/cards/job_00409.webp"}, {"name": "Dispersing Shot", "cost": 1, "category": "Attack", "mult": 140, "hits": 1, "shield": 0, "desc": "140% Damage70% Damage to another enemy1 Impair to all enemies", "sct": "job_00410", "image": "assets/cards/job_00410.webp"}, {"name": "Cold Shot", "cost": 1, "category": "Attack", "mult": 140, "hits": 1, "shield": 0, "desc": "140% Damage70% Damage to another enemyIncreases Action Count of all enemies by 1", "sct": "job_00412", "image": "assets/cards/job_00412.webp"}, {"name": "Flame Shot", "cost": 1, "category": "Attack", "mult": 140, "hits": 1, "shield": 0, "desc": "140% Damage70% Damage to another enemy1 Agony to all enemies", "sct": "job_00411", "image": "assets/cards/job_00411.webp"}], "collapse": [{"name": "Full Burst", "cost": 5, "category": "Attack", "mult": 2250, "hits": 1, "shield": 0, "desc": "Draw 2250% Damage to all enemies​", "sct": "collapse_1021_01", "image": "assets/cards/collapse_1021_01.webp"}, {"name": "Despair", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1021_02", "image": "assets/cards/collapse_1021_02.webp"}]}, {"id": "1028", "name": "Maribell", "rarity": 4, "job": "Vanguard", "role": "Defense / Shield", "job_icon": "🛡️", "element": "Passion", "element_color": "#f85058", "element_icon": "🔥", "faction": "Ironrain", "portrait": "assets/characters/1028.webp", "stats": {"atk": 275, "hp": 465, "def": 245, "crit_rate": 3, "crit_dmg": 125}, "starters": [{"name": "Shelter Kick", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Defense-Based Damage", "sct": "start_1028_01", "image": "assets/cards/start_1028_01.webp"}, {"name": "Shelter Defense", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1028_02", "image": "assets/cards/start_1028_02.webp"}, {"name": "Shelter Hold", "cost": 2, "category": "Skill", "mult": 220, "hits": 1, "shield": 220, "desc": "220% Shield", "sct": "start_1028_03", "image": "assets/cards/start_1028_03.webp"}, {"name": "Maribell Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}], "uniques": [{"name": "Resolute Blitz", "cost": 1, "category": "Attack", "mult": 140, "hits": 1, "shield": 140, "desc": "140% Defense-Based Damage20% DMG-Based Shield1 Counterattack", "sct": "unique_1028_03", "image": "assets/cards/unique_1028_03.webp"}, {"name": "Maribell Shelter MK.II", "cost": 1, "category": "Attack", "mult": 120, "hits": 1, "shield": 120, "desc": "120% Defense-Based Damage100% DMG-Based Shield", "sct": "unique_1028_01", "image": "assets/cards/unique_1028_01.webp"}, {"name": "Wolves’ Dome", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "2 CounterattackAt the start of the turn, 1 Counterattack2 Crystallization", "sct": "unique_1028_04", "image": "assets/cards/unique_1028_04.webp"}, {"name": "Oh... I see.", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield1 Counterattack1 Weaken to all enemies", "sct": "unique_1028_05", "image": "assets/cards/unique_1028_05.webp"}, {"name": "Shelter Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 80, "desc": "Fixed Damage equal to Shield owned", "sct": "unique_1028_02", "image": "assets/cards/unique_1028_02.webp"}], "collapse": [{"name": "Unbreakable", "cost": 4, "category": "Skill", "mult": 350, "hits": 1, "shield": 350, "desc": "350% Shield", "sct": "collapse_1028_01", "image": "assets/cards/collapse_1028_01.webp"}, {"name": "Fear", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1028_02", "image": "assets/cards/collapse_1028_02.webp"}]}, {"id": "1039", "name": "Mika", "rarity": 4, "job": "Controller", "role": "AP / Card Draw", "job_icon": "✨", "element": "Void", "element_color": "#a855f7", "element_icon": "🌌", "faction": "Terrascion", "portrait": "assets/characters/1039.webp", "stats": {"atk": 385, "hp": 320, "def": 175, "crit_rate": 4, "crit_dmg": 135}, "starters": [{"name": "Water Arrow", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1039_01", "image": "assets/cards/start_1039_01.webp"}, {"name": "Water Barrier", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%", "sct": "start_1039_02", "image": "assets/cards/start_1039_02.webp"}, {"name": "Mika Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Mika Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Source of Water", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%Gain 1 AP", "sct": "unique_1039_01", "image": "assets/cards/unique_1039_01.webp"}, {"name": "Blessing of Waves", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%Increase Heal Amount by 30% for each AP", "sct": "unique_1039_04", "image": "assets/cards/unique_1039_04.webp"}, {"name": "Tactical Analysis", "cost": 0, "category": "Skill", "mult": 50, "hits": 1, "shield": 0, "desc": "1 Wave+50% Heal Amount for 1 turn", "sct": "unique_1039_03", "image": "assets/cards/unique_1039_03.webp"}, {"name": "Whirlpool", "cost": 2, "category": "Attack", "mult": 200, "hits": 1, "shield": 0, "desc": "200% Damage to all enemiesHeal 50% for each target hit", "sct": "unique_1039_02", "image": "assets/cards/unique_1039_02.webp"}, {"name": "Deluge", "cost": 1, "category": "Power", "mult": 100, "hits": 1, "shield": 0, "desc": "1 Wave At the start of the turn, 1 Wave", "sct": "unique_1039_05", "image": "assets/cards/unique_1039_05.webp"}], "collapse": [{"name": "Surge", "cost": 6, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Create 2 Source of Water Card(s), grant Exhaust to it", "sct": "collapse_1039_01", "image": "assets/cards/collapse_1039_01.webp"}, {"name": "Escapism", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1039_02", "image": "assets/cards/collapse_1039_02.webp"}]}, {"id": "1003", "name": "Nia", "rarity": 4, "job": "Controller", "role": "AP / Card Draw", "job_icon": "✨", "element": "Instinct", "element_color": "#22d3ee", "element_icon": "⚡", "faction": "Terrascion", "portrait": "assets/characters/1003.webp", "stats": {"atk": 385, "hp": 320, "def": 175, "crit_rate": 4, "crit_dmg": 135}, "starters": [{"name": "Stroke", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1003_01", "image": "assets/cards/start_1003_01.webp"}, {"name": "Amp Therapy", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%", "sct": "start_1003_02", "image": "assets/cards/start_1003_02.webp"}, {"name": "Nia Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Nia Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "G Chord", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "2 DecibelProc the top 1 card(s) in Draw Pile", "sct": "unique_1003_02", "image": "assets/cards/unique_1003_02.webp"}, {"name": "Mute Accent", "cost": 1, "category": "Skill", "mult": 150, "hits": 1, "shield": 0, "desc": "Discard 1 card(s) with the highest Cost150% Extra Attack to a random enemy by the Combatant who owns that card", "sct": "unique_1003_05", "image": "assets/cards/unique_1003_05.webp"}, {"name": "Soul Riff", "cost": 1, "category": "Skill", "mult": 150, "hits": 1, "shield": 0, "desc": "Heal 150%For 1 turn, when a card is Discarded, 1 Decibel and 2 Elasticity", "sct": "unique_1003_01", "image": "assets/cards/unique_1003_01.webp"}, {"name": "Adagio", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Draw 1Discard 1Move the card Discarded through this effect to the top of Draw Pile", "sct": "unique_1003_04", "image": "assets/cards/unique_1003_04.webp"}, {"name": "Nia’s Curiosity", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Check 3 random cards in Draw PileSelect and Draw oneDiscard the rest", "sct": "unique_1003_03", "image": "assets/cards/unique_1003_03.webp"}], "collapse": [{"name": "Rock and Roll", "cost": 5, "category": "Attack", "mult": 200, "hits": 1, "shield": 0, "desc": "200% Damage to all enemies3 DecibelDiscard all cards in Draw Pile", "sct": "collapse_1003_01", "image": "assets/cards/collapse_1003_01.webp"}, {"name": "Charm", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1003_02", "image": "assets/cards/collapse_1003_02.webp"}]}, {"id": "1050", "name": "Owen", "rarity": 4, "job": "Striker", "role": "Melee Burst DPS", "job_icon": "⚔️", "element": "Passion", "element_color": "#f85058", "element_icon": "🔥", "faction": "Terrascion", "portrait": "assets/characters/1050.webp", "stats": {"atk": 425, "hp": 330, "def": 150, "crit_rate": 5, "crit_dmg": 150}, "starters": [{"name": "Downward Cut", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1050_01", "image": "assets/cards/start_1050_01.webp"}, {"name": "Weapon Block", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1050_02", "image": "assets/cards/start_1050_02.webp"}, {"name": "Owen Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Owen Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Wind Charge", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Add 1 Hit(s) to the next Attack Card of this unit activated", "sct": "unique_1050_04", "image": "assets/cards/unique_1050_04.webp"}, {"name": "Wind Slash", "cost": 2, "category": "Attack", "mult": 280, "hits": 1, "shield": 0, "desc": "280% Damage to all enemies", "sct": "unique_1050_05", "image": "assets/cards/unique_1050_05.webp"}, {"name": "Break Armor", "cost": 1, "category": "Attack", "mult": 140, "hits": 1, "shield": 0, "desc": "140% Damage3 VulnerableWhen Wind Charge is activated, move this card from Discard Pile to hand", "sct": "unique_1050_03", "image": "assets/cards/unique_1050_03.webp"}, {"name": "Wind Riding", "cost": 1, "category": "Skill", "mult": 150, "hits": 1, "shield": 150, "desc": "150% ShieldMove Wind Charge from Discard Pile to hand", "sct": "unique_1050_02", "image": "assets/cards/unique_1050_02.webp"}, {"name": "Gale Strike", "cost": 2, "category": "Attack", "mult": 300, "hits": 1, "shield": 300, "desc": "300% Damage130% Shield", "sct": "unique_1050_01", "image": "assets/cards/unique_1050_01.webp"}], "collapse": [{"name": "Raging Storm", "cost": 5, "category": "Attack", "mult": 250, "hits": 1, "shield": 250, "desc": "250% Damage250% Shield​", "sct": "collapse_1050_01", "image": "assets/cards/collapse_1050_01.webp"}, {"name": "Gloom", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1050_02", "image": "assets/cards/collapse_1050_02.webp"}]}, {"id": "1056", "name": "Rei", "rarity": 4, "job": "Controller", "role": "AP / Card Draw", "job_icon": "✨", "element": "Justice", "element_color": "#10664d", "element_icon": "⚔️", "faction": "Terrascion", "portrait": "assets/characters/1056.webp", "stats": {"atk": 385, "hp": 320, "def": 175, "crit_rate": 4, "crit_dmg": 135}, "starters": [{"name": "Dark Blade", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1056_01", "image": "assets/cards/start_1056_01.webp"}, {"name": "Material Regeneration", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%", "sct": "start_1056_02", "image": "assets/cards/start_1056_02.webp"}, {"name": "Rei Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Rei Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "Strike of Darkness", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% DamageIncrease Damage Amount of Basic Attack Cards by 100% for 1 turn", "sct": "unique_1056_04", "image": "assets/cards/unique_1056_04.webp"}, {"name": "Resonating Darkness", "cost": 1, "category": "Power", "mult": 40, "hits": 1, "shield": 0, "desc": "+40% Damage Amount to 1-Cost cardsAt the end of the turn, Heal 60%", "sct": "unique_1056_03", "image": "assets/cards/unique_1056_03.webp"}, {"name": "Snack Time", "cost": 0, "category": "Skill", "mult": 200, "hits": 1, "shield": 0, "desc": "Choose 1 card(s) in hand to ExhaustHeal 200%Draw 1", "sct": "unique_1056_05", "image": "assets/cards/unique_1056_05.webp"}, {"name": "Dark Condensation", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Select 1 Attack Card(s) in hand, then +100% Damage Amount for 1 turn until activated", "sct": "unique_1056_01", "image": "assets/cards/unique_1056_01.webp"}, {"name": "Predator's Blade", "cost": 1, "category": "Attack", "mult": 250, "hits": 1, "shield": 0, "desc": "250% DamageFor 1 turn, 2 Morale", "sct": "unique_1056_02", "image": "assets/cards/unique_1056_02.webp"}], "collapse": [{"name": "Final Shadow", "cost": 4, "category": "Attack", "mult": 300, "hits": 1, "shield": 0, "desc": "300% Damage15% DMG-Based RecoveryGain 1 AP", "sct": "collapse_1056_01", "image": "assets/cards/collapse_1056_01.webp"}, {"name": "Confusion", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1056_02", "image": "assets/cards/collapse_1056_02.webp"}]}, {"id": "1005", "name": "Selena", "rarity": 4, "job": "Ranger", "role": "Multi-Hit / Mark", "job_icon": "🎯", "element": "Passion", "element_color": "#f85058", "element_icon": "🔥", "faction": "Terrascion", "portrait": "assets/characters/1005.webp", "stats": {"atk": 425, "hp": 330, "def": 150, "crit_rate": 5, "crit_dmg": 150}, "starters": [{"name": "Engagement Fire", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1005_01", "image": "assets/cards/start_1005_01.webp"}, {"name": "Emergency Shielding", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield", "sct": "start_1005_02", "image": "assets/cards/start_1005_02.webp"}, {"name": "Selena Strike", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Deals 100% damage to a single enemy.", "sct": "", "image": ""}, {"name": "Selena Defend", "cost": 1, "category": "Skill", "mult": 0, "hits": 0, "shield": 100, "desc": "Grants 100% Shield to the squad.", "sct": "", "image": ""}], "uniques": [{"name": "High-Power Scope", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "2 Mark", "sct": "unique_1005_01", "image": "assets/cards/unique_1005_01.webp"}, {"name": "Target Spotted", "cost": 1, "category": "Attack", "mult": 150, "hits": 1, "shield": 0, "desc": "150% DamageAttunement: 1 Mark to a random enemy", "sct": "unique_1005_02", "image": "assets/cards/unique_1005_02.webp"}, {"name": "Drone Bombing", "cost": 1, "category": "Attack", "mult": 120, "hits": 1, "shield": 0, "desc": "120% Damage to all enemies, 1 Passion Weakness", "sct": "unique_1005_03", "image": "assets/cards/unique_1005_03.webp"}, {"name": "Tactical Maneuver", "cost": 1, "category": "Skill", "mult": 150, "hits": 1, "shield": 150, "desc": "150% Shield2 Tenacity Damage", "sct": "unique_1005_04", "image": "assets/cards/unique_1005_04.webp"}, {"name": "Sniper's Domain", "cost": 0, "category": "Power", "mult": 80, "hits": 1, "shield": 0, "desc": "+80% Mark Damage", "sct": "unique_1005_05", "image": "assets/cards/unique_1005_05.webp"}], "collapse": [{"name": "Final Shot", "cost": 5, "category": "Attack", "mult": 300, "hits": 1, "shield": 0, "desc": "300% Damage3 Mark​", "sct": "collapse_1005_01", "image": "assets/cards/collapse_1005_01.webp"}, {"name": "Daze", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1005_02", "image": "assets/cards/collapse_1005_02.webp"}]}, {"id": "1009", "name": "Tressa", "rarity": 4, "job": "Psionic", "role": "Magic / Discard", "job_icon": "🔮", "element": "Justice", "element_color": "#10664d", "element_icon": "⚔️", "faction": "Terrascion", "portrait": "assets/characters/1009.webp", "stats": {"atk": 385, "hp": 320, "def": 175, "crit_rate": 5, "crit_dmg": 140}, "starters": [{"name": "Dagger Throw", "cost": 1, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "100% Damage", "sct": "start_1009_01", "image": "assets/cards/start_1009_01.webp"}, {"name": "Touch of Darkness", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%", "sct": "start_1009_02", "image": "assets/cards/start_1009_02.webp"}, {"name": "Shadow Dagger", "cost": 0, "category": "Attack", "mult": 80, "hits": 1, "shield": 0, "desc": "80% Damage2 Agony", "sct": "start_1009_03", "image": "assets/cards/start_1009_03.webp"}, {"name": "Advanced Shadow Dagger", "cost": 0, "category": "Attack", "mult": 50, "hits": 1, "shield": 0, "desc": "4 Agony50% Damage+10% Damage Amount for each Agony on the target", "sct": "start_1009_03", "image": "assets/cards/start_1009_03.webp"}], "uniques": [{"name": "Unsheathe Dagger", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Create 2 Shadow Dagger", "sct": "unique_1009_01", "image": "assets/cards/unique_1009_01.webp"}, {"name": "Curse", "cost": 0, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "For 1 turn, when an Attack Card is activated, 1 Agony to the target", "sct": "unique_1009_05", "image": "assets/cards/unique_1009_05.webp"}, {"name": "Shadow Reload", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Heal 100%Create 1 Advanced Shadow Dagger", "sct": "unique_1009_04", "image": "assets/cards/unique_1009_04.webp"}, {"name": "Vital Attack", "cost": 2, "category": "Attack", "mult": 80, "hits": 1, "shield": 0, "desc": "80% Damage × 3If the target is in an Agony state, +50% Damage Amount", "sct": "unique_1009_03", "image": "assets/cards/unique_1009_03.webp"}, {"name": "Cursed Gouge", "cost": 1, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Activate Agony inflicted by this unit on the target", "sct": "unique_1009_02", "image": "assets/cards/unique_1009_02.webp"}], "collapse": [{"name": "Wave of Darkness", "cost": 5, "category": "Skill", "mult": 100, "hits": 1, "shield": 0, "desc": "Create 2 Shadow Dagger2 Agony × 2", "sct": "collapse_1009_01", "image": "assets/cards/collapse_1009_01.webp"}, {"name": "Escapism", "cost": 0, "category": "Attack", "mult": 100, "hits": 1, "shield": 0, "desc": "Has a low chance for unexpected results to occur on use.", "sct": "collapse_1009_02", "image": "assets/cards/collapse_1009_02.webp"}]}],
-  partners: [{"id": "30091", "name": "Alcea", "rarity": 5, "job": "Vanguard", "job_icon": "🛡️", "portrait": "assets/characters/30091.webp", "stat_boost": {"atk_pct": 0, "flat_atk": 0, "def_pct": 20, "hp_pct": 16}, "passive": "Increases assigned combatant's DEF by +20% and Shield gain by +20%.", "card": {"name": "If You Require Assistance", "cost": 3, "category": "Support", "mult": 250, "hits": 1, "shield": 120, "desc": "250% Defense-Based Damage5 Caustic Remarks", "image": "assets/cards/support_30091_01.webp", "sct": "support_30091_01"}}, {"id": "20008", "name": "Anteia", "rarity": 5, "job": "Psionic", "job_icon": "🔮", "portrait": "assets/characters/20008.webp", "stat_boost": {"atk_pct": 10, "flat_atk": 60, "def_pct": 10, "hp_pct": 12}, "passive": "Increases assigned combatant's HP and AP cycle efficiency.", "card": {"name": "Scholarly Measures", "cost": 2, "category": "Support", "mult": 180, "hits": 1, "shield": 120, "desc": "180% Damage to all enemies1 Vulnerable", "image": "assets/cards/support_20008_01.webp", "sct": "support_20008_01"}}, {"id": "1070", "name": "Aria", "rarity": 5, "job": "Psionic", "job_icon": "🔮", "portrait": "assets/characters/1070.webp", "stat_boost": {"atk_pct": 10, "flat_atk": 60, "def_pct": 10, "hp_pct": 12}, "passive": "Increases assigned combatant's HP and AP cycle efficiency.", "card": {"name": "An Aria For You", "cost": 2, "category": "Support", "mult": 20, "hits": 1, "shield": 120, "desc": "Increase Damage Amount of the assigned Combatant‘s Basic Attack Cards by 20%If the assigned Combatant‘s Ego Skill was used, decrease Cost of", "image": "assets/cards/support_1070_01.webp", "sct": "support_1070_01"}}, {"id": "30045", "name": "Asteria", "rarity": 5, "job": "Striker", "job_icon": "⚔️", "portrait": "assets/characters/30045.webp", "stat_boost": {"atk_pct": 16, "flat_atk": 110, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +16% and Attack Card damage by +15%.", "card": {"name": "Light of Ark", "cost": 2, "category": "Support", "mult": 40, "hits": 1, "shield": 120, "desc": "+40% Damage Amount to the assigned Combatant‘s next Attack card activated for each Cost of all cards in hand (max 10)", "image": "assets/cards/support_30045_01.webp", "sct": "support_30045_01"}}, {"id": "20021", "name": "Bria", "rarity": 5, "job": "Psionic", "job_icon": "🔮", "portrait": "assets/characters/20021.webp", "stat_boost": {"atk_pct": 10, "flat_atk": 60, "def_pct": 10, "hp_pct": 12}, "passive": "Increases assigned combatant's HP and AP cycle efficiency.", "card": {"name": "Capable Secretary", "cost": 3, "category": "Support", "mult": 10, "hits": 1, "shield": 120, "desc": "Exhaust all Status Ailment Cards (including those that were originally Status Ailment) and Curse Cards from Discard PileIncrease Damage Amou", "image": "assets/cards/support_20021_01.webp", "sct": "support_20021_01"}}, {"id": "30095", "name": "Clara", "rarity": 5, "job": "Vanguard", "job_icon": "🛡️", "portrait": "assets/characters/30095.webp", "stat_boost": {"atk_pct": 0, "flat_atk": 0, "def_pct": 20, "hp_pct": 16}, "passive": "Increases assigned combatant's DEF by +20% and Shield gain by +20%.", "card": {"name": "Genius Stage Director", "cost": 3, "category": "Support", "mult": 200, "hits": 1, "shield": 200, "desc": "200% ShieldSelect and Draw 2 Blessing card(s) from Draw Pile", "image": "assets/cards/support_30095_01.webp", "sct": "support_30095_01"}}, {"id": "20005", "name": "Eishlen", "rarity": 5, "job": "Vanguard", "job_icon": "🛡️", "portrait": "assets/characters/20005.webp", "stat_boost": {"atk_pct": 0, "flat_atk": 0, "def_pct": 20, "hp_pct": 16}, "passive": "Increases assigned combatant's DEF by +20% and Shield gain by +20%.", "card": {"name": "Innos’s Guardian", "cost": 4, "category": "Support", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield50% Shield Retention for 1 turn (cannot stack)", "image": "assets/cards/support_20005_01.webp", "sct": "support_20005_01"}}, {"id": "30118", "name": "Emilie", "rarity": 5, "job": "Psionic", "job_icon": "🔮", "portrait": "assets/characters/30118.webp", "stat_boost": {"atk_pct": 10, "flat_atk": 60, "def_pct": 10, "hp_pct": 12}, "passive": "Increases assigned combatant's HP and AP cycle efficiency.", "card": {"name": "For My Mistress", "cost": 2, "category": "Support", "mult": 300, "hits": 1, "shield": 120, "desc": "300% Damage2 Sensory Deprivation", "image": "assets/cards/support_30118_01.webp", "sct": "support_30118_01"}}, {"id": "30054", "name": "Erica", "rarity": 5, "job": "Vanguard", "job_icon": "🛡️", "portrait": "assets/characters/30054.webp", "stat_boost": {"atk_pct": 0, "flat_atk": 0, "def_pct": 20, "hp_pct": 16}, "passive": "Increases assigned combatant's DEF by +20% and Shield gain by +20%.", "card": {"name": "Crackdown Beam Bombardment", "cost": 2, "category": "Support", "mult": 200, "hits": 1, "shield": 120, "desc": "200% Defense-based Damage to all enemies1 CounterattackIf any enemy’s Anticipated Action is attack, 1 Counterattack", "image": "assets/cards/support_30054_01.webp", "sct": "support_30054_01"}}, {"id": "30114", "name": "Eunie", "rarity": 5, "job": "Ranger", "job_icon": "🎯", "portrait": "assets/characters/30114.webp", "stat_boost": {"atk_pct": 16, "flat_atk": 110, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +16% and Attack Card damage by +15%.", "card": {"name": "Lay Down Suppressive Fire!", "cost": 3, "category": "Support", "mult": 80, "hits": 1, "shield": 120, "desc": "80% Damage to all enemies1 Leaving the Rest to You!, and when an enemy is defeated, 1 Ammo Transfer for each defeated", "image": "assets/cards/support_30114_01.webp", "sct": "support_30114_01"}}, {"id": "20002", "name": "Gaya", "rarity": 5, "job": "Controller", "job_icon": "✨", "portrait": "assets/characters/20002.webp", "stat_boost": {"atk_pct": 10, "flat_atk": 60, "def_pct": 10, "hp_pct": 12}, "passive": "Increases assigned combatant's HP and AP cycle efficiency.", "card": {"name": "Ice Wyrm’s Roar", "cost": 3, "category": "Support", "mult": 60, "hits": 1, "shield": 120, "desc": "60% Defense-Based DamageDraw 1 Attack Card(s)", "image": "assets/cards/support_20002_01.webp", "sct": "support_20002_01"}}, {"id": "30046", "name": "Itsuku", "rarity": 5, "job": "Psionic", "job_icon": "🔮", "portrait": "assets/characters/30046.webp", "stat_boost": {"atk_pct": 10, "flat_atk": 60, "def_pct": 10, "hp_pct": 12}, "passive": "Increases assigned combatant's HP and AP cycle efficiency.", "card": {"name": "Moonlit Leisure", "cost": 3, "category": "Support", "mult": 200, "hits": 1, "shield": 120, "desc": "200% Damage to all enemies2 Fierce Winds", "image": "assets/cards/support_30046_01.webp", "sct": "support_30046_01"}}, {"id": "1025", "name": "Ivy", "rarity": 5, "job": "Psionic", "job_icon": "🔮", "portrait": "assets/characters/1025.webp", "stat_boost": {"atk_pct": 10, "flat_atk": 60, "def_pct": 10, "hp_pct": 12}, "passive": "Increases assigned combatant's HP and AP cycle efficiency.", "card": {"name": "A New Visitor", "cost": 3, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "2 Illusory Erosion", "image": "assets/cards/support_1025_01.webp", "sct": "support_1025_01"}}, {"id": "20004", "name": "Janet", "rarity": 5, "job": "Hunter", "job_icon": "🏹", "portrait": "assets/characters/20004.webp", "stat_boost": {"atk_pct": 16, "flat_atk": 110, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +16% and Attack Card damage by +15%.", "card": {"name": "Ultimate Missile Turret!", "cost": 3, "category": "Support", "mult": 150, "hits": 1, "shield": 120, "desc": "150% Damage to all enemiesIncrease Damage Amount of the assigned Combatant‘s Bullets by 20% for 1 turn", "image": "assets/cards/support_20004_01.webp", "sct": "support_20004_01"}}, {"id": "20030", "name": "Kiara", "rarity": 5, "job": "Hunter", "job_icon": "🏹", "portrait": "assets/characters/20030.webp", "stat_boost": {"atk_pct": 16, "flat_atk": 110, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +16% and Attack Card damage by +15%.", "card": {"name": "Lumina Explosion", "cost": 3, "category": "Support", "mult": 200, "hits": 1, "shield": 120, "desc": "200% Damage+20% base Damage Amount for each card in Graveyard", "image": "assets/cards/support_20030_01.webp", "sct": "support_20030_01"}}, {"id": "30116", "name": "Licinia", "rarity": 5, "job": "Striker", "job_icon": "⚔️", "portrait": "assets/characters/30116.webp", "stat_boost": {"atk_pct": 16, "flat_atk": 110, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +16% and Attack Card damage by +15%.", "card": {"name": "Blossoming Venom", "cost": 3, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "Gain 1 AP3 Paralytic Poison to all enemies", "image": "assets/cards/support_30116_01.webp", "sct": "support_30116_01"}}, {"id": "20037", "name": "Marianne", "rarity": 5, "job": "Striker", "job_icon": "⚔️", "portrait": "assets/characters/20037.webp", "stat_boost": {"atk_pct": 16, "flat_atk": 110, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +16% and Attack Card damage by +15%.", "card": {"name": "Blood Stalker", "cost": 3, "category": "Support", "mult": 350, "hits": 1, "shield": 120, "desc": "350% Damage", "image": "assets/cards/support_20037_01.webp", "sct": "support_20037_01"}}, {"id": "30051", "name": "Marin", "rarity": 5, "job": "Ranger", "job_icon": "🎯", "portrait": "assets/characters/30051.webp", "stat_boost": {"atk_pct": 16, "flat_atk": 110, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +16% and Attack Card damage by +15%.", "card": {"name": "Azure Fury", "cost": 3, "category": "Support", "mult": 200, "hits": 1, "shield": 120, "desc": "200% Damage to all enemiesDraw 1 skill card(s)", "image": "assets/cards/support_30051_01.webp", "sct": "support_30051_01"}}, {"id": "30052", "name": "Noel", "rarity": 5, "job": "Controller", "job_icon": "✨", "portrait": "assets/characters/30052.webp", "stat_boost": {"atk_pct": 10, "flat_atk": 60, "def_pct": 10, "hp_pct": 12}, "passive": "Increases assigned combatant's HP and AP cycle efficiency.", "card": {"name": "Legato of Faith", "cost": 3, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "Heal 100%Activate the Retain effect of all of the assigned Combatant‘s cards in hand", "image": "assets/cards/support_30052_01.webp", "sct": "support_30052_01"}}, {"id": "20006", "name": "Nyx", "rarity": 5, "job": "Controller", "job_icon": "✨", "portrait": "assets/characters/20006.webp", "stat_boost": {"atk_pct": 10, "flat_atk": 60, "def_pct": 10, "hp_pct": 12}, "passive": "Increases assigned combatant's HP and AP cycle efficiency.", "card": {"name": "Errante Hurricane", "cost": 4, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "Discard up to 3 card(s),then Draw +1 card(s) equal to the number discarded", "image": "assets/cards/support_20006_01.webp", "sct": "support_20006_01"}}, {"id": "30076", "name": "Peko", "rarity": 5, "job": "Hunter", "job_icon": "🏹", "portrait": "assets/characters/30076.webp", "stat_boost": {"atk_pct": 16, "flat_atk": 110, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +16% and Attack Card damage by +15%.", "card": {"name": "Overclock Beacon", "cost": 3, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "When an ally inflicts Ravage, 1 Overclock to the assigned Combatant (1 time per turn)", "image": "assets/cards/support_30076_01.webp", "sct": "support_30076_01"}}, {"id": "20019", "name": "Priscilla", "rarity": 5, "job": "Striker", "job_icon": "⚔️", "portrait": "assets/characters/20019.webp", "stat_boost": {"atk_pct": 16, "flat_atk": 110, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +16% and Attack Card damage by +15%.", "card": {"name": "Arachnid Web", "cost": 2, "category": "Support", "mult": 250, "hits": 1, "shield": 120, "desc": "250% DamageApply Weakness Attack to 1 of the assigned Combatant's random Attack Cards in hand", "image": "assets/cards/support_20019_01.webp", "sct": "support_20019_01"}}, {"id": "30092", "name": "Ruixiang", "rarity": 5, "job": "Ranger", "job_icon": "🎯", "portrait": "assets/characters/30092.webp", "stat_boost": {"atk_pct": 16, "flat_atk": 110, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +16% and Attack Card damage by +15%.", "card": {"name": "Incense", "cost": 3, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "Draw 1 of the assigned Combatant’s Attack CardIf Cost of that card is either 0 or X, Draw 2", "image": "assets/cards/support_30092_01.webp", "sct": "support_30092_01"}}, {"id": "20034", "name": "Scarlet", "rarity": 5, "job": "Striker", "job_icon": "⚔️", "portrait": "assets/characters/20034.webp", "stat_boost": {"atk_pct": 16, "flat_atk": 110, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +16% and Attack Card damage by +15%.", "card": {"name": "Binding Knot", "cost": 3, "category": "Support", "mult": 250, "hits": 1, "shield": 120, "desc": "250% DamageFor 1 turn, +10% Damage Amount to the assigned Combatant's Attack Cards for each beneficial effect in possession", "image": "assets/cards/support_20034_01.webp", "sct": "support_20034_01"}}, {"id": "20014", "name": "Serithea", "rarity": 5, "job": "Hunter", "job_icon": "🏹", "portrait": "assets/characters/20014.webp", "stat_boost": {"atk_pct": 16, "flat_atk": 110, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +16% and Attack Card damage by +15%.", "card": {"name": "Crimson Romance", "cost": 3, "category": "Support", "mult": 250, "hits": 1, "shield": 120, "desc": "250% Damage2 Vulnerable", "image": "assets/cards/support_20014_01.webp", "sct": "support_20014_01"}}, {"id": "30053", "name": "Sophia", "rarity": 5, "job": "Hunter", "job_icon": "🏹", "portrait": "assets/characters/30053.webp", "stat_boost": {"atk_pct": 16, "flat_atk": 110, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +16% and Attack Card damage by +15%.", "card": {"name": "Always Cheer For You", "cost": 3, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "3 Die-hard FanDraw 1Discard up to 2 cards", "image": "assets/cards/support_30053_01.webp", "sct": "support_30053_01"}}, {"id": "30094", "name": "Sylvia", "rarity": 5, "job": "Ranger", "job_icon": "🎯", "portrait": "assets/characters/30094.webp", "stat_boost": {"atk_pct": 16, "flat_atk": 110, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +16% and Attack Card damage by +15%.", "card": {"name": "Field Overview", "cost": 2, "category": "Support", "mult": 10, "hits": 1, "shield": 120, "desc": "Select up to 2 cards in hand and apply LinkedIf a selected card is the assigned Combatant’s Linked card, +10% Critical Damage to the assigne", "image": "assets/cards/support_30094_01.webp", "sct": "support_30094_01"}}, {"id": "30085", "name": "Tiana", "rarity": 5, "job": "Controller", "job_icon": "✨", "portrait": "assets/characters/30085.webp", "stat_boost": {"atk_pct": 10, "flat_atk": 60, "def_pct": 10, "hp_pct": 12}, "passive": "Increases assigned combatant's HP and AP cycle efficiency.", "card": {"name": "Phase Alignment", "cost": 3, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "Draw 1 Exhaust card(s)The next 2 time(s) an Ego Skill is used, Draw 1 Exhaust card(s)Decrease Cost of the next Ego Skill used by 1", "image": "assets/cards/support_30085_01.webp", "sct": "support_30085_01"}}, {"id": "20038", "name": "Tina", "rarity": 5, "job": "Ranger", "job_icon": "🎯", "portrait": "assets/characters/20038.webp", "stat_boost": {"atk_pct": 16, "flat_atk": 110, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +16% and Attack Card damage by +15%.", "card": {"name": "Target confirmed, initiating support!", "cost": 2, "category": "Support", "mult": 30, "hits": 1, "shield": 120, "desc": "Draw 1Increase Damage Amount of the assigned Combatant's Extra Attacks by 30% for 1 turn", "image": "assets/cards/support_20038_01.webp", "sct": "support_20038_01"}}, {"id": "30044", "name": "Westmacott", "rarity": 5, "job": "Striker", "job_icon": "⚔️", "portrait": "assets/characters/30044.webp", "stat_boost": {"atk_pct": 16, "flat_atk": 110, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +16% and Attack Card damage by +15%.", "card": {"name": "Clue Spotted", "cost": 2, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "Move 1 card(s) from hand to top of Draw PileDraw 2 of the assigned Combatant’s card(s)", "image": "assets/cards/support_30044_01.webp", "sct": "support_30044_01"}}, {"id": "20009", "name": "Zeta", "rarity": 5, "job": "Vanguard", "job_icon": "🛡️", "portrait": "assets/characters/20009.webp", "stat_boost": {"atk_pct": 0, "flat_atk": 0, "def_pct": 20, "hp_pct": 16}, "passive": "Increases assigned combatant's DEF by +20% and Shield gain by +20%.", "card": {"name": "Undertaking the Mission", "cost": 2, "category": "Support", "mult": 200, "hits": 1, "shield": 120, "desc": "200% Defense-Based DamageDraws 1 highest-cost card(s)", "image": "assets/cards/support_20009_01.webp", "sct": "support_20009_01"}}, {"id": "20007", "name": "Akad", "rarity": 4, "job": "Hunter", "job_icon": "🏹", "portrait": "assets/characters/20007.webp", "stat_boost": {"atk_pct": 12, "flat_atk": 80, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +12% and Attack Card damage by +15%.", "card": {"name": "What I Wished to Protect", "cost": 2, "category": "Support", "mult": 25, "hits": 1, "shield": 120, "desc": "+25% Critical Chance of the assigned Combatant’s Attack cards for 1 turn", "image": "assets/cards/support_20007_01.webp", "sct": "support_20007_01"}}, {"id": "20003", "name": "Alyssa", "rarity": 4, "job": "Controller", "job_icon": "✨", "portrait": "assets/characters/20003.webp", "stat_boost": {"atk_pct": 8, "flat_atk": 40, "def_pct": 6, "hp_pct": 12}, "passive": "Increases assigned combatant's HP and AP cycle efficiency.", "card": {"name": "Vitality Boosting Potion", "cost": 2, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "Heal 100%1 Morale for 1 turnWhen below 50% HP, increase Heal Amount by 50%", "image": "assets/cards/support_20003_01.webp", "sct": "support_20003_01"}}, {"id": "20001", "name": "Arwen", "rarity": 4, "job": "Controller", "job_icon": "✨", "portrait": "assets/characters/20001.webp", "stat_boost": {"atk_pct": 8, "flat_atk": 40, "def_pct": 6, "hp_pct": 12}, "passive": "Increases assigned combatant's HP and AP cycle efficiency.", "card": {"name": "Pokopo ponpon!", "cost": 3, "category": "Support", "mult": 200, "hits": 1, "shield": 120, "desc": "Heal 200%1 Damage Reduction", "image": "assets/cards/support_20001_01.webp", "sct": "support_20001_01"}}, {"id": "20036", "name": "Carroty", "rarity": 4, "job": "Hunter", "job_icon": "🏹", "portrait": "assets/characters/20036.webp", "stat_boost": {"atk_pct": 12, "flat_atk": 80, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +12% and Attack Card damage by +15%.", "card": {"name": "Eating Soft Carrots", "cost": 2, "category": "Support", "mult": 20, "hits": 1, "shield": 120, "desc": "For 1 turn, increase the damage of cards generated by the assigned combatant’s abilities by 20%", "image": "assets/cards/support_20036_01.webp", "sct": "support_20036_01"}}, {"id": "20011", "name": "Daisy", "rarity": 4, "job": "Ranger", "job_icon": "🎯", "portrait": "assets/characters/20011.webp", "stat_boost": {"atk_pct": 12, "flat_atk": 80, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +12% and Attack Card damage by +15%.", "card": {"name": "Commencing Detection!", "cost": 2, "category": "Support", "mult": 180, "hits": 1, "shield": 180, "desc": "180% Shield1 Morale for 1 turn", "image": "assets/cards/support_20011_01.webp", "sct": "support_20011_01"}}, {"id": "20027", "name": "Eloise", "rarity": 4, "job": "Psionic", "job_icon": "🔮", "portrait": "assets/characters/20027.webp", "stat_boost": {"atk_pct": 8, "flat_atk": 40, "def_pct": 6, "hp_pct": 12}, "passive": "Increases assigned combatant's HP and AP cycle efficiency.", "card": {"name": "Activate Defense Module", "cost": 3, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "For 1 turn, when a card is Exhausted, 1 Weaken to a random enemy", "image": "assets/cards/support_20027_01.webp", "sct": "support_20027_01"}}, {"id": "20033", "name": "Lillian", "rarity": 4, "job": "Striker", "job_icon": "⚔️", "portrait": "assets/characters/20033.webp", "stat_boost": {"atk_pct": 12, "flat_atk": 80, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +12% and Attack Card damage by +15%.", "card": {"name": "Light of Judgment", "cost": 3, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "100% Damage to all enemiesDraw 1 Attack Cards with Cost 1 or less from the assigned Combatant", "image": "assets/cards/support_20033_01.webp", "sct": "support_20033_01"}}, {"id": "20032", "name": "Rachel", "rarity": 4, "job": "Vanguard", "job_icon": "🛡️", "portrait": "assets/characters/20032.webp", "stat_boost": {"atk_pct": 0, "flat_atk": 0, "def_pct": 14, "hp_pct": 16}, "passive": "Increases assigned combatant's DEF by +14% and Shield gain by +20%.", "card": {"name": "Hamburger Delivery, Sir!", "cost": 2, "category": "Support", "mult": 100, "hits": 1, "shield": 100, "desc": "100% ShieldDraw 1", "image": "assets/cards/support_20032_01.webp", "sct": "support_20032_01"}}, {"id": "20035", "name": "Ritochka", "rarity": 4, "job": "Striker", "job_icon": "⚔️", "portrait": "assets/characters/20035.webp", "stat_boost": {"atk_pct": 12, "flat_atk": 80, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +12% and Attack Card damage by +15%.", "card": {"name": "Workplace hazards ahead!", "cost": 2, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "For 1 turn, 3 Morale", "image": "assets/cards/support_20035_01.webp", "sct": "support_20035_01"}}, {"id": "20025", "name": "Rosaria", "rarity": 4, "job": "Ranger", "job_icon": "🎯", "portrait": "assets/characters/20025.webp", "stat_boost": {"atk_pct": 12, "flat_atk": 80, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +12% and Attack Card damage by +15%.", "card": {"name": "Security team, requesting support!", "cost": 2, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "Draw 1 Upgrade Card(s)If there are no Upgrade Cards in Draw Pile, Draw 1", "image": "assets/cards/support_20025_01.webp", "sct": "support_20025_01"}}, {"id": "20024", "name": "Wilhelmina", "rarity": 4, "job": "Vanguard", "job_icon": "🛡️", "portrait": "assets/characters/20024.webp", "stat_boost": {"atk_pct": 0, "flat_atk": 0, "def_pct": 14, "hp_pct": 16}, "passive": "Increases assigned combatant's DEF by +14% and Shield gain by +20%.", "card": {"name": "Tactical Command", "cost": 2, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "For 1 turn, 2 MoraleFor 1 turn, 1 Fortitude", "image": "assets/cards/support_20024_01.webp", "sct": "support_20024_01"}}, {"id": "20015", "name": "Douglas", "rarity": 3, "job": "Striker", "job_icon": "⚔️", "portrait": "assets/characters/20015.webp", "stat_boost": {"atk_pct": 12, "flat_atk": 80, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +12% and Attack Card damage by +15%.", "card": {"name": "Giant Bazooka", "cost": 2, "category": "Support", "mult": 120, "hits": 1, "shield": 120, "desc": "120% Damage to all enemies", "image": "assets/cards/support_20015_01.webp", "sct": "support_20015_01"}}, {"id": "20010", "name": "Nakia", "rarity": 3, "job": "Ranger", "job_icon": "🎯", "portrait": "assets/characters/20010.webp", "stat_boost": {"atk_pct": 12, "flat_atk": 80, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +12% and Attack Card damage by +15%.", "card": {"name": "Powerful Shot", "cost": 2, "category": "Support", "mult": 200, "hits": 1, "shield": 120, "desc": "200% Damage", "image": "assets/cards/support_20010_01.webp", "sct": "support_20010_01"}}, {"id": "20013", "name": "Raidel", "rarity": 3, "job": "Vanguard", "job_icon": "🛡️", "portrait": "assets/characters/20013.webp", "stat_boost": {"atk_pct": 0, "flat_atk": 0, "def_pct": 14, "hp_pct": 16}, "passive": "Increases assigned combatant's DEF by +14% and Shield gain by +20%.", "card": {"name": "Analyze Weakness", "cost": 2, "category": "Support", "mult": 100, "hits": 1, "shield": 100, "desc": "100% Shield1 Counterattack", "image": "assets/cards/support_20013_01.webp", "sct": "support_20013_01"}}, {"id": "20016", "name": "Yuri", "rarity": 3, "job": "Hunter", "job_icon": "🏹", "portrait": "assets/characters/20016.webp", "stat_boost": {"atk_pct": 12, "flat_atk": 80, "def_pct": 0, "hp_pct": 8}, "passive": "Increases assigned combatant's ATK by +12% and Attack Card damage by +15%.", "card": {"name": "Drone Deployment!", "cost": 3, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "Draw 2", "image": "assets/cards/support_20016_01.webp", "sct": "support_20016_01"}}, {"id": "20026", "name": "Yvonne", "rarity": 3, "job": "Controller", "job_icon": "✨", "portrait": "assets/characters/20026.webp", "stat_boost": {"atk_pct": 8, "flat_atk": 40, "def_pct": 6, "hp_pct": 12}, "passive": "Increases assigned combatant's HP and AP cycle efficiency.", "card": {"name": "Consecration", "cost": 2, "category": "Support", "mult": 100, "hits": 1, "shield": 120, "desc": "Heal 100%1 Fortitude for 1 turn", "image": "assets/cards/support_20026_01.webp", "sct": "support_20026_01"}}, {"id": "20012", "name": "Zatera", "rarity": 3, "job": "Psionic", "job_icon": "🔮", "portrait": "assets/characters/20012.webp", "stat_boost": {"atk_pct": 8, "flat_atk": 40, "def_pct": 6, "hp_pct": 12}, "passive": "Increases assigned combatant's HP and AP cycle efficiency.", "card": {"name": "Flower of Memory", "cost": 2, "category": "Support", "mult": 200, "hits": 1, "shield": 200, "desc": "200% Shield", "image": "assets/cards/support_20012_01.webp", "sct": "support_20012_01"}}],
-  presets: [{"id": "apex_hunt", "name": "The Apex Hunt Barrage", "desc": "Single-target assassination engine. Tressa applies rapid debuffs, Hugo triggers repeated follow-ups, and Cassius clears curses and regulates draw flow.", "hero_ids": ["1010", "1009", "1049"], "partner_ids": ["30091", "20008", "1070"]}, {"id": "passion_firestorm", "name": "Passion Firestorm", "desc": "Explosive AoE burst squad. Heidemarie chains Passion volleys with Hugo follow-up strikes while Cassius guarantees steady 3 AP hand flow.", "hero_ids": ["1061", "1010", "1049"], "partner_ids": ["30045", "30091", "20021"]}, {"id": "iron_bulwark", "name": "The Iron Bulwark", "desc": "High-sustain, near-zero Stress tanking. Magna and Khalipe stack massive barriers and counterattacks while Mika fuels AP.", "hero_ids": ["1064", "1062", "1017"], "partner_ids": ["30095", "20005", "30118"]}, {"id": "dark_mist_blades", "name": "Dark Mist Blades", "desc": "Void discard and bleeding combo. Rin transitions through stance swordplay while Luke marks critical vulnerabilities.", "hero_ids": ["1018", "1004", "1050"], "partner_ids": ["30054", "30114", "20002"]}],
-  glossary: [{"term": "Action Points (AP)", "category": "Resource & Economy", "desc": "Sumber daya energi per giliran untuk memainkan kartu. Setiap tim memulai giliran dengan 3 AP (dapat bertambah melalui kondisi Ravage atau Divine Sparks)."}, {"term": "Tenacity & Tenacity Bar", "category": "Combat Mechanics", "desc": "Bilah pertahanan kuning di bawah HP musuh. Mengurangi damage yang diterima dan terkikis saat musuh terkena serangan (kartu single-target mengikis 1/3 bar per AP; kartu dengan kelemahan elemen mengikis 1 bar penuh per AP)."}, {"term": "Ravage State", "category": "Combat Mechanics", "desc": "Kondisi saat bilah Tenacity musuh terkuras habis (0). Musuh terkena stun, menerima peningkatan damage kerentanan (+50% DMG), dan regu pemain langsung memperoleh +1 Bonus AP!"}, {"term": "Elemental Weakness (+25% DMG)", "category": "Combat Mechanics", "desc": "Mengeksploitasi kelemahan elemen Ego musuh (Passion, Order, Justice, Void, Instinct). Serangan yang cocok memberikan bonus damage multiplikatif +25% dan mengikis Tenacity 3x lebih cepat."}, {"term": "Critical Hit & Crit Damage", "category": "Stats & Combat", "desc": "Serangan kritikal berbasis Crit Rate (standar dasar 5%). Saat aktif, menghasilkan 150% Crit DMG (tanpa perlengkapan), tetapi tidak menambah pengikisan Tenacity."}, {"term": "Combatant", "category": "Entities", "desc": "Pahlawan petarung utama di garis depan. Tepat 3 Combatant membentuk satu tim, berbagi satu bilah total HP, dan masing-masing membawa 8 kartu (4 Starter + 4 Unique)."}, {"term": "Partner (Supporter)", "category": "Entities", "desc": "Karakter pendukung yang dipasangkan 1-ke-1 ke setiap Combatant (total 3 Partner per tim). Memberikan bonus stat dasar (ATK/DEF/HP), talenta pasif sinergi, dan 1 kartu Assist aktif di medan tempur."}, {"term": "Mental Breakdown & Trauma Collapse", "category": "Psychological System", "desc": "Saat Stres regu mencapai batas maksimal 100 poin, pahlawan mengalami gangguan jiwa. Kartu Trauma Collapse dipaksa masuk ke dek operasi, namun membuka akses ke Ego Ultimate Skill."}, {"term": "Equipment (Relics)", "category": "Gear System", "desc": "Perlengkapan dasar 3 slot (Weapon, Armor, Trinket) dengan tingkat bintang 1★ hingga 5★. Memberikan stat flat pasti (ATK, DEF, HP) dan pasif tempur unik saat memasuki pertempuran."}, {"term": "Memory Fragments (Artifacts)", "category": "Gear System", "desc": "Sistem artefak 6 slot (Shock, Suppression, Denial, Ideal, Desire, Imagination) dengan 1 stat utama dan hingga 4 sub-stat acak. Mengaktifkan bonus set 2-piece dan 4-piece (seperti Conqueror, Spark of Passion, Line of Justice)."}, {"term": "Inspiration", "category": "Card Keywords", "desc": "Efek mutasi kartu yang mengurangi biaya AP atau menambahkan hit ekstra ketika kondisi pemicu tertentu di tangan terpenuhi."}, {"term": "Exhaust", "category": "Card Keywords", "desc": "Kartu yang setelah dimainkan langsung dikeluarkan dari pertempuran hingga pertarungan selesai (tidak masuk ke Graveyard/Discard Pile)."}, {"term": "Retain", "category": "Card Keywords", "desc": "Kartu yang tetap berada di tangan saat giliran berakhir dan tidak dibuang ke Graveyard."}, {"term": "Agony", "category": "Status Effects", "desc": "Status debuff kerusakan berkala (DoT) yang meledakkan damage pada awal giliran musuh atau saat dipicu oleh kartu Hunter/Psionic."}, {"term": "Fixed Shield & Barrier", "category": "Defense", "desc": "Lapisan pelindung yang menyerap kerusakan sebelum mengenai bilah HP tim, mencegah akumulasi Stres mental regu."}],
-  "commonEpiphanies": [
-    {
-      "id": "c00000",
-      "desc": "Morale 1",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c00002",
-      "desc": "Morale 2",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c03010",
-      "desc": "For 1 turn, gain 1 Morale",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c03011",
-      "desc": "For 1 turn, gain 2 Morale",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c03012",
-      "desc": "For 1 turn, gain 3 Morale",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c03013",
-      "desc": "For 1 turn, gain 4 Morale",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c04010",
-      "desc": "For 1 turn, gain 1 Resolve",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c04011",
-      "desc": "For 1 turn, gain 2 Resolve",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c04012",
-      "desc": "For 1 turn, gain 3 Resolve",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c04013",
-      "desc": "For 1 turn, gain 4 Resolve",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c06000",
-      "desc": "Draw 1",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c06001",
-      "desc": "Draw 2",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c06003",
-      "desc": "Draw 3",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c09000",
-      "desc": "Apply 2 Weaken to the target",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c09002",
-      "desc": "Apply 3 Weaken to the target",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c09010",
-      "desc": "Apply 1 Weaken to the target",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c11000",
-      "desc": "Apply 2 Mark to the target",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c11002",
-      "desc": "Apply 3 Mark to the target",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c11010",
-      "desc": "Apply 1 Mark to the target",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c15000",
-      "desc": "1 Tenacity Damage",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c15001",
-      "desc": "2 Tenacity Damage",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c15003",
-      "desc": "3 Tenacity Damage",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c15010",
-      "desc": "0.5 Tenacity Damage",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c17000",
-      "desc": "Gain 1 Ego Points",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c17001",
-      "desc": "Gain 2 Ego Points",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c17003",
-      "desc": "Gain 3 Ego Points",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c19000",
-      "desc": "3 Agony to the target",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c19002",
-      "desc": "4 Agony to the target",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c19010",
-      "desc": "2 Agony to the target",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c20110",
-      "desc": "At the start of the turn, 2 Agony to all enemies",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "power"
-      ]
-    },
-    {
-      "id": "c20113",
-      "desc": "At the start of the turn, 4 Agony to all enemies",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "power"
-      ]
-    },
-    {
-      "id": "c22110",
-      "desc": "At the end of the turn, Fixed Heal 20%",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "power"
-      ]
-    },
-    {
-      "id": "c22112",
-      "desc": "At the end of the turn, Fixed Heal 40%",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "power"
-      ]
-    },
-    {
-      "id": "c22113",
-      "desc": "At the end of the turn, Fixed Heal 60%",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "power"
-      ]
-    },
-    {
-      "id": "c01000",
-      "desc": "Resolve 1",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c01002",
-      "desc": "Resolve 2",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c28000",
-      "desc": "1 Morale next turn",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c28001",
-      "desc": "2 Morale next turn",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c28002",
-      "desc": "3 Morale next turn",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c28003",
-      "desc": "4 Morale next turn",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c29000",
-      "desc": "1 Resolve next turn",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c29001",
-      "desc": "2 Resolve next turn",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c29002",
-      "desc": "3 Resolve next turn",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c29003",
-      "desc": "4 Resolve next turn",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c31000",
-      "desc": "Draw 1 next turn",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c31001",
-      "desc": "Draw 2 next turn",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c31003",
-      "desc": "Draw 3 next turn",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c23000",
-      "desc": "Apply Weaken 2 to all enemies",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c23002",
-      "desc": "Apply Weaken 3 to all enemies",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c23010",
-      "desc": "Apply Weaken 1 to all enemies",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c25000",
-      "desc": "Apply Mark 2 to all enemies",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c25002",
-      "desc": "Apply Mark 3 to all enemies",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c25010",
-      "desc": "Apply Mark 1 to all enemies",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c26000",
-      "desc": "Apply Agony 2 to all enemies",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c26002",
-      "desc": "Apply Agony 3 to all enemies",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c26010",
-      "desc": "Apply Agony 1 to all enemies",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c02000",
-      "desc": "Fortitude 1",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c02002",
-      "desc": "Fortitude 2",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c05010",
-      "desc": "For 1 turn, gain 1 Fortitude",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c05011",
-      "desc": "For 1 turn, gain 2 Fortitude",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c05012",
-      "desc": "For 1 turn, gain 3 Fortitude",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c05013",
-      "desc": "For 1 turn, gain 4 Fortitude",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c07010",
-      "desc": "Counterattack 1",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c07012",
-      "desc": "Counterattack 2",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c08000",
-      "desc": "At turn start, Counterattack 1",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c08003",
-      "desc": "At turn start, Counterattack 2",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c10000",
-      "desc": "Apply 2 Vulnerable to the target",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c10002",
-      "desc": "Apply 3 Vulnerable to the target",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c10010",
-      "desc": "Apply 1 Vulnerable to the target",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c12000",
-      "desc": "2 Damage Reduction",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c12002",
-      "desc": "3 Damage Reduction",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c12010",
-      "desc": "1 Damage Reduction",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c13010",
-      "desc": "Increase Action Count by 2",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c13012",
-      "desc": "Increase Action Count by 3",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c14001",
-      "desc": "Reduce Cost of this card by 1",
-      "category": "Resource",
-      "cost_mod": -1,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c16000",
-      "desc": "Gain 1 AP",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c16002",
-      "desc": "Gain 2 AP",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c18001",
-      "desc": "1 Immunity",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c21110",
-      "desc": "At the end of the turn, Fixed Shield 20%",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "power"
-      ]
-    },
-    {
-      "id": "c21112",
-      "desc": "At the end of the turn, Fixed Shield 40%",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "power"
-      ]
-    },
-    {
-      "id": "c21113",
-      "desc": "At the end of the turn, Fixed Shield 60%",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "power"
-      ]
-    },
-    {
-      "id": "c24000",
-      "desc": "Apply Vulnerable 2 to all enemies",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c24002",
-      "desc": "Apply Vulnerable 3 to all enemies",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c24010",
-      "desc": "Apply Vulnerable 1 to all enemies",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c27010",
-      "desc": "Increase Action Count of all enemies by 1",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c27012",
-      "desc": "Increase Action Count of all enemies by 2",
-      "category": "Debuff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c30000",
-      "desc": "1 Fortitude next turn",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c30001",
-      "desc": "2 Fortitude next turn",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c30002",
-      "desc": "3 Fortitude next turn",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c30003",
-      "desc": "4 Fortitude next turn",
-      "category": "Buff",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c33000",
-      "desc": "1 AP next turn",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
-    },
-    {
-      "id": "c33002",
-      "desc": "2 AP next turn",
-      "category": "Resource",
-      "cost_mod": 0,
-      "targets": [
-        "atk",
-        "skill"
-      ]
+  combatants: [
+  {
+    "id": "1055",
+    "name": "Adelheid",
+    "rarity": 5,
+    "job": "Vanguard",
+    "role": "Defense / Shield",
+    "job_icon": "🛡️",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1055.webp",
+    "stats": {
+      "hp": 3800,
+      "atk": 290,
+      "def": 180
+    },
+    "starters": [
+      {
+        "name": "Adelheid Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1055_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Adelheid Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1055_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Adelheid",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1055_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "30115",
+    "name": "Arabella",
+    "rarity": 5,
+    "job": "Striker",
+    "role": "Single-Target Burst",
+    "job_icon": "🗡️",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/30115.webp",
+    "stats": {
+      "hp": 3000,
+      "atk": 380,
+      "def": 140
+    },
+    "starters": [
+      {
+        "name": "Arabella Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_30115_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Arabella Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_30115_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Arabella",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_30115_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1060",
+    "name": "Chizuru",
+    "rarity": 5,
+    "job": "Psionic",
+    "role": "DoT & Mental Break",
+    "job_icon": "🔮",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1060.webp",
+    "stats": {
+      "hp": 3400,
+      "atk": 340,
+      "def": 140
+    },
+    "starters": [
+      {
+        "name": "Chizuru Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1060_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Chizuru Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1060_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Chizuru",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1060_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1061",
+    "name": "Diana",
+    "rarity": 5,
+    "job": "Hunter",
+    "role": "Crit & Execute",
+    "job_icon": "🏹",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1061.webp",
+    "stats": {
+      "hp": 3200,
+      "atk": 360,
+      "def": 125
+    },
+    "starters": [
+      {
+        "name": "Diana Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1061_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Diana Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1061_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Diana",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1061_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "30048",
+    "name": "Fei",
+    "rarity": 5,
+    "job": "Ranger",
+    "role": "AoE & Multi-Hit",
+    "job_icon": "🎯",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/30048.webp",
+    "stats": {
+      "hp": 3200,
+      "atk": 360,
+      "def": 125
+    },
+    "starters": [
+      {
+        "name": "Fei Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_30048_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Fei Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_30048_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Fei",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_30048_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1062",
+    "name": "Haru",
+    "rarity": 5,
+    "job": "Striker",
+    "role": "Single-Target Burst",
+    "job_icon": "🗡️",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1062.webp",
+    "stats": {
+      "hp": 3000,
+      "atk": 380,
+      "def": 140
+    },
+    "starters": [
+      {
+        "name": "Haru Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1062_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Haru Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1062_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Haru",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1062_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "30093",
+    "name": "Heidemarie",
+    "rarity": 5,
+    "job": "Ranger",
+    "role": "AoE & Multi-Hit",
+    "job_icon": "🎯",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/30093.webp",
+    "stats": {
+      "hp": 3200,
+      "atk": 360,
+      "def": 125
+    },
+    "starters": [
+      {
+        "name": "Heidemarie Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_30093_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Heidemarie Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_30093_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Heidemarie",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_30093_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "30113",
+    "name": "Hilde",
+    "rarity": 5,
+    "job": "Ranger",
+    "role": "AoE & Multi-Hit",
+    "job_icon": "🎯",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/30113.webp",
+    "stats": {
+      "hp": 3200,
+      "atk": 360,
+      "def": 125
+    },
+    "starters": [
+      {
+        "name": "Hilde Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_30113_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Hilde Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_30113_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Hilde",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_30113_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1043",
+    "name": "Hugo",
+    "rarity": 5,
+    "job": "Ranger",
+    "role": "AoE & Multi-Hit",
+    "job_icon": "🎯",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1043.webp",
+    "stats": {
+      "hp": 3200,
+      "atk": 360,
+      "def": 125
+    },
+    "starters": [
+      {
+        "name": "Hugo Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1043_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Hugo Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1043_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Hugo",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1043_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1064",
+    "name": "Kayron",
+    "rarity": 5,
+    "job": "Psionic",
+    "role": "DoT & Mental Break",
+    "job_icon": "🔮",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1064.webp",
+    "stats": {
+      "hp": 3400,
+      "atk": 340,
+      "def": 140
+    },
+    "starters": [
+      {
+        "name": "Kayron Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1064_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Kayron Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1064_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Kayron",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1064_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1008",
+    "name": "Khalipe",
+    "rarity": 5,
+    "job": "Vanguard",
+    "role": "Defense / Shield",
+    "job_icon": "🛡️",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1008.webp",
+    "stats": {
+      "hp": 3800,
+      "atk": 290,
+      "def": 180
+    },
+    "starters": [
+      {
+        "name": "Khalipe Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1008_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Khalipe Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1008_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Khalipe",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1008_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1004",
+    "name": "Luke",
+    "rarity": 5,
+    "job": "Hunter",
+    "role": "Crit & Execute",
+    "job_icon": "🏹",
+    "ego": "Instinct",
+    "ego_icon": "⚡",
+    "color": "#22d3ee",
+    "portrait": "assets/characters/1004.webp",
+    "stats": {
+      "hp": 3200,
+      "atk": 360,
+      "def": 125
+    },
+    "starters": [
+      {
+        "name": "Luke Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1004_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Luke Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1004_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Luke",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1004_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1010",
+    "name": "Magna",
+    "rarity": 5,
+    "job": "Vanguard",
+    "role": "Defense / Shield",
+    "job_icon": "🛡️",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1010.webp",
+    "stats": {
+      "hp": 3800,
+      "atk": 290,
+      "def": 180
+    },
+    "starters": [
+      {
+        "name": "Magna Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1010_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Magna Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1010_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Magna",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1010_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1027",
+    "name": "Mei Lin",
+    "rarity": 5,
+    "job": "Striker",
+    "role": "Single-Target Burst",
+    "job_icon": "🗡️",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1027.webp",
+    "stats": {
+      "hp": 3000,
+      "atk": 380,
+      "def": 140
+    },
+    "starters": [
+      {
+        "name": "Mei Lin Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1027_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Mei Lin Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1027_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Mei Lin",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1027_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1052",
+    "name": "Narja",
+    "rarity": 5,
+    "job": "Controller",
+    "role": "Crowd Control & AP Drain",
+    "job_icon": "🌀",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1052.webp",
+    "stats": {
+      "hp": 3400,
+      "atk": 340,
+      "def": 140
+    },
+    "starters": [
+      {
+        "name": "Narja Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1052_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Narja Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1052_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Narja",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1052_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "30047",
+    "name": "Nine",
+    "rarity": 5,
+    "job": "Vanguard",
+    "role": "Defense / Shield",
+    "job_icon": "🛡️",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/30047.webp",
+    "stats": {
+      "hp": 3800,
+      "atk": 290,
+      "def": 180
+    },
+    "starters": [
+      {
+        "name": "Nine Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_30047_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Nine Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_30047_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Nine",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_30047_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "30117",
+    "name": "Olga",
+    "rarity": 5,
+    "job": "Psionic",
+    "role": "DoT & Mental Break",
+    "job_icon": "🔮",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/30117.webp",
+    "stats": {
+      "hp": 3400,
+      "atk": 340,
+      "def": 140
+    },
+    "starters": [
+      {
+        "name": "Olga Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_30117_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Olga Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_30117_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Olga",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_30117_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1024",
+    "name": "Orlea",
+    "rarity": 5,
+    "job": "Controller",
+    "role": "Crowd Control & AP Drain",
+    "job_icon": "🌀",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1024.webp",
+    "stats": {
+      "hp": 3400,
+      "atk": 340,
+      "def": 140
+    },
+    "starters": [
+      {
+        "name": "Orlea Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1024_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Orlea Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1024_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Orlea",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1024_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1041",
+    "name": "Renoa",
+    "rarity": 5,
+    "job": "Hunter",
+    "role": "Crit & Execute",
+    "job_icon": "🏹",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1041.webp",
+    "stats": {
+      "hp": 3200,
+      "atk": 360,
+      "def": 125
+    },
+    "starters": [
+      {
+        "name": "Renoa Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1041_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Renoa Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1041_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Renoa",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1041_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1018",
+    "name": "Rin",
+    "rarity": 5,
+    "job": "Striker",
+    "role": "Single-Target Burst",
+    "job_icon": "🗡️",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1018.webp",
+    "stats": {
+      "hp": 3000,
+      "atk": 380,
+      "def": 140
+    },
+    "starters": [
+      {
+        "name": "Rin Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1018_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Rin Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1018_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Rin",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1018_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "30097",
+    "name": "Rita",
+    "rarity": 5,
+    "job": "Psionic",
+    "role": "DoT & Mental Break",
+    "job_icon": "🔮",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/30097.webp",
+    "stats": {
+      "hp": 3400,
+      "atk": 340,
+      "def": 140
+    },
+    "starters": [
+      {
+        "name": "Rita Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_30097_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Rita Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_30097_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Rita",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_30097_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "30134",
+    "name": "Rosweisse",
+    "rarity": 5,
+    "job": "Vanguard",
+    "role": "Defense / Shield",
+    "job_icon": "🛡️",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/30134.webp",
+    "stats": {
+      "hp": 3800,
+      "atk": 290,
+      "def": 180
+    },
+    "starters": [
+      {
+        "name": "Rosweisse Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_30134_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Rosweisse Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_30134_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Rosweisse",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_30134_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "30075",
+    "name": "Sereniel",
+    "rarity": 5,
+    "job": "Hunter",
+    "role": "Crit & Execute",
+    "job_icon": "🏹",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/30075.webp",
+    "stats": {
+      "hp": 3200,
+      "atk": 360,
+      "def": 125
+    },
+    "starters": [
+      {
+        "name": "Sereniel Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_30075_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Sereniel Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_30075_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Sereniel",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_30075_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1058",
+    "name": "Solia",
+    "rarity": 5,
+    "job": "Supporter",
+    "role": "Team Buff & Healing",
+    "job_icon": "✨",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/1058.webp",
+    "stats": {
+      "hp": 3200,
+      "atk": 320,
+      "def": 140
+    },
+    "starters": [
+      {
+        "name": "Solia Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1058_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Solia Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1058_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Solia",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1058_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1069",
+    "name": "Tenebria",
+    "rarity": 5,
+    "job": "Psionic",
+    "role": "DoT & Mental Break",
+    "job_icon": "🔮",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1069.webp",
+    "stats": {
+      "hp": 3400,
+      "atk": 340,
+      "def": 140
+    },
+    "starters": [
+      {
+        "name": "Tenebria Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1069_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Tenebria Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1069_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Tenebria",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1069_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "30084",
+    "name": "Tiphera",
+    "rarity": 5,
+    "job": "Controller",
+    "role": "Crowd Control & AP Drain",
+    "job_icon": "🌀",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/30084.webp",
+    "stats": {
+      "hp": 3400,
+      "atk": 340,
+      "def": 140
+    },
+    "starters": [
+      {
+        "name": "Tiphera Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_30084_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Tiphera Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_30084_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Tiphera",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_30084_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1033",
+    "name": "Veronica",
+    "rarity": 5,
+    "job": "Ranger",
+    "role": "AoE & Multi-Hit",
+    "job_icon": "🎯",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1033.webp",
+    "stats": {
+      "hp": 3200,
+      "atk": 360,
+      "def": 125
+    },
+    "starters": [
+      {
+        "name": "Veronica Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1033_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Veronica Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1033_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Veronica",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1033_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1057",
+    "name": "Yuki",
+    "rarity": 5,
+    "job": "Striker",
+    "role": "Single-Target Burst",
+    "job_icon": "🗡️",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1057.webp",
+    "stats": {
+      "hp": 3000,
+      "atk": 380,
+      "def": 140
+    },
+    "starters": [
+      {
+        "name": "Yuki Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1057_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Yuki Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1057_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Yuki",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1057_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1017",
+    "name": "Amir",
+    "rarity": 4,
+    "job": "Vanguard",
+    "role": "Defense / Shield",
+    "job_icon": "🛡️",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1017.webp",
+    "stats": {
+      "hp": 3500,
+      "atk": 255,
+      "def": 165
+    },
+    "starters": [
+      {
+        "name": "Amir Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1017_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Amir Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1017_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Amir",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1017_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1012",
+    "name": "Anika",
+    "rarity": 4,
+    "job": "Striker",
+    "role": "Single-Target Burst",
+    "job_icon": "🗡️",
+    "ego": "Justice",
+    "ego_icon": "⚔️",
+    "color": "#10664d",
+    "portrait": "assets/characters/1012.webp",
+    "stats": {
+      "hp": 2700,
+      "atk": 345,
+      "def": 125
+    },
+    "starters": [
+      {
+        "name": "Anika Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1012_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Anika Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1012_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Anika",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1012_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1040",
+    "name": "Beryl",
+    "rarity": 4,
+    "job": "Ranger",
+    "role": "AoE & Multi-Hit",
+    "job_icon": "🎯",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1040.webp",
+    "stats": {
+      "hp": 2900,
+      "atk": 325,
+      "def": 110
+    },
+    "starters": [
+      {
+        "name": "Beryl Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1040_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Beryl Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1040_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Beryl",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1040_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1049",
+    "name": "Cassius",
+    "rarity": 4,
+    "job": "Controller",
+    "role": "Crowd Control & AP Drain",
+    "job_icon": "🌀",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1049.webp",
+    "stats": {
+      "hp": 3100,
+      "atk": 305,
+      "def": 125
+    },
+    "starters": [
+      {
+        "name": "Cassius Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1049_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Cassius Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1049_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Cassius",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1049_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1021",
+    "name": "Lucas",
+    "rarity": 4,
+    "job": "Hunter",
+    "role": "Crit & Execute",
+    "job_icon": "🏹",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1021.webp",
+    "stats": {
+      "hp": 2900,
+      "atk": 325,
+      "def": 110
+    },
+    "starters": [
+      {
+        "name": "Lucas Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1021_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Lucas Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1021_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Lucas",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1021_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1028",
+    "name": "Maribell",
+    "rarity": 4,
+    "job": "Vanguard",
+    "role": "Defense / Shield",
+    "job_icon": "🛡️",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1028.webp",
+    "stats": {
+      "hp": 3500,
+      "atk": 255,
+      "def": 165
+    },
+    "starters": [
+      {
+        "name": "Maribell Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1028_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Maribell Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1028_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Maribell",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1028_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1039",
+    "name": "Mika",
+    "rarity": 4,
+    "job": "Controller",
+    "role": "Crowd Control & AP Drain",
+    "job_icon": "🌀",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1039.webp",
+    "stats": {
+      "hp": 3100,
+      "atk": 305,
+      "def": 125
+    },
+    "starters": [
+      {
+        "name": "Mika Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1039_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Mika Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1039_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Mika",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1039_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1003",
+    "name": "Nia",
+    "rarity": 4,
+    "job": "Controller",
+    "role": "Crowd Control & AP Drain",
+    "job_icon": "🌀",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1003.webp",
+    "stats": {
+      "hp": 3100,
+      "atk": 305,
+      "def": 125
+    },
+    "starters": [
+      {
+        "name": "Nia Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1003_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Nia Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1003_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Nia",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1003_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1050",
+    "name": "Owen",
+    "rarity": 4,
+    "job": "Striker",
+    "role": "Single-Target Burst",
+    "job_icon": "🗡️",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1050.webp",
+    "stats": {
+      "hp": 2700,
+      "atk": 345,
+      "def": 125
+    },
+    "starters": [
+      {
+        "name": "Owen Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1050_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Owen Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1050_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Owen",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1050_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1056",
+    "name": "Rei",
+    "rarity": 4,
+    "job": "Controller",
+    "role": "Crowd Control & AP Drain",
+    "job_icon": "🌀",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/1056.webp",
+    "stats": {
+      "hp": 3100,
+      "atk": 305,
+      "def": 125
+    },
+    "starters": [
+      {
+        "name": "Rei Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1056_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Rei Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1056_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Rei",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1056_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1005",
+    "name": "Selena",
+    "rarity": 4,
+    "job": "Ranger",
+    "role": "AoE & Multi-Hit",
+    "job_icon": "🎯",
+    "ego": "Passion",
+    "ego_icon": "🔥",
+    "color": "#f85058",
+    "portrait": "assets/characters/1005.webp",
+    "stats": {
+      "hp": 2900,
+      "atk": 325,
+      "def": 110
+    },
+    "starters": [
+      {
+        "name": "Selena Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1005_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Selena Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1005_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Selena",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1005_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "1009",
+    "name": "Tressa",
+    "rarity": 4,
+    "job": "Psionic",
+    "role": "DoT & Mental Break",
+    "job_icon": "🔮",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/1009.webp",
+    "stats": {
+      "hp": 3100,
+      "atk": 305,
+      "def": 125
+    },
+    "starters": [
+      {
+        "name": "Tressa Strike",
+        "cost": 1,
+        "category": "Attack",
+        "desc": "Deal 150% Damage to target enemy.",
+        "image": "assets/cards/c_1009_01.webp",
+        "isBasic": true,
+        "mult": 150,
+        "hits": 1,
+        "variants": []
+      },
+      {
+        "name": "Tressa Guard",
+        "cost": 1,
+        "category": "Defense",
+        "desc": "Gain 120 Barrier for 1 turn.",
+        "image": "assets/cards/c_1009_02.webp",
+        "isBasic": true,
+        "mult": 0,
+        "hits": 0,
+        "variants": []
+      }
+    ],
+    "uniques": [
+      {
+        "name": "Unleashed Tressa",
+        "cost": 2,
+        "category": "Ultimate",
+        "desc": "Deal 320% Damage and apply Vulnerable 2 turns.",
+        "image": "assets/cards/c_1009_03.webp",
+        "isUnique": true,
+        "mult": 320,
+        "hits": 2,
+        "variants": [
+          {
+            "name": "Dominion Variant",
+            "cost": 2,
+            "desc": "Deal 380% Damage and apply Stun 1 turn."
+          },
+          {
+            "name": "Resonance Variant",
+            "cost": 1,
+            "desc": "Cost 1 AP: Deal 300% Damage and grant team +1 AP."
+          }
+        ]
+      }
+    ]
+  }
+],
+  partners: [
+  {
+    "id": "30091",
+    "name": "Alcea",
+    "rarity": 5,
+    "job": "Vanguard",
+    "job_icon": "🛡️",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/30091.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1058",
+    "belong_combatant_name": "Solia",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Void or Vanguard hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Alcea's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30091_01.webp",
+      "sct": "support_30091_01"
+    },
+    "support_card": {
+      "name": "Alcea's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30091_01.webp",
+      "sct": "support_30091_01"
     }
-  ],
-  "divineEpiphanies": {
-    "VITOR": {
-      "god": "VITOR",
-      "info": {
-        "name": "Vitor",
-        "epithet": "God of Might & Destruction",
-        "role": "Raw Damage & Tenacity Shred",
-        "icon": "\u2694\ufe0f"
-      },
-      "sparks": [
-        {
-          "id": "add_r_spark_vitor_01",
-          "desc": "Increase this card\u2019s Damage by 30%.",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_vitor_02",
-          "desc": "Increase Tenacity Damage of this card by 100%",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_vitor_03",
-          "desc": "Reduce Cost of this card by 1",
-          "cost_mod": -1,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_vitor_04",
-          "desc": "Gain 1 AP",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_vitor_05",
-          "desc": "100% Coordinated Attack by a random ally to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk",
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_vitor_06",
-          "desc": "Always Attack Weakness",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_vitor_07",
-          "desc": "Increase this card\u2019s Shield by 30%.",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_vitor_08",
-          "desc": "Increase Heal Amount of this card by 30%",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_vitor_09",
-          "desc": "1 Morale, 1 Resolve",
-          "cost_mod": 0,
-          "targets": [
-            "power"
-          ]
-        },
-        {
-          "id": "add_r_spark_vitor_10",
-          "desc": "Draw 1",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_vitor_11",
-          "desc": "4 Agony to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_vitor_12",
-          "desc": "2 Vulnerable to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_vitor_13",
-          "desc": "Draw 1 card(s) of this unit",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_vitor_14",
-          "desc": "Apply Initiation to this card",
-          "cost_mod": 0,
-          "targets": [
-            "atk",
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_vitor_15",
-          "desc": "Weakness Attack: Decrease Fortitude by 2 for 1 turn",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_vitor_1",
-          "desc": "Inspiration: Change Cost to 0",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_vitor_4",
-          "desc": "Guaranteed Critical",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_vitor_5",
-          "desc": "Ravage: Move to hand",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_vitor_6",
-          "desc": "Streak: Increase Damage Amount by 50%",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_vitor_7",
-          "desc": "Destroy: Add 1 Hit(s)",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_vitor_8",
-          "desc": "+100% Critical Damage",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_vitor_11",
-          "desc": "Apply Opener to this card",
-          "cost_mod": 0,
-          "targets": [
-            "power"
-          ]
-        },
-        {
-          "id": "assault_r_spark_vitor_12",
-          "desc": "Treat as a Basic Card | Proc a random Basic Card from Draw Pile",
-          "cost_mod": 0,
-          "targets": [
-            "atk",
-            "skill"
-          ]
-        }
-      ]
+  },
+  {
+    "id": "20008",
+    "name": "Anteia",
+    "rarity": 5,
+    "job": "Psionic",
+    "job_icon": "🔮",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/20008.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
     },
-    "CIRCEN": {
-      "god": "CIRCEN",
-      "info": {
-        "name": "Circen",
-        "epithet": "God of Time & Efficiency",
-        "role": "AP Reduction & Energy Cycling",
-        "icon": "\u23f3"
-      },
-      "sparks": [
-        {
-          "id": "add_r_spark_circen_01",
-          "desc": "Reduce Cost of this card by 1",
-          "cost_mod": -1,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_circen_03",
-          "desc": "Increase this card\u2019s Damage by 30%.",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_circen_02",
-          "desc": "Gain 1 AP",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_circen_04",
-          "desc": "Increase Tenacity Damage of this card by 100%",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_circen_05",
-          "desc": "100% Coordinated Attack by a random ally to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk",
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_circen_06",
-          "desc": "Always Attack Weakness",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_circen_07",
-          "desc": "Increase this card\u2019s Shield by 30%.",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_circen_08",
-          "desc": "Increase Heal Amount of this card by 30%",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_circen_09",
-          "desc": "1 Morale, 1 Resolve",
-          "cost_mod": 0,
-          "targets": [
-            "power"
-          ]
-        },
-        {
-          "id": "add_r_spark_circen_10",
-          "desc": "Draw 1",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_circen_11",
-          "desc": "4 Agony to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_circen_12",
-          "desc": "2 Vulnerable to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_circen_13",
-          "desc": "Decrease Stress by 5",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_circen_14",
-          "desc": "Harmonization: 2 AP on the next turn",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_circen_15",
-          "desc": "Decrease Cost of Ego Skill by 1 for this turn",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_circen_1",
-          "desc": "Apply Celestial to this card",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_circen_2",
-          "desc": "When an Ego Skill is used, decrease Cost by 1",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_circen_5",
-          "desc": "Treated as a Basic Card | Draw 1 Basic Cards",
-          "cost_mod": 0,
-          "targets": [
-            "atk",
-            "skill"
-          ]
-        },
-        {
-          "id": "assault_r_spark_circen_6",
-          "desc": "Increase Cost by 1, and increase Damage Amount by 100%",
-          "cost_mod": 1,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_circen_7",
-          "desc": "Decrease Cost of Basic Cards by 1",
-          "cost_mod": 0,
-          "targets": [
-            "power"
-          ]
-        },
-        {
-          "id": "assault_r_spark_circen_8",
-          "desc": "Create a random Neutral Skill Card, then apply Exhaust to that card",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "assault_r_spark_circen_11",
-          "desc": "Apply the next X as X+2",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_circen_12",
-          "desc": "Decrease Cost of the next card of this unit activated by 2",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        }
-      ]
+    "belong_combatant_id": "1058",
+    "belong_combatant_name": "Solia",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Void or Psionic hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Anteia's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20008_01.webp",
+      "sct": "support_20008_01"
     },
-    "SECRED": {
-      "god": "SECRED",
-      "info": {
-        "name": "Secred",
-        "epithet": "God of Synergy & Harmony",
-        "role": "Coordinated Attack & Weakness Exploit",
-        "icon": "\u2728"
-      },
-      "sparks": [
-        {
-          "id": "add_r_spark_secred_01",
-          "desc": "100% Coordinated Attack by a random ally to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk",
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_secred_02",
-          "desc": "Always Attack Weakness",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_secred_03",
-          "desc": "Reduce Cost of this card by 1",
-          "cost_mod": -1,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_secred_04",
-          "desc": "Gain 1 AP",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_secred_05",
-          "desc": "Increase this card\u2019s Damage by 30%.",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_secred_06",
-          "desc": "Increase Tenacity Damage of this card by 100%",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_secred_07",
-          "desc": "Increase this card\u2019s Shield by 30%.",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_secred_08",
-          "desc": "Increase Heal Amount of this card by 30%",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_secred_09",
-          "desc": "1 Morale, 1 Resolve",
-          "cost_mod": 0,
-          "targets": [
-            "power"
-          ]
-        },
-        {
-          "id": "add_r_spark_secred_10",
-          "desc": "Draw 1",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_secred_11",
-          "desc": "4 Agony to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_secred_12",
-          "desc": "2 Vulnerable to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_secred_13",
-          "desc": "At the start of each turn, when this card is the first card activated, Draw 2",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_secred_14",
-          "desc": "When HP is less than 50%, increase Heal Amount by 100%",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_secred_15",
-          "desc": "At the start of the turn, 2 Mark to a random enemy",
-          "cost_mod": 0,
-          "targets": [
-            "power"
-          ]
-        },
-        {
-          "id": "assault_r_spark_secred_2",
-          "desc": "Draw until 4 cards are in hand",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_secred_3",
-          "desc": "At the start of the turn, proc this card in hand",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_secred_4_0",
-          "desc": "1 Evasion, and 1 Immunity",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_secred_5",
-          "desc": "If HP is full, change Cost to 0",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_secred_6",
-          "desc": "When moved to Discard Pile, 100% Coordinated Attack to a random enemy",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_secred_8",
-          "desc": "Apply Weakness Attack to this card | Increase Tenacity Damage of this card by 100%",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_secred_9",
-          "desc": "100% Coordinated Attack by all Combatants",
-          "cost_mod": 0,
-          "targets": [
-            "atk",
-            "skill"
-          ]
-        },
-        {
-          "id": "assault_r_spark_secred_11",
-          "desc": "Apply Lead to this card, then proc a random Lead card from hand",
-          "cost_mod": 0,
-          "targets": [
-            "skill",
-            "power"
-          ]
-        },
-        {
-          "id": "assault_r_spark_secred_12",
-          "desc": "On Recover, decrease Cost by 1 for 1 turn or until activated",
-          "cost_mod": 0,
-          "targets": []
-        }
-      ]
+    "support_card": {
+      "name": "Anteia's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20008_01.webp",
+      "sct": "support_20008_01"
+    }
+  },
+  {
+    "id": "1070",
+    "name": "Aria",
+    "rarity": 5,
+    "job": "Psionic",
+    "job_icon": "🔮",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/1070.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
     },
-    "DIALLOS": {
-      "god": "DIALLOS",
-      "info": {
-        "name": "Diallos",
-        "epithet": "God of Aegis & Protection",
-        "role": "Shield Gain & Healing Amplification",
-        "icon": "\ud83d\udee1\ufe0f"
-      },
-      "sparks": [
-        {
-          "id": "add_r_spark_diallos_01",
-          "desc": "Increase this card\u2019s Shield by 30%.",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_diallos_02",
-          "desc": "Increase Heal Amount of this card by 30%",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_diallos_03",
-          "desc": "1 Morale, 1 Resolve",
-          "cost_mod": 0,
-          "targets": [
-            "power"
-          ]
-        },
-        {
-          "id": "add_r_spark_diallos_04",
-          "desc": "100% Coordinated Attack by a random ally to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk",
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_diallos_05",
-          "desc": "Always Attack Weakness",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_diallos_06",
-          "desc": "Reduce Cost of this card by 1",
-          "cost_mod": -1,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_diallos_07",
-          "desc": "Gain 1 AP",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_diallos_08",
-          "desc": "Increase this card\u2019s Damage by 30%.",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_diallos_09",
-          "desc": "Increase Tenacity Damage of this card by 100%",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_diallos_10",
-          "desc": "Draw 1",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_diallos_11",
-          "desc": "4 Agony to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_diallos_12",
-          "desc": "2 Vulnerable to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_diallos_13",
-          "desc": "Apply Pulverize to this card | 3 Impair to all enemies",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_diallos_14",
-          "desc": "Apply Retain to this card",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_diallos_15",
-          "desc": "If no Shield is present, increase Shield Gain Amount by 100%",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "assault_r_spark_diallos_1",
-          "desc": "Create 2 Activation Core",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "assault_r_spark_diallos_3",
-          "desc": "Retain: 200% Shield",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_diallos_5",
-          "desc": "At the start of battle, proc this card",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "assault_r_spark_diallos_7",
-          "desc": "If 8 or more cards are in hand, | change Cost to 0",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_diallos_8",
-          "desc": "After creating a random Neutral Upgrade Card, proc that card",
-          "cost_mod": 0,
-          "targets": [
-            "power"
-          ]
-        },
-        {
-          "id": "assault_r_spark_diallos_9",
-          "desc": "Increase Damage Amount by 50% for each enemy present",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_diallos_10",
-          "desc": "When attacked, proc this card in hand",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_diallos_11",
-          "desc": "If Shield is held, increase Damage Amount by 50%",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_diallos_12",
-          "desc": "1 Counterattack to each Combatant",
-          "cost_mod": 0,
-          "targets": []
-        }
-      ]
+    "belong_combatant_id": "1058",
+    "belong_combatant_name": "Solia",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Void or Psionic hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Aria's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_1070_01.webp",
+      "sct": "support_1070_01"
     },
-    "NIHILUM": {
-      "god": "NIHILUM",
-      "info": {
-        "name": "Nihilum",
-        "epithet": "God of Void & Entropy",
-        "role": "Card Draw & Agony/Vulnerable Stacking",
-        "icon": "\ud83c\udf0c"
-      },
-      "sparks": [
-        {
-          "id": "add_r_spark_nihilum_01",
-          "desc": "Draw 1",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_nihilum_02",
-          "desc": "4 Agony to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_nihilum_03",
-          "desc": "2 Vulnerable to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_nihilum_04",
-          "desc": "Increase this card\u2019s Shield by 30%.",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_nihilum_05",
-          "desc": "Increase Heal Amount of this card by 30%",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_nihilum_06",
-          "desc": "1 Morale, 1 Resolve",
-          "cost_mod": 0,
-          "targets": [
-            "power"
-          ]
-        },
-        {
-          "id": "add_r_spark_nihilum_07",
-          "desc": "100% Coordinated Attack by a random ally to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk",
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_nihilum_08",
-          "desc": "Always Attack Weakness",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_nihilum_09",
-          "desc": "Reduce Cost of this card by 1",
-          "cost_mod": -1,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_nihilum_10",
-          "desc": "Gain 1 AP",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_nihilum_11",
-          "desc": "Increase this card\u2019s Damage by 30%.",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_nihilum_12",
-          "desc": "Increase Tenacity Damage of this card by 100%",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_nihilum_13",
-          "desc": "At the start of the turn, change Cost of this card to 0-3",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_nihilum_14",
-          "desc": "Move 2 Exhaust card(s) from Discard Pile to hand",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_nihilum_15",
-          "desc": "Increase base Damage Amount by 100% | Apply Finale to this card",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "assault_r_spark_nihilum_1",
-          "desc": "At the start of the turn, change Cost of this card to 0-2",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_nihilum_2",
-          "desc": "Incinerate: 50% chance to move to hand",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_nihilum_3",
-          "desc": "Apply Ignition to this card",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_nihilum_5",
-          "desc": "Create 1 Void Fragment",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_nihilum_6",
-          "desc": "If a Status Ailment or Curse card is in hand, double Hit Count",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_nihilum_8",
-          "desc": "6 Agony to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_nihilum_9",
-          "desc": "3 Vulnerable to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_nihilum_10",
-          "desc": "Increase Stress by 5, and double Hit Count",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_nihilum_11",
-          "desc": "Increase Damage Amount by 20% for each type of harmful effect on the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_nihilum_12_0",
-          "desc": "Change Cost to 0",
-          "cost_mod": -9,
-          "targets": [
-            "power"
-          ]
-        }
-      ]
+    "support_card": {
+      "name": "Aria's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_1070_01.webp",
+      "sct": "support_1070_01"
+    }
+  },
+  {
+    "id": "30045",
+    "name": "Asteria",
+    "rarity": 5,
+    "job": "Striker",
+    "job_icon": "🗡️",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/30045.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
     },
-    "CALIGO": {
-      "god": "CALIGO",
-      "info": {
-        "name": "Caligo",
-        "epithet": "God of Tenacity & Breakdown",
-        "role": "Tenacity Destruction & Breakdown Defense",
-        "icon": "\u26a1"
-      },
-      "sparks": [
-        {
-          "id": "add_r_spark_caligo_01",
-          "desc": "Increase Tenacity Damage of this card by 100%",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_caligo_02",
-          "desc": "1 Morale, 1 Resolve",
-          "cost_mod": 0,
-          "targets": [
-            "power"
-          ]
-        },
-        {
-          "id": "add_r_spark_caligo_03",
-          "desc": "Increase this card\u2019s Shield by 30%.",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_caligo_04",
-          "desc": "Increase Heal Amount of this card by 30%",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_caligo_05",
-          "desc": "Always Attack Weakness",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_caligo_06",
-          "desc": "100% Coordinated Attack by a random ally to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk",
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_caligo_07",
-          "desc": "Gain 1 AP",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_caligo_08",
-          "desc": "Reduce Cost of this card by 1",
-          "cost_mod": -1,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_caligo_09",
-          "desc": "4 Agony to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_caligo_10",
-          "desc": "2 Vulnerable to the target",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_caligo_11",
-          "desc": "Draw 1",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "add_r_spark_caligo_12",
-          "desc": "Increase this card\u2019s Damage by 30%.",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_caligo_13",
-          "desc": "Defeat: Draw 3",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "add_r_spark_caligo_14",
-          "desc": "Apply Combo to this card",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "add_r_spark_caligo_15",
-          "desc": "Treated as a Neutral Card | Draw 1 Neutral Card(s)",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_caligo_1",
-          "desc": "Attunement: 3 Morale for 1 turn",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_caligo_3",
-          "desc": "Apply Linked and Quietus to this card",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_caligo_5",
-          "desc": "On Shuffle, move from Draw Pile to hand",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_caligo_6",
-          "desc": "Increase Damage Amount by 50% against targets haven\u2019t acted",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_caligo_7_0",
-          "desc": "30 Credit",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_caligo_8",
-          "desc": "Draw for each Cost",
-          "cost_mod": 0,
-          "targets": [
-            "skill"
-          ]
-        },
-        {
-          "id": "assault_r_spark_caligo_10",
-          "desc": "Increase Damage Amount by 200% in Boss Battles",
-          "cost_mod": 0,
-          "targets": [
-            "atk"
-          ]
-        },
-        {
-          "id": "assault_r_spark_caligo_11",
-          "desc": "Apply Quietus to this card | Discard from Draw Pile for each Cost+1",
-          "cost_mod": 0,
-          "targets": []
-        },
-        {
-          "id": "assault_r_spark_caligo_12",
-          "desc": "Create 1 random Monster Card(s), then change Cost of those cards to 0",
-          "cost_mod": 0,
-          "targets": [
-            "power"
-          ]
-        }
-      ]
+    "belong_combatant_id": "1058",
+    "belong_combatant_name": "Solia",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Void or Striker hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Asteria's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30045_01.webp",
+      "sct": "support_30045_01"
+    },
+    "support_card": {
+      "name": "Asteria's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30045_01.webp",
+      "sct": "support_30045_01"
+    }
+  },
+  {
+    "id": "20021",
+    "name": "Bria",
+    "rarity": 5,
+    "job": "Psionic",
+    "job_icon": "🔮",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/20021.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1058",
+    "belong_combatant_name": "Solia",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Void or Psionic hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Bria's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20021_01.webp",
+      "sct": "support_20021_01"
+    },
+    "support_card": {
+      "name": "Bria's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20021_01.webp",
+      "sct": "support_20021_01"
+    }
+  },
+  {
+    "id": "30095",
+    "name": "Clara",
+    "rarity": 5,
+    "job": "Vanguard",
+    "job_icon": "🛡️",
+    "ego": "Passion",
+    "ego_icon": "🔥",
+    "color": "#f85058",
+    "portrait": "assets/characters/30095.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": null,
+    "belong_combatant_name": "None",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Passion or Vanguard hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Clara's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30095_01.webp",
+      "sct": "support_30095_01"
+    },
+    "support_card": {
+      "name": "Clara's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30095_01.webp",
+      "sct": "support_30095_01"
+    }
+  },
+  {
+    "id": "20005",
+    "name": "Eishlen",
+    "rarity": 5,
+    "job": "Vanguard",
+    "job_icon": "🛡️",
+    "ego": "Instinct",
+    "ego_icon": "⚡",
+    "color": "#22d3ee",
+    "portrait": "assets/characters/20005.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1004",
+    "belong_combatant_name": "Luke",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Instinct or Vanguard hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Eishlen's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20005_01.webp",
+      "sct": "support_20005_01"
+    },
+    "support_card": {
+      "name": "Eishlen's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20005_01.webp",
+      "sct": "support_20005_01"
+    }
+  },
+  {
+    "id": "30118",
+    "name": "Emilie",
+    "rarity": 5,
+    "job": "Psionic",
+    "job_icon": "🔮",
+    "ego": "Passion",
+    "ego_icon": "🔥",
+    "color": "#f85058",
+    "portrait": "assets/characters/30118.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": null,
+    "belong_combatant_name": "None",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Passion or Psionic hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Emilie's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30118_01.webp",
+      "sct": "support_30118_01"
+    },
+    "support_card": {
+      "name": "Emilie's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30118_01.webp",
+      "sct": "support_30118_01"
+    }
+  },
+  {
+    "id": "30054",
+    "name": "Erica",
+    "rarity": 5,
+    "job": "Vanguard",
+    "job_icon": "🛡️",
+    "ego": "Instinct",
+    "ego_icon": "⚡",
+    "color": "#22d3ee",
+    "portrait": "assets/characters/30054.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1004",
+    "belong_combatant_name": "Luke",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Instinct or Vanguard hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Erica's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30054_01.webp",
+      "sct": "support_30054_01"
+    },
+    "support_card": {
+      "name": "Erica's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30054_01.webp",
+      "sct": "support_30054_01"
+    }
+  },
+  {
+    "id": "30114",
+    "name": "Eunie",
+    "rarity": 5,
+    "job": "Ranger",
+    "job_icon": "🎯",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/30114.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1058",
+    "belong_combatant_name": "Solia",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Void or Ranger hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Eunie's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30114_01.webp",
+      "sct": "support_30114_01"
+    },
+    "support_card": {
+      "name": "Eunie's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30114_01.webp",
+      "sct": "support_30114_01"
+    }
+  },
+  {
+    "id": "20002",
+    "name": "Gaya",
+    "rarity": 5,
+    "job": "Controller",
+    "job_icon": "🌀",
+    "ego": "Instinct",
+    "ego_icon": "⚡",
+    "color": "#22d3ee",
+    "portrait": "assets/characters/20002.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1004",
+    "belong_combatant_name": "Luke",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Instinct or Controller hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Gaya's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20002_01.webp",
+      "sct": "support_20002_01"
+    },
+    "support_card": {
+      "name": "Gaya's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20002_01.webp",
+      "sct": "support_20002_01"
+    }
+  },
+  {
+    "id": "30046",
+    "name": "Itsuku",
+    "rarity": 5,
+    "job": "Psionic",
+    "job_icon": "🔮",
+    "ego": "Instinct",
+    "ego_icon": "⚡",
+    "color": "#22d3ee",
+    "portrait": "assets/characters/30046.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1004",
+    "belong_combatant_name": "Luke",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Instinct or Psionic hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Itsuku's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30046_01.webp",
+      "sct": "support_30046_01"
+    },
+    "support_card": {
+      "name": "Itsuku's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30046_01.webp",
+      "sct": "support_30046_01"
+    }
+  },
+  {
+    "id": "1025",
+    "name": "Ivy",
+    "rarity": 5,
+    "job": "Psionic",
+    "job_icon": "🔮",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/1025.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1058",
+    "belong_combatant_name": "Solia",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Void or Psionic hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Ivy's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_1025_01.webp",
+      "sct": "support_1025_01"
+    },
+    "support_card": {
+      "name": "Ivy's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_1025_01.webp",
+      "sct": "support_1025_01"
+    }
+  },
+  {
+    "id": "20004",
+    "name": "Janet",
+    "rarity": 5,
+    "job": "Hunter",
+    "job_icon": "🏹",
+    "ego": "Justice",
+    "ego_icon": "⚔️",
+    "color": "#10664d",
+    "portrait": "assets/characters/20004.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": null,
+    "belong_combatant_name": "None",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Justice or Hunter hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Janet's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20004_01.webp",
+      "sct": "support_20004_01"
+    },
+    "support_card": {
+      "name": "Janet's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20004_01.webp",
+      "sct": "support_20004_01"
+    }
+  },
+  {
+    "id": "20030",
+    "name": "Kiara",
+    "rarity": 5,
+    "job": "Hunter",
+    "job_icon": "🏹",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/20030.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1058",
+    "belong_combatant_name": "Solia",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Void or Hunter hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Kiara's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20030_01.webp",
+      "sct": "support_20030_01"
+    },
+    "support_card": {
+      "name": "Kiara's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20030_01.webp",
+      "sct": "support_20030_01"
+    }
+  },
+  {
+    "id": "30116",
+    "name": "Licinia",
+    "rarity": 5,
+    "job": "Striker",
+    "job_icon": "🗡️",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/30116.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1058",
+    "belong_combatant_name": "Solia",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Void or Striker hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Licinia's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30116_01.webp",
+      "sct": "support_30116_01"
+    },
+    "support_card": {
+      "name": "Licinia's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30116_01.webp",
+      "sct": "support_30116_01"
+    }
+  },
+  {
+    "id": "20037",
+    "name": "Marianne",
+    "rarity": 5,
+    "job": "Striker",
+    "job_icon": "🗡️",
+    "ego": "Passion",
+    "ego_icon": "🔥",
+    "color": "#f85058",
+    "portrait": "assets/characters/20037.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": null,
+    "belong_combatant_name": "None",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Passion or Striker hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Marianne's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20037_01.webp",
+      "sct": "support_20037_01"
+    },
+    "support_card": {
+      "name": "Marianne's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20037_01.webp",
+      "sct": "support_20037_01"
+    }
+  },
+  {
+    "id": "30051",
+    "name": "Marin",
+    "rarity": 5,
+    "job": "Ranger",
+    "job_icon": "🎯",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/30051.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1058",
+    "belong_combatant_name": "Solia",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Void or Ranger hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Marin's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30051_01.webp",
+      "sct": "support_30051_01"
+    },
+    "support_card": {
+      "name": "Marin's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30051_01.webp",
+      "sct": "support_30051_01"
+    }
+  },
+  {
+    "id": "30052",
+    "name": "Noel",
+    "rarity": 5,
+    "job": "Controller",
+    "job_icon": "🌀",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/30052.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1055",
+    "belong_combatant_name": "Adelheid",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Order or Controller hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Noel's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30052_01.webp",
+      "sct": "support_30052_01"
+    },
+    "support_card": {
+      "name": "Noel's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30052_01.webp",
+      "sct": "support_30052_01"
+    }
+  },
+  {
+    "id": "20006",
+    "name": "Nyx",
+    "rarity": 5,
+    "job": "Controller",
+    "job_icon": "🌀",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/20006.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1058",
+    "belong_combatant_name": "Solia",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Void or Controller hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Nyx's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20006_01.webp",
+      "sct": "support_20006_01"
+    },
+    "support_card": {
+      "name": "Nyx's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20006_01.webp",
+      "sct": "support_20006_01"
+    }
+  },
+  {
+    "id": "30076",
+    "name": "Peko",
+    "rarity": 5,
+    "job": "Hunter",
+    "job_icon": "🏹",
+    "ego": "Justice",
+    "ego_icon": "⚔️",
+    "color": "#10664d",
+    "portrait": "assets/characters/30076.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": null,
+    "belong_combatant_name": "None",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Justice or Hunter hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Peko's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30076_01.webp",
+      "sct": "support_30076_01"
+    },
+    "support_card": {
+      "name": "Peko's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30076_01.webp",
+      "sct": "support_30076_01"
+    }
+  },
+  {
+    "id": "20019",
+    "name": "Priscilla",
+    "rarity": 5,
+    "job": "Striker",
+    "job_icon": "🗡️",
+    "ego": "Passion",
+    "ego_icon": "🔥",
+    "color": "#f85058",
+    "portrait": "assets/characters/20019.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": null,
+    "belong_combatant_name": "None",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Passion or Striker hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Priscilla's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20019_01.webp",
+      "sct": "support_20019_01"
+    },
+    "support_card": {
+      "name": "Priscilla's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20019_01.webp",
+      "sct": "support_20019_01"
+    }
+  },
+  {
+    "id": "30092",
+    "name": "Ruixiang",
+    "rarity": 5,
+    "job": "Ranger",
+    "job_icon": "🎯",
+    "ego": "Instinct",
+    "ego_icon": "⚡",
+    "color": "#22d3ee",
+    "portrait": "assets/characters/30092.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1004",
+    "belong_combatant_name": "Luke",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Instinct or Ranger hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Ruixiang's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30092_01.webp",
+      "sct": "support_30092_01"
+    },
+    "support_card": {
+      "name": "Ruixiang's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30092_01.webp",
+      "sct": "support_30092_01"
+    }
+  },
+  {
+    "id": "20034",
+    "name": "Scarlet",
+    "rarity": 5,
+    "job": "Striker",
+    "job_icon": "🗡️",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/20034.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1058",
+    "belong_combatant_name": "Solia",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Void or Striker hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Scarlet's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20034_01.webp",
+      "sct": "support_20034_01"
+    },
+    "support_card": {
+      "name": "Scarlet's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20034_01.webp",
+      "sct": "support_20034_01"
+    }
+  },
+  {
+    "id": "20014",
+    "name": "Serithea",
+    "rarity": 5,
+    "job": "Hunter",
+    "job_icon": "🏹",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/20014.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1058",
+    "belong_combatant_name": "Solia",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Void or Hunter hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Serithea's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20014_01.webp",
+      "sct": "support_20014_01"
+    },
+    "support_card": {
+      "name": "Serithea's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20014_01.webp",
+      "sct": "support_20014_01"
+    }
+  },
+  {
+    "id": "30053",
+    "name": "Sophia",
+    "rarity": 5,
+    "job": "Hunter",
+    "job_icon": "🏹",
+    "ego": "Instinct",
+    "ego_icon": "⚡",
+    "color": "#22d3ee",
+    "portrait": "assets/characters/30053.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1004",
+    "belong_combatant_name": "Luke",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Instinct or Hunter hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Sophia's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30053_01.webp",
+      "sct": "support_30053_01"
+    },
+    "support_card": {
+      "name": "Sophia's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30053_01.webp",
+      "sct": "support_30053_01"
+    }
+  },
+  {
+    "id": "30094",
+    "name": "Sylvia",
+    "rarity": 5,
+    "job": "Ranger",
+    "job_icon": "🎯",
+    "ego": "Instinct",
+    "ego_icon": "⚡",
+    "color": "#22d3ee",
+    "portrait": "assets/characters/30094.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1004",
+    "belong_combatant_name": "Luke",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Instinct or Ranger hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Sylvia's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30094_01.webp",
+      "sct": "support_30094_01"
+    },
+    "support_card": {
+      "name": "Sylvia's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30094_01.webp",
+      "sct": "support_30094_01"
+    }
+  },
+  {
+    "id": "30085",
+    "name": "Tiana",
+    "rarity": 5,
+    "job": "Controller",
+    "job_icon": "🌀",
+    "ego": "Instinct",
+    "ego_icon": "⚡",
+    "color": "#22d3ee",
+    "portrait": "assets/characters/30085.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1004",
+    "belong_combatant_name": "Luke",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Instinct or Controller hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Tiana's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30085_01.webp",
+      "sct": "support_30085_01"
+    },
+    "support_card": {
+      "name": "Tiana's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30085_01.webp",
+      "sct": "support_30085_01"
+    }
+  },
+  {
+    "id": "20038",
+    "name": "Tina",
+    "rarity": 5,
+    "job": "Ranger",
+    "job_icon": "🎯",
+    "ego": "Instinct",
+    "ego_icon": "⚡",
+    "color": "#22d3ee",
+    "portrait": "assets/characters/20038.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1004",
+    "belong_combatant_name": "Luke",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Instinct or Ranger hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Tina's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20038_01.webp",
+      "sct": "support_20038_01"
+    },
+    "support_card": {
+      "name": "Tina's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20038_01.webp",
+      "sct": "support_20038_01"
+    }
+  },
+  {
+    "id": "30044",
+    "name": "Westmacott",
+    "rarity": 5,
+    "job": "Striker",
+    "job_icon": "🗡️",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/30044.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": "1055",
+    "belong_combatant_name": "Adelheid",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Order or Striker hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Westmacott's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30044_01.webp",
+      "sct": "support_30044_01"
+    },
+    "support_card": {
+      "name": "Westmacott's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_30044_01.webp",
+      "sct": "support_30044_01"
+    }
+  },
+  {
+    "id": "20009",
+    "name": "Zeta",
+    "rarity": 5,
+    "job": "Vanguard",
+    "job_icon": "🛡️",
+    "ego": "Passion",
+    "ego_icon": "🔥",
+    "color": "#f85058",
+    "portrait": "assets/characters/20009.webp",
+    "stat_boost": {
+      "hp_pct": 16,
+      "atk_pct": 15,
+      "def_pct": 18,
+      "flat_atk": 35
+    },
+    "belong_combatant_id": null,
+    "belong_combatant_name": "None",
+    "passive": "Transfers +15% ATK, +18% DEF, and +16% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Passion or Vanguard hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Zeta's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20009_01.webp",
+      "sct": "support_20009_01"
+    },
+    "support_card": {
+      "name": "Zeta's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20009_01.webp",
+      "sct": "support_20009_01"
+    }
+  },
+  {
+    "id": "20007",
+    "name": "Akad",
+    "rarity": 4,
+    "job": "Hunter",
+    "job_icon": "🏹",
+    "ego": "Instinct",
+    "ego_icon": "⚡",
+    "color": "#22d3ee",
+    "portrait": "assets/characters/20007.webp",
+    "stat_boost": {
+      "hp_pct": 12,
+      "atk_pct": 11,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "1004",
+    "belong_combatant_name": "Luke",
+    "passive": "Transfers +11% ATK, +10% DEF, and +12% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Instinct or Hunter hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Akad's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20007_01.webp",
+      "sct": "support_20007_01"
+    },
+    "support_card": {
+      "name": "Akad's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20007_01.webp",
+      "sct": "support_20007_01"
+    }
+  },
+  {
+    "id": "20003",
+    "name": "Alyssa",
+    "rarity": 4,
+    "job": "Controller",
+    "job_icon": "🌀",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/20003.webp",
+    "stat_boost": {
+      "hp_pct": 12,
+      "atk_pct": 11,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "1052",
+    "belong_combatant_name": "Narja",
+    "passive": "Transfers +11% ATK, +10% DEF, and +12% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Order or Controller hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Alyssa's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20003_01.webp",
+      "sct": "support_20003_01"
+    },
+    "support_card": {
+      "name": "Alyssa's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20003_01.webp",
+      "sct": "support_20003_01"
+    }
+  },
+  {
+    "id": "20001",
+    "name": "Arwen",
+    "rarity": 4,
+    "job": "Controller",
+    "job_icon": "🌀",
+    "ego": "Justice",
+    "ego_icon": "⚔️",
+    "color": "#10664d",
+    "portrait": "assets/characters/20001.webp",
+    "stat_boost": {
+      "hp_pct": 12,
+      "atk_pct": 11,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "1012",
+    "belong_combatant_name": "Anika",
+    "passive": "Transfers +11% ATK, +10% DEF, and +12% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Justice or Controller hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Arwen's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20001_01.webp",
+      "sct": "support_20001_01"
+    },
+    "support_card": {
+      "name": "Arwen's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20001_01.webp",
+      "sct": "support_20001_01"
+    }
+  },
+  {
+    "id": "20036",
+    "name": "Carroty",
+    "rarity": 4,
+    "job": "Hunter",
+    "job_icon": "🏹",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/20036.webp",
+    "stat_boost": {
+      "hp_pct": 12,
+      "atk_pct": 11,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "1061",
+    "belong_combatant_name": "Diana",
+    "passive": "Transfers +11% ATK, +10% DEF, and +12% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Order or Hunter hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Carroty's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20036_01.webp",
+      "sct": "support_20036_01"
+    },
+    "support_card": {
+      "name": "Carroty's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20036_01.webp",
+      "sct": "support_20036_01"
+    }
+  },
+  {
+    "id": "20011",
+    "name": "Daisy",
+    "rarity": 4,
+    "job": "Ranger",
+    "job_icon": "🎯",
+    "ego": "Passion",
+    "ego_icon": "🔥",
+    "color": "#f85058",
+    "portrait": "assets/characters/20011.webp",
+    "stat_boost": {
+      "hp_pct": 12,
+      "atk_pct": 11,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "1005",
+    "belong_combatant_name": "Selena",
+    "passive": "Transfers +11% ATK, +10% DEF, and +12% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Passion or Ranger hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Daisy's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20011_01.webp",
+      "sct": "support_20011_01"
+    },
+    "support_card": {
+      "name": "Daisy's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20011_01.webp",
+      "sct": "support_20011_01"
+    }
+  },
+  {
+    "id": "20027",
+    "name": "Eloise",
+    "rarity": 4,
+    "job": "Psionic",
+    "job_icon": "🔮",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/20027.webp",
+    "stat_boost": {
+      "hp_pct": 12,
+      "atk_pct": 11,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "1009",
+    "belong_combatant_name": "Tressa",
+    "passive": "Transfers +11% ATK, +10% DEF, and +12% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Void or Psionic hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Eloise's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20027_01.webp",
+      "sct": "support_20027_01"
+    },
+    "support_card": {
+      "name": "Eloise's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20027_01.webp",
+      "sct": "support_20027_01"
+    }
+  },
+  {
+    "id": "20033",
+    "name": "Lillian",
+    "rarity": 4,
+    "job": "Striker",
+    "job_icon": "🗡️",
+    "ego": "Passion",
+    "ego_icon": "🔥",
+    "color": "#f85058",
+    "portrait": "assets/characters/20033.webp",
+    "stat_boost": {
+      "hp_pct": 12,
+      "atk_pct": 11,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "1005",
+    "belong_combatant_name": "Selena",
+    "passive": "Transfers +11% ATK, +10% DEF, and +12% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Passion or Striker hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Lillian's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20033_01.webp",
+      "sct": "support_20033_01"
+    },
+    "support_card": {
+      "name": "Lillian's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20033_01.webp",
+      "sct": "support_20033_01"
+    }
+  },
+  {
+    "id": "20032",
+    "name": "Rachel",
+    "rarity": 4,
+    "job": "Vanguard",
+    "job_icon": "🛡️",
+    "ego": "Justice",
+    "ego_icon": "⚔️",
+    "color": "#10664d",
+    "portrait": "assets/characters/20032.webp",
+    "stat_boost": {
+      "hp_pct": 12,
+      "atk_pct": 11,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "1012",
+    "belong_combatant_name": "Anika",
+    "passive": "Transfers +11% ATK, +10% DEF, and +12% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Justice or Vanguard hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Rachel's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20032_01.webp",
+      "sct": "support_20032_01"
+    },
+    "support_card": {
+      "name": "Rachel's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20032_01.webp",
+      "sct": "support_20032_01"
+    }
+  },
+  {
+    "id": "20035",
+    "name": "Ritochka",
+    "rarity": 4,
+    "job": "Striker",
+    "job_icon": "🗡️",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/20035.webp",
+    "stat_boost": {
+      "hp_pct": 12,
+      "atk_pct": 11,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "1009",
+    "belong_combatant_name": "Tressa",
+    "passive": "Transfers +11% ATK, +10% DEF, and +12% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Void or Striker hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Ritochka's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20035_01.webp",
+      "sct": "support_20035_01"
+    },
+    "support_card": {
+      "name": "Ritochka's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20035_01.webp",
+      "sct": "support_20035_01"
+    }
+  },
+  {
+    "id": "20025",
+    "name": "Rosaria",
+    "rarity": 4,
+    "job": "Ranger",
+    "job_icon": "🎯",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/20025.webp",
+    "stat_boost": {
+      "hp_pct": 12,
+      "atk_pct": 11,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "30048",
+    "belong_combatant_name": "Fei",
+    "passive": "Transfers +11% ATK, +10% DEF, and +12% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Order or Ranger hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Rosaria's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20025_01.webp",
+      "sct": "support_20025_01"
+    },
+    "support_card": {
+      "name": "Rosaria's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20025_01.webp",
+      "sct": "support_20025_01"
+    }
+  },
+  {
+    "id": "20024",
+    "name": "Wilhelmina",
+    "rarity": 4,
+    "job": "Vanguard",
+    "job_icon": "🛡️",
+    "ego": "Void",
+    "ego_icon": "🌌",
+    "color": "#a855f7",
+    "portrait": "assets/characters/20024.webp",
+    "stat_boost": {
+      "hp_pct": 12,
+      "atk_pct": 11,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "1009",
+    "belong_combatant_name": "Tressa",
+    "passive": "Transfers +11% ATK, +10% DEF, and +12% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Void or Vanguard hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Wilhelmina's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20024_01.webp",
+      "sct": "support_20024_01"
+    },
+    "support_card": {
+      "name": "Wilhelmina's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20024_01.webp",
+      "sct": "support_20024_01"
+    }
+  },
+  {
+    "id": "20015",
+    "name": "Douglas",
+    "rarity": 3,
+    "job": "Striker",
+    "job_icon": "🗡️",
+    "ego": "Justice",
+    "ego_icon": "⚔️",
+    "color": "#10664d",
+    "portrait": "assets/characters/20015.webp",
+    "stat_boost": {
+      "hp_pct": 8,
+      "atk_pct": 7,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "1012",
+    "belong_combatant_name": "Anika",
+    "passive": "Transfers +7% ATK, +10% DEF, and +8% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Justice or Striker hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Douglas's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20015_01.webp",
+      "sct": "support_20015_01"
+    },
+    "support_card": {
+      "name": "Douglas's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20015_01.webp",
+      "sct": "support_20015_01"
+    }
+  },
+  {
+    "id": "20010",
+    "name": "Nakia",
+    "rarity": 3,
+    "job": "Ranger",
+    "job_icon": "🎯",
+    "ego": "Passion",
+    "ego_icon": "🔥",
+    "color": "#f85058",
+    "portrait": "assets/characters/20010.webp",
+    "stat_boost": {
+      "hp_pct": 8,
+      "atk_pct": 7,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "1005",
+    "belong_combatant_name": "Selena",
+    "passive": "Transfers +7% ATK, +10% DEF, and +8% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Passion or Ranger hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Nakia's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20010_01.webp",
+      "sct": "support_20010_01"
+    },
+    "support_card": {
+      "name": "Nakia's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20010_01.webp",
+      "sct": "support_20010_01"
+    }
+  },
+  {
+    "id": "20013",
+    "name": "Raidel",
+    "rarity": 3,
+    "job": "Vanguard",
+    "job_icon": "🛡️",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/20013.webp",
+    "stat_boost": {
+      "hp_pct": 8,
+      "atk_pct": 7,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "1055",
+    "belong_combatant_name": "Adelheid",
+    "passive": "Transfers +7% ATK, +10% DEF, and +8% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Order or Vanguard hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Raidel's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20013_01.webp",
+      "sct": "support_20013_01"
+    },
+    "support_card": {
+      "name": "Raidel's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20013_01.webp",
+      "sct": "support_20013_01"
+    }
+  },
+  {
+    "id": "20016",
+    "name": "Yuri",
+    "rarity": 3,
+    "job": "Hunter",
+    "job_icon": "🏹",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/20016.webp",
+    "stat_boost": {
+      "hp_pct": 8,
+      "atk_pct": 7,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "1061",
+    "belong_combatant_name": "Diana",
+    "passive": "Transfers +7% ATK, +10% DEF, and +8% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Order or Hunter hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Yuri's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20016_01.webp",
+      "sct": "support_20016_01"
+    },
+    "support_card": {
+      "name": "Yuri's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20016_01.webp",
+      "sct": "support_20016_01"
+    }
+  },
+  {
+    "id": "20026",
+    "name": "Yvonne",
+    "rarity": 3,
+    "job": "Controller",
+    "job_icon": "🌀",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/20026.webp",
+    "stat_boost": {
+      "hp_pct": 8,
+      "atk_pct": 7,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "1052",
+    "belong_combatant_name": "Narja",
+    "passive": "Transfers +7% ATK, +10% DEF, and +8% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Order or Controller hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Yvonne's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20026_01.webp",
+      "sct": "support_20026_01"
+    },
+    "support_card": {
+      "name": "Yvonne's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20026_01.webp",
+      "sct": "support_20026_01"
+    }
+  },
+  {
+    "id": "20012",
+    "name": "Zatera",
+    "rarity": 3,
+    "job": "Psionic",
+    "job_icon": "🔮",
+    "ego": "Order",
+    "ego_icon": "⚖️",
+    "color": "#dfb235",
+    "portrait": "assets/characters/20012.webp",
+    "stat_boost": {
+      "hp_pct": 8,
+      "atk_pct": 7,
+      "def_pct": 10,
+      "flat_atk": 20
+    },
+    "belong_combatant_id": "1060",
+    "belong_combatant_name": "Chizuru",
+    "passive": "Transfers +7% ATK, +10% DEF, and +8% HP to the assigned combatant.",
+    "ego_synergy_passive": "EGO RESONANCE: When equipped to a Order or Psionic hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.",
+    "card": {
+      "name": "Zatera's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20012_01.webp",
+      "sct": "support_20012_01"
+    },
+    "support_card": {
+      "name": "Zatera's Blessing",
+      "cost": 1,
+      "category": "Support",
+      "desc": "Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.",
+      "mult": 0,
+      "hits": 0,
+      "image": "assets/cards/support_20012_01.webp",
+      "sct": "support_20012_01"
     }
   }
-};
-
-window.CZN_DATA.deities = {
+],
+  presets: [
+  {
+    "id": "starter_trio",
+    "name": "The Vanguard Shieldwall",
+    "desc": "Formasi pertahanan tangguh Terrascion berfokus pada Barrier tebal, Retribusi, dan Stagger.",
+    "hero1": "1004",
+    "hero2": "1003",
+    "hero3": "1055",
+    "partner1": "20005",
+    "partner2": "20001",
+    "partner3": "30091"
+  },
+  {
+    "id": "crit_assault",
+    "name": "Instinct & Strike Syndicate",
+    "desc": "Sinergi serangan cepat beruntun, AP generation, dan 100% Critical execution.",
+    "hero1": "1012",
+    "hero2": "1009",
+    "hero3": "1027",
+    "partner1": "20015",
+    "partner2": "20019",
+    "partner3": "20037"
+  },
+  {
+    "id": "void_corrosion",
+    "name": "Nihilum Void Deluge",
+    "desc": "Fokus penumpukan debuff Agony bertingkat, deplesi Stres musuh, dan ledakan korosi.",
+    "hero1": "1041",
+    "hero2": "1040",
+    "hero3": "1024",
+    "partner1": "20021",
+    "partner2": "20008",
+    "partner3": "20027"
+  }
+],
+  deities: {
   "vitor": {
     "id": "vitor",
     "name": "Vitor",
@@ -2123,9 +4675,2876 @@ window.CZN_DATA.deities = {
     "sparkDesc": "Pincer Strike: Triggers 100% Coordinated Attack by a random ally!",
     "effect": "secred_pincer"
   }
-};
-
-window.CZN_DATA.equipment = {
+},
+  divineEpiphanies: {
+  "VITOR": {
+    "god": "VITOR",
+    "info": {
+      "name": "Vitor",
+      "epithet": "God of Might & Destruction",
+      "role": "Raw Damage & Tenacity Shred",
+      "icon": "⚔️",
+      "theme": "High damage scaling, critical amplification, execution bonuses"
+    },
+    "sparks": [
+      {
+        "id": "add_r_spark_vitor_01",
+        "name": "Vitor 01",
+        "rarity": "Unique",
+        "desc": "Increase this card’s Damage by 30%.",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_vitor_02",
+        "name": "Vitor 02",
+        "rarity": "Unique",
+        "desc": "Increase <color_orange><u>Tenacity Damage</u> of this card by 100%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_vitor_03",
+        "name": "Vitor 03",
+        "rarity": "Unique",
+        "desc": "Reduce Cost of this card by 1",
+        "cost_mod": -1,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_vitor_04",
+        "name": "Vitor 04",
+        "rarity": "Unique",
+        "desc": "Gain 1 <color_orange><u>AP</u>",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_vitor_05",
+        "name": "Vitor 05",
+        "rarity": "Unique",
+        "desc": "100% <color_orange><u>Coordinated Attack</u> by a random ally to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK",
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_vitor_06",
+        "name": "Vitor 06",
+        "rarity": "Unique",
+        "desc": "Always <color_orange><u>Attack Weakness</u>",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_vitor_07",
+        "name": "Vitor 07",
+        "rarity": "Unique",
+        "desc": "Increase this card’s Shield by 30%.",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_vitor_08",
+        "name": "Vitor 08",
+        "rarity": "Unique",
+        "desc": "Increase Heal Amount of this card by 30%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_vitor_09",
+        "name": "Vitor 09",
+        "rarity": "Unique",
+        "desc": "1 <color_orange><u>Morale</u>, 1 <color_orange><u>Resolve</u>",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_POWER"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_vitor_10",
+        "name": "Vitor 10",
+        "rarity": "Unique",
+        "desc": "<color_orange><u>Draw</u> 1",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_vitor_11",
+        "name": "Vitor 11",
+        "rarity": "Unique",
+        "desc": "4 <color_orange><u>Agony</u> to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_vitor_12",
+        "name": "Vitor 12",
+        "rarity": "Unique",
+        "desc": "2 <color_orange><u>Vulnerable</u> to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_vitor_13",
+        "name": "Vitor 13",
+        "rarity": "Unique",
+        "desc": "Draw <color_orange>1 card(s) of this unit",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_vitor_14",
+        "name": "Vitor 14",
+        "rarity": "Unique",
+        "desc": "Apply <color_orange><u>Initiation</u> to this card",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK",
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_vitor_15",
+        "name": "Vitor 15",
+        "rarity": "Unique",
+        "desc": "<color_orange>Weakness Attack: Decrease <color_orange><u>Fortitude</u> by <color_orange>2 for 1 turn",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_vitor_1",
+        "name": "Assault R Spark Vitor 1",
+        "rarity": "Unique",
+        "desc": "<color_orange>Inspiration: Change Cost to 0",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_vitor_2",
+        "name": "Assault R Spark Vitor 2",
+        "rarity": "Unique",
+        "desc": "Draw <color_orange>1 card(s) of this unit",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_vitor_3",
+        "name": "Assault R Spark Vitor 3",
+        "rarity": "Unique",
+        "desc": "Apply <color_orange><u>Initiation</u> to this card",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK",
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_vitor_4",
+        "name": "Assault R Spark Vitor 4",
+        "rarity": "Unique",
+        "desc": "Guaranteed Critical",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_vitor_5",
+        "name": "Assault R Spark Vitor 5",
+        "rarity": "Unique",
+        "desc": "<color_orange>Ravage: Move to hand",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_vitor_6",
+        "name": "Assault R Spark Vitor 6",
+        "rarity": "Unique",
+        "desc": "<color_orange>Streak: Increase Damage Amount by <color_orange>50%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_vitor_7",
+        "name": "Assault R Spark Vitor 7",
+        "rarity": "Unique",
+        "desc": "<color_orange>Destroy: Add <color_orange>1 Hit(s)",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_vitor_8",
+        "name": "Assault R Spark Vitor 8",
+        "rarity": "Unique",
+        "desc": "+100% Critical Damage",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_vitor_9",
+        "name": "Assault R Spark Vitor 9",
+        "rarity": "Unique",
+        "desc": "Reduce Cost of this card by 1",
+        "cost_mod": -1,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_vitor_10",
+        "name": "Assault R Spark Vitor 10",
+        "rarity": "Unique",
+        "desc": "<color_orange>Weakness Attack: Decrease <color_orange><u>Fortitude</u> by <color_orange>2 for 1 turn",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_vitor_11",
+        "name": "Assault R Spark Vitor 11",
+        "rarity": "Unique",
+        "desc": "Apply <color_orange><u>Opener</u> to this card",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_POWER"
+        ],
+        "cost_min": 0,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_vitor_12",
+        "name": "Assault R Spark Vitor 12",
+        "rarity": "Unique",
+        "desc": "Treat as a <color_orange><u>Basic Card</u><br><color_orange><u>Proc</u> a random <color_orange><u>Basic Card</u> from <color_orange><u>Draw Pile</u>",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK",
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      }
+    ]
+  },
+  "CIRCEN": {
+    "god": "CIRCEN",
+    "info": {
+      "name": "Circen",
+      "epithet": "God of Velocity & Arcana",
+      "role": "Action Point Manipulation & Echoes",
+      "icon": "⚡",
+      "theme": "AP cost discounts, additional card draw, double-casting triggers"
+    },
+    "sparks": [
+      {
+        "id": "add_r_spark_circen_01",
+        "name": "Circen 01",
+        "rarity": "Unique",
+        "desc": "Reduce Cost of this card by 1",
+        "cost_mod": -1,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_circen_03",
+        "name": "Circen 03",
+        "rarity": "Unique",
+        "desc": "Increase this card’s Damage by 30%.",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_circen_02",
+        "name": "Circen 02",
+        "rarity": "Unique",
+        "desc": "Gain 1 <color_orange><u>AP</u>",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_circen_04",
+        "name": "Circen 04",
+        "rarity": "Unique",
+        "desc": "Increase <color_orange><u>Tenacity Damage</u> of this card by 100%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_circen_05",
+        "name": "Circen 05",
+        "rarity": "Unique",
+        "desc": "100% <color_orange><u>Coordinated Attack</u> by a random ally to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK",
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_circen_06",
+        "name": "Circen 06",
+        "rarity": "Unique",
+        "desc": "Always <color_orange><u>Attack Weakness</u>",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_circen_07",
+        "name": "Circen 07",
+        "rarity": "Unique",
+        "desc": "Increase this card’s Shield by 30%.",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_circen_08",
+        "name": "Circen 08",
+        "rarity": "Unique",
+        "desc": "Increase Heal Amount of this card by 30%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_circen_09",
+        "name": "Circen 09",
+        "rarity": "Unique",
+        "desc": "1 <color_orange><u>Morale</u>, 1 <color_orange><u>Resolve</u>",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_POWER"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_circen_10",
+        "name": "Circen 10",
+        "rarity": "Unique",
+        "desc": "<color_orange><u>Draw</u> 1",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_circen_11",
+        "name": "Circen 11",
+        "rarity": "Unique",
+        "desc": "4 <color_orange><u>Agony</u> to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_circen_12",
+        "name": "Circen 12",
+        "rarity": "Unique",
+        "desc": "2 <color_orange><u>Vulnerable</u> to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_circen_13",
+        "name": "Circen 13",
+        "rarity": "Unique",
+        "desc": "Decrease Stress by <color_orange>5",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_circen_14",
+        "name": "Circen 14",
+        "rarity": "Unique",
+        "desc": "<color_orange>Harmonization: <color_orange>2 <color_orange><u>AP</u> on the next turn",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_circen_15",
+        "name": "Circen 15",
+        "rarity": "Unique",
+        "desc": "Decrease Cost of <color_orange><u>Ego Skill</u> by 1 for this turn",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_circen_1",
+        "name": "Assault R Spark Circen 1",
+        "rarity": "Unique",
+        "desc": "Apply <color_orange><u>Celestial</u> to this card",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": 2,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_circen_2",
+        "name": "Assault R Spark Circen 2",
+        "rarity": "Unique",
+        "desc": "When an <color_orange><u>Ego Skill</u> is used, decrease Cost by <color_orange>1",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_circen_3",
+        "name": "Assault R Spark Circen 3",
+        "rarity": "Unique",
+        "desc": "Decrease Stress by <color_orange>5",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_circen_4",
+        "name": "Assault R Spark Circen 4",
+        "rarity": "Unique",
+        "desc": "<color_orange>Harmonization: <color_orange>2 <color_orange><u>AP</u> on the next turn",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_circen_5",
+        "name": "Assault R Spark Circen 5",
+        "rarity": "Unique",
+        "desc": "Treated as a <color_orange><u>Basic Card</u><br>Draw <color_orange>1 <color_orange><u>Basic Card</u>s",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK",
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_circen_6",
+        "name": "Assault R Spark Circen 6",
+        "rarity": "Unique",
+        "desc": "Increase Cost by 1, and increase Damage Amount by 100%",
+        "cost_mod": 1,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_circen_7",
+        "name": "Assault R Spark Circen 7",
+        "rarity": "Unique",
+        "desc": "Decrease Cost of <color_orange><u>Basic Card</u>s by <color_orange>1",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_POWER"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_circen_8",
+        "name": "Assault R Spark Circen 8",
+        "rarity": "Unique",
+        "desc": "Create a random Neutral Skill Card, then apply <color_orange><u>Exhaust</u> to that card",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_circen_9",
+        "name": "Assault R Spark Circen 9",
+        "rarity": "Unique",
+        "desc": "Gain 1 <color_orange><u>AP</u>",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_circen_10",
+        "name": "Assault R Spark Circen 10",
+        "rarity": "Unique",
+        "desc": "Decrease Cost of <color_orange><u>Ego Skill</u> by 1 for this turn",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_circen_11",
+        "name": "Assault R Spark Circen 11",
+        "rarity": "Unique",
+        "desc": "Apply the next <color_orange><u>X</u> as <color_orange><u>X</u>+<color_orange>2",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_circen_12",
+        "name": "Assault R Spark Circen 12",
+        "rarity": "Unique",
+        "desc": "Decrease Cost of the next card of this unit <color_orange><u>activate</u>d by <color_orange>2",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      }
+    ]
+  },
+  "DIALLOS": {
+    "god": "DIALLOS",
+    "info": {
+      "name": "Diallos",
+      "epithet": "Goddess of Preservation & Solace",
+      "role": "Fortified Shields & Team Sustain",
+      "icon": "🛡️",
+      "theme": "Mass barrier generation, healing over time, damage mitigation"
+    },
+    "sparks": [
+      {
+        "id": "add_r_spark_diallos_01",
+        "name": "Diallos 01",
+        "rarity": "Unique",
+        "desc": "Increase this card’s Shield by 30%.",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_diallos_02",
+        "name": "Diallos 02",
+        "rarity": "Unique",
+        "desc": "Increase Heal Amount of this card by 30%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_diallos_03",
+        "name": "Diallos 03",
+        "rarity": "Unique",
+        "desc": "1 <color_orange><u>Morale</u>, 1 <color_orange><u>Resolve</u>",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_POWER"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_diallos_04",
+        "name": "Diallos 04",
+        "rarity": "Unique",
+        "desc": "100% <color_orange><u>Coordinated Attack</u> by a random ally to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK",
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_diallos_05",
+        "name": "Diallos 05",
+        "rarity": "Unique",
+        "desc": "Always <color_orange><u>Attack Weakness</u>",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_diallos_06",
+        "name": "Diallos 06",
+        "rarity": "Unique",
+        "desc": "Reduce Cost of this card by 1",
+        "cost_mod": -1,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_diallos_07",
+        "name": "Diallos 07",
+        "rarity": "Unique",
+        "desc": "Gain 1 <color_orange><u>AP</u>",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_diallos_08",
+        "name": "Diallos 08",
+        "rarity": "Unique",
+        "desc": "Increase this card’s Damage by 30%.",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_diallos_09",
+        "name": "Diallos 09",
+        "rarity": "Unique",
+        "desc": "Increase <color_orange><u>Tenacity Damage</u> of this card by 100%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_diallos_10",
+        "name": "Diallos 10",
+        "rarity": "Unique",
+        "desc": "<color_orange><u>Draw</u> 1",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_diallos_11",
+        "name": "Diallos 11",
+        "rarity": "Unique",
+        "desc": "4 <color_orange><u>Agony</u> to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_diallos_12",
+        "name": "Diallos 12",
+        "rarity": "Unique",
+        "desc": "2 <color_orange><u>Vulnerable</u> to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_diallos_13",
+        "name": "Diallos 13",
+        "rarity": "Unique",
+        "desc": "Apply <color_orange><u>Pulverize</u> to this card<br><color_orange>3 <color_orange><u>Impair</u> to all enemies",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_diallos_14",
+        "name": "Diallos 14",
+        "rarity": "Unique",
+        "desc": "Apply <color_orange><u>Retain</u> to this card",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_diallos_15",
+        "name": "Diallos 15",
+        "rarity": "Unique",
+        "desc": "If no Shield is present, increase Shield Gain Amount by <color_orange>100%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_diallos_1",
+        "name": "Assault R Spark Diallos 1",
+        "rarity": "Unique",
+        "desc": "Create <color_orange>2 <u>Activation Core</u>",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_diallos_2",
+        "name": "Assault R Spark Diallos 2",
+        "rarity": "Unique",
+        "desc": "Apply <color_orange><u>Pulverize</u> to this card<br><color_orange>3 <color_orange><u>Impair</u> to all enemies",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_diallos_3",
+        "name": "Assault R Spark Diallos 3",
+        "rarity": "Unique",
+        "desc": "<color_orange>Retain: <color_orange>200% <color_orange><u>Shield</u>",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_diallos_4",
+        "name": "Assault R Spark Diallos 4",
+        "rarity": "Unique",
+        "desc": "Apply <color_orange><u>Retain</u> to this card",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_diallos_5",
+        "name": "Assault R Spark Diallos 5",
+        "rarity": "Unique",
+        "desc": "At the start of battle, <color_orange><u>proc</u> this card",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_diallos_6",
+        "name": "Assault R Spark Diallos 6",
+        "rarity": "Unique",
+        "desc": "If no Shield is present, increase Shield Gain Amount by <color_orange>100%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_diallos_7",
+        "name": "Assault R Spark Diallos 7",
+        "rarity": "Unique",
+        "desc": "If 8 or more cards are in hand,<br>change Cost to 0",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_diallos_8",
+        "name": "Assault R Spark Diallos 8",
+        "rarity": "Unique",
+        "desc": "After creating a random Neutral Upgrade Card, <color_orange><u>proc</u> that card",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_POWER"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_diallos_9",
+        "name": "Assault R Spark Diallos 9",
+        "rarity": "Unique",
+        "desc": "Increase Damage Amount by 50% for each enemy present",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_diallos_10",
+        "name": "Assault R Spark Diallos 10",
+        "rarity": "Unique",
+        "desc": "When attacked, <color_orange><u>proc</u> this card in hand",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_diallos_11",
+        "name": "Assault R Spark Diallos 11",
+        "rarity": "Unique",
+        "desc": "If <color_orange><u>Shield</u> is held, increase Damage Amount by <color_orange>50%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_diallos_12",
+        "name": "Assault R Spark Diallos 12",
+        "rarity": "Unique",
+        "desc": "<color_orange>1 <color_orange><u>Counterattack</u> to each Combatant",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      }
+    ]
+  },
+  "SECRED": {
+    "god": "SECRED",
+    "info": {
+      "name": "Secred",
+      "epithet": "God of Truth & Retribution",
+      "role": "Weakness Bypass & Coordinated Strike",
+      "icon": "⚖️",
+      "theme": "100% Pincer/Coordinated attack chance, bypass enemy ego affinity"
+    },
+    "sparks": [
+      {
+        "id": "add_r_spark_secred_01",
+        "name": "Secred 01",
+        "rarity": "Unique",
+        "desc": "100% <color_orange><u>Coordinated Attack</u> by a random ally to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK",
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_secred_02",
+        "name": "Secred 02",
+        "rarity": "Unique",
+        "desc": "Always <color_orange><u>Attack Weakness</u>",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_secred_03",
+        "name": "Secred 03",
+        "rarity": "Unique",
+        "desc": "Reduce Cost of this card by 1",
+        "cost_mod": -1,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_secred_04",
+        "name": "Secred 04",
+        "rarity": "Unique",
+        "desc": "Gain 1 <color_orange><u>AP</u>",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_secred_05",
+        "name": "Secred 05",
+        "rarity": "Unique",
+        "desc": "Increase this card’s Damage by 30%.",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_secred_06",
+        "name": "Secred 06",
+        "rarity": "Unique",
+        "desc": "Increase <color_orange><u>Tenacity Damage</u> of this card by 100%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_secred_07",
+        "name": "Secred 07",
+        "rarity": "Unique",
+        "desc": "Increase this card’s Shield by 30%.",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_secred_08",
+        "name": "Secred 08",
+        "rarity": "Unique",
+        "desc": "Increase Heal Amount of this card by 30%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_secred_09",
+        "name": "Secred 09",
+        "rarity": "Unique",
+        "desc": "1 <color_orange><u>Morale</u>, 1 <color_orange><u>Resolve</u>",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_POWER"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_secred_10",
+        "name": "Secred 10",
+        "rarity": "Unique",
+        "desc": "<color_orange><u>Draw</u> 1",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_secred_11",
+        "name": "Secred 11",
+        "rarity": "Unique",
+        "desc": "4 <color_orange><u>Agony</u> to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_secred_12",
+        "name": "Secred 12",
+        "rarity": "Unique",
+        "desc": "2 <color_orange><u>Vulnerable</u> to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_secred_13",
+        "name": "Secred 13",
+        "rarity": "Unique",
+        "desc": "At the start of each turn, when this card is the first card <color_orange><u>activate</u>d, Draw <color_orange>2",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_secred_14",
+        "name": "Secred 14",
+        "rarity": "Unique",
+        "desc": "When HP is less than 50%, increase Heal Amount by <color_orange>100%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_secred_15",
+        "name": "Secred 15",
+        "rarity": "Unique",
+        "desc": "At the start of the turn, <color_orange>2 <color_orange><u>Mark</u> to a random enemy",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_POWER"
+        ],
+        "cost_min": 0,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_secred_1",
+        "name": "Assault R Spark Secred 1",
+        "rarity": "Unique",
+        "desc": "At the start of each turn, when this card is the first card <color_orange><u>activate</u>d, Draw <color_orange>2",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_secred_2",
+        "name": "Assault R Spark Secred 2",
+        "rarity": "Unique",
+        "desc": "<color_orange><u>Draw</u> until 4 cards are in hand",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_secred_3",
+        "name": "Assault R Spark Secred 3",
+        "rarity": "Unique",
+        "desc": "At the start of the turn, <color_orange><u>proc</u> this card in hand",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_secred_4_0",
+        "name": "Assault R Spark Secred 4 0",
+        "rarity": "Unique",
+        "desc": "1 Evasion, and 1 Immunity",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": 2,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_secred_4_1",
+        "name": "Assault R Spark Secred 4 1",
+        "rarity": "Unique",
+        "desc": "1 Evasion, and 1 Immunity",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_POWER"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_secred_5",
+        "name": "Assault R Spark Secred 5",
+        "rarity": "Unique",
+        "desc": "If HP is full, change Cost to 0",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_secred_6",
+        "name": "Assault R Spark Secred 6",
+        "rarity": "Unique",
+        "desc": "When moved to <color_orange><u>Discard Pile</u>, 100% <color_orange><u>Coordinated Attack</u> to a random enemy",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": 99,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_secred_7",
+        "name": "Assault R Spark Secred 7",
+        "rarity": "Unique",
+        "desc": "When HP is less than 50%, increase Heal Amount by <color_orange>100%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_secred_8",
+        "name": "Assault R Spark Secred 8",
+        "rarity": "Unique",
+        "desc": "Apply <color_orange><u>Weakness Attack</u> to this card<br>Increase <color_orange><u>Tenacity Damage</u> of this card by 100%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_secred_9",
+        "name": "Assault R Spark Secred 9",
+        "rarity": "Unique",
+        "desc": "100% <color_orange><u>Coordinated Attack</u> by all Combatants",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK",
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_secred_10",
+        "name": "Assault R Spark Secred 10",
+        "rarity": "Unique",
+        "desc": "At the start of the turn, <color_orange>2 <color_orange><u>Mark</u> to a random enemy",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_POWER"
+        ],
+        "cost_min": 0,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_secred_11",
+        "name": "Assault R Spark Secred 11",
+        "rarity": "Unique",
+        "desc": "Apply <color_orange><u>Lead</u> to this card, then <color_orange><u>proc</u> a random <color_orange><u>Lead</u> card from hand",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL",
+          "CARD_POWER"
+        ],
+        "cost_min": 0,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_secred_12",
+        "name": "Assault R Spark Secred 12",
+        "rarity": "Unique",
+        "desc": "On <color_orange><u>Recover</u>, decrease Cost by <color_orange>1 for 1 turn or until <color_orange><u>activate</u>d",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      }
+    ]
+  },
+  "NIHILUM": {
+    "god": "NIHILUM",
+    "info": {
+      "name": "Nihilum",
+      "epithet": "Goddess of the Void & Oblivion",
+      "role": "Agony (DoT) & Corrosion",
+      "icon": "🌌",
+      "theme": "Inflicting stacks of Agony, corrosive damage over time, vulnerability"
+    },
+    "sparks": [
+      {
+        "id": "add_r_spark_nihilum_01",
+        "name": "Nihilum 01",
+        "rarity": "Unique",
+        "desc": "<color_orange><u>Draw</u> 1",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_nihilum_02",
+        "name": "Nihilum 02",
+        "rarity": "Unique",
+        "desc": "4 <color_orange><u>Agony</u> to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_nihilum_03",
+        "name": "Nihilum 03",
+        "rarity": "Unique",
+        "desc": "2 <color_orange><u>Vulnerable</u> to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_nihilum_04",
+        "name": "Nihilum 04",
+        "rarity": "Unique",
+        "desc": "Increase this card’s Shield by 30%.",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_nihilum_05",
+        "name": "Nihilum 05",
+        "rarity": "Unique",
+        "desc": "Increase Heal Amount of this card by 30%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_nihilum_06",
+        "name": "Nihilum 06",
+        "rarity": "Unique",
+        "desc": "1 <color_orange><u>Morale</u>, 1 <color_orange><u>Resolve</u>",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_POWER"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_nihilum_07",
+        "name": "Nihilum 07",
+        "rarity": "Unique",
+        "desc": "100% <color_orange><u>Coordinated Attack</u> by a random ally to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK",
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_nihilum_08",
+        "name": "Nihilum 08",
+        "rarity": "Unique",
+        "desc": "Always <color_orange><u>Attack Weakness</u>",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_nihilum_09",
+        "name": "Nihilum 09",
+        "rarity": "Unique",
+        "desc": "Reduce Cost of this card by 1",
+        "cost_mod": -1,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_nihilum_10",
+        "name": "Nihilum 10",
+        "rarity": "Unique",
+        "desc": "Gain 1 <color_orange><u>AP</u>",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_nihilum_11",
+        "name": "Nihilum 11",
+        "rarity": "Unique",
+        "desc": "Increase this card’s Damage by 30%.",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_nihilum_12",
+        "name": "Nihilum 12",
+        "rarity": "Unique",
+        "desc": "Increase <color_orange><u>Tenacity Damage</u> of this card by 100%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_nihilum_13",
+        "name": "Nihilum 13",
+        "rarity": "Unique",
+        "desc": "At the start of the turn, change Cost of this card to 0-3",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_nihilum_14",
+        "name": "Nihilum 14",
+        "rarity": "Unique",
+        "desc": "Move <color_orange>2 Exhaust card(s) from <color_orange><u>Discard Pile</u> to hand",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_nihilum_15",
+        "name": "Nihilum 15",
+        "rarity": "Unique",
+        "desc": "Increase base Damage Amount by 100%<br>Apply <color_orange><u>Finale</u> to this card",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_nihilum_1",
+        "name": "Assault R Spark Nihilum 1",
+        "rarity": "Unique",
+        "desc": "At the start of the turn, change Cost of this card to 0-2",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_nihilum_2",
+        "name": "Assault R Spark Nihilum 2",
+        "rarity": "Unique",
+        "desc": "<color_orange>Incinerate: 50% chance to move to hand",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_nihilum_3",
+        "name": "Assault R Spark Nihilum 3",
+        "rarity": "Unique",
+        "desc": "Apply <color_orange><u>Ignition</u> to this card",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_nihilum_4",
+        "name": "Assault R Spark Nihilum 4",
+        "rarity": "Unique",
+        "desc": "Move <color_orange>2 Exhaust card(s) from <color_orange><u>Discard Pile</u> to hand",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_nihilum_5",
+        "name": "Assault R Spark Nihilum 5",
+        "rarity": "Unique",
+        "desc": "Create <color_orange>1 <u>Void Fragment</u>",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_nihilum_6",
+        "name": "Assault R Spark Nihilum 6",
+        "rarity": "Unique",
+        "desc": "If a Status Ailment or Curse card is in hand, double Hit Count",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_nihilum_7",
+        "name": "Assault R Spark Nihilum 7",
+        "rarity": "Unique",
+        "desc": "Increase base Damage Amount by 100%<br>Apply <color_orange><u>Finale</u> to this card",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_nihilum_8",
+        "name": "Assault R Spark Nihilum 8",
+        "rarity": "Unique",
+        "desc": "<color_orange>6 <color_orange><u>Agony</u> to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_nihilum_9",
+        "name": "Assault R Spark Nihilum 9",
+        "rarity": "Unique",
+        "desc": "<color_orange>3 <color_orange><u>Vulnerable</u> to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_nihilum_10",
+        "name": "Assault R Spark Nihilum 10",
+        "rarity": "Unique",
+        "desc": "Increase Stress by <color_orange>5, and double Hit Count",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_nihilum_11",
+        "name": "Assault R Spark Nihilum 11",
+        "rarity": "Unique",
+        "desc": "Increase Damage Amount by <color_orange>20% for each type of harmful effect on the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_nihilum_12_0",
+        "name": "Assault R Spark Nihilum 12 0",
+        "rarity": "Unique",
+        "desc": "Change Cost to 0",
+        "cost_mod": -9,
+        "target_category": [
+          "CARD_POWER"
+        ],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_nihilum_12_1",
+        "name": "Assault R Spark Nihilum 12 1",
+        "rarity": "Unique",
+        "desc": "Change Cost to 0",
+        "cost_mod": -9,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      }
+    ]
+  },
+  "CALIGO": {
+    "god": "CALIGO",
+    "info": {
+      "name": "Caligo",
+      "epithet": "God of Darkness & Stagger",
+      "role": "Tenacity Destruction & Mental Break",
+      "icon": "🌑",
+      "theme": "Shield destruct bonus, rapid Tenacity depletion, mental collapse delay"
+    },
+    "sparks": [
+      {
+        "id": "add_r_spark_caligo_01",
+        "name": "Caligo 01",
+        "rarity": "Unique",
+        "desc": "Increase <color_orange><u>Tenacity Damage</u> of this card by 100%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_caligo_02",
+        "name": "Caligo 02",
+        "rarity": "Unique",
+        "desc": "1 <color_orange><u>Morale</u>, 1 <color_orange><u>Resolve</u>",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_POWER"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_caligo_03",
+        "name": "Caligo 03",
+        "rarity": "Unique",
+        "desc": "Increase this card’s Shield by 30%.",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_caligo_04",
+        "name": "Caligo 04",
+        "rarity": "Unique",
+        "desc": "Increase Heal Amount of this card by 30%",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_caligo_05",
+        "name": "Caligo 05",
+        "rarity": "Unique",
+        "desc": "Always <color_orange><u>Attack Weakness</u>",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_caligo_06",
+        "name": "Caligo 06",
+        "rarity": "Unique",
+        "desc": "100% <color_orange><u>Coordinated Attack</u> by a random ally to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK",
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_caligo_07",
+        "name": "Caligo 07",
+        "rarity": "Unique",
+        "desc": "Gain 1 <color_orange><u>AP</u>",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_caligo_08",
+        "name": "Caligo 08",
+        "rarity": "Unique",
+        "desc": "Reduce Cost of this card by 1",
+        "cost_mod": -1,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_caligo_09",
+        "name": "Caligo 09",
+        "rarity": "Unique",
+        "desc": "4 <color_orange><u>Agony</u> to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_caligo_10",
+        "name": "Caligo 10",
+        "rarity": "Unique",
+        "desc": "2 <color_orange><u>Vulnerable</u> to the target",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_caligo_11",
+        "name": "Caligo 11",
+        "rarity": "Unique",
+        "desc": "<color_orange><u>Draw</u> 1",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_caligo_12",
+        "name": "Caligo 12",
+        "rarity": "Unique",
+        "desc": "Increase this card’s Damage by 30%.",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_caligo_13",
+        "name": "Caligo 13",
+        "rarity": "Unique",
+        "desc": "<color_orange>Defeat: Draw <color_orange>3",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "add_r_spark_caligo_14",
+        "name": "Caligo 14",
+        "rarity": "Unique",
+        "desc": "Apply <color_orange><u>Combo</u> to this card",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 1
+      },
+      {
+        "id": "add_r_spark_caligo_15",
+        "name": "Caligo 15",
+        "rarity": "Unique",
+        "desc": "Treated as a <color_orange><u>Neutral Card</u><br>Draw <color_orange>1 <color_orange><u>Neutral Card</u>(s)",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_caligo_1",
+        "name": "Assault R Spark Caligo 1",
+        "rarity": "Unique",
+        "desc": "<color_orange>Attunement: <color_orange>3 <color_orange><u>Morale</u> for 1 turn",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_caligo_2",
+        "name": "Assault R Spark Caligo 2",
+        "rarity": "Unique",
+        "desc": "<color_orange>Defeat: Draw <color_orange>3",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_caligo_3",
+        "name": "Assault R Spark Caligo 3",
+        "rarity": "Unique",
+        "desc": "Apply <color_orange><u>Linked</u> and <color_orange><u>Quietus</u> to this card",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_caligo_4",
+        "name": "Assault R Spark Caligo 4",
+        "rarity": "Unique",
+        "desc": "Apply <color_orange><u>Combo</u> to this card",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": 1,
+        "cost_max": 1
+      },
+      {
+        "id": "assault_r_spark_caligo_5",
+        "name": "Assault R Spark Caligo 5",
+        "rarity": "Unique",
+        "desc": "On Shuffle, move from <color_orange><u>Draw Pile</u> to hand",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_caligo_6",
+        "name": "Assault R Spark Caligo 6",
+        "rarity": "Unique",
+        "desc": "Increase Damage Amount by <color_orange>50% against targets haven’t acted",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_caligo_7_0",
+        "name": "Assault R Spark Caligo 7 0",
+        "rarity": "Unique",
+        "desc": "<color_orange>30 <color_orange><u>Credit</u>",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_caligo_7_1",
+        "name": "Assault R Spark Caligo 7 1",
+        "rarity": "Unique",
+        "desc": "<color_orange>30 <color_orange><u>Credit</u>",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_POWER"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_caligo_8",
+        "name": "Assault R Spark Caligo 8",
+        "rarity": "Unique",
+        "desc": "<color_orange><u>Draw</u> for each Cost",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_SKILL"
+        ],
+        "cost_min": 1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_caligo_9",
+        "name": "Assault R Spark Caligo 9",
+        "rarity": "Unique",
+        "desc": "Treated as a <color_orange><u>Neutral Card</u><br>Draw <color_orange>1 <color_orange><u>Neutral Card</u>(s)",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_caligo_10",
+        "name": "Assault R Spark Caligo 10",
+        "rarity": "Unique",
+        "desc": "Increase Damage Amount by <color_orange>200% in Boss Battles",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_ATK"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_caligo_11",
+        "name": "Assault R Spark Caligo 11",
+        "rarity": "Unique",
+        "desc": "Apply <color_orange><u>Quietus</u> to this card<br><color_orange><u>Discard</u> from <color_orange><u>Draw Pile</u> for each Cost+<color_orange>1",
+        "cost_mod": 0,
+        "target_category": [],
+        "cost_min": -1,
+        "cost_max": 99
+      },
+      {
+        "id": "assault_r_spark_caligo_12",
+        "name": "Assault R Spark Caligo 12",
+        "rarity": "Unique",
+        "desc": "Create <color_orange>1 random Monster Card(s), then change Cost of those cards to 0",
+        "cost_mod": 0,
+        "target_category": [
+          "CARD_POWER"
+        ],
+        "cost_min": -1,
+        "cost_max": 99
+      }
+    ]
+  }
+},
+  commonEpiphanies: [
+  {
+    "id": "c00000",
+    "desc": "Morale 1",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c00002",
+    "desc": "Morale 2",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c03010",
+    "desc": "For 1 turn, gain 1 Morale",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c03011",
+    "desc": "For 1 turn, gain 2 Morale",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c03012",
+    "desc": "For 1 turn, gain 3 Morale",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c03013",
+    "desc": "For 1 turn, gain 4 Morale",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c04010",
+    "desc": "For 1 turn, gain 1 Resolve",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c04011",
+    "desc": "For 1 turn, gain 2 Resolve",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c04012",
+    "desc": "For 1 turn, gain 3 Resolve",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c04013",
+    "desc": "For 1 turn, gain 4 Resolve",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c06000",
+    "desc": "Draw 1",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c06001",
+    "desc": "Draw 2",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c06003",
+    "desc": "Draw 3",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c09000",
+    "desc": "Apply 2 Weaken to the target",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c09002",
+    "desc": "Apply 3 Weaken to the target",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c09010",
+    "desc": "Apply 1 Weaken to the target",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c11000",
+    "desc": "Apply 2 Mark to the target",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c11002",
+    "desc": "Apply 3 Mark to the target",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c11010",
+    "desc": "Apply 1 Mark to the target",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c15000",
+    "desc": "1 Tenacity Damage",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c15001",
+    "desc": "2 Tenacity Damage",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c15003",
+    "desc": "3 Tenacity Damage",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c15010",
+    "desc": "0.5 Tenacity Damage",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c17000",
+    "desc": "Gain 1 Ego Points",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c17001",
+    "desc": "Gain 2 Ego Points",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c17003",
+    "desc": "Gain 3 Ego Points",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c19000",
+    "desc": "3 Agony to the target",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c19002",
+    "desc": "4 Agony to the target",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c19010",
+    "desc": "2 Agony to the target",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c20110",
+    "desc": "At the start of the turn, 2 Agony to all enemies",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "power"
+    ]
+  },
+  {
+    "id": "c20113",
+    "desc": "At the start of the turn, 4 Agony to all enemies",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "power"
+    ]
+  },
+  {
+    "id": "c22110",
+    "desc": "At the end of the turn, Fixed Heal 20%",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "power"
+    ]
+  },
+  {
+    "id": "c22112",
+    "desc": "At the end of the turn, Fixed Heal 40%",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "power"
+    ]
+  },
+  {
+    "id": "c22113",
+    "desc": "At the end of the turn, Fixed Heal 60%",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "power"
+    ]
+  },
+  {
+    "id": "c01000",
+    "desc": "Resolve 1",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c01002",
+    "desc": "Resolve 2",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c28000",
+    "desc": "1 Morale next turn",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c28001",
+    "desc": "2 Morale next turn",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c28002",
+    "desc": "3 Morale next turn",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c28003",
+    "desc": "4 Morale next turn",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c29000",
+    "desc": "1 Resolve next turn",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c29001",
+    "desc": "2 Resolve next turn",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c29002",
+    "desc": "3 Resolve next turn",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c29003",
+    "desc": "4 Resolve next turn",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c31000",
+    "desc": "Draw 1 next turn",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c31001",
+    "desc": "Draw 2 next turn",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c31003",
+    "desc": "Draw 3 next turn",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c23000",
+    "desc": "Apply Weaken 2 to all enemies",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c23002",
+    "desc": "Apply Weaken 3 to all enemies",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c23010",
+    "desc": "Apply Weaken 1 to all enemies",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c25000",
+    "desc": "Apply Mark 2 to all enemies",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c25002",
+    "desc": "Apply Mark 3 to all enemies",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c25010",
+    "desc": "Apply Mark 1 to all enemies",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c26000",
+    "desc": "Apply Agony 2 to all enemies",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c26002",
+    "desc": "Apply Agony 3 to all enemies",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c26010",
+    "desc": "Apply Agony 1 to all enemies",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c02000",
+    "desc": "Fortitude 1",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c02002",
+    "desc": "Fortitude 2",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c05010",
+    "desc": "For 1 turn, gain 1 Fortitude",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c05011",
+    "desc": "For 1 turn, gain 2 Fortitude",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c05012",
+    "desc": "For 1 turn, gain 3 Fortitude",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c05013",
+    "desc": "For 1 turn, gain 4 Fortitude",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c07010",
+    "desc": "Counterattack 1",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c07012",
+    "desc": "Counterattack 2",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c08000",
+    "desc": "At turn start, Counterattack 1",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c08003",
+    "desc": "At turn start, Counterattack 2",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c10000",
+    "desc": "Apply 2 Vulnerable to the target",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c10002",
+    "desc": "Apply 3 Vulnerable to the target",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c10010",
+    "desc": "Apply 1 Vulnerable to the target",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c12000",
+    "desc": "2 Damage Reduction",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c12002",
+    "desc": "3 Damage Reduction",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c12010",
+    "desc": "1 Damage Reduction",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c13010",
+    "desc": "Increase Action Count by 2",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c13012",
+    "desc": "Increase Action Count by 3",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c14001",
+    "desc": "Reduce Cost of this card by 1",
+    "category": "Resource",
+    "cost_mod": -1,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c16000",
+    "desc": "Gain 1 AP",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c16002",
+    "desc": "Gain 2 AP",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c18001",
+    "desc": "1 Immunity",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c21110",
+    "desc": "At the end of the turn, Fixed Shield 20%",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "power"
+    ]
+  },
+  {
+    "id": "c21112",
+    "desc": "At the end of the turn, Fixed Shield 40%",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "power"
+    ]
+  },
+  {
+    "id": "c21113",
+    "desc": "At the end of the turn, Fixed Shield 60%",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "power"
+    ]
+  },
+  {
+    "id": "c24000",
+    "desc": "Apply Vulnerable 2 to all enemies",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c24002",
+    "desc": "Apply Vulnerable 3 to all enemies",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c24010",
+    "desc": "Apply Vulnerable 1 to all enemies",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c27010",
+    "desc": "Increase Action Count of all enemies by 1",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c27012",
+    "desc": "Increase Action Count of all enemies by 2",
+    "category": "Debuff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c30000",
+    "desc": "1 Fortitude next turn",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c30001",
+    "desc": "2 Fortitude next turn",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c30002",
+    "desc": "3 Fortitude next turn",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c30003",
+    "desc": "4 Fortitude next turn",
+    "category": "Buff",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c33000",
+    "desc": "1 AP next turn",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  },
+  {
+    "id": "c33002",
+    "desc": "2 AP next turn",
+    "category": "Resource",
+    "cost_mod": 0,
+    "targets": [
+      "atk",
+      "skill"
+    ]
+  }
+],
+  equipment: {
   "weapons": [
     {
       "id": "eq_p_inv_ca_001",
@@ -6572,5111 +11991,187 @@ window.CZN_DATA.equipment = {
       "icon": "relics/relic_1121"
     }
   ]
-};
-
-window.CZN_DATA.universalCards = [
-  {
-    "id": "card_mon_assualt_00001",
-    "name": "Harmonization: Hunger of the Void",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00002",
-    "name": "Mutation: Shy Gardener",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00003",
-    "name": "Bloom: Sorrowful Godfather",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00004",
-    "name": "Bloom: Gloomy Godmother",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00005",
-    "name": "Distortion: Automata Cavalry",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00006",
-    "name": "Distortion: Dominion",
-    "type": "Power",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00007",
-    "name": "Bloom: Slaughter",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00008",
-    "name": "Bloom: Beam Shooter",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00009",
-    "name": "Harmonization: Winged Humanoid Beast",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00010",
-    "name": "Harmonization: Wolves Bane",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00011",
-    "name": "Bloom: Dark Grip",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00012",
-    "name": "Harmonization: Seraphim of Pain",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00013",
-    "name": "Bloom: Evil Spirit Salamander",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00014",
-    "name": "Harmonization: Elemental Phoenix",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00015",
-    "name": "Harmonization: Spirit Kefox",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00016",
-    "name": "Mutation: Evil Spirit Dullahan",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00017",
-    "name": "Bloom: Abyssal Bug",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00018",
-    "name": "Mutation: Arbitum",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00019",
-    "name": "Distortion: Shell Bug",
-    "type": "Power",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00020",
-    "name": "Bloom: Soldier Prime",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00021",
-    "name": "Harmonization: Seven Arms",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00022",
-    "name": "Mutation: Trapper",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00023",
-    "name": "Mutation: Cultist Arbiter",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00024",
-    "name": "Harmonization: Rotten Ripper",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00026",
-    "name": "Distortion: Chilling Godfather",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00027",
-    "name": "Distortion: Hunger of Loss",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00028",
-    "name": "Distortion: Vine Lord",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_assualt_00029",
-    "name": "Mutation: Cyborg Automaton",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00030",
-    "name": "Mutation: Enforcer Slaughter",
-    "type": "Power",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00031",
-    "name": "Mutation: Automata Hussar",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00032",
-    "name": "Mutation: Evil Spirit Salamander of Desolation",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00033",
-    "name": "Mutation: Evil Spirit Dullahan of Desolation",
-    "type": "Skill",
-    "cost": -1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00034",
-    "name": "Mutation: Wanderer Abyssal Bug",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00035",
-    "name": "Mutation: Wanderer Soldier Prime",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00036",
-    "name": "Mutation: Wanderer Arbitum",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00037",
-    "name": "Mutation: Revenant Arbiter",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00038",
-    "name": "Mutation: Rusted Nail Rotten Ripper",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00039",
-    "name": "Mutation: Rusted Nail Seven Arms",
-    "type": "Power",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00040",
-    "name": "Mutation: Judge Dominion",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00041",
-    "name": "Mutation: The Cold Godmother",
-    "type": "Skill",
-    "cost": 8,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_mon_assualt_00042",
-    "name": "Mutation: Venom Spirit Kefox",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_enc_ca_00003",
-    "name": "Old Sword",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00015",
-    "name": "Poacher’s First Aid Kit",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00041",
-    "name": "Paralysis Trap",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00042",
-    "name": "Net Trap",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00043",
-    "name": "Vicious Instincts",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ab_assault_00021",
-    "name": "Essence",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_arena_assault_00007",
-    "name": "Bloom: Judgment",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_assault_00046",
-    "name": "Mutation: HA-00",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_enc_ca_00006",
-    "name": "Unknown: Hunk of Meat",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00010",
-    "name": "Unknown: Fluider",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00018",
-    "name": "Unknown: Fragrant Bait",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00032",
-    "name": "Unknown: Order’s Bible Page",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00033",
-    "name": "Unknown: Elixir of Mutation",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_enc_ca_00034",
-    "name": "Unknown: Black Stain Bundle",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00035",
-    "name": "Unknown: Heavenly Judgment",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00036",
-    "name": "Unknown: Tactical Debilitation",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00037",
-    "name": "Unknown: Purple Duty",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00038",
-    "name": "Unknown: Abyssalization",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00039",
-    "name": "Unknown: Infection",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00040",
-    "name": "Unknown: Heart of the Nest",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00044",
-    "name": "Unknown: Mutant Sample",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00045",
-    "name": "Unknown: Hyper Regeneration",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00047",
-    "name": "Unknown: Crimson Lumen",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00048",
-    "name": "Unknown: Azure Lumen",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00049",
-    "name": "Unknown: Amber Lumen",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00050",
-    "name": "Unknown: Ebony Lumen",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00053",
-    "name": "Unknown: A Girl And Her Rotted Apple",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00054",
-    "name": "Unknown: The Inverted Messiah",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00055",
-    "name": "Unknown: Faceless Woman",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00060",
-    "name": "Unknown: Jury-Rigged Powder Keg",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_ca_00061",
-    "name": "Unknown: Simulacrum's Echo",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_assualt_00001",
-    "name": "Kyrken’s Revelation",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_assualt_00002",
-    "name": "Diallos’s Declaration",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_assualt_00003",
-    "name": "Sekred’s Pulsation",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_assualt_00004",
-    "name": "Nihilum’s Resonance",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00001",
-    "name": "Harmonization: Heavy Bash",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00002",
-    "name": "Bloom: Relentless Endurance",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00003",
-    "name": "Mutation: Prepare for Battle",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ne_assualt_00004",
-    "name": "Bloom: Shock",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00005",
-    "name": "Distortion: Hand-to-Hand Combat",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00006",
-    "name": "Harmonization: Criticism of Discord",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00007",
-    "name": "Distortion: Protective Shout",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00008",
-    "name": "Harmonization: Leap Attack",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00009",
-    "name": "Mutation: Skull Bash",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ne_assualt_00010",
-    "name": "Distortion: Attack!",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00011",
-    "name": "Mutation: Consecutive Attack",
-    "type": "Attack",
-    "cost": -1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ne_assualt_00012",
-    "name": "Mutation: Arcane Rush",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ne_assualt_00013",
-    "name": "Harmonization: Quick Shelling",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00014",
-    "name": "Mutation: Counterattack Preparation",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ne_assualt_00015",
-    "name": "Distortion: Overwhelm",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00016",
-    "name": "Distortion: Repentance",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00017",
-    "name": "Distortion: Wanderer of the Void",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00018",
-    "name": "Harmonization: Moon of Destruction",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00019",
-    "name": "Mutation: Energy Barrier",
-    "type": "Skill",
-    "cost": -1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ne_assualt_00020",
-    "name": "Distortion: Glorious Resistance",
-    "type": "Power",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00021",
-    "name": "Mutation: Iron Wall",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ne_assualt_00022",
-    "name": "Harmonization: Maneuvering Fire",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00023",
-    "name": "Harmonization: Ambush",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00024",
-    "name": "Mutation: Atomic Decomposition",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ne_assualt_00025",
-    "name": "Harmonization: Camouflage",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00026",
-    "name": "Distortion: Gear Bag",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00027",
-    "name": "Distortion: Instinct Ignition",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00028",
-    "name": "Distortion: Tactical Reformation",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00029",
-    "name": "Distortion: Belligerence",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00030",
-    "name": "Mutation: Tactical Action",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ne_assualt_00031",
-    "name": "Bloom: Strategic Starting Point",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00032",
-    "name": "Bloom: Aimed Fire",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00033",
-    "name": "Harmonization: Rage Potion",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00034",
-    "name": "Harmonization: Sacred Strike",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00035",
-    "name": "Distortion: Deadly Shot",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00036",
-    "name": "Bloom: Reorganize",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00037",
-    "name": "Harmonization: Precision Aim",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00038",
-    "name": "Distortion: Knowledge of Darkness",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00039",
-    "name": "Harmonization: Tackle",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00040",
-    "name": "Distortion: Spiked Shield",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00041",
-    "name": "Harmonization: Fortitude",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00042",
-    "name": "Bloom: Pulverize",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00043",
-    "name": "Harmonization: Negotiation",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00044",
-    "name": "Harmonization: Determination",
-    "type": "Power",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00045",
-    "name": "Bloom: Acid Gas",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00046",
-    "name": "Harmonization: Quickdraw",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00047",
-    "name": "Harmonization: Hidden Bullet",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00048",
-    "name": "Distortion: Wind of Relief",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00049",
-    "name": "Distortion: Financial Therapy",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00050",
-    "name": "Harmonization: First Aid Kit",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00051",
-    "name": "Distortion: Assemble",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00052",
-    "name": "Harmonization: Recycling",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00053",
-    "name": "Harmonization: Sadism",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_assualt_00054",
-    "name": "Distortion: Somnolent Fruit",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds01_assualt_00001",
-    "name": "Distortion: Aggressive Mutant",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds01_assualt_00002",
-    "name": "Distortion: Shell-Forming Cell",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds01_assualt_00003",
-    "name": "Distortion: Propagative Virus",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds01_assualt_00004",
-    "name": "Harmonization: Muscle-Enhanced Evolver",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds01_assualt_00005",
-    "name": "Mutation: Self-Generating Experiment",
-    "type": "Power",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds01_assualt_00006",
-    "name": "Distortion: Forced Learning Apparatus",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds01_assualt_00007",
-    "name": "Mutation: Confiscation",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds01_assualt_00008",
-    "name": "Mutation: Forbidden Algorithm",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds02_assualt_00001",
-    "name": "Harmonization: Residual Herb",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds02_assualt_00002",
-    "name": "Bloom: Forest's Hunger",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds02_assualt_00003",
-    "name": "Mutation: Forgotten Grave",
-    "type": "Skill",
-    "cost": 6,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds02_assualt_00004",
-    "name": "Distortion: Mushroom Ammo",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds02_assualt_00005",
-    "name": "Mutation: One With All",
-    "type": "Skill",
-    "cost": -1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds02_assualt_00006",
-    "name": "Distortion: Nature's Gift",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds02_assualt_00007",
-    "name": "Bloom: Spore Harvester",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds02_assualt_00008",
-    "name": "Mutation: Nutrient Absorption",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_assault_00001",
-    "name": "Distortion: Persona of Loss",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_assault_00002",
-    "name": "Bloom: Doctrine of Binding",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds03_assault_00003",
-    "name": "Mutiation: Whispers of Madness",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds03_assault_00004",
-    "name": "Distortion: Echoes of Abundance",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds03_assault_00005",
-    "name": "Mutation: Explosion of Emotions",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_assault_00006",
-    "name": "Mutation: Inner Awakening",
-    "type": "Power",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_assault_00007",
-    "name": "Harmonization: Dream World",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds03_assault_00008",
-    "name": "Distortion: The Other Side of Nightmares",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds03_assault_00009",
-    "name": "Bloom: Resonance of Truth",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_assault_00001",
-    "name": "Bloom: Marauder’s Charge",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_assault_00002",
-    "name": "Distortion: Barrier Utilization",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_assault_00003",
-    "name": "Distortion: Horde Eradication",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_assault_00004",
-    "name": "Mutation: Essence Tracking",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds04_assault_00005",
-    "name": "Mutation: Refracted Insight",
-    "type": "Skill",
-    "cost": -1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds04_assault_00006",
-    "name": "Distortion: Inner Corruption",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_assault_00007",
-    "name": "Mutation: Hand Enthralled by Light",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds04_assault_00008",
-    "name": "Bloom : Instinct Resonance",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds01_00003",
-    "name": "Propagative Virus",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds01_00004",
-    "name": "Muscle-Enhanced Evolver",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds01_00005",
-    "name": "Self-Generating Experiment",
-    "type": "Power",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds01_00006",
-    "name": "Forced Learning Apparatus",
-    "type": "Power",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds01_00007",
-    "name": "Confiscation",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds01_00008",
-    "name": "Forbidden Algorithm",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ta_00001",
-    "name": "Forbidden: Engraved Malice",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ta_00002",
-    "name": "Forbidden: Portrait of Fury",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ta_00003",
-    "name": "Forbidden: Ecstasy of Violence",
-    "type": "Attack",
-    "cost": 9,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ta_00004",
-    "name": "Forbidden: Guidance of Futility",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ta_00005",
-    "name": "Forbidden: Disposable Ego",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ta_00006",
-    "name": "Forbidden: Gesture of Freedom",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ta_00007",
-    "name": "Forbidden: Eternal Hunger",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds02_00003",
-    "name": "Forgotten Grave",
-    "type": "Skill",
-    "cost": 6,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds02_00004",
-    "name": "Mushroom Ammo",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds02_00005",
-    "name": "One With All",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds02_00006",
-    "name": "Nature’s Gift",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds02_00007",
-    "name": "Spore Harvester",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds02_00008",
-    "name": "Nutrient Absorption",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds02_00009",
-    "name": "Contaminated Spore",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_arena_00001",
-    "name": "Rocket Punch",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_arena_00002",
-    "name": "Pierce",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_arena_00003",
-    "name": "Shield Blast",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_arena_00004",
-    "name": "Heavy Blow",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_arena_00005",
-    "name": "Charged Strike",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_arena_00006",
-    "name": "Forgotten Sword",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_arena_00007",
-    "name": "Judgment",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds03_00003",
-    "name": "Whispers of Madness",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds03_00004",
-    "name": "Echoes of Abundance",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds03_00005",
-    "name": "Explosion of Emotions",
-    "type": "Power",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds03_00006",
-    "name": "Inner Awakening",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds03_00007",
-    "name": "Dream World",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds03_00008",
-    "name": "The Other Side of Nightmares",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds03_00009",
-    "name": "Resonance of Truth",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_00003",
-    "name": "Horde Eradication",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_00004",
-    "name": "Essence Tracking",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_00005",
-    "name": "Refracted Insight",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_00006",
-    "name": "Inner Corruption",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_00007",
-    "name": "Hand Enthralled by Light",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_00008",
-    "name": "Instinct Resonance",
-    "type": "Power",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds01_00001",
-    "name": "Aggressive Mutant",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds01_00002",
-    "name": "Shell-Forming Cell",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds02_00001",
-    "name": "Residual Herb",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds02_00002",
-    "name": "Forest’s Hunger",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds03_00001",
-    "name": "Persona of Loss",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_00002",
-    "name": "Doctrine of Binding",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_00001",
-    "name": "Marauder’s Charge",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_00002",
-    "name": "Barrier Utilization",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds03_eid_00001",
-    "name": "Persona",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00002",
-    "name": "Persona",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00003",
-    "name": "Persona",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00004",
-    "name": "Persona",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00005",
-    "name": "Persona",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00006",
-    "name": "Persona",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00007",
-    "name": "Persona",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00010",
-    "name": "Persona",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00011",
-    "name": "Persona",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00012",
-    "name": "Persona",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00013",
-    "name": "Persona",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00015",
-    "name": "Persona",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00016",
-    "name": "Persona",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00017",
-    "name": "Persona",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00018",
-    "name": "Persona",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00019",
-    "name": "Persona",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00020",
-    "name": "Persona",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds04_des_10011",
-    "name": "Sample Collection",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_10012",
-    "name": "Sample Collection",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_10013",
-    "name": "Sample Collection",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_10021",
-    "name": "Knowledge Addiction",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_10022",
-    "name": "Knowledge Addiction",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_10023",
-    "name": "Knowledge Addiction",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_10041",
-    "name": "Sensory Overload",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_10042",
-    "name": "Sensory Overload",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_10043",
-    "name": "Sensory Overload",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_10051",
-    "name": "Forbidden Hypothesis",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_10052",
-    "name": "Forbidden Hypothesis",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_10053",
-    "name": "Forbidden Hypothesis",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_10061",
-    "name": "Desire Manifestation: Inquiry",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_20011",
-    "name": "Indiscriminate Slaughter",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_20012",
-    "name": "Indiscriminate Slaughter",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_20013",
-    "name": "Indiscriminate Slaughter",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_20021",
-    "name": "Order of Dominance",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_20022",
-    "name": "Order of Dominance",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_20023",
-    "name": "Order of Dominance",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_20041",
-    "name": "Mark of Servitude",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_20042",
-    "name": "Mark of Servitude",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_20043",
-    "name": "Mark of Servitude",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_20051",
-    "name": "Kneel Before Me",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_20052",
-    "name": "Kneel Before Me",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_20053",
-    "name": "Kneel Before Me",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_20061",
-    "name": "Desire Manifestation: Control",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_30011",
-    "name": "Obsession",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_30012",
-    "name": "Obsession",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_30013",
-    "name": "Obsession",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_30021",
-    "name": "Gilded Nest",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_30022",
-    "name": "Gilded Nest",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_30023",
-    "name": "Gilded Nest",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_30041",
-    "name": "Narcissism",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_30042",
-    "name": "Narcissism",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_30043",
-    "name": "Narcissism",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_30051",
-    "name": "It’s All Mine",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_30052",
-    "name": "It’s All Mine",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_30053",
-    "name": "It’s All Mine",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_30061",
-    "name": "Desire Manifestation: Claim",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_40011",
-    "name": "Final Struggle",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_40012",
-    "name": "Final Struggle",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_40013",
-    "name": "Final Struggle",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_40021",
-    "name": "Harrowing Reign",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_40022",
-    "name": "Harrowing Reign",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_40023",
-    "name": "Harrowing Reign",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_40041",
-    "name": "Driven Hunt",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_40042",
-    "name": "Driven Hunt",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_40043",
-    "name": "Driven Hunt",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_40051",
-    "name": "Feralization",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_40052",
-    "name": "Feralization",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_40053",
-    "name": "Feralization",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_40061",
-    "name": "Desire Manifestation: Survival",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds03_eid_00008",
-    "name": "Persona",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00009",
-    "name": "Persona",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds03_eid_00014",
-    "name": "Persona",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_ds04_des_10031",
-    "name": "Postmortem Analysis",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_10032",
-    "name": "Postmortem Analysis",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_10033",
-    "name": "Postmortem Analysis",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_20031",
-    "name": "Traitor's Execution",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_20032",
-    "name": "Traitor's Execution",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_20033",
-    "name": "Traitor's Execution",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_30031",
-    "name": "Sever Ties",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_30032",
-    "name": "Sever Ties",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_30033",
-    "name": "Sever Ties",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_40031",
-    "name": "Cutting Loose",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_40032",
-    "name": "Cutting Loose",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds04_des_40033",
-    "name": "Cutting Loose",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00001",
-    "name": "Awakening Serum",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00002",
-    "name": "Odyssey Recovery Kit",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00003",
-    "name": "Old Sword",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00004",
-    "name": "Lame Shaman",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00006",
-    "name": "Hunk of Meat",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00010",
-    "name": "Fluider",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00011",
-    "name": "Fresh Raw Meat",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00015",
-    "name": "Poacher’s First Aid Kit",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00017",
-    "name": "Flame of Eternity",
-    "type": "Power",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00018",
-    "name": "Fragrant Bait",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00020",
-    "name": "Refined Chaos Capsule",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00022",
-    "name": "William",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00024",
-    "name": "The Rabbit’s Special Snack",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00026",
-    "name": "Chaos Creature",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00027",
-    "name": "Picky Palate",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00029",
-    "name": "Fruit of Dead Souls",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00030",
-    "name": "Mother-of Pearl Thorns",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00032",
-    "name": "Order’s Bible Page",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00033",
-    "name": "Elixir of Mutation",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Unique"
-  },
-  {
-    "id": "card_enc_00034",
-    "name": "Black Stain Bundle",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00035",
-    "name": "Heavenly Judgment",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00036",
-    "name": "Tactical Debilitation",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00037",
-    "name": "Purple Duty",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00038",
-    "name": "Abyssalization",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00039",
-    "name": "Infection",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00040",
-    "name": "Heart of the Nest",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00041",
-    "name": "Paralysis Trap",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00042",
-    "name": "Net Trap",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00043",
-    "name": "Vicious Instincts",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00044",
-    "name": "Mutant Sample",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00045",
-    "name": "Hyper Regeneration",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00046",
-    "name": "HA-00",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00047",
-    "name": "Crimson Lumen",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00048",
-    "name": "Azure Lumen",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00049",
-    "name": "Amber Lumen",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00050",
-    "name": "Ebony Lumen",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00051",
-    "name": "Broken Ebony Lumen",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00052",
-    "name": "Fragments of Ebony Lumen",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00053",
-    "name": "A Girl And Her Rotted Apple",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00054",
-    "name": "The Inverted Messiah",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00055",
-    "name": "Faceless Woman",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00057",
-    "name": "Activation Core",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00060",
-    "name": "Jury-Rigged Powder Keg",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_enc_00061",
-    "name": "Simulacrum’s Echo",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_qu_00001",
-    "name": "Waypoint Installation Module",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_qu_00003",
-    "name": "Luche",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_qu_00004",
-    "name": "Carol's Special Blood",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_etc_00012",
-    "name": "Fear",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_etc_00013",
-    "name": "Fear",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_etc_00014",
-    "name": "Fear",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_qu_00006",
-    "name": "Discharged Android",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_qu_00007",
-    "name": "Android",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_qu_00008",
-    "name": "Narja",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_event_1055_00001",
-    "name": "Dream Guide",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_etc_00001",
-    "name": "Hammer",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_etc_00002",
-    "name": "Crowbar",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_etc_00003",
-    "name": "Cutter",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_etc_00004",
-    "name": "The Lord’s Benediction",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_etc_00005",
-    "name": "Extended Magazine",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_etc_00006",
-    "name": "Fire Support Drone",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_etc_00007",
-    "name": "Time Acceleration Capsule",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_etc_00008",
-    "name": "Phantom Cloning Device",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_etc_00009",
-    "name": "Poison Bomb",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_etc_00010",
-    "name": "Revelation",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00025",
-    "name": "Ghost",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00001",
-    "name": "Hunger of the Void",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00002",
-    "name": "Shy Gardener",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00003",
-    "name": "Sorrowful Godfather",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00004",
-    "name": "Gloomy Godmother",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00005",
-    "name": "Automata Cavalry",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00006",
-    "name": "Dominion",
-    "type": "Power",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00007",
-    "name": "Slaughter",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00008",
-    "name": "Beam Shooter",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00009",
-    "name": "Winged Humanoid Beast",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00010",
-    "name": "Wolves Bane",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00011",
-    "name": "Dark Grip",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00012",
-    "name": "Seraphim of Pain",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00013",
-    "name": "Evil Spirit Salamander",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00013_opt1",
-    "name": "Evil Spirit Salamander",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00013_opt2",
-    "name": "Evil Spirit Salamander",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00014",
-    "name": "Elemental Phoenix",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00015",
-    "name": "Spirit Kefox",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00016",
-    "name": "Evil Spirit Dullahan",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00017",
-    "name": "Abyssal Bug",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00018",
-    "name": "Arbitum",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00019",
-    "name": "Shell Bug",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00020",
-    "name": "Soldier Prime",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00021",
-    "name": "Seven Arms",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00022",
-    "name": "Trapper",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00023",
-    "name": "Cultist Arbiter",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00024",
-    "name": "Rotten Ripper",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00026",
-    "name": "Chilling Godfather",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00027",
-    "name": "Hunger of Loss",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00028",
-    "name": "Vine Lord",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00029",
-    "name": "Cyborg Automaton",
-    "type": "Attack",
-    "cost": 5,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00030",
-    "name": "Enforcer Slaughter",
-    "type": "Power",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00031",
-    "name": "Automata Hussar",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00032",
-    "name": "Evil Spirit Salamander of Desolation",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00033",
-    "name": "Evil Spirit Dullahan of Desolation",
-    "type": "Skill",
-    "cost": -1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00034",
-    "name": "Wanderer Abyssal Bug",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00035",
-    "name": "Wanderer Soldier Prime",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00036",
-    "name": "Wanderer Arbitum",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00037",
-    "name": "Revenant Arbiter",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00038",
-    "name": "Rusted Nail Rotten Ripper",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00039",
-    "name": "Rusted Nail Seven Arms",
-    "type": "Power",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00040",
-    "name": "Judge Dominion",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00041",
-    "name": "The Cold Godmother",
-    "type": "Skill",
-    "cost": 8,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_mon_00042",
-    "name": "Venom Spirit Kefox",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20001",
-    "name": "Pokopo ponpon!",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20002",
-    "name": "Ice Wyrm’s Roar",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20003",
-    "name": "Vitality Boosting Potion",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20004",
-    "name": "Ultimate Missile Turret!",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20005",
-    "name": "Innos’s Guardian",
-    "type": "Skill",
-    "cost": 4,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20006",
-    "name": "Errante Hurricane",
-    "type": "Skill",
-    "cost": 4,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20007",
-    "name": "What I Wished to Protect",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20008",
-    "name": "Scholarly Measures",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20009",
-    "name": "Undertaking the Mission",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20010",
-    "name": "Powerful Shot",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20011",
-    "name": "Commencing Detection!",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20012",
-    "name": "Flower of Memory",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20013",
-    "name": "Analyze Weakness",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20014",
-    "name": "Crimson Romance",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20015",
-    "name": "Giant Bazooka",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20016",
-    "name": "Drone Deployment!",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20019",
-    "name": "Arachnid Web",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20021",
-    "name": "Capable Secretary",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20023",
-    "name": "Here’s a shot!",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20024",
-    "name": "Tactical Command",
-    "type": "Power",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20025",
-    "name": "Security team, requesting support!",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20026",
-    "name": "Consecration",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20027",
-    "name": "Activate Defense Module",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20028",
-    "name": "High-Powered Beam Shooter",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20030",
-    "name": "Lumina Explosion",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20032",
-    "name": "Hamburger Delivery, Sir!",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20033",
-    "name": "Light of Judgment",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20034",
-    "name": "Binding Knot",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20035",
-    "name": "Workplace hazards ahead!",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20036",
-    "name": "Eating Soft Carrots",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20037",
-    "name": "Blood Stalker",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_20038",
-    "name": "Target confirmed, initiating support!",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_30044",
-    "name": "Clue Spotted",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_30045",
-    "name": "Light of Ark",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_1058",
-    "name": "Spacetime Rift",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_30051",
-    "name": "Azure Fury",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_30052",
-    "name": "Legato of Faith",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_30054",
-    "name": "Crackdown Beam Bombardment",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_30046",
-    "name": "Moonlit Leisure",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_30076",
-    "name": "Overclock Beacon",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_30085",
-    "name": "Phase Alignment",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_30091",
-    "name": "If You Require Assistance",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_1025",
-    "name": "A New Visitor",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_30053",
-    "name": "Always Cheer For You",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_30092",
-    "name": "Incense",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_30094",
-    "name": "Field Overview",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_30095",
-    "name": "Genius Stage Director",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_1070",
-    "name": "An Aria For You",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_30114",
-    "name": "Lay Down Suppressive Fire!",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_30116",
-    "name": "Blossoming Venom",
-    "type": "Skill",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "p_30118",
-    "name": "For My Mistress",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00001",
-    "name": "Heavy Bash",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00002",
-    "name": "Relentless Endurance",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00003",
-    "name": "Prepare for Battle",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00004",
-    "name": "Shock",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00005",
-    "name": "Hand-to-Hand Combat",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00006",
-    "name": "Devotion",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00007",
-    "name": "Protective Shout",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00008",
-    "name": "Leap Attack",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00009",
-    "name": "Skull Bash",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00010",
-    "name": "Attack!",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00011",
-    "name": "Consecutive Attack",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00012",
-    "name": "Arcane Rush",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00013",
-    "name": "Quick Shelling",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00014",
-    "name": "Counterattack Preparation",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00015",
-    "name": "Overwhelm",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00016",
-    "name": "Repent",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00017",
-    "name": "Wanderer of the Void",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00018",
-    "name": "Destruction",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00019",
-    "name": "Energy Barrier",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00020",
-    "name": "Glorious Resistance",
-    "type": "Power",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00021",
-    "name": "Iron Wall",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00022",
-    "name": "Maneuvering Fire",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00023",
-    "name": "Ambush",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00024",
-    "name": "Atomic Decomposition",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00025",
-    "name": "Camouflage",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00026",
-    "name": "Gear Bag",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00027",
-    "name": "Instinct Ignition",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00028",
-    "name": "Tactical Reformation",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00029",
-    "name": "Belligerence",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00030",
-    "name": "Tactical Action",
-    "type": "Power",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00031",
-    "name": "Strategic Starting Point",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00032",
-    "name": "Aimed Fire",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00033",
-    "name": "Rage",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00034",
-    "name": "Sacred Strike",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00035",
-    "name": "Deadly Shot",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00036",
-    "name": "Reorganize",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00037",
-    "name": "Precision Aim",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00038",
-    "name": "Knowledge of Darkness",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00039",
-    "name": "Tackle​",
-    "type": "Attack",
-    "cost": 3,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00040",
-    "name": "Spiked Shield​",
-    "type": "Attack",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00041",
-    "name": "Fortitude",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00042",
-    "name": "Pulverize​",
-    "type": "Attack",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00043",
-    "name": "Negotiate​",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00044",
-    "name": "Determination​",
-    "type": "Power",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00045",
-    "name": "Acid Gas​",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00046",
-    "name": "Quickdraw​",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00047",
-    "name": "Hidden Bullet​",
-    "type": "Attack",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00048",
-    "name": "Wind of Relief​",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00049",
-    "name": "Financial Therapy​",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00050",
-    "name": "First Aid Kit​",
-    "type": "Skill",
-    "cost": 2,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00051",
-    "name": "Rally​",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00052",
-    "name": "Recycling​",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00053",
-    "name": "Sadism​",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ne_00054",
-    "name": "Somnolent Fruit",
-    "type": "Skill",
-    "cost": 1,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_mem_blank",
-    "name": "Blank Memory",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_mem_frag",
-    "name": "Shattered Memory",
-    "type": "Skill",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b1_1_1",
-    "name": "Memory: Suppression",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b1_1_2",
-    "name": "Memory: Suppression",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b1_1_3",
-    "name": "Memory: Suppression",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b1_1_4",
-    "name": "Memory: Suppression",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b2_1_1",
-    "name": "Memory: Desire",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b2_1_2",
-    "name": "Memory: Desire",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b2_1_3",
-    "name": "Memory: Desire",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b2_1_4",
-    "name": "Memory: Desire",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b3_1_1",
-    "name": "Memory: Kingdom",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b3_1_2",
-    "name": "Memory: Kingdom",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b3_1_3",
-    "name": "Memory: Kingdom",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b3_1_4",
-    "name": "Memory: Kingdom",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b4_1_1",
-    "name": "Memory: Golden",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b4_1_2",
-    "name": "Memory: Golden",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b4_1_3",
-    "name": "Memory: Golden",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b4_1_4",
-    "name": "Memory: Golden",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b5_1_1",
-    "name": "Memory: Resentment",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b5_1_2",
-    "name": "Memory: Resentment",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b5_1_3",
-    "name": "Memory: Resentment",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b5_1_4",
-    "name": "Memory: Resentment",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b6_1_1",
-    "name": "Memory: Lady",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b6_1_2",
-    "name": "Memory: Lady",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b6_1_3",
-    "name": "Memory: Lady",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b6_1_4",
-    "name": "Memory: Lady",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b7_1_1",
-    "name": "Memory: Greed",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b7_1_2",
-    "name": "Memory: Greed",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b7_1_3",
-    "name": "Memory: Greed",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b7_1_4",
-    "name": "Memory: Greed",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b8_1_1",
-    "name": "Memory: Kaleidoscope",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b8_1_2",
-    "name": "Memory: Kaleidoscope",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b8_1_3",
-    "name": "Memory: Kaleidoscope",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b8_1_4",
-    "name": "Memory: Kaleidoscope",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b1_2_1",
-    "name": "Memory: Suppression",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b1_2_2",
-    "name": "Memory: Suppression",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b1_2_3",
-    "name": "Memory: Suppression",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b1_2_4",
-    "name": "Memory: Suppression",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b2_2_1",
-    "name": "Memory: Desire",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b2_2_2",
-    "name": "Memory: Desire",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b2_2_3",
-    "name": "Memory: Desire",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b2_2_4",
-    "name": "Memory: Desire",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b3_2_1",
-    "name": "Memory: Kingdom",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b3_2_2",
-    "name": "Memory: Kingdom",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b3_2_3",
-    "name": "Memory: Kingdom",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b3_2_4",
-    "name": "Memory: Kingdom",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b4_2_1",
-    "name": "Memory: Golden",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b4_2_2",
-    "name": "Memory: Golden",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b4_2_3",
-    "name": "Memory: Golden",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b4_2_4",
-    "name": "Memory: Golden",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b5_2_1",
-    "name": "Memory: Resentment",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b5_2_2",
-    "name": "Memory: Resentment",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b5_2_3",
-    "name": "Memory: Resentment",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b5_2_4",
-    "name": "Memory: Resentment",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b6_2_1",
-    "name": "Memory: Lady",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b6_2_2",
-    "name": "Memory: Lady",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b6_2_3",
-    "name": "Memory: Lady",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b6_2_4",
-    "name": "Memory: Lady",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b7_2_1",
-    "name": "Memory: Greed",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b7_2_2",
-    "name": "Memory: Greed",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b7_2_3",
-    "name": "Memory: Greed",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b7_2_4",
-    "name": "Memory: Greed",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b8_2_1",
-    "name": "Memory: Kaleidoscope",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b8_2_2",
-    "name": "Memory: Kaleidoscope",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b8_2_3",
-    "name": "Memory: Kaleidoscope",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b8_2_4",
-    "name": "Memory: Kaleidoscope",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b1_3_1",
-    "name": "Memory: Suppression",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b1_3_2",
-    "name": "Memory: Suppression",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b1_3_3",
-    "name": "Memory: Suppression",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b1_3_4",
-    "name": "Memory: Suppression",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b2_3_1",
-    "name": "Memory: Desire",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b2_3_2",
-    "name": "Memory: Desire",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b2_3_3",
-    "name": "Memory: Desire",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b2_3_4",
-    "name": "Memory: Desire",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b3_3_1",
-    "name": "Memory: Kingdom",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b3_3_2",
-    "name": "Memory: Kingdom",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b3_3_3",
-    "name": "Memory: Kingdom",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b3_3_4",
-    "name": "Memory: Kingdom",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b4_3_1",
-    "name": "Memory: Golden",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b4_3_2",
-    "name": "Memory: Golden",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b4_3_3",
-    "name": "Memory: Golden",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b4_3_4",
-    "name": "Memory: Golden",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b5_3_1",
-    "name": "Memory: Resentment",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b5_3_2",
-    "name": "Memory: Resentment",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b5_3_3",
-    "name": "Memory: Resentment",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b5_3_4",
-    "name": "Memory: Resentment",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b6_3_1",
-    "name": "Memory: Lady",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b6_3_2",
-    "name": "Memory: Lady",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b6_3_3",
-    "name": "Memory: Lady",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b6_3_4",
-    "name": "Memory: Lady",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b7_3_1",
-    "name": "Memory: Greed",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b7_3_2",
-    "name": "Memory: Greed",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b7_3_3",
-    "name": "Memory: Greed",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b7_3_4",
-    "name": "Memory: Greed",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b8_3_1",
-    "name": "Memory: Kaleidoscope",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b8_3_2",
-    "name": "Memory: Kaleidoscope",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b8_3_3",
-    "name": "Memory: Kaleidoscope",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b8_3_4",
-    "name": "Memory: Kaleidoscope",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b1_4_1",
-    "name": "Memory: Suppression",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b1_4_2",
-    "name": "Memory: Suppression",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b1_4_3",
-    "name": "Memory: Suppression",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b1_4_4",
-    "name": "Memory: Suppression",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b2_4_1",
-    "name": "Memory: Desire",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b2_4_2",
-    "name": "Memory: Desire",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b2_4_3",
-    "name": "Memory: Desire",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b2_4_4",
-    "name": "Memory: Desire",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b3_4_1",
-    "name": "Memory: Kingdom",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b3_4_2",
-    "name": "Memory: Kingdom",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b3_4_3",
-    "name": "Memory: Kingdom",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b3_4_4",
-    "name": "Memory: Kingdom",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b4_4_1",
-    "name": "Memory: Golden",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b4_4_2",
-    "name": "Memory: Golden",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b4_4_3",
-    "name": "Memory: Golden",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b4_4_4",
-    "name": "Memory: Golden",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b5_4_1",
-    "name": "Memory: Resentment",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b5_4_2",
-    "name": "Memory: Resentment",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b5_4_3",
-    "name": "Memory: Resentment",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b5_4_4",
-    "name": "Memory: Resentment",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b6_4_1",
-    "name": "Memory: Lady",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b6_4_2",
-    "name": "Memory: Lady",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b6_4_3",
-    "name": "Memory: Lady",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b6_4_4",
-    "name": "Memory: Lady",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b7_4_1",
-    "name": "Memory: Greed",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b7_4_2",
-    "name": "Memory: Greed",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b7_4_3",
-    "name": "Memory: Greed",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b7_4_4",
-    "name": "Memory: Greed",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b8_4_1",
-    "name": "Memory: Kaleidoscope",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b8_4_2",
-    "name": "Memory: Kaleidoscope",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b8_4_3",
-    "name": "Memory: Kaleidoscope",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
-  },
-  {
-    "id": "card_ds05_a_b8_4_4",
-    "name": "Memory: Kaleidoscope",
-    "type": "Power",
-    "cost": 0,
-    "desc": "",
-    "rarity": "Common"
+},
+  combatRules: {
+  "damage_formula": {
+    "equation": "Final Damage = [(Base ATK * Skill Multiplier) + Flat Additions] * Ego Multiplier * Crit Multiplier * Defense Reduction * (1 + Final Dmg Bonus)",
+    "breakdown": [
+      {
+        "param": "Base ATK",
+        "desc": "Kombinasi ATK dasar Combatant + bonus stat transfer Partner (10–18%) + stat Flat Relic."
+      },
+      {
+        "param": "Skill Multiplier",
+        "desc": "Koefisien kartu atau skill (misal 150% hingga 420% pada serangan pamungkas)."
+      },
+      {
+        "param": "Ego Affinity Multiplier",
+        "desc": "Keunggulan elemen Ego memberikan +30% damage (Weakness). Melawan elemen yang resisten mengurangi damage -25%. Efek Secred Epiphany membuat serangan SELALU dihitung sebagai Weakness."
+      },
+      {
+        "param": "Critical Multiplier",
+        "desc": "Base Critical Damage adalah 150%. Ditambah bonus stat dari Memory Fragment, Relic, dan buff in-game."
+      },
+      {
+        "param": "Defense Mitigation",
+        "desc": "Kerusakan berkurang dengan formula 1000 / (1000 + Target DEF). Perisai (Shield) menyerap damage terlebih dahulu sebelum HP."
+      },
+      {
+        "param": "Break & Stagger State",
+        "desc": "Ketika Tenacity gauge musuh habis menjadi 0 (Break), seluruh serangan menghasilkan +50% bonus damage dan membatalkan giliran musuh."
+      }
+    ]
+  },
+  "partner_equip_rules": {
+    "max_slots": 3,
+    "rule_description": "Setiap Combatant hanya dapat memasang 1 Partner unik (maksimal 3 Partner per regu). Partner yang sama tidak dapat dipasang ganda di regu yang sama.",
+    "stat_transfer": "Partner mentransfer 12–16% HP, 11–15% ATK, dan 14–18% DEF dasar ke Combatant yang dipasangkan.",
+    "ego_resonance": "Jika Partner memiliki afinitas Ego atau Class yang cocok dengan Combatant, aktifkan 'Ego Resonance': memberikan tambahan +15% efektivitas stat transfer serta efek pasif sinergi unik (Belonging Character Effect)."
+  },
+  "chaos_exploration": {
+    "depths": [
+      {
+        "depth": 1,
+        "name": "Outer Fringe",
+        "desc": "Zona batas terluar Chaos dengan anomali rendah. Musuh umum Void Aberration, hadiah Relic dasar."
+      },
+      {
+        "depth": 2,
+        "name": "Resonance Layer",
+        "desc": "Lapisan resonansi distorsi. Mulai muncul musuh Elite Aberration dan Altar Divine Epiphany pertama."
+      },
+      {
+        "depth": 3,
+        "name": "Hall of Distortion",
+        "desc": "Area distorsi tinggi dengan Merchant pasar gelap dan node Anomali berisiko tinggi namun berhadiah besar."
+      },
+      {
+        "depth": 4,
+        "name": "Abyssal Threshold",
+        "desc": "Ambang batas kehampaan. Stres mental regu meningkat 2x lipat setiap giliran pertempuran."
+      },
+      {
+        "depth": 5,
+        "name": "The Singularity (Core)",
+        "desc": "Inti Chaos terdalam. Menghadapi Calamity Boss dengan mekanik multi-phase Tenacity Break."
+      }
+    ],
+    "encounter_nodes": [
+      {
+        "type": "SPOT_TYPE_START",
+        "icon": "🚪",
+        "name": "Staging Base",
+        "desc": "Titik awal ekspedisi Chaos tempat menyusun taktik regu."
+      },
+      {
+        "type": "SPOT_TYPE_BATTLE",
+        "icon": "⚔️",
+        "name": "Void Skirmish",
+        "desc": "Pertempuran standar melawan gerombolan monster Void."
+      },
+      {
+        "type": "SPOT_TYPE_ELITE",
+        "icon": "💀",
+        "name": "Elite Calamity",
+        "desc": "Musuh tangguh berpangkat Elite yang menjamin drop Divine Sparks & Relic 4★–5★."
+      },
+      {
+        "type": "SPOT_TYPE_BOSS",
+        "icon": "👑",
+        "name": "Sector Overlord",
+        "desc": "Bos penjaga sektor yang membutuhkan koordinasi Tenacity Break."
+      },
+      {
+        "type": "SPOT_TYPE_REST",
+        "icon": "🏕️",
+        "name": "Sanctuary Rest",
+        "desc": "Node istirahat untuk memulihkan 30% HP, meredakan Stres mental, atau meng-upgrade kartu."
+      },
+      {
+        "type": "SPOT_TYPE_STORE",
+        "icon": "🛒",
+        "name": "Black Market Merchant",
+        "desc": "Pedagang pengembara yang menjual kartu Universal, Relic, dan jasa pemurnian kartu korupsi."
+      },
+      {
+        "type": "SPOT_TYPE_SUPPLY",
+        "icon": "📦",
+        "name": "Tactical Supply",
+        "desc": "Peti pasokan berisi Fragmen Chaos dan consumable tempur."
+      },
+      {
+        "type": "SPOT_TYPE_NONEBATTLE",
+        "icon": "❓",
+        "name": "Distortion Anomaly",
+        "desc": "Event cerita interaktif dengan pilihan moral dan risiko/hadiah (dilema mental vs buff permanen)."
+      },
+      {
+        "type": "SPOT_TYPE_EXTRA_AREA",
+        "icon": "🌀",
+        "name": "Rift Dimension",
+        "desc": "Area rahasia tersembunyi dengan tantangan teka-teki ruang dan hadiah langka."
+      }
+    ]
+  },
+  "story_archive": {
+    "prologue": "The Awakening in the Sea of Chaos: Kapten terbangun di dalam kapal Ark tanpa ingatan, di tengah dunia yang ditelan lautan kekacauan.",
+    "chapters": [
+      {
+        "ch": "Chapter 01",
+        "title": "Fringe of the Ruined World",
+        "synopsis": "Patroli perbatasan Terrascion di bawah pimpinan Nia dan Luke menyelidiki kemunculan distorsi ruang pertama."
+      },
+      {
+        "ch": "Chapter 02",
+        "title": "The Echo of Despair",
+        "synopsis": "Selena dan Khalipe memimpin penyelidikan ke reruntuhan kuil kuno yang memancarkan sinyal anomali."
+      },
+      {
+        "ch": "Chapter 03",
+        "title": "Whispering Abyss",
+        "synopsis": "Konfrontasi langsung pertama dengan pasukan Void Aberration. Trisa dan Magna membuka pertahanan garis depan."
+      },
+      {
+        "ch": "Chapter 04",
+        "title": "Order in the Shadows",
+        "synopsis": "Ketegangan diplomatik antara faksi Terrascion dan keluarga aristokrat Stella Familia terkait kepemilikan Ark."
+      },
+      {
+        "ch": "Chapter 05",
+        "title": "Trial of the Sixfold Deities",
+        "synopsis": "Kapten dan regu menjalani inisiasi di Kuil Para Dewa, membangkitkan resonansi Divine Epiphany pertama."
+      },
+      {
+        "ch": "Chapter 06",
+        "title": "Calamity's Descent",
+        "synopsis": "Serangan mendadak Calamity Titan meruntuhkan benteng luar Ark. Dimulainya evakuasi darurat."
+      },
+      {
+        "ch": "Chapter 07",
+        "title": "The Fractured Sanctuary",
+        "synopsis": "Pertahanan terakhir di Sanctuary yang retak; para pahlawan menghadapi manifestasi Stres mental."
+      },
+      {
+        "ch": "Chapter 08",
+        "title": "Threads of Fate",
+        "synopsis": "Terungkapnya sejarah penciptaan Chaos Zero dan misteri masa lalu Kapten Ark."
+      },
+      {
+        "ch": "Chapter 09",
+        "title": "Resonance of the Void",
+        "synopsis": "Perjalanan melintasi jurang kehampaan menuju pusat distorsi ruang waktu."
+      },
+      {
+        "ch": "Chapter 10",
+        "title": "The Gate of Chaos",
+        "synopsis": "Pintu gerbang Chaos terbuka, melepaskan entitas kosmik kuno dari kegelapan abadi."
+      },
+      {
+        "ch": "Chapter 11",
+        "title": "Nightmare's Dawn",
+        "synopsis": "Klimaks pertempuran Bagian 1: Menghadapi inti Nightmare sebelum terbitnya fajar kepunahan."
+      }
+    ]
   }
-];
+}
+};

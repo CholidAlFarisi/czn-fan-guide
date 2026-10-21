@@ -783,10 +783,14 @@ function getEquipmentBonus(item) {
 
 function getHeroEffectiveStats(hero, stage = 0, partner = null, equip = null) {
   const b = MANIFESTATION_STAGES[stage] || MANIFESTATION_STAGES[0];
-  const pAtkPct = partner && partner.stat_boost ? partner.stat_boost.atk_pct : 0;
-  const pFlatAtk = partner && partner.stat_boost ? partner.stat_boost.flat_atk : 0;
-  const pHpPct = partner && partner.stat_boost ? partner.stat_boost.hp_pct : 0;
-  const pDefPct = partner && partner.stat_boost ? partner.stat_boost.def_pct : 0;
+  const isEgoRes = hero && partner && partner.ego && hero.element && (partner.ego.toLowerCase() === hero.element.toLowerCase());
+  const isSoul = hero && partner && partner.belonging_hero_id === hero.id;
+  const resBonus = (isSoul || isEgoRes) ? 15 : 0;
+
+  const pAtkPct = (partner && partner.stat_boost ? partner.stat_boost.atk_pct : 0) + (resBonus ? 5 : 0);
+  const pFlatAtk = (partner && partner.stat_boost ? partner.stat_boost.flat_atk : 0) + (isSoul ? 20 : 0);
+  const pHpPct = (partner && partner.stat_boost ? partner.stat_boost.hp_pct : 0) + (resBonus ? 5 : 0);
+  const pDefPct = (partner && partner.stat_boost ? partner.stat_boost.def_pct : 0) + (resBonus ? 5 : 0);
 
   const totalAtkMult = 1 + (b.stat_pct + pAtkPct) / 100;
   const totalHpMult = 1 + (b.stat_pct + pHpPct) / 100;
@@ -935,8 +939,11 @@ function renderSquadColumns() {
           <div style="display:flex; gap:8px; align-items:center; cursor:pointer;" onclick="openPartnerModal(${slotNum})">
             <img src="assets/characters/${partner.id}.webp" style="width:32px; height:32px; border-radius:50%; border:1px solid var(--emerald); object-fit:cover;" onerror="this.src='https://via.placeholder.com/32?text=P'">
             <div>
-              <div style="font-size:0.76rem; font-weight:700; color:var(--text);">${partner ? partner.name : 'Dedicated Partner'}</div>
-              <div style="font-size:0.65rem; color:var(--emerald);">Dedicated Partner &bull; ${(partner && (partner.card || partner.support_card)) ? (partner.card || partner.support_card).name : 'Support Assist'}</div>
+              <div style="font-size:0.76rem; font-weight:700; color:var(--text); display:flex; align-items:center; gap:6px;">
+                <span>${partner ? partner.name : 'Dedicated Partner'}</span>
+                ${(hero && partner && partner.belonging_hero_id === hero.id) ? '<span style="font-size:0.6rem; padding:1px 4px; background:rgba(223,178,53,0.25); color:#dfb235; border-radius:3px; font-weight:700;">⭐ SOULMATE</span>' : ((hero && partner && partner.ego && hero.element && partner.ego.toLowerCase() === hero.element.toLowerCase()) ? '<span style="font-size:0.6rem; padding:1px 4px; background:rgba(16,185,129,0.25); color:#10b981; border-radius:3px; font-weight:700;">🔥 RESONANCE</span>' : '')}
+              </div>
+              <div style="font-size:0.65rem; color:var(--emerald);">${partner ? (partner.ego || 'Norms') + ' &bull; ' : ''}${(partner && (partner.card || partner.support_card)) ? (partner.card || partner.support_card).name : 'Support Assist'}</div>
             </div>
           </div>
           <button class="builder-btn" style="padding:2px 6px; font-size:0.65rem;" onclick="openPartnerModal(${slotNum})">Swap</button>
@@ -1044,8 +1051,11 @@ function renderSquadStations() {
         <div style="display:flex; gap:8px; align-items:center; cursor:pointer;" onclick="openPartnerModal(${slotNum})">
           <img src="assets/characters/${partner.id}.webp" style="width:36px; height:36px; border-radius:50%; border:1px solid var(--emerald); object-fit:cover;" onerror="this.src='https://via.placeholder.com/36?text=P'">
           <div>
-            <div style="font-size:0.8rem; font-weight:700; color:var(--text);">${partner ? partner.name : 'Dedicated Partner'}</div>
-            <div style="font-size:0.68rem; color:var(--emerald);">Dedicated Partner &bull; ${(partner && (partner.card || partner.support_card)) ? (partner.card || partner.support_card).name : 'Support Assist'}</div>
+            <div style="font-size:0.8rem; font-weight:700; color:var(--text); display:flex; align-items:center; gap:6px;">
+              <span>${partner ? partner.name : 'Dedicated Partner'}</span>
+              ${(hero && partner && partner.belonging_hero_id === hero.id) ? '<span style="font-size:0.62rem; padding:1px 5px; background:rgba(223,178,53,0.25); color:#dfb235; border-radius:3px; font-weight:700;">⭐ SOULMATE</span>' : ((hero && partner && partner.ego && hero.element && partner.ego.toLowerCase() === hero.element.toLowerCase()) ? '<span style="font-size:0.62rem; padding:1px 5px; background:rgba(16,185,129,0.25); color:#10b981; border-radius:3px; font-weight:700;">🔥 RESONANCE</span>' : '')}
+            </div>
+            <div style="font-size:0.68rem; color:var(--emerald);">${partner ? (partner.ego || 'Norms') + ' &bull; ' : ''}${(partner && (partner.card || partner.support_card)) ? (partner.card || partner.support_card).name : 'Support Assist'}</div>
           </div>
         </div>
         <button class="builder-btn" style="padding:2px 8px; font-size:0.7rem;" onclick="openPartnerModal(${slotNum})">Swap</button>
@@ -1404,6 +1414,33 @@ function setCardBranch(heroId, cardName, branchVal) {
     }
   }
   renderAll();
+}
+
+
+function setCardDivineSpark(heroId, cardName, deityKey, sparkId) {
+  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
+  if (hero && (hero.starters || []).some(s => s.name === cardName)) {
+    showToast(`Basic Starter (${cardName}) tidak dapat memiliki Divine Epiphany.`);
+    return;
+  }
+  if (!currentSquad.deities) currentSquad.deities = {};
+  if (!currentSquad.deities[heroId]) currentSquad.deities[heroId] = {};
+  if (!currentSquad.divineSparks) currentSquad.divineSparks = {};
+  if (!currentSquad.divineSparks[heroId]) currentSquad.divineSparks[heroId] = {};
+  if (!currentSquad.epiphanies) currentSquad.epiphanies = {};
+  if (!currentSquad.epiphanies[heroId]) currentSquad.epiphanies[heroId] = {};
+
+  currentSquad.deities[heroId][cardName] = deityKey;
+  currentSquad.divineSparks[heroId][cardName] = sparkId;
+  currentSquad.epiphanies[heroId][cardName] = 'divine';
+
+  const d = window.CZN_DATA.divineEpiphanies?.[deityKey.toLowerCase()];
+  const spark = d ? (d.sparks || []).find(s => s.id === sparkId) : null;
+  const sparkName = spark ? (spark.name || spark.desc.slice(0, 24) + '...') : deityKey;
+
+  showToast(`Equipped Divine Spark: ${sparkName} on ${cardName}!`);
+  renderAll();
+  renderEpiphanyModalBody();
 }
 
 function setCardDeity(heroId, cardName, deityKey) {
@@ -1972,38 +2009,63 @@ function renderEpiphanyModalBody() {
   } else if (tab === 'divine') {
     const divineData = window.CZN_DATA.divineEpiphanies || {};
     const gods = Object.keys(divineData);
+    const curDeityKey = (activeEpiphanyContext.deity || activeDeity || 'vitor').toLowerCase();
+    const curGod = divineData[curDeityKey] || divineData[gods[0]];
+    const equippedSparkId = currentSquad.divineSparks?.[heroId]?.[cardName];
 
     let html = `
       <div style="margin-bottom:14px; background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:12px;">
-        <div style="font-size:0.8rem; font-weight:700; color:#dfb235; margin-bottom:4px;">Cosmic Deity Patron & Divine Sparks</div>
-        <div style="font-size:0.74rem; color:var(--muted);">Resonate this card with one of the 6 Cosmic Deities to unlock sacred traits, pincer coordination, and AP cost discounts.</div>
+        <div style="font-size:0.8rem; font-weight:700; color:#dfb235; margin-bottom:4px;">✨ 6 Cosmic Deities &bull; 165 Divine Epiphany Sparks</div>
+        <div style="font-size:0.74rem; color:var(--muted);">Select a Cosmic Deity patron, then equip an exclusive Divine Spark from their sacred catalog to modify this card's AP cost, burst modifiers, or team synergy:</div>
       </div>
 
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:12px;">
+      <!-- DEITY SELECTOR PILLS -->
+      <div style="display:flex; gap:8px; overflow-x:auto; padding-bottom:8px; margin-bottom:14px;">
+        ${gods.map(gKey => {
+          const g = divineData[gKey];
+          const isSelected = curDeityKey === gKey.toLowerCase();
+          return `
+            <button class="builder-btn ${isSelected ? 'builder-btn-primary' : ''}" style="white-space:nowrap; font-size:0.75rem; padding:6px 12px; display:flex; align-items:center; gap:6px;" onclick="activeEpiphanyContext.deity = '${gKey}'; renderEpiphanyModalBody();">
+              <span>${g.info.icon || '🌟'}</span>
+              <strong>${g.info.name}</strong>
+              <span style="font-size:0.65rem; opacity:0.8; background:rgba(255,255,255,0.1); padding:1px 5px; border-radius:10px;">${(g.sparks || []).length}</span>
+            </button>
+          `;
+        }).join('')}
+      </div>
+
+      <!-- SELECTED DEITY INFO CARD -->
+      <div style="background:var(--card-inner); border:1px solid var(--cyan); border-radius:8px; padding:12px 16px; margin-bottom:14px; display:flex; justify-content:space-between; align-items:center;">
+        <div>
+          <div style="font-family:'Orbitron',sans-serif; font-size:0.95rem; font-weight:800; color:var(--text);">${curGod.info.icon || '🌟'} ${curGod.info.name} &bull; <span style="font-size:0.8rem; color:var(--cyan);">${curGod.info.epithet}</span></div>
+          <div style="font-size:0.72rem; color:var(--muted); margin-top:2px;"><strong>Domains:</strong> ${curGod.info.domain || 'Cosmic Authority'} &bull; ${(curGod.sparks || []).length} Exclusive Sparks</div>
+        </div>
+        ${activeDeity.toLowerCase() === curDeityKey ? `
+          <button class="builder-btn" style="font-size:0.7rem; border-color:var(--red); color:var(--red);" onclick="setCardDeity('${heroId}', '${cardName.replace(/'/g, "\'")}', 'none'); renderEpiphanyModalBody();">Clear Divine Spark</button>
+        ` : ''}
+      </div>
+
+      <!-- SPARKS CATALOG GRID -->
+      <div style="font-size:0.75rem; font-weight:700; color:var(--text); margin-bottom:8px; text-transform:uppercase;">Available Divine Sparks for ${curGod.info.name}:</div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:10px; max-height:360px; overflow-y:auto; padding-right:4px;">
     `;
 
-    gods.forEach(gKey => {
-      const g = divineData[gKey];
-      const isCurrentDeity = activeDeity.toLowerCase() === gKey.toLowerCase();
-      const sparkList = g.sparks || [];
+    (curGod.sparks || []).forEach(s => {
+      const isSparkEquipped = equippedSparkId === s.id;
+      const rarityColor = s.rarity === 'SSR' ? '#dfb235' : (s.rarity === 'SR' ? '#a855f7' : '#3b82f6');
+      const costBadge = s.cost_mod !== 0 ? `<span style="font-size:0.65rem; padding:1px 5px; border-radius:3px; background:rgba(34,211,238,0.2); color:var(--cyan); font-weight:700;">AP ${s.cost_mod > 0 ? '+' + s.cost_mod : s.cost_mod}</span>` : '';
 
       html += `
-        <div style="background:var(--card-inner); border:1px solid ${isCurrentDeity ? 'var(--cyan)' : 'var(--panel-border)'}; border-radius:8px; padding:14px; display:flex; flex-direction:column; justify-content:space-between;">
+        <div style="background:var(--card-inner); border:1px solid ${isSparkEquipped ? 'var(--cyan)' : 'var(--panel-border)'}; border-radius:6px; padding:10px; display:flex; flex-direction:column; justify-content:space-between; ${isSparkEquipped ? 'box-shadow:0 0 8px rgba(34,211,238,0.25);' : ''}">
           <div>
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
-              <span style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:800; color:var(--text);">${g.info.icon || '🌟'} ${g.info.name}</span>
-              ${isCurrentDeity ? `<span style="font-size:0.65rem; padding:2px 6px; background:rgba(34,211,238,0.2); color:var(--cyan); border-radius:3px; font-weight:700;">RESONATING</span>` : ''}
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+              <span style="font-size:0.75rem; font-weight:700; color:${rarityColor};">${s.name || s.id} (${s.rarity})</span>
+              ${costBadge}
             </div>
-            <div style="font-size:0.72rem; color:var(--cyan); margin-bottom:8px;">${g.info.epithet}</div>
-            <div style="font-size:0.74rem; color:var(--muted); line-height:1.4; margin-bottom:12px;">
-              <strong>Key Divine Sparks:</strong>
-              <ul style="margin:4px 0 0 16px; padding:0;">
-                ${sparkList.slice(0, 3).map(s => `<li style="margin-bottom:3px;">${s.desc}</li>`).join('')}
-              </ul>
-            </div>
+            <div style="font-size:0.72rem; color:var(--body); line-height:1.4; margin-bottom:8px;">${s.desc}</div>
           </div>
-          <button class="builder-btn ${isCurrentDeity ? 'builder-btn-primary' : ''}" style="width:100%; font-size:0.75rem;" onclick="setCardDeity('${heroId}', '${cardName.replace(/'/g, "\\'")}', '${gKey.toLowerCase()}'); setCardEpiphany('${heroId}', '${cardName.replace(/'/g, "\\'")}', 'divine'); renderEpiphanyModalBody();">
-            ${isCurrentDeity ? '✓ Resonating' : 'Resonate with ' + g.info.name}
+          <button class="builder-btn ${isSparkEquipped ? 'builder-btn-primary' : ''}" style="width:100%; font-size:0.72rem; padding:4px 8px; font-weight:700;" onclick="setCardDivineSpark('${heroId}', '${cardName.replace(/'/g, "\'")}', '${curDeityKey}', '${s.id}');">
+            ${isSparkEquipped ? '✓ Equipped Divine Spark' : 'Equip this Spark'}
           </button>
         </div>
       `;
@@ -2790,31 +2852,75 @@ function closePartnerModal() {
 function filterPartnerPicker() {
   const query = (document.getElementById('partnerSearchInput').value || '').toLowerCase();
   const partners = window.CZN_DATA.partners || [];
+  const activeSlotHeroId = currentSquad['hero' + pickingPartnerSlot];
+  const activeHero = window.CZN_DATA.combatants.find(c => c.id === activeSlotHeroId);
+
+  // Collect equipped partners in OTHER slots to enforce CANNOT_EQUIP_DUPLICATE
+  const otherEquippedPartners = {};
+  [1, 2, 3].forEach(s => {
+    if (s !== pickingPartnerSlot && currentSquad['partner' + s]) {
+      otherEquippedPartners[currentSquad['partner' + s]] = s;
+    }
+  });
 
   const filtered = partners.filter(p => {
-    if (query && !p.name.toLowerCase().includes(query)) return false;
+    if (query && !p.name.toLowerCase().includes(query) && !(p.job && p.job.toLowerCase().includes(query)) && !(p.ego && p.ego.toLowerCase().includes(query))) return false;
     return true;
+  });
+
+  // Sort: Soulmates first, then Ego Resonance, then unassigned, then assigned to other slots
+  filtered.sort((a, b) => {
+    const aOther = otherEquippedPartners[a.id] ? 1 : 0;
+    const bOther = otherEquippedPartners[b.id] ? 1 : 0;
+    if (aOther !== bOther) return aOther - bOther;
+
+    const aSoul = (activeHero && a.belonging_hero_id === activeHero.id) ? 1 : 0;
+    const bSoul = (activeHero && b.belonging_hero_id === activeHero.id) ? 1 : 0;
+    if (aSoul !== bSoul) return bSoul - aSoul;
+
+    const aEgo = (activeHero && a.ego && activeHero.element && a.ego.toLowerCase() === activeHero.element.toLowerCase()) ? 1 : 0;
+    const bEgo = (activeHero && b.ego && activeHero.element && b.ego.toLowerCase() === activeHero.element.toLowerCase()) ? 1 : 0;
+    return bEgo - aEgo;
   });
 
   const grid = document.getElementById('partnerPickerGrid');
   grid.innerHTML = '';
 
   filtered.forEach(p => {
+    const isEquippedOther = otherEquippedPartners[p.id];
+    const isCurrent = currentSquad['partner' + pickingPartnerSlot] === p.id;
+    const isEgoResonance = activeHero && p.ego && activeHero.element && (p.ego.toLowerCase() === activeHero.element.toLowerCase());
+    const isSoulmate = activeHero && p.belonging_hero_id === activeHero.id;
+
     const card = document.createElement('div');
-    card.className = 'hero-picker-card';
+    card.className = `hero-picker-card ${isCurrent ? 'selected' : ''}`;
+    card.style.cssText = `position:relative; opacity:${isEquippedOther ? '0.5' : '1'}; cursor:${isEquippedOther ? 'not-allowed' : 'pointer'}; border-color:${isCurrent ? 'var(--cyan)' : (isSoulmate ? '#dfb235' : (isEgoResonance ? '#10b981' : 'var(--panel-border)'))};`;
+
     card.innerHTML = `
-      <img src="assets/characters/${p.id}.webp" style="width:40px; height:40px; border-radius:50%; object-fit:cover;" onerror="this.src='https://via.placeholder.com/40?text=P'">
-      <div>
-        <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:700; color:var(--text);">${p.name}</div>
-        <div style="font-size:0.7rem; color:var(--emerald);">Dedicated Partner &bull; ${p.support_card.name}</div>
+      <img src="assets/characters/${p.id}.webp" style="width:44px; height:44px; border-radius:50%; object-fit:cover; border:2px solid ${p.color || '#3b82f6'};" onerror="this.src='https://via.placeholder.com/44?text=P'">
+      <div style="flex:1; overflow:hidden;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:700; color:var(--text);">${p.name}</div>
+          <span style="font-size:0.65rem; padding:1px 5px; border-radius:3px; background:rgba(255,255,255,0.08); color:${p.color || '#fff'}; font-weight:700;">${p.rarity}★ ${p.job}</span>
+        </div>
+        <div style="font-size:0.7rem; color:var(--muted); line-height:1.3; margin-top:2px;">
+          ${p.ego ? `<span style="color:${p.color || 'var(--cyan)'}; font-weight:600;">Ego: ${p.ego}</span> &bull; ` : ''}
+          ${p.stat_boost ? `+${p.stat_boost.atk_pct}% ATK` : '+15% Stats'}
+        </div>
+        ${isSoulmate ? `<div style="font-size:0.65rem; color:#dfb235; font-weight:700; margin-top:2px;">⭐ DEDICATED SOULMATE (+Belonging Ego Skill)</div>` : ''}
+        ${!isSoulmate && isEgoResonance ? `<div style="font-size:0.65rem; color:#10b981; font-weight:700; margin-top:2px;">🔥 EGO RESONANCE (+15% Bonus Stats)</div>` : ''}
+        ${isEquippedOther ? `<div style="font-size:0.65rem; color:#ef4444; font-weight:700; margin-top:2px;">🔒 Assigned to Slot 0${isEquippedOther} (Rule: No Duplicates)</div>` : ''}
       </div>
     `;
-    card.onclick = () => {
-      currentSquad['partner' + pickingPartnerSlot] = p.id;
-      renderAll();
-      closePartnerModal();
-      showToast(`Assigned ${p.name} as Partner for Slot 0${pickingPartnerSlot}!`);
-    };
+
+    if (!isEquippedOther) {
+      card.onclick = () => {
+        currentSquad['partner' + pickingPartnerSlot] = p.id;
+        renderAll();
+        closePartnerModal();
+        showToast(`Assigned ${p.name} as Partner for Slot 0${pickingPartnerSlot}!`);
+      };
+    }
     grid.appendChild(card);
   });
 }
