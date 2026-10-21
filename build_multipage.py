@@ -161,6 +161,7 @@ def run():
             ('index.html', 'Home'),
             ('characters.html', 'Characters'),
             ('cards.html', 'Cards'),
+            ('teambuilder.html', 'Team Builder'),
             ('mechanics.html', 'Mechanics'),
             ('lore.html', 'Lore'),
             ('guides.html', 'Guides')
@@ -255,6 +256,16 @@ def run():
   <div class="container">
     <!-- Hub Sections Navigation -->
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; margin-bottom:48px;">
+      <a href="teambuilder.html" style="text-decoration:none; color:inherit;">
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:22px; transition:all 0.2s; height:100%;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--panel-border)'">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <div style="font-size:1.8rem;">⚡</div>
+            <span style="font-size:0.7rem; color:var(--cyan); font-weight:700; text-transform:uppercase;">SIMULATOR</span>
+          </div>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--text); margin-bottom:6px;">Team Builder</h3>
+          <p style="font-size:0.85rem; color:var(--muted);">Form 3-Combatant squads &amp; Partners, customize 24-card decks, analyze AP curve, and test draw opening hands.</p>
+        </div>
+      </a>
       <a href="characters.html" style="text-decoration:none; color:inherit;">
         <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:22px; transition:all 0.2s; height:100%;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--panel-border)'">
           <div style="font-size:1.8rem; margin-bottom:10px;">⚔️</div>
@@ -1244,14 +1255,22 @@ __NAV__
 <main>
   <header class="page-header">
     <div class="page-pill">Strategy &amp; Progression</div>
-    <h1>Game Guides &amp; Squad Synergies</h1>
-    <p>Complete compendium covering early game onboarding, the 3-combatant deck rule, meta synergy archetypes, progression priorities, and squad readiness.</p>
+    <h1>Game Guides &amp; Account Progression</h1>
+    <p>Complete compendium covering early game onboarding, Aether stamina distribution, daily routines, progression milestones, and squad pre-sortie readiness.</p>
   </header>
 
   <div class="container">
+    <!-- Callout Banner to Dedicated Team Builder -->
+    <div style="background:linear-gradient(135deg, rgba(38,146,211,0.15), var(--panel)); border:1px solid rgba(38,146,211,0.4); border-radius:8px; padding:18px 24px; margin-bottom:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+      <div>
+        <div style="font-family:'Orbitron',sans-serif; font-size:1.05rem; font-weight:700; color:var(--cyan); margin-bottom:4px;">Looking for Squad Building &amp; Turn Simulation?</div>
+        <p style="font-size:0.85rem; color:var(--body); margin:0;">Form 3-combatant teams, customize 24-card operational decks, evaluate AP curves, and test draw opening hands in our dedicated simulator.</p>
+      </div>
+      <a href="teambuilder.html" class="nav-btn" style="background:var(--accent); color:#fff; border-color:var(--accent); padding:8px 18px; font-size:0.85rem;">Open Team Builder →</a>
+    </div>
+
     <div class="sub-tabs">
       <button class="sub-tab-btn active" data-tab="tab-beginner">🌱 Beginner Roadmap</button>
-      <button class="sub-tab-btn" data-tab="tab-teambuilding">⚔️ Team Building &amp; Synergies</button>
       <button class="sub-tab-btn" data-tab="tab-progression">📈 Account &amp; Progression</button>
       <button class="sub-tab-btn" data-tab="tab-checklist">📋 Squad Readiness Checklist</button>
     </div>
@@ -1314,76 +1333,7 @@ __NAV__
       </div>
     </div>
 
-    <!-- PANE 2: TEAM BUILDING -->
-    <div id="tab-teambuilding" class="tab-pane">
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px; margin-bottom:24px;">
-        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--text); margin-bottom:10px;">The 3-Combatant Rule &amp; Deck Economy</h2>
-        <p style="font-size:0.88rem; color:var(--body); line-height:1.7; margin-bottom:14px;">
-          Every team consists of exactly <strong>3 Combatants</strong> sharing one combined 24-card deck (4 starting + 4 unique cards per hero) and one shared HP bar. Exploiting enemy elemental weaknesses grants a <strong>+25% multiplicative attack bonus</strong> and accelerates Tenacity breaks.
-        </p>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px;">
-          <div style="background:var(--card-inner); border-left:3px solid var(--cyan); padding:12px; border-radius:4px;">
-            <div style="font-size:0.85rem; font-weight:700; color:var(--text);">Damage Dealer (DPS)</div>
-            <div style="font-size:0.8rem; color:var(--muted);">Finisher dealing high single-target or AoE burst (Hugo, Mei Lin, Renoa).</div>
-          </div>
-          <div style="background:var(--card-inner); border-left:3px solid var(--gold); padding:12px; border-radius:4px;">
-            <div style="font-size:0.85rem; font-weight:700; color:var(--text);">Card Cycler / AP Enabler</div>
-            <div style="font-size:0.8rem; color:var(--muted);">Filters hands, generates AP, and prevents bad opening draws (Cassius, Mika, Nia).</div>
-          </div>
-          <div style="background:var(--card-inner); border-left:3px solid var(--emerald); padding:12px; border-radius:4px;">
-            <div style="font-size:0.85rem; font-weight:700; color:var(--text);">Sustain &amp; Vanguard Shield</div>
-            <div style="font-size:0.8rem; color:var(--muted);">Absorbs unblocked hits to keep team Stress below 100 (Khalipe, Magna, Hilde).</div>
-          </div>
-        </div>
-      </div>
-
-      <h2 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--text); margin-bottom:14px;">Proven Meta Compositions</h2>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; margin-bottom:30px;">
-        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:22px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <span style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--cyan);">The Apex Hunt Barrage</span>
-            <span style="font-size:0.75rem; color:var(--gold);">Order / Void / Instinct</span>
-          </div>
-          <div style="font-size:0.85rem; color:var(--text); margin-bottom:8px;"><strong>Squad:</strong> Hugo (5★) + Tressa (4★) + Cassius (4★)</div>
-          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
-            Tressa applies 0 AP Agony debuffs and Shadow Daggers, feeding Hugo’s <em>Commence the Hunt</em> for relentless Extra Attacks (+30% per stack). Cassius manages the draw deck, purges curses, and fixes hands.
-          </p>
-          <div style="font-size:0.75rem; color:var(--muted); border-top:1px solid var(--panel-border); padding-top:8px;">
-            <strong>Strength:</strong> Rapid boss melting without heavy AP expenditure.
-          </div>
-        </div>
-
-        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:22px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <span style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--red);">Passion Firestorm</span>
-            <span style="font-size:0.75rem; color:var(--gold);">Passion / Order / Instinct</span>
-          </div>
-          <div style="font-size:0.85rem; color:var(--text); margin-bottom:8px;"><strong>Squad:</strong> Heidemarie (5★) + Hugo (5★) + Cassius (4★)</div>
-          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
-            Heidemarie unleashes explosive Passion burst chains with Linked cards, triggering Hugo’s targeting follow-ups on every volley. Cassius guarantees smooth card draw.
-          </p>
-          <div style="font-size:0.75rem; color:var(--muted); border-top:1px solid var(--panel-border); padding-top:8px;">
-            <strong>Strength:</strong> Extreme AoE wave clear and burst scaling.
-          </div>
-        </div>
-
-        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:22px;">
-          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-            <span style="font-family:'Orbitron',sans-serif; font-size:1rem; font-weight:700; color:var(--emerald);">The Iron Bulwark</span>
-            <span style="font-size:0.75rem; color:var(--gold);">Justice / Instinct</span>
-          </div>
-          <div style="font-size:0.85rem; color:var(--text); margin-bottom:8px;"><strong>Squad:</strong> Magna (5★) + Khalipe (5★) + Mika (4★)</div>
-          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
-            Near-zero Stress accumulation. Khalipe stacks Silver Veil defense scaling, Magna casts massive shields and triggers Counterattacks, while Mika accelerates AP through Wave resonance.
-          </p>
-          <div style="font-size:0.75rem; color:var(--muted); border-top:1px solid var(--panel-border); padding-top:8px;">
-            <strong>Strength:</strong> Safest squad for high-heat Zero System codices.
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PANE 3: PROGRESSION -->
+    <!-- PANE 2: PROGRESSION -->
     <div id="tab-progression" class="tab-pane">
       <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px; margin-bottom:24px;">
         <h2 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--text); margin-bottom:10px;">Hero Investment Priority</h2>
@@ -1408,7 +1358,7 @@ __NAV__
       </div>
     </div>
 
-    <!-- PANE 4: CHECKLIST -->
+    <!-- PANE 3: CHECKLIST -->
     <div id="tab-checklist" class="tab-pane">
       <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px; max-width:680px; margin:0 auto;">
         <h2 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--text); margin-bottom:12px;">Squad Pre-Sortie Checklist</h2>
@@ -1464,13 +1414,23 @@ __FOOTER__
     with open(f'{base_dir}/guides.html', 'w', encoding='utf-8') as f:
         f.write(guides_html)
 
-    print("Successfully built all 6 multi-page website files with rich content:")
-    print(" - index.html (Portal/Home with stats banner)")
+    # ==========================================
+    # 7. BUILD teambuilder.html
+    # ==========================================
+    with open(f'{base_dir}/teambuilder_template.html', 'r', encoding='utf-8') as f:
+        tb_template = f.read()
+    tb_html = tb_template.replace('__NAV__', make_nav('teambuilder.html')).replace('__FOOTER__', make_footer())
+    with open(f'{base_dir}/teambuilder.html', 'w', encoding='utf-8') as f:
+        f.write(tb_html)
+
+    print("Successfully built all 7 multi-page website files with rich content:")
+    print(" - index.html (Portal/Home with stats banner & builder card)")
     print(" - characters.html (38 Combatants & 49 Partners with portraits & modal starter art)")
     print(" - cards.html (1,157 Unique Cards with 782 illustrations & AP filters)")
+    print(" - teambuilder.html (Interactive Squad & Deck Simulator, 24-card rules, turn simulator)")
     print(" - mechanics.html (Interactive sub-tabs, 28-term Glossary search, 6 Deities, Relics)")
     print(" - lore.html (Story narrative & 8 Factions with 87 member avatar badges)")
-    print(" - guides.html (Beginner Roadmap, 3 Meta Squads, Progression & Interactive Checklist)")
+    print(" - guides.html (Beginner Roadmap, Progression & Interactive Checklist)")
 
 if __name__ == '__main__':
     run()
