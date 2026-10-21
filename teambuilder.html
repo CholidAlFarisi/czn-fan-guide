@@ -165,6 +165,9 @@
         <button class="builder-btn" style="border-color:var(--muted); color:var(--muted); font-size:0.76rem; padding:5px 10px;" onclick="quickResetHeroDeck()">
           🔄 Reset Deck Modifiers
         </button>
+        <button class="builder-btn" style="background:linear-gradient(135deg, rgba(16,185,129,0.2), rgba(16,185,129,0.06)); border-color:var(--emerald); color:var(--emerald); font-size:0.76rem; padding:5px 12px; font-weight:700; margin-left:auto;" onclick="openCardBrowser(activeHeroSlotIndex + 1)">
+          ➕ Add Card from Browser
+        </button>
       </div>
 
       <!-- Active Hero Tabs -->
@@ -940,18 +943,13 @@ function renderSquadColumns() {
         </div>
       </div>
 
-      <div class="lane-deck">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-          <span style="font-size:0.75rem; font-weight:700; color:var(--muted); text-transform:uppercase;">Combat Deck (${getHeroCardsList(heroId, slotNum).filter(c => !isCardRemoved(heroId, c.name)).length} active)</span>
-          <button class="builder-btn" style="padding:2px 6px; font-size:0.65rem;" onclick="selectDeckTab(${slotNum - 1})">Focus</button>
+      <div class="lane-deck-summary">
+        <div>
+          <div style="font-size:0.68rem; font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:0.4px;">Combat Deck</div>
+          <div style="font-size:0.85rem; font-weight:800; color:var(--cyan);">${getHeroCardsList(heroId, slotNum).filter(c => !isCardRemoved(heroId, c.name)).length} <span style="font-size:0.7rem; font-weight:600; color:var(--muted);">Cards Active</span></div>
         </div>
-
-        <div class="lane-deck-cards">
-          ${renderLaneCards(heroId, slotNum)}
-        </div>
-
-        <button class="lane-add-card-btn" onclick="openCardBrowser(${slotNum})">
-          <span>➕</span> Add Card from Browser
+        <button class="builder-btn" style="padding:5px 10px; font-size:0.72rem; color:var(--cyan); border-color:rgba(34,211,238,0.4);" onclick="selectDeckTabAndScroll(${slotNum - 1})">
+          Configure Deck &rarr;
         </button>
       </div>
     `;
@@ -974,95 +972,6 @@ function isCardRemoved(heroId, cardName) {
   return (currentSquad.removedCards[heroId] || []).includes(cardName);
 }
 
-function renderLaneCards(heroId, slotNum) {
-  const cards = getHeroCardsList(heroId, slotNum);
-  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
-
-  return cards.map(c => {
-    const isRemoved = isCardRemoved(heroId, c.name);
-    const isBasic = c.isBasic || (hero && (hero.starters || []).some(s => s.name === c.name));
-    const hasVariants = !isBasic && c.variants && c.variants.length > 0;
-    const activeBranch = isBasic ? 0 : (currentSquad.branches?.[heroId]?.[c.name] || 0);
-    const activeVar = (hasVariants && activeBranch > 0) ? c.variants[activeBranch - 1] : null;
-
-    const displayDesc = activeVar ? activeVar.desc : (c.desc || '');
-    const displayCat = activeVar ? activeVar.category : (c.category || c.type || 'Attack');
-    let apCost = activeVar ? activeVar.cost : (c.cost !== undefined ? c.cost : 1);
-
-    const epTier = isBasic ? 'none' : (currentSquad.epiphanies[heroId]?.[c.name] || 'none');
-    const deityKey = currentSquad.deities[heroId]?.[c.name] || getDefaultDeityForCard(c);
-    if (!isBasic && (epTier === 'unique' || epTier === 'divine')) apCost = Math.max(0, apCost - 1);
-
-    let epClass = '';
-    if (!isBasic) {
-      if (activeBranch > 0 || epTier === 'unique') epClass = 'epiphany-unique';
-      else if (epTier === 'common') epClass = 'epiphany-common';
-      else if (epTier === 'divine') epClass = 'epiphany-divine';
-    }
-
-    let branchSelectHtml = '';
-    let epiphanyButtonHtml = '';
-    if (isBasic) {
-      branchSelectHtml = `<span style="font-size:0.62rem; color:var(--muted); padding:1px 6px; background:rgba(255,255,255,0.04); border-radius:3px; border:1px solid rgba(255,255,255,0.08);" title="Basic cards cannot have Epiphany">Basic Card</span>`;
-    } else if (hasVariants) {
-      branchSelectHtml = `
-        <select class="branch-picker" style="background:var(--card-inner); border:1px solid #dfb235; border-radius:3px; color:#dfb235; font-size:0.65rem; padding:1px 3px; max-width:130px;" onchange="setCardBranch('${heroId}', '${c.name.replace(/'/g, "\\'")}', this.value)" title="Choose Unique Epiphany Branch">
-          <option value="0" ${activeBranch === 0 ? 'selected' : ''}>Base Card</option>
-          ${c.variants.map(v => `
-            <option value="${v.branch}" ${activeBranch === v.branch ? 'selected' : ''}>
-              ✦ B${v.branch}: ${v.mult > 0 ? v.mult + '% DMG' : (v.shield > 0 ? v.shield + '% Shield' : v.desc.slice(0, 14) + '...')}
-            </option>
-          `).join('')}
-        </select>
-      `;
-      epiphanyButtonHtml = `<button class="builder-btn" style="padding:1px 5px; font-size:0.65rem; color:#dfb235; border-color:rgba(223,178,53,0.4);" onclick="openEpiphanyModal('${heroId}', '${c.name.replace(/'/g, "\\'")}', ${slotNum})" title="Inspect Epiphany Details">🔍</button>`;
-    } else {
-      branchSelectHtml = `
-        <select style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:3px; color:#dfb235; font-size:0.65rem; padding:1px 3px;" onchange="setCardEpiphany('${heroId}', '${c.name.replace(/'/g, "\\'")}', this.value)">
-          <option value="none" ${epTier === 'none' ? 'selected' : ''}>Base Tier</option>
-          <option value="common" ${epTier === 'common' ? 'selected' : ''}>💡 Common (+25%)</option>
-          <option value="divine" ${epTier === 'divine' ? 'selected' : ''}>✨ Divine (+100%, Deity)</option>
-        </select>
-      `;
-      epiphanyButtonHtml = `<button class="builder-btn" style="padding:1px 5px; font-size:0.65rem; color:#dfb235; border-color:rgba(223,178,53,0.4);" onclick="openEpiphanyModal('${heroId}', '${c.name.replace(/'/g, "\\'")}', ${slotNum})" title="Inspect Epiphany Details">🔍</button>`;
-    }
-
-    return `
-      <div class="game-card-item ${isRemoved ? 'removed' : ''} ${epClass}" style="padding:8px 10px; margin-bottom:4px; font-size:0.75rem;">
-        <div style="display:flex; justify-content:space-between; align-items:center;">
-          <div style="display:flex; align-items:center; gap:6px;">
-            <span class="card-ap-badge" style="width:20px; height:20px; font-size:0.72rem;">${apCost}</span>
-            <span style="font-weight:700; color:var(--text);">${c.name}</span>
-            ${activeBranch > 0 ? `<span style="font-size:0.6rem; color:#dfb235; font-weight:700; border:1px solid #dfb235; border-radius:2px; padding:0 3px;">B${activeBranch}</span>` : ''}
-          </div>
-          <span class="type-badge type-${displayCat.toLowerCase()}" style="font-size:0.6rem; padding:1px 5px;">${displayCat}</span>
-        </div>
-
-        <div style="font-size:0.68rem; color:${activeBranch > 0 ? '#f0d78c' : 'var(--muted)'}; line-height:1.25; margin:4px 0;">${displayDesc}</div>
-
-        <div style="display:flex; justify-content:space-between; align-items:center; gap:4px; margin-top:4px;">
-          ${branchSelectHtml}
-
-          <select style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:3px; color:var(--cyan); font-size:0.65rem; padding:1px 3px; max-width:90px;" onchange="setCardDeity('${heroId}', '${c.name.replace(/'/g, "\\'")}', this.value)">
-            <option value="vitor" ${deityKey === 'vitor' ? 'selected' : ''}>Vitor</option>
-            <option value="circen" ${deityKey === 'circen' ? 'selected' : ''}>Circen</option>
-            <option value="caligo" ${deityKey === 'caligo' ? 'selected' : ''}>Caligo</option>
-            <option value="diallos" ${deityKey === 'diallos' ? 'selected' : ''}>Diallos</option>
-            <option value="nihilum" ${deityKey === 'nihilum' ? 'selected' : ''}>Nihilum</option>
-            <option value="secred" ${deityKey === 'secred' ? 'selected' : ''}>Secred</option>
-          </select>
-
-          ${epiphanyButtonHtml}
-
-          <button class="builder-btn" style="padding:2px 6px; font-size:0.65rem; ${isRemoved ? 'border-color:var(--cyan); color:var(--cyan);' : 'border-color:var(--red); color:var(--red);'}" onclick="toggleCardRemoved('${heroId}', '${c.name.replace(/'/g, "\\'")}')">
-            ${isRemoved ? 'Restore' : 'Remove'}
-          </button>
-        </div>
-      </div>
-    `;
-  }).join('');
-}
-
 function renderSquadStations() {
   const container = document.getElementById('squadStationsContainer');
   container.innerHTML = '';
@@ -1083,7 +992,7 @@ function renderSquadStations() {
     station.innerHTML = `
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
         <span style="font-family:'Orbitron',sans-serif; font-size:0.8rem; font-weight:700; color:var(--cyan);">STATION 0${slotNum}</span>
-        <button class="builder-btn" style="padding:2px 8px; font-size:0.7rem;" onclick="selectDeckTab(${slotNum - 1})">Configure Deck</button>
+        <button class="builder-btn" style="padding:2px 8px; font-size:0.7rem;" onclick="selectDeckTabAndScroll(${slotNum - 1})">Configure Deck &rarr;</button>
       </div>
 
       <div style="display:flex; gap:10px; align-items:center; margin-bottom:12px; cursor:pointer;" onclick="openHeroModal(${slotNum})">
@@ -1153,6 +1062,25 @@ function changeHeroManifestation(slotNum, level) {
   showToast(`Hero in Slot ${slotNum} set to Stage ${level}!`);
 }
 
+function selectDeckTabAndScroll(idx) {
+  selectDeckTab(idx);
+  const el = document.getElementById('deckCustomizerContainer');
+  if (el) {
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
+function removeExtraCard(slotNum, cardName) {
+  if (currentSquad.extraCards && currentSquad.extraCards[slotNum]) {
+    const idx = currentSquad.extraCards[slotNum].findIndex(c => c.name === cardName);
+    if (idx !== -1) {
+      currentSquad.extraCards[slotNum].splice(idx, 1);
+      renderAll();
+      showToast(`Removed '${cardName}' from Hero 0${slotNum}!`);
+    }
+  }
+}
+
 function selectDeckTab(idx) {
   activeHeroSlotIndex = idx;
   renderAll();
@@ -1172,10 +1100,11 @@ function renderDeckCustomizer() {
   [1, 2, 3].forEach((slotNum, idx) => {
     const heroId = currentSquad['hero' + slotNum];
     const hero = window.CZN_DATA.combatants.find(c => c.id === heroId) || window.CZN_DATA.combatants[0];
+    const activeCount = getHeroCardsList(heroId, slotNum).filter(c => !isCardRemoved(heroId, c.name)).length;
     const btn = document.createElement('button');
     btn.className = `builder-btn ${activeHeroSlotIndex === idx ? 'active' : ''}`;
-    btn.style.cssText = 'padding:6px 14px; font-size:0.8rem; display:flex; align-items:center; gap:6px;';
-    btn.innerHTML = `<span>Slot 0${slotNum}:</span> <strong>${hero.name}</strong>`;
+    btn.style.cssText = 'padding:6px 14px; font-size:0.8rem; display:flex; align-items:center; gap:8px;';
+    btn.innerHTML = `<span>Slot 0${slotNum}:</span> <strong>${hero.name}</strong> <span style="font-size:0.7rem; opacity:0.85; background:rgba(255,255,255,0.1); padding:1px 6px; border-radius:10px;">${activeCount} cards</span>`;
     btn.onclick = () => selectDeckTab(idx);
     tabsContainer.appendChild(btn);
   });
@@ -1193,7 +1122,7 @@ function renderDeckCustomizer() {
   } else {
     cardsToShow = activeHero.collapse || [];
   }
-  const extra = currentSquad.extraCards[activeSlotNum] || [];
+  const extra = (currentSquad.extraCards[activeSlotNum] || []).map(c => ({ ...c, isExtra: true }));
   cardsToShow = cardsToShow.concat(extra);
 
   const commonEpList = (window.CZN_DATA.commonEpiphanies && window.CZN_DATA.commonEpiphanies.length > 0)
@@ -1324,13 +1253,15 @@ function renderDeckCustomizer() {
         `}
         ${isBasic ? `
           <div class="tcg-art-badge-branch" style="color:var(--muted); border-color:var(--panel-border);">🛡️ Starter</div>
+        ` : (c.isExtra ? `
+          <div class="tcg-art-badge-branch" style="color:var(--emerald); border-color:var(--emerald);">➕ Added Card</div>
         ` : (isUniqueSelected ? `
           <div class="tcg-art-badge-branch">✦ Branch ${activeBranch}</div>
         ` : (isCommonSelected ? `
           <div class="tcg-art-badge-branch" style="color:var(--cyan); border-color:var(--cyan);">💡 Common Spark</div>
         ` : `
           <div class="tcg-art-badge-branch" style="color:var(--muted); border-color:var(--panel-border);">Base Card</div>
-        `))}
+        `)))}
         ${isDivine && deityData ? `
           <div class="tcg-art-badge-deity">${deityData.icon} ${deityData.name}</div>
         ` : ''}
@@ -1390,14 +1321,34 @@ function renderDeckCustomizer() {
             🔍 Details
           </button>
         ` : ''}
-        <button class="builder-btn" style="flex:1; padding:5px 8px; font-size:0.72rem; ${isRemoved ? 'border-color:var(--cyan); color:var(--cyan);' : 'border-color:var(--red); color:var(--red);'}" onclick="toggleCardRemoved('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}')">
-          ${isRemoved ? '✅ Restore' : '🗑️ Remove'}
-        </button>
+        ${c.isExtra ? `
+          <button class="builder-btn" style="flex:1; padding:5px 8px; font-size:0.72rem; border-color:var(--red); color:var(--red);" onclick="removeExtraCard(${activeSlotNum}, '${c.name.replace(/'/g, "\\'")}')" title="Permanently delete this extra card from deck">
+            🗑️ Delete Extra
+          </button>
+        ` : `
+          <button class="builder-btn" style="flex:1; padding:5px 8px; font-size:0.72rem; ${isRemoved ? 'border-color:var(--cyan); color:var(--cyan);' : 'border-color:var(--red); color:var(--red);'}" onclick="toggleCardRemoved('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}')">
+            ${isRemoved ? '✅ Restore' : '🗑️ Remove'}
+          </button>
+        `}
       </div>
     `;
 
     grid.appendChild(cardEl);
   });
+
+  // Append Interactive "+ Add Card from Browser" Slot
+  const addCardEl = document.createElement('div');
+  addCardEl.className = 'tcg-card tcg-card-add';
+  addCardEl.onclick = () => openCardBrowser(activeSlotNum);
+  addCardEl.innerHTML = `
+    <div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:30px 16px; text-align:center;">
+      <div style="width:52px; height:52px; border-radius:50%; background:rgba(34,211,238,0.1); border:1px solid rgba(34,211,238,0.4); display:flex; align-items:center; justify-content:center; font-size:1.6rem; color:var(--cyan); margin-bottom:12px;">➕</div>
+      <div style="font-family:'Orbitron',sans-serif; font-size:0.95rem; font-weight:700; color:var(--text); margin-bottom:6px;">Add Card to Slot 0${activeSlotNum}</div>
+      <div style="font-size:0.75rem; color:var(--muted); line-height:1.45; margin-bottom:14px; max-width:210px;">Browse 200+ specialized combatant or universal cards from the card browser.</div>
+      <button class="builder-btn" style="padding:6px 14px; font-size:0.76rem; border-color:var(--cyan); color:var(--cyan); pointer-events:none;">Browse Cards &rarr;</button>
+    </div>
+  `;
+  grid.appendChild(addCardEl);
 }
 
 function setCardCommonSpark(heroId, cardName, sparkVal) {
