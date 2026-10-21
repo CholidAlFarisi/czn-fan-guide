@@ -22,8 +22,13 @@ def run():
         name_m = re.search(r'^#\s+(.+)$', content, re.M)
         name = name_m.group(1).strip() if name_m else fname.replace('.md', '').capitalize()
         
-        rarity_m = re.search(r'\*\*Rarity\*\*:\s*([★\d\-\s\w]+)', content)
-        rarity = 5 if '5' in (rarity_m.group(1) if rarity_m else '') else 4
+        norm_p = p.replace('\\', '/')
+        if '5-star' in norm_p:
+            rarity = 5
+        elif '4-star' in norm_p:
+            rarity = 4
+        else:
+            rarity = 5 if '★★★★★' in content or '5-Star' in content else 4
         
         job_m = re.search(r'\*\*Class\s*/\s*Job\*\*:\s*([^\n\r]+)', content)
         job = job_m.group(1).strip() if job_m else 'Combatant'
@@ -323,6 +328,7 @@ def run():
           <input type="text" id="combSearch" placeholder="Search combatants, jobs, factions...">
         </div>
       </div>
+      <div style="margin-bottom:14px; font-size:0.8rem; color:var(--muted);" id="combCountInfo">Showing 38 combatants</div>
       <div class="char-grid" id="combGrid"></div>
     </div>
 
@@ -339,6 +345,7 @@ def run():
           <input type="text" id="suppSearch" placeholder="Search partner names...">
         </div>
       </div>
+      <div style="margin-bottom:14px; font-size:0.8rem; color:var(--muted);" id="suppCountInfo">Showing 49 partners</div>
       <div class="char-grid" id="suppGrid"></div>
     </div>
   </div>
@@ -393,8 +400,10 @@ tabSupp.addEventListener('click', () => {{
 
 // Render Combatants
 const combGrid = document.getElementById('combGrid');
+const combCountInfo = document.getElementById('combCountInfo');
 function renderCombatants(items) {{
   combGrid.innerHTML = '';
+  combCountInfo.textContent = `Showing ${{items.length}} combatants`;
   if (items.length === 0) {{
     combGrid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px; color:var(--muted);">No matching combatants found.</div>';
     return;
@@ -423,8 +432,10 @@ renderCombatants(COMBATANTS);
 
 // Render Partners
 const suppGrid = document.getElementById('suppGrid');
+const suppCountInfo = document.getElementById('suppCountInfo');
 function renderPartners(items) {{
   suppGrid.innerHTML = '';
+  suppCountInfo.textContent = `Showing ${{items.length}} partners`;
   if (items.length === 0) {{
     suppGrid.innerHTML = '<div style="grid-column:1/-1; text-align:center; padding:40px; color:var(--muted);">No matching partners found.</div>';
     return;
