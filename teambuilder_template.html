@@ -114,10 +114,24 @@ __NAV__
         </div>
       </div>
 
-      <!-- Mode toggle: Normal deck vs Breakdown & Ego Skill -->
-      <div style="display:flex; gap:10px; margin-bottom:16px;">
+<!-- Mode toggle: Normal deck vs Breakdown & Ego Skill -->
+      <div style="display:flex; gap:10px; margin-bottom:12px;">
         <button class="builder-btn active" id="btnDeckModeNormal" onclick="setDeckMode('normal')">🃏 Operational Deck (8 Cards)</button>
         <button class="builder-btn" id="btnDeckModeCollapse" onclick="setDeckMode('collapse')">🧠 Trauma &amp; Ego Skill (Breakdown)</button>
+      </div>
+
+      <!-- Quick Modification Presets Bar (Saran 1) -->
+      <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:10px 14px; margin-bottom:16px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span style="font-size:0.75rem; color:var(--gold); font-weight:700; text-transform:uppercase; letter-spacing:0.5px;">⚡ Quick Mod Presets:</span>
+          <span style="font-size:0.75rem; color:var(--cyan); font-weight:700;" id="quickPresetHeroLabel">Active Hero</span>
+        </div>
+        <div style="display:flex; gap:6px; flex-wrap:wrap;">
+          <button class="builder-btn" style="font-size:0.72rem; padding:4px 9px; border-color:rgba(192,132,252,0.4); color:#c084fc;" onclick="quickAwakenAllDivine()">✨ Awaken All to Divine</button>
+          <button class="builder-btn" style="font-size:0.72rem; padding:4px 9px; border-color:rgba(223,178,53,0.4); color:var(--gold);" onclick="quickAwakenAllUnique()">🌟 Awaken All to Unique</button>
+          <button class="builder-btn" style="font-size:0.72rem; padding:4px 9px; border-color:rgba(248,80,88,0.4); color:var(--red);" onclick="quickOptimizeRemoveDefends()">🗑️ Optimize Deck: Remove Defends</button>
+          <button class="builder-btn" style="font-size:0.72rem; padding:4px 9px;" onclick="quickResetHeroDeck()">↩️ Reset Deck Modifiers</button>
+        </div>
       </div>
 
       <div class="game-card-grid" id="deckCardsContainer">
@@ -426,7 +440,8 @@ let currentSquad = {
 
   customDeck: {}, // heroId -> array of 4 chosen unique card names
   removedCards: {}, // heroId -> array of removed card names
-  epiphanies: {} // heroId -> { [cardName]: 'common' | 'unique' | 'divine' }
+  epiphanies: {}, // heroId -> { [cardName]: 'common' | 'unique' | 'divine' }
+  deities: {} // heroId -> { [cardName]: 'vitor' | 'circen' | 'caligo' | 'diallos' | 'nihilum' | 'secred' }
 };
 
 let activeHeroSlotIndex = 0; // 0, 1, 2 for deck tabs
@@ -501,7 +516,20 @@ function initDefaultDeck() {
     if (!currentSquad.epiphanies[hid]) {
       currentSquad.epiphanies[hid] = {};
     }
+    if (!currentSquad.deities[hid]) {
+      currentSquad.deities[hid] = {};
+    }
   });
+}
+
+function getDefaultDeityForCard(card) {
+  if (card.shield > 0 && card.category !== 'Attack') return 'diallos';
+  const desc = ((card.name || '') + ' ' + (card.desc || '')).toLowerCase();
+  if (desc.includes('draw') || desc.includes('agony') || desc.includes('void')) return 'nihilum';
+  if (desc.includes('ap') || desc.includes('cost') || desc.includes('time')) return 'circen';
+  if (desc.includes('tenacity') || desc.includes('ravage') || desc.includes('break')) return 'caligo';
+  if (desc.includes('ally') || desc.includes('coordinat') || desc.includes('extra attack')) return 'secred';
+  return 'vitor'; // Default high damage
 }
 
 function getHeroEffectiveStats(hero, stage = 0, partner = null) {
@@ -665,7 +693,7 @@ function renderPartnerAssistButtons() {
 }
 
 // ==========================================
-// 2. HERO DECK CUSTOMIZER (CARD REMOVAL & EPIPHANY)
+// 2. HERO DECK CUSTOMIZER & QUICK PRESETS (SARAN 1 & 2)
 // ==========================================
 function selectDeckTab(idx) {
   activeHeroSlotIndex = idx;
@@ -680,6 +708,136 @@ function setDeckMode(mode) {
   renderDeckCustomizer();
 }
 
+// QUICK PRESET 1: Awaken All to Divine (with Patron Deity Sparks)
+function quickAwakenAllDivine() {
+  const heroIds = [currentSquad.hero1, currentSquad.hero2, currentSquad.hero3];
+  const curHeroId = heroIds[activeHeroSlotIndex];
+  const hero = window.CZN_DATA.combatants.find(c => c.id === curHeroId);
+  if (!hero) return;
+
+  if (!currentSquad.epiphanies[curHeroId]) currentSquad.epiphanies[curHeroId] = {};
+  if (!currentSquad.deities[curHeroId]) currentSquad.deities[curHeroId] = {};
+
+  // Awaken all starters
+  hero.starters.forEach(s => {
+    currentSquad.epiphanies[curHeroId][s.name] = 'divine';
+    if (!currentSquad.deities[curHeroId][s.name]) {
+      currentSquad.deities[curHeroId][s.name] = getDefaultDeityForCard(s);
+    }
+  });
+
+  // Awaken all 4 selected uniques
+  const chosenNames = currentSquad.customDeck[curHeroId] || [];
+  for (let i = 0; i < 4; i++) {
+    const u = hero.uniques.find(x => x.name === chosenNames[i]) || hero.uniques[i];
+    if (u) {
+      currentSquad.epiphanies[curHeroId][u.name] = 'divine';
+      if (!currentSquad.deities[curHeroId][u.name]) {
+        currentSquad.deities[curHeroId][u.name] = getDefaultDeityForCard(u);
+      }
+    }
+  }
+
+  renderDeckCustomizer();
+  updateAnalytics();
+  initSimState();
+  logTerminal(`[Quick Preset] ✨ Awakened all 8 cards of <strong>${hero.name}</strong> to <strong>✨ Divine Epiphany</strong> (+80% DMG, -1 AP Cost &amp; Cosmic Deity Resonance Sparks)!`, 'highlight');
+}
+
+// QUICK PRESET 2: Awaken All to Unique
+function quickAwakenAllUnique() {
+  const heroIds = [currentSquad.hero1, currentSquad.hero2, currentSquad.hero3];
+  const curHeroId = heroIds[activeHeroSlotIndex];
+  const hero = window.CZN_DATA.combatants.find(c => c.id === curHeroId);
+  if (!hero) return;
+
+  if (!currentSquad.epiphanies[curHeroId]) currentSquad.epiphanies[curHeroId] = {};
+
+  hero.starters.forEach(s => {
+    currentSquad.epiphanies[curHeroId][s.name] = 'unique';
+  });
+
+  const chosenNames = currentSquad.customDeck[curHeroId] || [];
+  for (let i = 0; i < 4; i++) {
+    const u = hero.uniques.find(x => x.name === chosenNames[i]) || hero.uniques[i];
+    if (u) {
+      currentSquad.epiphanies[curHeroId][u.name] = 'unique';
+    }
+  }
+
+  renderDeckCustomizer();
+  updateAnalytics();
+  initSimState();
+  logTerminal(`[Quick Preset] 🌟 Awakened all 8 cards of <strong>${hero.name}</strong> to <strong>🌟 Unique Epiphany</strong> (+50% DMG, -1 AP Cost)!`, 'highlight');
+}
+
+// QUICK PRESET 3: Optimize Deck: Remove Defends (Deck Thinning)
+function quickOptimizeRemoveDefends() {
+  const heroIds = [currentSquad.hero1, currentSquad.hero2, currentSquad.hero3];
+  const curHeroId = heroIds[activeHeroSlotIndex];
+  const hero = window.CZN_DATA.combatants.find(c => c.id === curHeroId);
+  if (!hero) return;
+
+  if (!currentSquad.removedCards[curHeroId]) currentSquad.removedCards[curHeroId] = [];
+
+  let removedCount = 0;
+  // Inspect all 8 cards
+  const allCards = [...hero.starters];
+  const chosenNames = currentSquad.customDeck[curHeroId] || [];
+  for (let i = 0; i < 4; i++) {
+    const u = hero.uniques.find(x => x.name === chosenNames[i]) || hero.uniques[i];
+    if (u) allCards.push(u);
+  }
+
+  allCards.forEach(c => {
+    const nameLow = (c.name || '').toLowerCase();
+    const descLow = (c.desc || '').toLowerCase();
+    const isBasicDefend = nameLow.includes('defend') || nameLow.includes('guard') || (c.shield > 0 && c.mult === 0);
+    
+    if (isBasicDefend && !currentSquad.removedCards[curHeroId].includes(c.name)) {
+      currentSquad.removedCards[curHeroId].push(c.name);
+      removedCount++;
+    }
+  });
+
+  renderDeckCustomizer();
+  updateAnalytics();
+  initSimState();
+  logTerminal(`[Deck Optimization] 🗑️ Thinning deck: Removed <strong>${removedCount} basic defense cards</strong> from <strong>${hero.name}</strong>'s operational deck! Offensive draw consistency maximized.`, 'highlight');
+}
+
+// QUICK PRESET 4: Reset Deck Modifiers
+function quickResetHeroDeck() {
+  const heroIds = [currentSquad.hero1, currentSquad.hero2, currentSquad.hero3];
+  const curHeroId = heroIds[activeHeroSlotIndex];
+  const hero = window.CZN_DATA.combatants.find(c => c.id === curHeroId);
+  if (!hero) return;
+
+  currentSquad.removedCards[curHeroId] = [];
+  currentSquad.epiphanies[curHeroId] = {};
+  currentSquad.deities[curHeroId] = {};
+
+  renderDeckCustomizer();
+  updateAnalytics();
+  initSimState();
+  logTerminal(`[Quick Preset] ↩️ Restored all cards and reset Epiphanies for <strong>${hero.name}</strong> back to default standard state.`, 'normal');
+}
+
+function setCardDeity(heroId, cardName, deityKey) {
+  if (!currentSquad.deities[heroId]) currentSquad.deities[heroId] = {};
+  currentSquad.deities[heroId][cardName] = deityKey;
+
+  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
+  const hName = hero ? hero.name : 'Hero';
+  const deity = (window.CZN_DATA.deities && window.CZN_DATA.deities[deityKey]) || { name: deityKey, title: 'Cosmic Deity' };
+
+  logTerminal(`[Deity Resonated] Attuned [${cardName}] (${hName}) to <strong>🌌 ${deity.name} (${deity.title})</strong>! Spark [${deity.sparkId}] activated.`, 'highlight');
+
+  renderDeckCustomizer();
+  updateAnalytics();
+  initSimState();
+}
+
 function toggleCardRemoved(heroId, cardName) {
   if (!currentSquad.removedCards[heroId]) {
     currentSquad.removedCards[heroId] = [];
@@ -689,11 +847,9 @@ function toggleCardRemoved(heroId, cardName) {
   const hName = hero ? hero.name : 'Hero';
 
   if (idx !== -1) {
-    // Restore
     currentSquad.removedCards[heroId].splice(idx, 1);
     logTerminal(`[Card Restored] Restored [${cardName}] back to <strong>${hName}</strong>'s operational deck.`, 'normal');
   } else {
-    // Remove
     currentSquad.removedCards[heroId].push(cardName);
     logTerminal(`[Card Removed] 🗑️ Removed [${cardName}] from <strong>${hName}</strong>'s deck (Deck Thinning).`, 'highlight');
   }
@@ -703,27 +859,28 @@ function toggleCardRemoved(heroId, cardName) {
   initSimState();
 }
 
-function restoreAllRemovedCards(heroId) {
-  if (currentSquad.removedCards[heroId]) {
-    currentSquad.removedCards[heroId] = [];
-  }
-  renderDeckCustomizer();
-  updateAnalytics();
-  initSimState();
-  logTerminal(`[Deck Restored] All removed cards restored for active hero.`, 'normal');
-}
-
 function setCardEpiphany(heroId, cardName, epiphanyType) {
   if (!currentSquad.epiphanies[heroId]) {
     currentSquad.epiphanies[heroId] = {};
   }
   currentSquad.epiphanies[heroId][cardName] = epiphanyType;
 
+  // Auto assign default deity if divine
+  if (epiphanyType === 'divine') {
+    if (!currentSquad.deities[heroId]) currentSquad.deities[heroId] = {};
+    if (!currentSquad.deities[heroId][cardName]) {
+      const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
+      const allCards = hero ? [...hero.starters, ...hero.uniques] : [];
+      const foundCard = allCards.find(x => x.name === cardName) || {};
+      currentSquad.deities[heroId][cardName] = getDefaultDeityForCard(foundCard);
+    }
+  }
+
   const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
   const hName = hero ? hero.name : 'Hero';
   const label = epiphanyType === 'common' ? '💡 Common Epiphany (+25% DMG)'
     : (epiphanyType === 'unique' ? '🌟 Unique Epiphany (+50% DMG, -1 Cost)'
-    : (epiphanyType === 'divine' ? '✨ Divine Epiphany (+80% DMG, -1 Cost, +1 AP Refund)' : 'Standard'));
+    : (epiphanyType === 'divine' ? '✨ Divine Epiphany (+80% DMG, -1 Cost, Cosmic Spark)' : 'Standard'));
 
   logTerminal(`[Epiphany Awakened] [${cardName}] (${hName}) &rarr; <strong>${label}</strong>!`, 'highlight');
 
@@ -750,12 +907,15 @@ function renderDeckCustomizer() {
     tabsContainer.appendChild(btn);
   });
 
-  const cardsContainer = document.getElementById('deckCardsContainer');
-  cardsContainer.innerHTML = '';
-
   const curHeroId = heroIds[activeHeroSlotIndex];
   const curHero = window.CZN_DATA.combatants.find(c => c.id === curHeroId);
   if (!curHero) return;
+
+  const quickHeroLabel = document.getElementById('quickPresetHeroLabel');
+  if (quickHeroLabel) quickHeroLabel.textContent = `${curHero.name} (${8 - (currentSquad.removedCards[curHeroId] || []).length} / 8 Active)`;
+
+  const cardsContainer = document.getElementById('deckCardsContainer');
+  cardsContainer.innerHTML = '';
 
   if (deckViewMode === 'collapse') {
     if (!curHero.collapse || curHero.collapse.length === 0) {
@@ -783,6 +943,7 @@ function renderDeckCustomizer() {
   // Normal Deck: 4 Starters + 4 Selected Uniques with Epiphany and Removal controls
   const removedList = currentSquad.removedCards[curHeroId] || [];
   const heroEpis = currentSquad.epiphanies[curHeroId] || {};
+  const heroDeities = currentSquad.deities[curHeroId] || {};
 
   // Build full 8-card list for this hero
   const fullHeroCards = [];
@@ -802,6 +963,16 @@ function renderDeckCustomizer() {
   fullHeroCards.forEach(card => {
     const isRemoved = removedList.includes(card.name);
     const epiType = heroEpis[card.name] || 'none';
+    const curDeityKey = heroDeities[card.name] || getDefaultDeityForCard(card);
+    const deity = (window.CZN_DATA.deities && window.CZN_DATA.deities[curDeityKey]) || {
+      id: curDeityKey,
+      name: 'Vitor',
+      title: 'Might & Destruction',
+      icon: '🔥',
+      color: '#ef4444',
+      sparkId: 'add_r_spark_vitor_01',
+      sparkDesc: 'Destruction Flare: Multiplier boosted to +100% Damage!'
+    };
 
     // Calculate modified card cost and description
     let displayCost = card.cost || 0;
@@ -821,8 +992,25 @@ function renderDeckCustomizer() {
     } else if (epiType === 'divine') {
       itemExtraClass = 'epiphany-divine';
       displayCost = Math.max(0, displayCost - 1);
-      epiBadgeHtml = `<span class="badge-epiphany divine">✨ Divine Epiphany</span>`;
-      epiDescAdd = `<div style="font-size:0.7rem; color:#c084fc; margin-top:4px; font-weight:600;">✨ Divine: +80% Damage, -1 AP Cost, +1 AP Refund on use</div>`;
+      epiBadgeHtml = `<span class="badge-epiphany divine">✨ Divine</span><span class="badge-deity ${curDeityKey}">${deity.icon} ${deity.name}</span>`;
+      epiDescAdd = `
+        <div class="deity-spark-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+            <span style="font-size:0.68rem; font-weight:700; color:${deity.color};">🌌 Patron Deity:</span>
+            <select style="font-size:0.68rem; padding:1px 4px; background:var(--panel); border:1px solid ${deity.color}; border-radius:3px; color:${deity.color}; font-weight:700;" onchange="setCardDeity('${curHeroId}', '${card.name}', this.value)" ${isRemoved ? 'disabled' : ''}>
+              <option value="vitor" ${curDeityKey === 'vitor' ? 'selected' : ''}>🔥 Vitor (Might &amp; Destruction)</option>
+              <option value="circen" ${curDeityKey === 'circen' ? 'selected' : ''}>⏳ Circen (Time &amp; AP Refund)</option>
+              <option value="caligo" ${curDeityKey === 'caligo' ? 'selected' : ''}>⚡ Caligo (Tenacity Shred)</option>
+              <option value="diallos" ${curDeityKey === 'diallos' ? 'selected' : ''}>🛡️ Diallos (Aegis Shield)</option>
+              <option value="nihilum" ${curDeityKey === 'nihilum' ? 'selected' : ''}>🌌 Nihilum (Void Draw)</option>
+              <option value="secred" ${curDeityKey === 'secred' ? 'selected' : ''}>🤝 Secred (Pincer Attack)</option>
+            </select>
+          </div>
+          <div style="font-size:0.66rem; color:var(--text); line-height:1.35;">
+            <code style="color:var(--gold);">${deity.sparkId}</code> &bull; ${deity.sparkDesc}
+          </div>
+        </div>
+      `;
     }
 
     const cDiv = document.createElement('div');
@@ -836,7 +1024,7 @@ function renderDeckCustomizer() {
     cDiv.innerHTML = `
       <div class="game-card-head">
         <span class="card-cost-orb" style="${epiType !== 'none' ? 'border-color:var(--gold); color:var(--gold);' : ''}">${displayCost}</span>
-        <div style="display:flex; gap:4px; align-items:center;">
+        <div style="display:flex; gap:4px; align-items:center; flex-wrap:wrap;">
           ${epiBadgeHtml}
           <span style="font-size:0.68rem; padding:2px 6px; border-radius:3px; background:${typeBg}; color:${typeColor}; font-weight:700;">${typeLabel}</span>
         </div>
@@ -857,7 +1045,7 @@ function renderDeckCustomizer() {
             <option value="none" ${epiType === 'none' ? 'selected' : ''}>None</option>
             <option value="common" ${epiType === 'common' ? 'selected' : ''}>💡 Epiphany (+25%)</option>
             <option value="unique" ${epiType === 'unique' ? 'selected' : ''}>🌟 Unique (+50%, -1 AP)</option>
-            <option value="divine" ${epiType === 'divine' ? 'selected' : ''}>✨ Divine (+80%, -1 AP, Refund)</option>
+            <option value="divine" ${epiType === 'divine' ? 'selected' : ''}>✨ Divine (+80%, -1 AP, Deity)</option>
           </select>
         </div>
 
@@ -892,11 +1080,13 @@ function getCombinedDeckCards() {
 
     const removedList = currentSquad.removedCards[hid] || [];
     const heroEpis = currentSquad.epiphanies[hid] || {};
+    const heroDeities = currentSquad.deities[hid] || {};
 
     // 4 Starters
     hero.starters.forEach(s => {
       if (!removedList.includes(s.name)) {
         const epiType = heroEpis[s.name] || 'none';
+        const curDeityKey = heroDeities[s.name] || getDefaultDeityForCard(s);
         let mult = s.mult || 100;
         let shield = s.shield || 0;
         let cost = s.cost || 0;
@@ -923,6 +1113,7 @@ function getCombinedDeckCards() {
           shield,
           epiphanyType: epiType,
           isDivine,
+          deityKey: curDeityKey,
           heroId: hero.id,
           heroName: hero.name,
           heroElement: hero.element,
@@ -938,6 +1129,7 @@ function getCombinedDeckCards() {
       const u = hero.uniques.find(x => x.name === chosen[i]) || hero.uniques[i];
       if (u && !removedList.includes(u.name)) {
         const epiType = heroEpis[u.name] || 'none';
+        const curDeityKey = heroDeities[u.name] || getDefaultDeityForCard(u);
         let mult = u.mult || 100;
         let shield = u.shield || 0;
         let cost = u.cost || 0;
@@ -964,6 +1156,7 @@ function getCombinedDeckCards() {
           shield,
           epiphanyType: epiType,
           isDivine,
+          deityKey: curDeityKey,
           heroId: hero.id,
           heroName: hero.name,
           heroElement: hero.element,
@@ -1279,7 +1472,11 @@ function updateSimUI() {
     let epiTag = '';
     if (card.epiphanyType === 'common') epiTag = '<span class="badge-epiphany common">💡</span>';
     else if (card.epiphanyType === 'unique') epiTag = '<span class="badge-epiphany unique">🌟</span>';
-    else if (card.epiphanyType === 'divine') epiTag = '<span class="badge-epiphany divine">✨</span>';
+    else if (card.epiphanyType === 'divine') {
+      const dKey = card.deityKey || 'vitor';
+      const dObj = (window.CZN_DATA.deities && window.CZN_DATA.deities[dKey]) || { icon: '✨', name: 'Divine' };
+      epiTag = `<span class="badge-deity ${dKey}">${dObj.icon}</span>`;
+    }
 
     cardEl.innerHTML = `
       <div class="game-card-head">
@@ -1343,13 +1540,6 @@ function simPlayCard(handIndex) {
   sim.hand.splice(handIndex, 1);
   sim.discardPile.push(card);
 
-  // Divine Epiphany Cosmic Spark Resonance (+1 AP Refund!)
-  let refundedAp = false;
-  if (card.isDivine) {
-    sim.ap = Math.min(sim.maxAp + 1, sim.ap + 1);
-    refundedAp = true;
-  }
-
   // Auto-proc Status Effects based on card keywords
   const descLower = ((card.name || '') + ' ' + (card.desc || '')).toLowerCase();
   if (descLower.includes('bleed') || descLower.includes('fracture') || descLower.includes('lacerat') || descLower.includes('wound')) {
@@ -1366,31 +1556,72 @@ function simPlayCard(handIndex) {
   }
   updateDebuffUI();
 
+  // SARAN 2: PATRON COSMIC DEITY SPARK RESONANCE EXECUTION
+  let deityEffectMsg = '';
+  const dKey = card.deityKey || 'vitor';
+  const deity = (window.CZN_DATA.deities && window.CZN_DATA.deities[dKey]) || {
+    id: dKey,
+    name: 'Vitor',
+    title: 'Might & Destruction',
+    sparkId: 'add_r_spark_vitor_01'
+  };
+
+  let vitorExtraMult = 1.0;
+
+  if (card.isDivine) {
+    if (dKey === 'vitor') {
+      vitorExtraMult = 1.25; // Boosts damage from +80% to +100% total
+      deityEffectMsg = `<br>&nbsp;&nbsp;&nbsp;&nbsp;↳ 🌌 <strong>Patron Deity Vitor (Might &amp; Destruction)</strong> activated Spark [${deity.sparkId}]! Destruction Flare amplified attack to +100% Damage!`;
+    } else if (dKey === 'circen') {
+      sim.ap = Math.min(sim.maxAp + 1, sim.ap + 1);
+      deityEffectMsg = `<br>&nbsp;&nbsp;&nbsp;&nbsp;↳ 🌌 <strong>Patron Deity Circen (Time &amp; Efficiency)</strong> activated Spark [${deity.sparkId}]! Chrono flux refunded +1 AP to Squad!`;
+    } else if (dKey === 'caligo') {
+      sim.dummyTenacity = Math.max(0, sim.dummyTenacity - 1.5);
+      deityEffectMsg = `<br>&nbsp;&nbsp;&nbsp;&nbsp;↳ 🌌 <strong>Patron Deity Caligo (Tenacity &amp; Breakdown)</strong> activated Spark [${deity.sparkId}]! Tenacity Rupture instantly shredded 1.5 extra Tenacity bars!`;
+    } else if (dKey === 'diallos') {
+      sim.shield += 300;
+      deityEffectMsg = `<br>&nbsp;&nbsp;&nbsp;&nbsp;↳ 🌌 <strong>Patron Deity Diallos (Aegis &amp; Protection)</strong> activated Spark [${deity.sparkId}]! Erected +300 Bastion Aegis Shield for Squad!`;
+    } else if (dKey === 'nihilum') {
+      if (sim.drawPile.length > 0) {
+        sim.hand.push(sim.drawPile.pop());
+        deityEffectMsg = `<br>&nbsp;&nbsp;&nbsp;&nbsp;↳ 🌌 <strong>Patron Deity Nihilum (Void &amp; Flow)</strong> activated Spark [${deity.sparkId}]! Void flux surged: drew +1 extra card directly to Hand!`;
+      } else {
+        deityEffectMsg = `<br>&nbsp;&nbsp;&nbsp;&nbsp;↳ 🌌 <strong>Patron Deity Nihilum (Void &amp; Flow)</strong> activated Spark [${deity.sparkId}]! Draw pile empty.`;
+      }
+    } else if (dKey === 'secred') {
+      // Find an ally hero
+      const heroIds = [currentSquad.hero1, currentSquad.hero2, currentSquad.hero3].filter(id => id !== card.heroId);
+      const allyHero = window.CZN_DATA.combatants.find(c => c.id === heroIds[0]) || card;
+      const allyAtk = (allyHero.stats && allyHero.stats.atk) || 400;
+      sim.dummyHp = Math.max(0, sim.dummyHp - allyAtk);
+      sim.totalDamage += allyAtk;
+      sim.turnDamage += allyAtk;
+      deityEffectMsg = `<br>&nbsp;&nbsp;&nbsp;&nbsp;↳ 🌌 <strong>Patron Deity Secred (Synergy &amp; Coordination)</strong> activated Spark [${deity.sparkId}]! Triggered 100% Coordinated Pincer Attack by ${allyHero.name} (+${allyAtk.toLocaleString()} DMG)!`;
+    }
+  }
+
   // UN-GEARED DAMAGE CALCULATION FORMULA
   if (card.category === 'Attack') {
     const heroStats = card.heroStats || { atk: 450, crit_rate: 5, crit_dmg: 150 };
-    const pStats = card.partnerStats || { atk_pct: 0, flat_atk: 0 };
-
-    // 1. Scaled Base ATK from hero stats (already includes Manifestation & partner)
     const finalAtk = heroStats.atk;
     
-    // 2. Card Skill Multiplier (includes Epiphany upgrade)
-    const mult = card.mult || 100;
+    // Card Skill Multiplier (includes Epiphany upgrade and Vitor boost)
+    const mult = Math.round((card.mult || 100) * vitorExtraMult);
     let baseDmg = finalAtk * (mult / 100);
 
-    // 3. Weakness multiplier (+25% if element matches enemy weakness)
+    // Weakness multiplier (+25% if element matches enemy weakness)
     const isWeakness = sim.dummyWeakness !== 'None' && sim.dummyWeakness === card.heroElement;
     const weaknessMod = isWeakness ? 1.25 : 1.0;
 
-    // 4. Critical Roll (Base un-geared Crit Rate)
+    // Critical Roll
     const critRoll = Math.random() * 100;
     const isCrit = critRoll <= heroStats.crit_rate;
     const critMod = isCrit ? (heroStats.crit_dmg / 100) : 1.0;
 
-    // 5. Ravage State multiplier (+50% DMG taken)
+    // Ravage State multiplier (+50% DMG taken)
     const ravageMod = sim.isRavage ? 1.50 : 1.0;
 
-    // 6. Vulnerable amplifier (+30% DMG amplification, consumes 1 stack)
+    // Vulnerable amplifier (+30% DMG amplification, consumes 1 stack)
     let vulnMod = 1.0;
     let consumedVuln = false;
     if (sim.debuffs && sim.debuffs.vuln > 0) {
@@ -1400,7 +1631,7 @@ function simPlayCard(handIndex) {
       updateDebuffUI();
     }
 
-    // 7. Enemy DEF Mitigation calculation
+    // Enemy DEF Mitigation calculation
     const rawDamage = Math.round(baseDmg * weaknessMod * critMod * ravageMod * vulnMod);
     let defMod = 1.0;
     if (sim.applyDef && sim.dummyDef > 0) {
@@ -1415,7 +1646,7 @@ function simPlayCard(handIndex) {
     if (finalDamage > sim.highestHit) sim.highestHit = finalDamage;
     if (isCrit) sim.critHits++;
 
-    // 8. Tenacity Damage calculation:
+    // Tenacity Damage calculation:
     const tenacityDmgPerAp = isWeakness ? 1.0 : (1.0 / 3.0);
     const tenacityCost = card.cost === 0 ? (1.0 / 6.0) : (card.cost * tenacityDmgPerAp);
     
@@ -1433,7 +1664,7 @@ function simPlayCard(handIndex) {
     let epiLogBadge = '';
     if (card.epiphanyType === 'common') epiLogBadge = `<span style="color:var(--cyan); font-weight:700;">[💡 Epiphany +25%]</span> `;
     else if (card.epiphanyType === 'unique') epiLogBadge = `<span style="color:var(--gold); font-weight:700;">[🌟 Unique Epiphany +50%]</span> `;
-    else if (card.epiphanyType === 'divine') epiLogBadge = `<span style="color:#c084fc; font-weight:700;">[✨ Divine Epiphany +80%]</span> `;
+    else if (card.epiphanyType === 'divine') epiLogBadge = `<span style="color:#c084fc; font-weight:700;">[✨ Divine &bull; ${deity.name}]</span> `;
 
     // Terminal Logging
     let logMsg = `[Turn ${sim.turn}] <strong>${card.heroName}</strong> played [${card.name}] ${epiLogBadge}(-${card.cost} AP) &rarr; <strong style="color:var(--red);">${finalDamage.toLocaleString()} DMG</strong>! `;
@@ -1442,21 +1673,24 @@ function simPlayCard(handIndex) {
     if (isWeakness) logMsg += `<span style="color:var(--cyan); font-weight:700;">[WEAKNESS +25%]</span> `;
     if (consumedVuln) logMsg += `<span style="color:var(--gold); font-weight:700;">[VULNERABLE +30%]</span> `;
     if (sim.isRavage && !tenacityBroken) logMsg += `<span style="color:var(--gold);">[RAVAGE +50%]</span> `;
-    if (refundedAp) logMsg += `<br>&nbsp;&nbsp;&nbsp;&nbsp;↳ 🌌 <strong>Cosmic Spark Resonance!</strong> Divine Epiphany refunded +1 AP!`;
+    if (deityEffectMsg) logMsg += deityEffectMsg;
     if (tenacityBroken) logMsg += `<br>&nbsp;&nbsp;&nbsp;&nbsp;↳ ⚡ <strong>TENACITY SHIELD BROKEN!</strong> Target enters Ravage State! +1 Bonus AP granted to Squad!`;
     
     logTerminal(logMsg, 'action');
   } else if (card.shield > 0) {
     // Defense / Shield Card
     const heroStats = card.heroStats || { def: 200 };
-    const pStats = card.partnerStats || { def_pct: 0 };
     const finalDef = heroStats.def;
     const shieldGain = Math.round(finalDef * (card.shield / 100));
     sim.shield += shieldGain;
-    logTerminal(`[Turn ${sim.turn}] <strong>${card.heroName}</strong> played [${card.name}] (-${card.cost} AP) &rarr; Generated <strong style="color:var(--emerald);">+${shieldGain} Shield</strong>! (Total Shield: ${sim.shield})`, 'normal');
+    let logMsg = `[Turn ${sim.turn}] <strong>${card.heroName}</strong> played [${card.name}] (-${card.cost} AP) &rarr; Generated <strong style="color:var(--emerald);">+${shieldGain} Shield</strong>! (Total Shield: ${sim.shield})`;
+    if (deityEffectMsg) logMsg += deityEffectMsg;
+    logTerminal(logMsg, 'normal');
   } else {
     // Utility Skill
-    logTerminal(`[Turn ${sim.turn}] <strong>${card.heroName}</strong> played [${card.name}] (-${card.cost} AP) &rarr; ${card.desc}`, 'normal');
+    let logMsg = `[Turn ${sim.turn}] <strong>${card.heroName}</strong> played [${card.name}] (-${card.cost} AP) &rarr; ${card.desc}`;
+    if (deityEffectMsg) logMsg += deityEffectMsg;
+    logTerminal(logMsg, 'normal');
   }
 
   updateSimUI();
@@ -1487,36 +1721,31 @@ function simEndTurn() {
     sim.discardPile.push(sim.hand.pop());
   }
 
-  // ==========================================
   // ENEMY PHASE: STATUS DOT RESOLUTION (BLEED & BURN)
-  // ==========================================
   const avgAtk = getSquadAvgAtk();
 
-  // 1. Burn DoT (Scorched): Passion element DoT, 80% ATK per stack
   if (sim.debuffs && sim.debuffs.burn > 0) {
     const burnDmg = Math.round(sim.debuffs.burn * (avgAtk * 0.8));
     sim.dummyHp = Math.max(0, sim.dummyHp - burnDmg);
     sim.totalDamage += burnDmg;
     sim.turnDamage += burnDmg;
     const oldBurn = sim.debuffs.burn;
-    sim.debuffs.burn = Math.max(0, sim.debuffs.burn - 1); // Decays by 1 stack
+    sim.debuffs.burn = Math.max(0, sim.debuffs.burn - 1);
     logTerminal(`🔥 [Enemy Phase - Burn DoT] Scorched flame detonated for <strong style="color:#f97316;">${burnDmg.toLocaleString()} DMG</strong>! (${oldBurn} stacks &rarr; decayed to ${sim.debuffs.burn})`, 'action');
   }
 
-  // 2. Bleed DoT (Fracture): Physical hemorrhage DoT, 40% ATK per stack
   if (sim.debuffs && sim.debuffs.bleed > 0) {
     const bleedDmg = Math.round(sim.debuffs.bleed * (avgAtk * 0.4));
     sim.dummyHp = Math.max(0, sim.dummyHp - bleedDmg);
     sim.totalDamage += bleedDmg;
     sim.turnDamage += bleedDmg;
     const oldBleed = sim.debuffs.bleed;
-    sim.debuffs.bleed = Math.floor(sim.debuffs.bleed / 2); // Stacks halved
+    sim.debuffs.bleed = Math.floor(sim.debuffs.bleed / 2);
     logTerminal(`🩸 [Enemy Phase - Bleed DoT] Fracture hemorrhage lacerated target for <strong style="color:var(--red);">${bleedDmg.toLocaleString()} DMG</strong>! (${oldBleed} stacks &rarr; halved to ${sim.debuffs.bleed})`, 'action');
   }
 
   updateDebuffUI();
 
-  // Check if Target Dummy died from DoT
   if (sim.dummyHp <= 0) {
     const dName = document.getElementById('dummyNameLabel').textContent;
     logTerminal(`💀 [Target Neutralized] <strong>${dName}</strong> was eliminated by status DoT damage! Restoring full HP &amp; Tenacity for next test round.`, 'highlight');
@@ -1530,14 +1759,12 @@ function simEndTurn() {
   sim.maxAp = 3;
   sim.turnDamage = 0;
 
-  // If Ravage was active, restore Tenacity for the new turn
   if (sim.isRavage) {
     sim.isRavage = false;
     sim.dummyTenacity = sim.dummyMaxTenacity;
     logTerminal(`[Turn ${sim.turn}] Ravage state ended. Tenacity shield fully restored to ${sim.dummyMaxTenacity} bars.`, 'normal');
   }
 
-  // Draw 5 cards
   for (let i = 0; i < 5; i++) {
     if (sim.drawPile.length === 0) {
       if (sim.discardPile.length > 0) {
@@ -1801,6 +2028,7 @@ function loadPreset(presetId) {
   currentSquad.customDeck = {};
   currentSquad.removedCards = {};
   currentSquad.epiphanies = {};
+  currentSquad.deities = {};
   initDefaultDeck();
   renderAll();
   initSimState();
@@ -1820,6 +2048,7 @@ function resetSquad() {
   currentSquad.customDeck = {};
   currentSquad.removedCards = {};
   currentSquad.epiphanies = {};
+  currentSquad.deities = {};
   initDefaultDeck();
   renderAll();
   initSimState();

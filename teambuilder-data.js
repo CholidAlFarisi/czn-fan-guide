@@ -6,3 +6,75 @@ window.CZN_DATA = {
   presets: [{"id": "apex_hunt", "name": "The Apex Hunt Barrage", "desc": "Single-target assassination engine. Tressa applies rapid debuffs, Hugo triggers repeated follow-ups, and Cassius clears curses and regulates draw flow.", "hero_ids": ["1010", "1009", "1049"], "partner_ids": ["30091", "20008", "1070"]}, {"id": "passion_firestorm", "name": "Passion Firestorm", "desc": "Explosive AoE burst squad. Heidemarie chains Passion volleys with Hugo follow-up strikes while Cassius guarantees steady 3 AP hand flow.", "hero_ids": ["1061", "1010", "1049"], "partner_ids": ["30045", "30091", "20021"]}, {"id": "iron_bulwark", "name": "The Iron Bulwark", "desc": "High-sustain, near-zero Stress tanking. Magna and Khalipe stack massive barriers and counterattacks while Mika fuels AP.", "hero_ids": ["1064", "1062", "1017"], "partner_ids": ["30095", "20005", "30118"]}, {"id": "dark_mist_blades", "name": "Dark Mist Blades", "desc": "Void discard and bleeding combo. Rin transitions through stance swordplay while Luke marks critical vulnerabilities.", "hero_ids": ["1018", "1004", "1050"], "partner_ids": ["30054", "30114", "20002"]}],
   glossary: [{"term": "Action Points (AP)", "category": "Resource & Economy", "desc": "Sumber daya energi per giliran untuk memainkan kartu. Setiap tim memulai giliran dengan 3 AP (dapat bertambah melalui kondisi Ravage atau Divine Sparks)."}, {"term": "Tenacity & Tenacity Bar", "category": "Combat Mechanics", "desc": "Bilah pertahanan kuning di bawah HP musuh. Mengurangi damage yang diterima dan terkikis saat musuh terkena serangan (kartu single-target mengikis 1/3 bar per AP; kartu dengan kelemahan elemen mengikis 1 bar penuh per AP)."}, {"term": "Ravage State", "category": "Combat Mechanics", "desc": "Kondisi saat bilah Tenacity musuh terkuras habis (0). Musuh terkena stun, menerima peningkatan damage kerentanan (+50% DMG), dan regu pemain langsung memperoleh +1 Bonus AP!"}, {"term": "Elemental Weakness (+25% DMG)", "category": "Combat Mechanics", "desc": "Mengeksploitasi kelemahan elemen Ego musuh (Passion, Order, Justice, Void, Instinct). Serangan yang cocok memberikan bonus damage multiplikatif +25% dan mengikis Tenacity 3x lebih cepat."}, {"term": "Critical Hit & Crit Damage", "category": "Stats & Combat", "desc": "Serangan kritikal berbasis Crit Rate (standar dasar 5%). Saat aktif, menghasilkan 150% Crit DMG (tanpa perlengkapan), tetapi tidak menambah pengikisan Tenacity."}, {"term": "Combatant", "category": "Entities", "desc": "Pahlawan petarung utama di garis depan. Tepat 3 Combatant membentuk satu tim, berbagi satu bilah total HP, dan masing-masing membawa 8 kartu (4 Starter + 4 Unique)."}, {"term": "Partner (Supporter)", "category": "Entities", "desc": "Karakter pendukung yang dipasangkan 1-ke-1 ke setiap Combatant (total 3 Partner per tim). Memberikan bonus stat dasar (ATK/DEF/HP), talenta pasif sinergi, dan 1 kartu Assist aktif di medan tempur."}, {"term": "Mental Breakdown & Trauma Collapse", "category": "Psychological System", "desc": "Saat Stres regu mencapai batas maksimal 100 poin, pahlawan mengalami gangguan jiwa. Kartu Trauma Collapse dipaksa masuk ke dek operasi, namun membuka akses ke Ego Ultimate Skill."}, {"term": "Equipment (Relics)", "category": "Gear System", "desc": "Perlengkapan dasar 3 slot (Weapon, Armor, Trinket) dengan tingkat bintang 1★ hingga 5★. Memberikan stat flat pasti (ATK, DEF, HP) dan pasif tempur unik saat memasuki pertempuran."}, {"term": "Memory Fragments (Artifacts)", "category": "Gear System", "desc": "Sistem artefak 6 slot (Shock, Suppression, Denial, Ideal, Desire, Imagination) dengan 1 stat utama dan hingga 4 sub-stat acak. Mengaktifkan bonus set 2-piece dan 4-piece (seperti Conqueror, Spark of Passion, Line of Justice)."}, {"term": "Inspiration", "category": "Card Keywords", "desc": "Efek mutasi kartu yang mengurangi biaya AP atau menambahkan hit ekstra ketika kondisi pemicu tertentu di tangan terpenuhi."}, {"term": "Exhaust", "category": "Card Keywords", "desc": "Kartu yang setelah dimainkan langsung dikeluarkan dari pertempuran hingga pertarungan selesai (tidak masuk ke Graveyard/Discard Pile)."}, {"term": "Retain", "category": "Card Keywords", "desc": "Kartu yang tetap berada di tangan saat giliran berakhir dan tidak dibuang ke Graveyard."}, {"term": "Agony", "category": "Status Effects", "desc": "Status debuff kerusakan berkala (DoT) yang meledakkan damage pada awal giliran musuh atau saat dipicu oleh kartu Hunter/Psionic."}, {"term": "Fixed Shield & Barrier", "category": "Defense", "desc": "Lapisan pelindung yang menyerap kerusakan sebelum mengenai bilah HP tim, mencegah akumulasi Stres mental regu."}, {"term": "Target Defense & Mitigation (DEF)", "category": "Combat Mechanics", "desc": "Nilai pertahanan musuh yang mereduksi kerusakan yang diterima. Formula mitigasi standar CZN: Damage Akhir = Damage Murni x (1000 / (1000 + DEF)). Pada DEF 350, musuh mereduksi sekitar 26% damage."}, {"term": "Bleed / Fracture (Physical DoT)", "category": "Status Effects", "desc": "Efek kerusakan berkelanjutan (Damage over Time) fisik. Aktif pada akhir giliran (Enemy Phase) menghasilkan 40% dari ATK tim per stack. Setelah terpicu, jumlah stack terbelah dua (halved)."}, {"term": "Burn / Scorched (Passion DoT)", "category": "Status Effects", "desc": "Efek kerusakan berkelanjutan elemen Passion. Meledak pada akhir giliran sebesar 80% dari ATK tim per stack. Setelah terpicu, tumpukan berkurang 1 stack per giliran."}, {"term": "Vulnerable (Damage Amp)", "category": "Status Effects", "desc": "Status kutukan kerentanan pada target yang melipatgandakan kerusakan serangan yang diterima sebesar +30% (atau +50% pada skill tertentu). Setiap serangan langsung mengonsumsi 1 stack Vulnerable."}, {"term": "Ego Manifestation (Stage 0–6 / Limit Break)", "category": "Progression & Stats", "desc": "Sistem duplikasi pahlawan (Stage 0 hingga 6) menggunakan Omega Code. Setiap stage membuka memori tersembunyi (Sleeping, Awakening, Vivid, Inner, Complete, Liberated Memory) yang meningkatkan Base Stats pahlawan (+5% hingga +35% ATK/HP/DEF), bonus Crit Rate (+2% s/d +10%), Crit DMG (+10% s/d +50%), serta penguatan efek kartu."}, {"term": "Common Epiphany (💡 Card Epiphany)", "category": "Deck & Card Epiphany", "desc": "Evolusi kartu standar yang muncul saat eksplorasi Chaos. Meningkatkan damage atau shield kartu sebesar +25% dari nilai dasar tanpa mengubah biaya AP."}, {"term": "Unique Epiphany (🌟 Archetype Epiphany)", "category": "Deck & Card Epiphany", "desc": "Evolusi kartu tingkat tinggi khusus pahlawan. Meningkatkan output serangan/pertahanan sebesar +50% dan memangkas biaya AP sebesar -1 AP (min 0 AP)."}, {"term": "Divine Epiphany (✨ Cosmic Divinity)", "category": "Deck & Card Epiphany", "desc": "Tingkatan pencerahan tertinggi dari 6 Dewa Kosmik (Vitor, Circen, Tenebria, dsb.). Memberikan lonjakan damage masif (+80% DMG), reduksi biaya -1 AP, serta efek Divine Spark Resonance: mengembalikan +1 AP atau menghancurkan Tenacity ekstra saat dimainkan."}, {"term": "Card Removal (Deck Thinning)", "category": "Deck & Card Epiphany", "desc": "Mekanisme membuang kartu dasar/starter yang kurang optimal dari catatan Save Data. Merampingkan dek dari 24 kartu menjadi lebih padat, menjamin draw kartu-kartu finisher dan sinergi tinggi pada setiap giliran tempur."}]
 };
+
+// ==========================================
+// THE 6 PRIMORDIAL DEITIES & DIVINE SPARKS
+// ==========================================
+window.CZN_DATA.deities = {
+  vitor: {
+    id: "vitor",
+    name: "Vitor",
+    title: "Deity of Might & Destruction",
+    domain: "Direct Damage & Crit Amplification",
+    icon: "🔥",
+    color: "#ef4444",
+    sparkId: "add_r_spark_vitor_01",
+    sparkDesc: "Destruction Flare: Multiplier boosted to +100% Damage!",
+    effect: "vitor_boost"
+  },
+  circen: {
+    id: "circen",
+    name: "Circen",
+    title: "Deity of Time & Efficiency",
+    domain: "AP Cost Reduction & Tempo",
+    icon: "⏳",
+    color: "#22d3ee",
+    sparkId: "add_r_spark_circen_02",
+    sparkDesc: "Chrono Shift: -1 AP Cost and refunds +1 AP on use!",
+    effect: "circen_refund"
+  },
+  caligo: {
+    id: "caligo",
+    name: "Caligo",
+    title: "Deity of Tenacity & Breakdown",
+    domain: "Tenacity Shred & Ravage Burst",
+    icon: "⚡",
+    color: "#a855f7",
+    sparkId: "add_r_spark_caligo_01",
+    sparkDesc: "Tenacity Rupture: Shreds 1.5 extra Tenacity bars on hit!",
+    effect: "caligo_shred"
+  },
+  diallos: {
+    id: "diallos",
+    name: "Diallos",
+    title: "Deity of Aegis & Protection",
+    domain: "Shield Amplification & Bastion Armor",
+    icon: "🛡️",
+    color: "#10b981",
+    sparkId: "add_r_spark_diallos_01",
+    sparkDesc: "Aegis Bastion: Generates an additional +300 Shield for squad!",
+    effect: "diallos_shield"
+  },
+  nihilum: {
+    id: "nihilum",
+    name: "Nihilum",
+    title: "Deity of Void & Flow",
+    domain: "Card Draw & Pile Flow",
+    icon: "🌌",
+    color: "#818cf8",
+    sparkId: "add_r_spark_nihilum_01",
+    sparkDesc: "Void Resonance: Instantly draws +1 extra card to Hand!",
+    effect: "nihilum_draw"
+  },
+  secred: {
+    id: "secred",
+    name: "Secred",
+    title: "Deity of Synergy & Coordination",
+    domain: "Coordinated Strike & Co-op Pincer",
+    icon: "🤝",
+    color: "#f59e0b",
+    sparkId: "add_r_spark_secred_01",
+    sparkDesc: "Pincer Strike: Triggers 100% Coordinated Attack by a random ally!",
+    effect: "secred_pincer"
+  }
+};
