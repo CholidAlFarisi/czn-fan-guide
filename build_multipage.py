@@ -146,13 +146,42 @@ def run():
         if key in seen_cards:
             continue
         seen_cards.add(key)
+        # Check for Epiphany branches
+        variants = []
+        r_sparks = c.get('r_spark_cards') or []
+        for rsp in r_sparks:
+            v_desc = rsp.get('desc_display', rsp.get('desc', ''))
+            v_cleaned = clean_desc(v_desc)
+            v_branch = rsp.get('r_spark_branch', len(variants) + 1)
+            v_cost = rsp.get('cost', cost)
+            
+            # Simple mult extraction
+            v_mult = 0
+            m_match = re.search(r'(\d+)%[^\d%]{0,30}Damage', v_cleaned, re.IGNORECASE)
+            if m_match:
+                v_mult = int(m_match.group(1))
+            
+            v_shield = 0
+            s_match = re.search(r'(\d+)%[^\d%]{0,30}(?:Shield|Barrier)', v_cleaned, re.IGNORECASE)
+            if s_match:
+                v_shield = int(s_match.group(1))
+
+            variants.append({
+                'branch': v_branch,
+                'desc': v_cleaned,
+                'cost': v_cost,
+                'mult': v_mult,
+                'shield': v_shield
+            })
+
         cards_list.append({
             'name': name,
             'cost': cost,
             'type': card_type,
             'effect': cleaned,
             'owner': owner,
-            'image': sct
+            'image': sct,
+            'variants': variants
         })
 
     # Helper for navigation
@@ -229,6 +258,7 @@ def run():
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="teambuilder-data.js"></script>
 </head>
 <body>
 {make_nav('index.html')}
@@ -339,6 +369,7 @@ def run():
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="teambuilder-data.js"></script>
 </head>
 <body>
 {make_nav('characters.html')}
@@ -636,6 +667,7 @@ suppSearch.addEventListener('input', filterPartners);
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="teambuilder-data.js"></script>
 </head>
 <body>
 {make_nav('cards.html')}
@@ -721,6 +753,24 @@ function renderCards() {{
 
     const artHtml = c.image ? `<div class="card-art-box"><img src="assets/cards/${{c.image}}.webp" alt="${{c.name}}" loading="lazy" onerror="this.parentElement.style.display='none'"></div>` : '';
 
+    let variantsHtml = '';
+    if (c.variants && c.variants.length > 0) {{
+      variantsHtml = `
+        <div style="margin-top:10px; border-top:1px solid rgba(223,178,53,0.25); padding-top:8px;">
+          <button class="builder-btn" style="padding:2px 8px; font-size:0.68rem; color:#dfb235; border-color:rgba(223,178,53,0.4); width:100%;" onclick="this.nextElementSibling.style.display = this.nextElementSibling.style.display === 'none' ? 'flex' : 'none';">
+            ✦ 5 Unique Epiphany Branches ▼
+          </button>
+          <div class="card-variants-drawer" style="display:none; margin-top:6px;">
+            ${{c.variants.map(v => `
+              <div class="card-variant-pill">
+                <strong>Branch ${{v.branch}}${{v.mult > 0 ? ' (' + v.mult + '% DMG)' : (v.shield > 0 ? ' (' + v.shield + '% Shield)' : '')}}:</strong> ${{v.desc}}
+              </div>
+            `).join('')}}
+          </div>
+        </div>
+      `;
+    }}
+
     el.innerHTML = `
       ${{artHtml}}
       <div class="c-top">
@@ -729,7 +779,8 @@ function renderCards() {{
       </div>
       <h4>${{c.name}}</h4>
       <div class="c-effect">${{c.effect}}</div>
-      <div class="c-meta">
+      ${{variantsHtml}}
+      <div class="c-meta" style="margin-top:10px;">
         <span>${{c.owner}}</span>
         <span style="text-transform:uppercase; font-size:0.65rem;">${{c.cost}} AP</span>
       </div>
@@ -804,6 +855,7 @@ cardSearch.addEventListener('input', applyCardFilters);
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="teambuilder-data.js"></script>
 </head>
 <body>
 __NAV__
@@ -818,6 +870,7 @@ __NAV__
   <div class="container">
     <div class="sub-tabs">
       <button class="sub-tab-btn active" data-tab="tab-combat">⚡ Combat &amp; Stress Engine</button>
+      <button class="sub-tab-btn" data-tab="tab-epiphany">✨ Epiphany &amp; Evolution (304 Branches)</button>
       <button class="sub-tab-btn" data-tab="tab-glossary">📖 Keywords Glossary (28)</button>
       <button class="sub-tab-btn" data-tab="tab-deities">🌌 6 Cosmic Deities &amp; Sparks</button>
       <button class="sub-tab-btn" data-tab="tab-relics">🛡️ Relics System (557)</button>
@@ -872,6 +925,83 @@ __NAV__
           <p style="font-size:0.88rem; color:var(--body); line-height:1.7;">
             Completed runs crystallize into permanent <strong>Save Data</strong> loadouts. Higher Codex heat modifiers expand your Save Value budget, allowing you to lock top-tier mutated cards and relics for boss battles and future conquests.
           </p>
+        </div>
+      </div>
+    </div>
+
+        <!-- PANE: EPIPHANY & EVOLUTION SYSTEM -->
+    <div id="tab-epiphany" class="tab-pane">
+      <div style="background:linear-gradient(135deg, rgba(223,178,53,0.15), var(--panel) 70%); border:1px solid rgba(223,178,53,0.35); border-radius:8px; padding:24px; margin-bottom:28px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:8px;">
+          <h2 style="font-family:'Orbitron',sans-serif; font-size:1.35rem; color:var(--text); margin:0;">Epiphany Mutation &amp; Evolution Architecture</h2>
+          <span style="font-size:0.75rem; color:#dfb235; font-weight:700; background:rgba(223,178,53,0.15); border:1px solid rgba(223,178,53,0.3); padding:4px 10px; border-radius:4px;">304 UNIQUE BRANCHES • 92 COMMON SPARKS • 6 DEITIES</span>
+        </div>
+        <p style="font-size:0.88rem; color:var(--body); line-height:1.7; margin:0;">
+          Epiphany is the pinnacle card mutation mechanic in Chaos Zero Nightmare. In the Roguelike Chaos Mode, combatant cards evolve across <strong>5 specialized branches</strong>, gaining dramatic multiplier amplifications, AP cost reductions (-1 AP), shield conversions, multi-hit counts, and unique synergy activations.
+        </p>
+      </div>
+
+      <!-- Archetype Architecture Overview -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:14px; margin-bottom:30px;">
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
+          <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:800; color:#dfb235; margin-bottom:4px;">✦ BRANCH 1</div>
+          <div style="font-size:0.95rem; font-weight:700; color:var(--text); margin-bottom:6px;">Pure Potency &amp; Scaling</div>
+          <p style="font-size:0.78rem; color:var(--muted); line-height:1.45; margin:0;">Massive direct multiplier increase (e.g. 260% &rarr; 450% DEF DMG). Pure output for primary burst cards.</p>
+        </div>
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
+          <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:800; color:var(--cyan); margin-bottom:4px;">✦ BRANCH 2</div>
+          <div style="font-size:0.95rem; font-weight:700; color:var(--text); margin-bottom:6px;">Hit-Count &amp; Debuffs</div>
+          <p style="font-size:0.78rem; color:var(--muted); line-height:1.45; margin:0;">Multiplies hit counts or applies Mark, Vulnerable, and Agony to prime bosses for execution.</p>
+        </div>
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
+          <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:800; color:var(--purple); margin-bottom:4px;">✦ BRANCH 3</div>
+          <div style="font-size:0.95rem; font-weight:700; color:var(--text); margin-bottom:6px;">Kit Synergy &amp; Stances</div>
+          <p style="font-size:0.78rem; color:var(--muted); line-height:1.45; margin:0;">Interlocks with core passive stances (e.g. generating Effulgent Blade or charging Overdrive meters).</p>
+        </div>
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
+          <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:800; color:var(--emerald); margin-bottom:4px;">✦ BRANCH 4</div>
+          <div style="font-size:0.95rem; font-weight:700; color:var(--text); margin-bottom:6px;">Tactical AoE Conversion</div>
+          <p style="font-size:0.78rem; color:var(--muted); line-height:1.45; margin:0;">Transforms single-target strikes into squad-wide AoE destruction or converts DEF to True Damage.</p>
+        </div>
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:6px; padding:16px;">
+          <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:800; color:var(--gold); margin-bottom:4px;">✦ BRANCH 5</div>
+          <div style="font-size:0.95rem; font-weight:700; color:var(--text); margin-bottom:6px;">Retention &amp; Loop Engine</div>
+          <p style="font-size:0.78rem; color:var(--muted); line-height:1.45; margin:0;">Shield Retention (preserves barrier between rounds), Hand cycling, and AP refund loops.</p>
+        </div>
+      </div>
+
+      <!-- Hero Epiphany Explorer -->
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:22px; margin-bottom:28px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:18px;">
+          <div>
+            <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin:0 0 4px 0;">Hero Unique Epiphany Explorer</h3>
+            <p style="font-size:0.8rem; color:var(--muted); margin:0;">Inspect all 4 unique cards and their 5 evolution branches for any of the 38 combatants.</p>
+          </div>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <label for="heroEpiphanySelect" style="font-size:0.8rem; color:var(--muted); font-weight:700;">SELECT HERO:</label>
+            <select id="heroEpiphanySelect" style="padding:8px 14px; background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; color:#fff; font-size:0.85rem; font-family:'Orbitron',sans-serif;" onchange="renderHeroEpiphanies(this.value)">
+              <!-- Populated by JS -->
+            </select>
+          </div>
+        </div>
+
+        <div id="heroEpiphanyCardsDisplay" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:16px;">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- Common Epiphany Affixes Catalog -->
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:22px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+          <div>
+            <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin:0 0 4px 0;">Universal Common Sparks Catalog (92 Affixes)</h3>
+            <p style="font-size:0.8rem; color:var(--muted); margin:0;">Colorless Epiphany affixes offering stat buffs, Draw 1, Morale, Vulnerable, and AP refunds.</p>
+          </div>
+          <input type="text" id="commonSparkSearch" placeholder="Filter sparks (e.g. Draw, Morale, Vulnerable, Agony)..." style="padding:8px 12px; background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; color:#fff; font-size:0.82rem; width:280px;" oninput="filterCommonSparks(this.value)">
+        </div>
+
+        <div id="commonSparksGrid" class="ep-spark-grid" style="max-height:480px; overflow-y:auto; padding-right:6px;">
+          <!-- Populated by JS -->
         </div>
       </div>
     </div>
@@ -1084,6 +1214,85 @@ filterBtns.forEach(btn => {
   });
 });
 renderGlossary();
+
+// Epiphany Explorer Logic
+function initEpiphanyExplorer() {
+  const sel = document.getElementById('heroEpiphanySelect');
+  if (!sel || !window.CZN_DATA || !window.CZN_DATA.combatants) return;
+  sel.innerHTML = window.CZN_DATA.combatants.map(c => `<option value="${c.id}">${c.name} (${c.job || c.class})</option>`).join('');
+  if (window.CZN_DATA.combatants.length > 0) {
+    renderHeroEpiphanies(window.CZN_DATA.combatants[0].id);
+  }
+  renderCommonSparksList(window.CZN_DATA.commonEpiphanies || []);
+}
+
+function renderHeroEpiphanies(heroId) {
+  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
+  const container = document.getElementById('heroEpiphanyCardsDisplay');
+  if (!hero || !container) return;
+
+  const uniques = hero.uniques || [];
+  container.innerHTML = uniques.map(c => {
+    const vars = c.variants || [];
+    return `
+      <div style="background:var(--card-inner); border:1px solid var(--panel-border); border-radius:8px; padding:16px; display:flex; flex-direction:column; gap:10px;">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span class="card-ap-badge" style="width:24px; height:24px; font-size:0.75rem;">${c.cost || 1}</span>
+            <span style="font-family:'Orbitron',sans-serif; font-size:0.95rem; font-weight:700; color:var(--text);">${c.name}</span>
+          </div>
+          <span class="type-badge type-${(c.category || c.type || 'attack').toLowerCase()}">${c.category || c.type || 'Attack'}</span>
+        </div>
+        <div style="font-size:0.75rem; color:var(--muted); line-height:1.4; padding-bottom:6px; border-bottom:1px solid var(--panel-border);">
+          <strong>Base Effect:</strong> ${c.desc}
+        </div>
+        <div style="display:flex; flex-direction:column; gap:8px;">
+          <div style="font-size:0.7rem; color:#dfb235; font-weight:700; text-transform:uppercase;">✦ 5 Epiphany Branches:</div>
+          ${vars.map(v => `
+            <div class="card-variant-pill" style="border-left:2px solid #dfb235;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2px;">
+                <strong>Branch ${v.branch}</strong>
+                <span style="color:#dfb235; font-weight:700;">${v.mult > 0 ? v.mult + '% DMG' : (v.shield > 0 ? v.shield + '% Shield' : '')}</span>
+              </div>
+              <div style="color:var(--text); font-size:0.72rem;">${v.desc}</div>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+function renderCommonSparksList(list) {
+  const grid = document.getElementById('commonSparksGrid');
+  if (!grid) return;
+  grid.innerHTML = list.map(s => `
+    <div class="ep-spark-item">
+      <div>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+          <span style="font-size:0.65rem; padding:1px 6px; border-radius:3px; background:rgba(34,211,238,0.15); color:var(--cyan); font-weight:700;">${s.category}</span>
+          <span style="font-size:0.65rem; color:var(--muted); font-family:monospace;">${s.id}</span>
+        </div>
+        <div style="font-size:0.74rem; color:var(--text); line-height:1.35;">${s.desc}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function filterCommonSparks(q) {
+  const query = (q || '').toLowerCase().trim();
+  const list = (window.CZN_DATA?.commonEpiphanies || []).filter(s => {
+    return !query || s.desc.toLowerCase().includes(query) || s.category.toLowerCase().includes(query) || s.id.toLowerCase().includes(query);
+  });
+  renderCommonSparksList(list);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof initEpiphanyExplorer === 'function') {
+    initEpiphanyExplorer();
+  }
+});
+
 </script>
 
 __FOOTER__
@@ -1183,6 +1392,7 @@ __FOOTER__
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="teambuilder-data.js"></script>
 </head>
 <body>
 __NAV__
@@ -1248,6 +1458,7 @@ __FOOTER__
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script src="teambuilder-data.js"></script>
 </head>
 <body>
 __NAV__
