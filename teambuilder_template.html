@@ -442,7 +442,7 @@ __FOOTER__
 
       <select id="browserPoolFilter" style="padding:8px 12px; background:var(--card-inner); border:1px solid var(--panel-border); border-radius:4px; color:#fff; font-size:0.85rem;" onchange="filterCardBrowser()">
         <option value="hero">Hero Specialized Pool</option>
-        <option value="universal">Universal / Neutral Cards (208)</option>
+        <option value="universal">Universal / Neutral Cards (514)</option>
         <option value="all">All Available Cards</option>
       </select>
     </div>
@@ -1138,6 +1138,13 @@ function renderDeckCustomizer() {
     const isCommonSelected = !isBasic && activeCommon && activeCommon !== 'none';
     const isDivine = !isBasic && activeDeity && activeDeity !== 'none';
     const deityData = isDivine ? (window.CZN_DATA.deities?.[activeDeity.toLowerCase()]) : null;
+    const divineNode = isDivine ? (window.CZN_DATA.divineEpiphanies?.[activeDeity.toLowerCase()]) : null;
+    const deitySparks = divineNode ? (divineNode.sparks || []) : [];
+    const activeDivineSparkId = currentSquad.divineSparks?.[activeHeroId]?.[c.name];
+    let equippedSpark = deitySparks.find(s => s.id === activeDivineSparkId);
+    if (!equippedSpark && deitySparks.length > 0) {
+      equippedSpark = deitySparks[0];
+    }
 
     const hasVariants = !isBasic && c.variants && c.variants.length > 0;
     const activeVar = (hasVariants && activeBranch > 0) ? c.variants[activeBranch - 1] : null;
@@ -1146,7 +1153,10 @@ function renderDeckCustomizer() {
     const displayCat = activeVar ? activeVar.category : (c.category || c.type || 'Attack');
     let apCost = activeVar ? activeVar.cost : (c.cost !== undefined ? c.cost : 1);
 
-    if (!isBasic && (isUniqueSelected || isDivine)) apCost = Math.max(0, apCost - 1);
+    if (!isBasic && isUniqueSelected) apCost = Math.max(0, apCost - 1);
+    if (!isBasic && isDivine && equippedSpark && equippedSpark.cost_mod) {
+      apCost = Math.max(0, apCost + equippedSpark.cost_mod);
+    }
 
     let epStateClass = '';
     if (isDivine) epStateClass = 'is-divine';
@@ -1205,17 +1215,35 @@ function renderDeckCustomizer() {
       divineEpHtml = `
         <select class="tcg-select" style="border-color:${isDivine ? '#a855f7' : 'var(--panel-border)'}; color:${isDivine ? '#c084fc' : '#f1f5f9'};" onchange="setCardDeity('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}', this.value)">
           <option value="none" ${activeDeity === 'none' ? 'selected' : ''}>None (No Divine Resonance)</option>
-          <option value="vitor" ${activeDeity === 'vitor' ? 'selected' : ''}>🔥 Vitor (Destruction • +100% Burst DMG)</option>
-          <option value="circen" ${activeDeity === 'circen' ? 'selected' : ''}>⏳ Circen (Chrono Shift • -1 AP & Refund)</option>
-          <option value="caligo" ${activeDeity === 'caligo' ? 'selected' : ''}>⚡ Caligo (Tenacity • 1.5x Break Shred)</option>
-          <option value="diallos" ${activeDeity === 'diallos' ? 'selected' : ''}>🛡️ Diallos (Aegis Bastion • +300 Shield)</option>
-          <option value="nihilum" ${activeDeity === 'nihilum' ? 'selected' : ''}>🌌 Nihilum (Void Flux • Draw +1 Card)</option>
-          <option value="secred" ${activeDeity === 'secred' ? 'selected' : ''}>🤝 Secred (Pincer Coord • Co-op Attack)</option>
+          <option value="vitor" ${activeDeity === 'vitor' ? 'selected' : ''}>🔥 Vitor (27 Sparks • Destruction & Fury)</option>
+          <option value="circen" ${activeDeity === 'circen' ? 'selected' : ''}>⏳ Circen (27 Sparks • Time & AP Acceleration)</option>
+          <option value="caligo" ${activeDeity === 'caligo' ? 'selected' : ''}>⚡ Caligo (28 Sparks • Tenacity Shred & Ruin)</option>
+          <option value="diallos" ${activeDeity === 'diallos' ? 'selected' : ''}>🛡️ Diallos (27 Sparks • Aegis & Defense)</option>
+          <option value="nihilum" ${activeDeity === 'nihilum' ? 'selected' : ''}>🌌 Nihilum (28 Sparks • Void & Agony)</option>
+          <option value="secred" ${activeDeity === 'secred' ? 'selected' : ''}>🤝 Secred (28 Sparks • Pincer & Coordinated)</option>
         </select>
-        ${isDivine && deityData ? `
-          <div class="tcg-deity-banner">
-            <span>${deityData.icon}</span>
-            <span><strong>${deityData.name}:</strong> ${deityData.sparkDesc}</span>
+        ${isDivine && deitySparks.length > 0 ? `
+          <div style="margin-top:6px;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:3px;">
+              <span style="font-size:0.65rem; color:#c084fc; font-weight:700;">CHOOSE SPARK (${deitySparks.length}):</span>
+              <button class="builder-btn" style="padding:1px 6px; font-size:0.62rem; color:#c084fc; border-color:rgba(192,132,252,0.4);" onclick="openEpiphanyModal('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}', ${activeSlotNum}); switchEpTab('divine'); activeEpiphanyContext.deity='${activeDeity}'; renderEpiphanyModalBody();" title="Open full spark browser">
+                ✨ Full Codex
+              </button>
+            </div>
+            <select class="tcg-select" style="border-color:rgba(168,85,247,0.5); font-size:0.68rem; padding:4px 6px;" onchange="setCardDivineSpark('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}', '${activeDeity}', this.value)">
+              ${deitySparks.map(s => `
+                <option value="${s.id}" ${(equippedSpark && equippedSpark.id === s.id) ? 'selected' : ''}>
+                  ${s.cost_mod !== 0 ? `[AP ${s.cost_mod > 0 ? '+' : ''}${s.cost_mod}] ` : ''}${s.desc}
+                </option>
+              `).join('')}
+            </select>
+          </div>
+          <div class="tcg-deity-banner" style="margin-top:6px;">
+            <span>${deityData ? deityData.icon : '✨'}</span>
+            <div style="flex:1; overflow:hidden; text-overflow:ellipsis;">
+              <strong>${deityData ? deityData.name : activeDeity}:</strong> ${equippedSpark ? equippedSpark.desc : ''}
+              ${equippedSpark && equippedSpark.cost_mod !== 0 ? ` <span style="color:var(--cyan); font-weight:700;">(${equippedSpark.cost_mod > 0 ? '+' : ''}${equippedSpark.cost_mod} AP)</span>` : ''}
+            </div>
           </div>
         ` : ''}
       `;
@@ -1416,9 +1444,9 @@ function setCardDivineSpark(heroId, cardName, deityKey, sparkId) {
 
   const d = window.CZN_DATA.divineEpiphanies?.[deityKey.toLowerCase()];
   const spark = d ? (d.sparks || []).find(s => s.id === sparkId) : null;
-  const sparkName = spark ? (spark.name || spark.desc.slice(0, 24) + '...') : deityKey;
+  const sparkDesc = spark ? spark.desc : deityKey;
 
-  showToast(`Equipped Divine Spark: ${sparkName} on ${cardName}!`);
+  showToast(`Equipped: ${sparkDesc.slice(0, 32)}... on ${cardName}!`);
   renderAll();
   renderEpiphanyModalBody();
 }
@@ -1433,13 +1461,22 @@ function setCardDeity(heroId, cardName, deityKey) {
   if (!currentSquad.deities[heroId]) currentSquad.deities[heroId] = {};
   if (!currentSquad.divineSparks) currentSquad.divineSparks = {};
   if (!currentSquad.divineSparks[heroId]) currentSquad.divineSparks[heroId] = {};
+  if (!currentSquad.epiphanies) currentSquad.epiphanies = {};
+  if (!currentSquad.epiphanies[heroId]) currentSquad.epiphanies[heroId] = {};
 
   currentSquad.deities[heroId][cardName] = deityKey;
-  currentSquad.divineSparks[heroId][cardName] = deityKey;
   if (deityKey && deityKey !== 'none') {
-    const d = window.CZN_DATA.deities?.[deityKey.toLowerCase()];
-    showToast(`Resonated ${cardName} with ✨ ${d ? d.name : deityKey}!`);
+    currentSquad.epiphanies[heroId][cardName] = 'divine';
+    const d = window.CZN_DATA.divineEpiphanies?.[deityKey.toLowerCase()];
+    const firstSpark = (d && d.sparks && d.sparks[0]) ? d.sparks[0].id : deityKey;
+    currentSquad.divineSparks[heroId][cardName] = firstSpark;
+    const deityInfo = d ? d.info : window.CZN_DATA.deities?.[deityKey.toLowerCase()];
+    showToast(`Resonated ${cardName} with ✨ ${deityInfo ? deityInfo.name : deityKey}!`);
   } else {
+    currentSquad.divineSparks[heroId][cardName] = 'none';
+    if (currentSquad.epiphanies[heroId][cardName] === 'divine') {
+      currentSquad.epiphanies[heroId][cardName] = 'none';
+    }
     showToast(`Removed Divine Resonance from ${cardName}.`);
   }
   renderAll();
@@ -1779,7 +1816,8 @@ function openCardBrowser(targetSlot = 1) {
 
   const heroId = currentSquad['hero' + targetSlot];
   const hero = window.CZN_DATA.combatants.find(c => c.id === heroId) || window.CZN_DATA.combatants[0];
-  document.getElementById('cardBrowserTargetHeroLabel').innerText = `Target: Slot 0${targetSlot} (${hero.name}) — Browse specialized hero cards or 208 Universal cards.`;
+  const totalUniversal = (window.CZN_DATA.universalCards || []).length;
+  document.getElementById('cardBrowserTargetHeroLabel').innerText = `Target: Slot 0${targetSlot} (${hero.name}) — Browse specialized hero cards or ${totalUniversal} Universal cards.`;
 
   const btnContainer = document.getElementById('browserHeroSlotBtns');
   btnContainer.innerHTML = '';
@@ -1840,20 +1878,30 @@ function filterCardBrowser() {
     return;
   }
 
-  filtered.slice(0, 100).forEach(c => {
+  filtered.slice(0, 120).forEach(c => {
     const cardEl = document.createElement('div');
     cardEl.className = 'browser-card-item';
     const cost = c.cost !== undefined ? c.cost : 1;
     const cat = c.category || c.type || 'Attack';
+    const imgHtml = c.image ? `
+      <div style="width:44px; height:62px; border-radius:4px; overflow:hidden; border:1px solid var(--panel-border); flex-shrink:0; background:rgba(0,0,0,0.3);">
+        <img src="${c.image}" alt="${c.name}" style="width:100%; height:100%; object-fit:cover;" onerror="this.onerror=null; this.parentElement.style.display='none';">
+      </div>
+    ` : '';
 
     cardEl.innerHTML = `
-      <div style="display:flex; justify-content:space-between; align-items:center;">
-        <span class="card-ap-badge" style="width:22px; height:22px; font-size:0.75rem;">${cost}</span>
-        <span class="type-badge type-${cat.toLowerCase()}">${cat}</span>
+      <div style="display:flex; gap:10px;">
+        ${imgHtml}
+        <div style="flex:1; overflow:hidden;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:3px;">
+            <span class="card-ap-badge" style="width:20px; height:20px; font-size:0.7rem;">${cost}</span>
+            <span class="type-badge type-${cat.toLowerCase()}" style="font-size:0.6rem; padding:1px 5px;">${cat}</span>
+          </div>
+          <div style="font-family:'Orbitron',sans-serif; font-size:0.8rem; font-weight:700; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;" title="${c.name}">${c.name}</div>
+          <div style="font-size:0.7rem; color:var(--muted); line-height:1.3; min-height:36px; margin-top:2px;">${c.desc || ''}</div>
+        </div>
       </div>
-      <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:700; color:var(--text);">${c.name}</div>
-      <div style="font-size:0.72rem; color:var(--muted); line-height:1.3; min-height:40px;">${c.desc || ''}</div>
-      <button class="builder-btn builder-btn-primary" style="padding:4px 8px; font-size:0.72rem; margin-top:4px;">
+      <button class="builder-btn builder-btn-primary" style="padding:4px 8px; font-size:0.72rem; margin-top:6px; width:100%;">
         ➕ Add to Slot 0${browserTargetSlot}
       </button>
     `;
@@ -1988,10 +2036,18 @@ function renderEpiphanyModalBody() {
 
   } else if (tab === 'divine') {
     const divineData = window.CZN_DATA.divineEpiphanies || {};
-    const gods = Object.keys(divineData);
+    const gods = ['vitor', 'circen', 'diallos', 'secred', 'nihilum', 'caligo'];
     const curDeityKey = (activeEpiphanyContext.deity || activeDeity || 'vitor').toLowerCase();
-    const curGod = divineData[curDeityKey] || divineData[gods[0]];
+    const curGod = divineData[curDeityKey] || divineData['vitor'] || { info: { name: 'Vitor', icon: '🔥', epithet: '', domain: '' }, sparks: [] };
     const equippedSparkId = currentSquad.divineSparks?.[heroId]?.[cardName];
+    const modalSearch = (activeEpiphanyContext.sparkSearch || '').toLowerCase();
+    const modalCat = activeEpiphanyContext.sparkCat || 'all';
+
+    let filteredSparks = (curGod.sparks || []).filter(s => {
+      if (modalCat !== 'all' && !(s.target_categories || []).includes(modalCat)) return false;
+      if (modalSearch && !s.desc.toLowerCase().includes(modalSearch) && !s.id.toLowerCase().includes(modalSearch)) return false;
+      return true;
+    });
 
     let html = `
       <div style="margin-bottom:14px; background:var(--card-inner); border:1px solid var(--panel-border); border-radius:6px; padding:12px;">
@@ -2003,6 +2059,7 @@ function renderEpiphanyModalBody() {
       <div style="display:flex; gap:8px; overflow-x:auto; padding-bottom:8px; margin-bottom:14px;">
         ${gods.map(gKey => {
           const g = divineData[gKey];
+          if (!g) return '';
           const isSelected = curDeityKey === gKey.toLowerCase();
           return `
             <button class="builder-btn ${isSelected ? 'builder-btn-primary' : ''}" style="white-space:nowrap; font-size:0.75rem; padding:6px 12px; display:flex; align-items:center; gap:6px;" onclick="activeEpiphanyContext.deity = '${gKey}'; renderEpiphanyModalBody();">
@@ -2021,35 +2078,54 @@ function renderEpiphanyModalBody() {
           <div style="font-size:0.72rem; color:var(--muted); margin-top:2px;"><strong>Domains:</strong> ${curGod.info.domain || 'Cosmic Authority'} &bull; ${(curGod.sparks || []).length} Exclusive Sparks</div>
         </div>
         ${activeDeity.toLowerCase() === curDeityKey ? `
-          <button class="builder-btn" style="font-size:0.7rem; border-color:var(--red); color:var(--red);" onclick="setCardDeity('${heroId}', '${cardName.replace(/'/g, "\'")}', 'none'); renderEpiphanyModalBody();">Clear Divine Spark</button>
+          <button class="builder-btn" style="font-size:0.7rem; border-color:var(--red); color:var(--red);" onclick="setCardDeity('${heroId}', '${cardName.replace(/'/g, "\\'")}', 'none'); renderEpiphanyModalBody();">Clear Divine Spark</button>
         ` : ''}
       </div>
 
+      <!-- SEARCH & CATEGORY FILTER BAR -->
+      <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
+        <input type="text" placeholder="Search spark effects (e.g. Damage, Shield, AP, Vulnerable)..." value="${activeEpiphanyContext.sparkSearch || ''}" class="builder-input" style="flex:1; min-width:200px; font-size:0.75rem; padding:6px 10px; background:var(--card-inner); border:1px solid var(--panel-border); border-radius:4px; color:#fff;" oninput="activeEpiphanyContext.sparkSearch = this.value; renderEpiphanyModalBody();">
+        <div style="display:flex; gap:4px;">
+          <button class="builder-btn ${modalCat === 'all' ? 'builder-btn-primary' : ''}" style="padding:4px 8px; font-size:0.7rem;" onclick="activeEpiphanyContext.sparkCat = 'all'; renderEpiphanyModalBody();">All</button>
+          <button class="builder-btn ${modalCat === 'Attack' ? 'builder-btn-primary' : ''}" style="padding:4px 8px; font-size:0.7rem;" onclick="activeEpiphanyContext.sparkCat = 'Attack'; renderEpiphanyModalBody();">⚔️ Attack</button>
+          <button class="builder-btn ${modalCat === 'Skill' ? 'builder-btn-primary' : ''}" style="padding:4px 8px; font-size:0.7rem;" onclick="activeEpiphanyContext.sparkCat = 'Skill'; renderEpiphanyModalBody();">🛡️ Skill</button>
+          <button class="builder-btn ${modalCat === 'Power' ? 'builder-btn-primary' : ''}" style="padding:4px 8px; font-size:0.7rem;" onclick="activeEpiphanyContext.sparkCat = 'Power'; renderEpiphanyModalBody();">🔮 Power</button>
+        </div>
+      </div>
+
       <!-- SPARKS CATALOG GRID -->
-      <div style="font-size:0.75rem; font-weight:700; color:var(--text); margin-bottom:8px; text-transform:uppercase;">Available Divine Sparks for ${curGod.info.name}:</div>
+      <div style="font-size:0.75rem; font-weight:700; color:var(--text); margin-bottom:8px; text-transform:uppercase;">Available Divine Sparks for ${curGod.info.name} (${filteredSparks.length}/${curGod.sparks.length}):</div>
       <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:10px; max-height:360px; overflow-y:auto; padding-right:4px;">
     `;
 
-    (curGod.sparks || []).forEach(s => {
-      const isSparkEquipped = equippedSparkId === s.id;
-      const rarityColor = s.rarity === 'SSR' ? '#dfb235' : (s.rarity === 'SR' ? '#a855f7' : '#3b82f6');
-      const costBadge = s.cost_mod !== 0 ? `<span style="font-size:0.65rem; padding:1px 5px; border-radius:3px; background:rgba(34,211,238,0.2); color:var(--cyan); font-weight:700;">AP ${s.cost_mod > 0 ? '+' + s.cost_mod : s.cost_mod}</span>` : '';
+    if (filteredSparks.length === 0) {
+      html += `<div style="grid-column:1/-1; text-align:center; padding:30px; color:var(--muted);">No divine sparks match your search filter.</div>`;
+    } else {
+      filteredSparks.forEach(s => {
+        const isSparkEquipped = equippedSparkId === s.id;
+        const rarityColor = s.rarity === 'SSR' ? '#dfb235' : (s.rarity === 'SR' ? '#a855f7' : '#3b82f6');
+        const costBadge = s.cost_mod !== 0 ? `<span style="font-size:0.65rem; padding:1px 5px; border-radius:3px; background:rgba(34,211,238,0.2); color:var(--cyan); font-weight:700;">AP ${s.cost_mod > 0 ? '+' + s.cost_mod : s.cost_mod}</span>` : '';
+        const catBadges = (s.target_categories || []).map(cat => `<span class="type-badge type-${cat.toLowerCase()}" style="font-size:0.6rem; padding:1px 4px;">${cat}</span>`).join(' ');
 
-      html += `
-        <div style="background:var(--card-inner); border:1px solid ${isSparkEquipped ? 'var(--cyan)' : 'var(--panel-border)'}; border-radius:6px; padding:10px; display:flex; flex-direction:column; justify-content:space-between; ${isSparkEquipped ? 'box-shadow:0 0 8px rgba(34,211,238,0.25);' : ''}">
-          <div>
-            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
-              <span style="font-size:0.75rem; font-weight:700; color:${rarityColor};">${s.name || s.id} (${s.rarity})</span>
-              ${costBadge}
+        html += `
+          <div style="background:var(--card-inner); border:1px solid ${isSparkEquipped ? 'var(--cyan)' : 'var(--panel-border)'}; border-radius:6px; padding:10px; display:flex; flex-direction:column; justify-content:space-between; ${isSparkEquipped ? 'box-shadow:0 0 8px rgba(34,211,238,0.25);' : ''}">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+                <span style="font-size:0.75rem; font-weight:700; color:${rarityColor};">${s.name || s.id} (${s.rarity})</span>
+                <div style="display:flex; gap:4px; align-items:center;">
+                  ${costBadge}
+                  ${catBadges}
+                </div>
+              </div>
+              <div style="font-size:0.72rem; color:var(--body); line-height:1.4; margin-bottom:8px;">${s.desc}</div>
             </div>
-            <div style="font-size:0.72rem; color:var(--body); line-height:1.4; margin-bottom:8px;">${s.desc}</div>
+            <button class="builder-btn ${isSparkEquipped ? 'builder-btn-primary' : ''}" style="width:100%; font-size:0.72rem; padding:4px 8px; font-weight:700;" onclick="setCardDivineSpark('${heroId}', '${cardName.replace(/'/g, "\\'")}', '${curDeityKey}', '${s.id}');">
+              ${isSparkEquipped ? '✓ Equipped Divine Spark' : 'Equip this Spark'}
+            </button>
           </div>
-          <button class="builder-btn ${isSparkEquipped ? 'builder-btn-primary' : ''}" style="width:100%; font-size:0.72rem; padding:4px 8px; font-weight:700;" onclick="setCardDivineSpark('${heroId}', '${cardName.replace(/'/g, "\'")}', '${curDeityKey}', '${s.id}');">
-            ${isSparkEquipped ? '✓ Equipped Divine Spark' : 'Equip this Spark'}
-          </button>
-        </div>
-      `;
-    });
+        `;
+      });
+    }
 
     html += '</div>';
     container.innerHTML = html;
