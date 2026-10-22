@@ -1736,7 +1736,11 @@ function getCombinedDeckCards() {
           const activeCommon = isPureBasic ? 'none' : (currentSquad.commonSparks?.[hid]?.[c.name] || (currentSquad.epiphanies?.[hid]?.[c.name] === 'common' ? 'c00002' : 'none'));
           const activeDeity = isPureBasic ? 'none' : (currentSquad.deities?.[hid]?.[c.name] || 'none');
           const isDivine = !isPureBasic && activeDeity && activeDeity !== 'none';
-          const equippedSpark = (isDivine && window.CZN_DATA.deitySparks) ? window.CZN_DATA.deitySparks.find(s => s.id === activeDeity) : null;
+          const activeDivineSparkId = currentSquad.divineSparks?.[hid]?.[c.name];
+          const equippedSpark = (isDivine && window.CZN_DATA.deitySparks) ? (
+            window.CZN_DATA.deitySparks.find(s => s.id === activeDivineSparkId) ||
+            window.CZN_DATA.deitySparks.find(s => s.deity === activeDeity.toLowerCase())
+          ) : null;
           const activeVar = (hasVariants && activeBranch > 0) ? c.variants[activeBranch - 1] : null;
 
           let epTier = 'none';
@@ -2237,8 +2241,20 @@ function renderEpiphanyModalBody() {
     const modalCat = activeEpiphanyContext.sparkCat || 'all';
 
     let filteredSparks = (curGod.sparks || []).filter(s => {
-      if (modalCat !== 'all' && !(s.target_categories || []).includes(modalCat)) return false;
-      if (modalSearch && !s.desc.toLowerCase().includes(modalSearch) && !s.id.toLowerCase().includes(modalSearch)) return false;
+      if (modalCat !== 'all') {
+        const cats = s.target_categories || [];
+        const isUniversal = cats.length === 0;
+        const matchesCat = isUniversal || cats.includes(modalCat) ||
+          ((modalCat === 'Upgrade' || modalCat === 'Power') && (cats.includes('Upgrade') || cats.includes('Power')));
+        if (!matchesCat) return false;
+      }
+      if (modalSearch) {
+        const q = modalSearch.toLowerCase();
+        const inDesc = (s.desc || '').toLowerCase().includes(q);
+        const inId = (s.id || '').toLowerCase().includes(q);
+        const inName = (s.name || '').toLowerCase().includes(q);
+        if (!inDesc && !inId && !inName) return false;
+      }
       return true;
     });
 
@@ -2276,13 +2292,13 @@ function renderEpiphanyModalBody() {
       </div>
 
       <!-- SEARCH & CATEGORY FILTER BAR -->
-      <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap;">
+      <div style="display:flex; gap:8px; margin-bottom:12px; flex-wrap:wrap; align-items:center;">
         <input type="text" placeholder="Search spark effects (e.g. Damage, Shield, AP, Vulnerable)..." value="${activeEpiphanyContext.sparkSearch || ''}" class="builder-input" style="flex:1; min-width:200px; font-size:0.75rem; padding:6px 10px; background:var(--card-inner); border:1px solid var(--panel-border); border-radius:4px; color:#fff;" oninput="activeEpiphanyContext.sparkSearch = this.value; renderEpiphanyModalBody();">
-        <div style="display:flex; gap:4px;">
-          <button class="builder-btn ${modalCat === 'all' ? 'builder-btn-primary' : ''}" style="padding:4px 8px; font-size:0.7rem;" onclick="activeEpiphanyContext.sparkCat = 'all'; renderEpiphanyModalBody();">All</button>
+        <div style="display:flex; gap:4px; flex-wrap:wrap;">
+          <button class="builder-btn ${modalCat === 'all' ? 'builder-btn-primary' : ''}" style="padding:4px 8px; font-size:0.7rem;" onclick="activeEpiphanyContext.sparkCat = 'all'; renderEpiphanyModalBody();">All (${(curGod.sparks || []).length})</button>
           <button class="builder-btn ${modalCat === 'Attack' ? 'builder-btn-primary' : ''}" style="padding:4px 8px; font-size:0.7rem;" onclick="activeEpiphanyContext.sparkCat = 'Attack'; renderEpiphanyModalBody();">⚔️ Attack</button>
           <button class="builder-btn ${modalCat === 'Skill' ? 'builder-btn-primary' : ''}" style="padding:4px 8px; font-size:0.7rem;" onclick="activeEpiphanyContext.sparkCat = 'Skill'; renderEpiphanyModalBody();">🛡️ Skill</button>
-          <button class="builder-btn ${modalCat === 'Power' ? 'builder-btn-primary' : ''}" style="padding:4px 8px; font-size:0.7rem;" onclick="activeEpiphanyContext.sparkCat = 'Power'; renderEpiphanyModalBody();">🔮 Power</button>
+          <button class="builder-btn ${(modalCat === 'Upgrade' || modalCat === 'Power') ? 'builder-btn-primary' : ''}" style="padding:4px 8px; font-size:0.7rem;" onclick="activeEpiphanyContext.sparkCat = 'Upgrade'; renderEpiphanyModalBody();">⚡ Upgrade</button>
         </div>
       </div>
 
