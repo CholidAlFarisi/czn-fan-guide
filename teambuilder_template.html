@@ -1201,15 +1201,19 @@ function renderDeckCustomizer() {
 
   cardsToShow.forEach(c => {
     const isRemoved = isCardRemoved(activeHeroId, c.name);
-    const isBasic = c.isBasic || (activeHero && (activeHero.starters || []).some(s => s.name === c.name));
+    const isStarter = Boolean(c.isBasic || (activeHero && (activeHero.starters || []).some(s => s.name === c.name)));
+    const hasVariants = isStarter
+      ? Boolean(c.variants && c.variants.length > 1)
+      : Boolean(c.variants && c.variants.length > 0);
+    const isPureBasic = isStarter && !hasVariants;
 
-    const activeBranch = isBasic ? 0 : (currentSquad.branches?.[activeHeroId]?.[c.name] || 0);
-    const activeCommon = isBasic ? 'none' : (currentSquad.commonSparks?.[activeHeroId]?.[c.name] || (currentSquad.epiphanies?.[activeHeroId]?.[c.name] === 'common' ? 'c00002' : 'none'));
-    const activeDeity = isBasic ? 'none' : (currentSquad.deities?.[activeHeroId]?.[c.name] || 'none');
+    const activeBranch = isPureBasic ? 0 : (currentSquad.branches?.[activeHeroId]?.[c.name] || 0);
+    const activeCommon = isPureBasic ? 'none' : (currentSquad.commonSparks?.[activeHeroId]?.[c.name] || (currentSquad.epiphanies?.[activeHeroId]?.[c.name] === 'common' ? 'c00002' : 'none'));
+    const activeDeity = isPureBasic ? 'none' : (currentSquad.deities?.[activeHeroId]?.[c.name] || 'none');
 
-    const isUniqueSelected = !isBasic && activeBranch > 0;
-    const isCommonSelected = !isBasic && activeCommon && activeCommon !== 'none';
-    const isDivine = !isBasic && activeDeity && activeDeity !== 'none';
+    const isUniqueSelected = !isPureBasic && activeBranch > 0;
+    const isCommonSelected = !isPureBasic && activeCommon && activeCommon !== 'none';
+    const isDivine = !isPureBasic && activeDeity && activeDeity !== 'none';
     const deityData = isDivine ? (window.CZN_DATA.deities?.[activeDeity.toLowerCase()]) : null;
     const divineNode = isDivine ? (window.CZN_DATA.divineEpiphanies?.[activeDeity.toLowerCase()]) : null;
     const deitySparks = divineNode ? (divineNode.sparks || []) : [];
@@ -1219,14 +1223,13 @@ function renderDeckCustomizer() {
       equippedSpark = deitySparks[0];
     }
 
-    const hasVariants = !isBasic && c.variants && c.variants.length > 0;
     const activeVar = (hasVariants && activeBranch > 0) ? c.variants[activeBranch - 1] : null;
 
     const displayDesc = activeVar ? activeVar.desc : (c.desc || '');
     const displayCat = activeVar ? activeVar.category : (c.category || c.type || 'Attack');
     let apCost = activeVar ? activeVar.cost : (c.cost !== undefined ? c.cost : 1);
 
-    if (!isBasic && isDivine && equippedSpark && equippedSpark.cost_mod) {
+    if (!isPureBasic && isDivine && equippedSpark && equippedSpark.cost_mod) {
       apCost = Math.max(0, apCost + equippedSpark.cost_mod);
     }
 
@@ -1240,7 +1243,7 @@ function renderDeckCustomizer() {
 
     // 1. UNIQUE EPIPHANY SELECTOR (Interactive Branch Pills + Summary + Dropdown)
     let uniqueEpHtml = '';
-    if (isBasic) {
+    if (isPureBasic) {
       uniqueEpHtml = `<div class="tcg-locked-badge">🛡️ Basic Starter (No Epiphany)</div>`;
     } else if (hasVariants) {
       const baseCost = (c.cost !== undefined ? c.cost : 1);
@@ -1309,7 +1312,7 @@ function renderDeckCustomizer() {
 
     // 2. COMMON EPIPHANY SELECTOR (Mutually exclusive with Unique)
     let commonEpHtml = '';
-    if (isBasic) {
+    if (isPureBasic) {
       commonEpHtml = `<div class="tcg-locked-badge">🛡️ Basic Starter (No Epiphany)</div>`;
     } else {
       let sparkOptions = commonEpList.slice(0, 24);
@@ -1331,7 +1334,7 @@ function renderDeckCustomizer() {
 
     // 3. DIVINE EPIPHANY SELECTOR (Cosmic Deities)
     let divineEpHtml = '';
-    if (isBasic) {
+    if (isPureBasic) {
       divineEpHtml = `<div class="tcg-locked-badge">🛡️ Basic Starter (No Epiphany)</div>`;
     } else {
       divineEpHtml = `
@@ -1391,9 +1394,15 @@ function renderDeckCustomizer() {
             <span style="font-size:0.65rem; color:var(--muted); margin-top:4px;">${c.name}</span>
           </div>
         `}
-        ${isBasic ? `
-          <div class="tcg-art-badge-branch" style="color:var(--muted); border-color:var(--panel-border);">🛡️ Starter</div>
-        ` : (c.isExtra ? `
+        ${isStarter ? (
+          isUniqueSelected ? `
+            <div class="tcg-art-badge-branch">✦ Branch ${activeBranch}</div>
+          ` : (isCommonSelected ? `
+            <div class="tcg-art-badge-branch" style="color:var(--cyan); border-color:var(--cyan);">💡 Common Spark</div>
+          ` : `
+            <div class="tcg-art-badge-branch" style="color:var(--muted); border-color:var(--panel-border);">🛡️ Starter</div>
+          `)
+        ) : (c.isExtra ? `
           <div class="tcg-art-badge-branch" style="color:var(--emerald); border-color:var(--emerald);">➕ Added Card</div>
         ` : (isUniqueSelected ? `
           <div class="tcg-art-badge-branch">✦ Branch ${activeBranch}</div>
@@ -1466,7 +1475,7 @@ function renderDeckCustomizer() {
 
       <!-- 5. FOOTER ACTIONS -->
       <div class="tcg-footer-actions">
-        ${!isBasic ? `
+        ${!isPureBasic ? `
           <button class="builder-btn" style="flex:1; padding:5px 8px; font-size:0.72rem; color:#dfb235; border-color:rgba(223,178,53,0.4);" onclick="openEpiphanyModal('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}', ${activeSlotNum})" title="Inspect all branches, deities, and common sparks">
             🔍 Details
           </button>
@@ -1501,9 +1510,18 @@ function renderDeckCustomizer() {
   grid.appendChild(addCardEl);
 }
 
-function setCardCommonSpark(heroId, cardName, sparkVal) {
+function isCardEpiphanyLocked(heroId, cardName) {
   const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
-  if (hero && (hero.starters || []).some(s => s.name === cardName)) {
+  if (!hero) return false;
+  const starter = (hero.starters || []).find(s => s.name === cardName);
+  if (!starter) return false;
+  // Starter cards with Unique Epiphany (> 1 variant) can receive all types of Epiphany
+  const hasUniqueVariants = Boolean(starter.variants && starter.variants.length > 1);
+  return !hasUniqueVariants;
+}
+
+function setCardCommonSpark(heroId, cardName, sparkVal) {
+  if (isCardEpiphanyLocked(heroId, cardName)) {
     showToast(`Basic Starter (${cardName}) tidak dapat memiliki Epiphany.`);
     return;
   }
@@ -1529,8 +1547,7 @@ function setCardCommonSpark(heroId, cardName, sparkVal) {
 }
 
 function setCardBranch(heroId, cardName, branchVal) {
-  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
-  if (hero && (hero.starters || []).some(s => s.name === cardName)) {
+  if (isCardEpiphanyLocked(heroId, cardName)) {
     showToast(`Basic Starter (${cardName}) tidak dapat memiliki Epiphany.`);
     return;
   }
@@ -1558,8 +1575,7 @@ function setCardBranch(heroId, cardName, branchVal) {
 
 
 function setCardDivineSpark(heroId, cardName, deityKey, sparkId) {
-  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
-  if (hero && (hero.starters || []).some(s => s.name === cardName)) {
+  if (isCardEpiphanyLocked(heroId, cardName)) {
     showToast(`Basic Starter (${cardName}) tidak dapat memiliki Divine Epiphany.`);
     return;
   }
@@ -1584,8 +1600,7 @@ function setCardDivineSpark(heroId, cardName, deityKey, sparkId) {
 }
 
 function setCardDeity(heroId, cardName, deityKey) {
-  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
-  if (hero && (hero.starters || []).some(s => s.name === cardName)) {
+  if (isCardEpiphanyLocked(heroId, cardName)) {
     showToast(`Basic Starter (${cardName}) tidak dapat memiliki Divine Epiphany.`);
     return;
   }
@@ -1615,8 +1630,7 @@ function setCardDeity(heroId, cardName, deityKey) {
 }
 
 function setCardEpiphany(heroId, cardName, epiphanyType) {
-  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
-  if (hero && (hero.starters || []).some(s => s.name === cardName)) {
+  if (isCardEpiphanyLocked(heroId, cardName)) {
     showToast(`Basic Starter (${cardName}) tidak dapat memiliki Epiphany.`);
     return;
   }
@@ -1649,14 +1663,15 @@ function quickAwakenAllDivine() {
   const hid = currentSquad['hero' + activeSlotNum];
   const hero = window.CZN_DATA.combatants.find(c => c.id === hid);
   if (!hero) return;
-  (hero.uniques || []).forEach(c => {
+  const modifiable = (hero.starters || []).filter(s => s.variants && s.variants.length > 1).concat(hero.uniques || []);
+  modifiable.forEach(c => {
     if (!currentSquad.epiphanies[hid]) currentSquad.epiphanies[hid] = {};
     currentSquad.epiphanies[hid][c.name] = 'divine';
     if (!currentSquad.deities[hid]) currentSquad.deities[hid] = {};
     if (!currentSquad.deities[hid][c.name]) currentSquad.deities[hid][c.name] = getDefaultDeityForCard(c);
   });
   renderAll();
-  showToast("All cards in focused hero deck awakened to ✨ Divine!");
+  showToast("All eligible cards in focused hero deck awakened to ✨ Divine!");
 }
 
 function quickAwakenAllUnique() {
@@ -1664,12 +1679,13 @@ function quickAwakenAllUnique() {
   const hid = currentSquad['hero' + activeSlotNum];
   const hero = window.CZN_DATA.combatants.find(c => c.id === hid);
   if (!hero) return;
-  (hero.uniques || []).forEach(c => {
+  const modifiable = (hero.starters || []).filter(s => s.variants && s.variants.length > 1).concat(hero.uniques || []);
+  modifiable.forEach(c => {
     if (!currentSquad.epiphanies[hid]) currentSquad.epiphanies[hid] = {};
     currentSquad.epiphanies[hid][c.name] = 'unique';
   });
   renderAll();
-  showToast("All cards in focused hero deck awakened to 🌟 Unique!");
+  showToast("All eligible cards in focused hero deck awakened to 🌟 Unique!");
 }
 
 function quickOptimizeRemoveDefends() {
@@ -1710,36 +1726,40 @@ function getCombinedDeckCards() {
       const allHeroCards = getHeroCardsList(hid, slotNum);
       allHeroCards.forEach(c => {
         if (!isCardRemoved(hid, c.name)) {
-          const isBasic = c.isBasic || (hero.starters || []).some(s => s.name === c.name);
-          const hasVariants = !isBasic && c.variants && c.variants.length > 0;
-          const activeBranch = isBasic ? 0 : (currentSquad.branches?.[hid]?.[c.name] || 0);
-          const activeCommon = isBasic ? 'none' : (currentSquad.commonSparks?.[hid]?.[c.name] || (currentSquad.epiphanies?.[hid]?.[c.name] === 'common' ? 'c00002' : 'none'));
-          const activeDeity = isBasic ? 'none' : (currentSquad.deities?.[hid]?.[c.name] || 'none');
-          const isDivine = !isBasic && activeDeity && activeDeity !== 'none';
+          const isStarter = Boolean(c.isBasic || (hero.starters || []).some(s => s.name === c.name));
+          const hasVariants = isStarter
+            ? Boolean(c.variants && c.variants.length > 1)
+            : Boolean(c.variants && c.variants.length > 0);
+          const isPureBasic = isStarter && !hasVariants;
+
+          const activeBranch = isPureBasic ? 0 : (currentSquad.branches?.[hid]?.[c.name] || 0);
+          const activeCommon = isPureBasic ? 'none' : (currentSquad.commonSparks?.[hid]?.[c.name] || (currentSquad.epiphanies?.[hid]?.[c.name] === 'common' ? 'c00002' : 'none'));
+          const activeDeity = isPureBasic ? 'none' : (currentSquad.deities?.[hid]?.[c.name] || 'none');
+          const isDivine = !isPureBasic && activeDeity && activeDeity !== 'none';
           const equippedSpark = (isDivine && window.CZN_DATA.deitySparks) ? window.CZN_DATA.deitySparks.find(s => s.id === activeDeity) : null;
           const activeVar = (hasVariants && activeBranch > 0) ? c.variants[activeBranch - 1] : null;
 
           let epTier = 'none';
-          if (!isBasic) {
+          if (!isPureBasic) {
             if (activeBranch > 0) epTier = 'unique';
             else if (activeCommon !== 'none') epTier = 'common';
             else if (isDivine) epTier = 'divine';
           }
 
           let cost = activeVar ? activeVar.cost : (c.cost !== undefined ? c.cost : 1);
-          if (!isBasic && isDivine && equippedSpark && equippedSpark.cost_mod) {
+          if (!isPureBasic && isDivine && equippedSpark && equippedSpark.cost_mod) {
             cost = Math.max(0, cost + equippedSpark.cost_mod);
           }
 
           deck.push({
             ...c,
-            isBasic: isBasic,
+            isBasic: isPureBasic,
             desc: activeVar ? activeVar.desc : c.desc,
             category: activeVar ? activeVar.category : (c.category || c.type || 'Attack'),
-            mult: isBasic ? (c.mult || c.dmg_mult || 100) : (activeVar ? activeVar.mult : (c.mult || c.dmg_mult || 120)),
-            dmg_mult: isBasic ? (c.dmg_mult || 100) : (activeVar ? activeVar.mult : (c.dmg_mult || 120)),
-            shield: isBasic ? (c.shield || 0) : (activeVar ? activeVar.shield : (c.shield || 0)),
-            hits: isBasic ? (c.hits || 1) : (activeVar ? activeVar.hits : (c.hits || 1)),
+            mult: isPureBasic ? (c.mult || c.dmg_mult || 100) : (activeVar ? activeVar.mult : (c.mult || c.dmg_mult || 120)),
+            dmg_mult: isPureBasic ? (c.dmg_mult || 100) : (activeVar ? activeVar.mult : (c.dmg_mult || 120)),
+            shield: isPureBasic ? (c.shield || 0) : (activeVar ? activeVar.shield : (c.shield || 0)),
+            hits: isPureBasic ? (c.hits || 1) : (activeVar ? activeVar.hits : (c.hits || 1)),
             branch: activeBranch,
             commonSpark: activeCommon,
             isDivine: isDivine,
@@ -2074,9 +2094,8 @@ function openEpiphanyModal(heroId, cardName, slotNum) {
   const card = cardList.find(c => c.name === cardName);
   if (!card) return;
 
-  const isBasic = card.isBasic || (hero && (hero.starters || []).some(s => s.name === cardName));
-  if (isBasic) {
-    showToast(`Basic Card (${cardName}) tidak dapat memiliki Epiphany.`);
+  if (isCardEpiphanyLocked(heroId, cardName)) {
+    showToast(`Basic Starter (${cardName}) tidak dapat memiliki Epiphany.`);
     return;
   }
 
