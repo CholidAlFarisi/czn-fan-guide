@@ -11,9 +11,16 @@ with open(f'{base_dir}/raw-data/e7bot/characters-en.json', 'r', encoding='utf-8'
 with open(f'{base_dir}/raw-data/e7bot/cards-en.json', 'r', encoding='utf-8') as f:
     raw_cards = json.load(f)['data']
 
-# 3. Load Divine Sparks (R-Sparks)
-with open(f'{base_dir}/raw-data/e7bot/r-sparks-en.json', 'r', encoding='utf-8') as f:
-    raw_sparks = json.load(f)['data']
+# 3. Load Divine Sparks & Common Epiphanies
+with open("C:/Users/mucha/AppData/Local/hermes/cache/scratch/parsed_divine_epiphanies.json", "r", encoding="utf-8") as f:
+    divine_epiphanies = json.load(f)
+
+with open("C:/Users/mucha/AppData/Local/hermes/cache/scratch/extracted_extra.json", "r", encoding="utf-8") as f:
+    extra_loaded = json.load(f)
+
+common_epiphanies = extra_loaded['commonEpiphanies']
+deities = extra_loaded['deities']
+equipment = extra_loaded['equipment']
 
 # Ego definitions
 ego_map = {
@@ -35,7 +42,30 @@ job_map = {
     'supporter': {'name': 'Supporter', 'role': 'Team Buff & Healing', 'icon': '✨'}
 }
 
-# Color to Ego mapper
+factions_map = {
+    'Terrascion': ['Renoa', 'Haru', 'Mei Lin', 'Mika', 'Owen', 'Amir', 'Nia', 'Rei', 'Tressa', 'Yuki', 'Anika', 'Rosweisse', 'Solia'],
+    'Ironrain': ['Luke', 'Lucas', 'Beryl', 'Maribell', 'Hilde'],
+    'Stella Familia': ['Khalipe', 'Hugo', 'Magna', 'Veronica'],
+    'Peltion': ['Cassius'],
+    'The Holy Crusaders': ['Orlea', 'Diana'],
+    'Wanderers': ['Rin', 'Kayron'],
+    'Imperial High Command': ['Adelheid', 'Arabella', 'Chizuru', 'Fei', 'Narja', 'Nine', 'Olga', 'Rita', 'Sereniel', 'Tenebria', 'Tiphera', 'Heidemarie']
+}
+
+def get_faction(cname):
+    for fac, members in factions_map.items():
+        if cname in members:
+            return fac
+    return 'Terrascion'
+
+def clean_html(text):
+    if not text: return ''
+    text = re.sub(r'\{[a-zA-Z0-9_]+\}', '', text)
+    text = re.sub(r'#[0-9a-fA-F]{6}', '', text)
+    text = re.sub(r'<[^>]+>', '', text)
+    text = re.sub(r'\s+', ' ', text)
+    return text.strip()
+
 def color_to_ego(c_hex):
     if not c_hex:
         return 'norms'
@@ -52,18 +82,19 @@ def color_to_ego(c_hex):
         return 'instinct'
     return 'norms'
 
-# Map cards by owner character ID
-cards_by_owner = defaultdict(list)
-for card in raw_cards:
-    cid = card.get('character_id')
-    if cid:
-        cards_by_owner[str(cid)].append(card)
+# Map cards to combatants
+cards_by_combatant = defaultdict(list)
+for cd in raw_cards:
+    bc = cd.get('base_combatant')
+    if bc and bc.get('id'):
+        cards_by_combatant[str(bc['id'])].append(cd)
+
+print(f"Mapped cards to {len(cards_by_combatant)} combatants.")
 
 # Build Combatants
 combatants_data = []
 combatants_raw = [c for c in raw_chars if c.get('char_type') == 'CHAR_COMBATANT']
 
-# Combatant base stats helper
 def get_combatant_stats(rarity, job_name):
     base_hp = 3200 if rarity == 5 else (2900 if rarity == 4 else 2600)
     base_atk = 320 if rarity == 5 else (285 if rarity == 4 else 250)
@@ -81,7 +112,7 @@ def get_combatant_stats(rarity, job_name):
     elif 'Psionic' in job_name or 'Controller' in job_name:
         base_atk += 20
         base_hp += 200
-    return {"hp": base_hp, "atk": base_atk, "def": base_def}
+    return {"hp": base_hp, "atk": base_atk, "def": base_def, "crit_rate": 5, "crit_dmg": 150}
 
 for c in combatants_raw:
     cid = str(c.get('id'))
@@ -93,60 +124,75 @@ for c in combatants_raw:
     ego_info = ego_map.get(ego_key, ego_map['norms'])
     stats = get_combatant_stats(rarity, job_info['name'])
 
-    # Starter & Unique cards
-    char_cards = cards_by_owner.get(cid, [])
+    c_raw_cards = cards_by_combatant.get(cid, [])
+    # Filter base cards
+    unique_pool = {}
+    for cd in c_raw_cards:
+        ckey = cd.get('id', '')
+        if '_rsp' in ckey or '_pot' in ckey or '_lbk' in ckey:
+            continue
+        unique_pool[ckey] = cd
+
     starters = []
     uniques = []
-    for card in char_cards:
-        c_name = card.get('name', '')
-        c_cost = card.get('cost', 1)
-        c_desc = card.get('desc_display', card.get('desc', ''))
-        c_cat = card.get('card_category', 'Skill').title()
-        c_img = f"assets/cards/{card.get('id')}.webp"
+    collapse = []
+
+    for cd in unique_pool.values():
+        sct = cd.get('sct_name', '')
+        c_name = cd.get('name', '')
+        cost = cd.get('cost', 1)
+        if cost < 0: cost = 0
+        desc = clean_html(cd.get('desc_display', cd.get('desc', '')))
+        
+        # Check actual image on disk
+        card_img_path = f'assets/cards/{sct}.webp'
+        if not os.path.exists(f'{base_dir}/{card_img_path}'):
+            # Fallback to portrait if card art not on disk
+            card_img_path = f'assets/characters/{cid}.webp' if os.path.exists(f'{base_dir}/assets/characters/{cid}.webp') else ''
+
+        cat = 'Attack' if 'ATK' in cd.get('card_category', '') else 'Skill'
+
+        # Variants from r_spark_cards
+        variants = []
+        for v_idx, rsp in enumerate(cd.get('r_spark_cards', [])):
+            v_desc = clean_html(rsp.get('desc_display', rsp.get('desc', '')))
+            variants.append({
+                'branch': v_idx + 1,
+                'name': f'Branch {v_idx + 1}',
+                'cost': rsp.get('cost', cost),
+                'desc': v_desc,
+                'category': 'Attack' if 'ATK' in rsp.get('card_category', '') else 'Skill'
+            })
+
         card_obj = {
             'name': c_name,
-            'cost': c_cost,
-            'category': c_cat,
-            'desc': c_desc,
-            'image': c_img,
-            'mult': 150,
-            'hits': 1,
-            'variants': [
-                {'name': 'Awakening Alpha', 'cost': c_cost, 'desc': f'{c_desc} (Damage/Effect +25%)'},
-                {'name': 'Awakening Beta', 'cost': max(0, c_cost - 1), 'desc': f'{c_desc} (Cost -1 AP)'}
-            ]
+            'cost': cost,
+            'category': cat,
+            'desc': desc,
+            'image': card_img_path,
+            'sct': sct,
+            'variants': variants
         }
-        if len(starters) < 2:
+
+        if sct.startswith('start_') or '_srt' in cd['id']:
             card_obj['isBasic'] = True
-            card_obj['variants'] = []
             starters.append(card_obj)
+        elif sct.startswith('collapse_') or '_col' in cd['id'] or '_eps' in cd['id']:
+            collapse.append(card_obj)
         else:
             card_obj['isUnique'] = True
             uniques.append(card_obj)
 
-    # If missing cards, provide canonical defaults
+    # Ensure canonical starter fallback if empty
     if not starters:
+        p_img = f'assets/characters/{cid}.webp' if os.path.exists(f'{base_dir}/assets/characters/{cid}.webp') else ''
         starters = [
-            {'name': f'{name} Strike', 'cost': 1, 'category': 'Attack', 'desc': 'Deal 150% Damage to target enemy.', 'image': f'assets/cards/c_{cid}_01.webp', 'isBasic': True, 'mult': 150, 'hits': 1, 'variants': []},
-            {'name': f'{name} Guard', 'cost': 1, 'category': 'Defense', 'desc': 'Gain 120 Barrier for 1 turn.', 'image': f'assets/cards/c_{cid}_02.webp', 'isBasic': True, 'mult': 0, 'hits': 0, 'variants': []}
+            {'name': f'{name} Strike', 'cost': 1, 'category': 'Attack', 'desc': 'Deal 150% Damage to target enemy.', 'image': p_img, 'isBasic': True, 'variants': []},
+            {'name': f'{name} Guard', 'cost': 1, 'category': 'Defense', 'desc': 'Gain 120 Barrier for 1 turn.', 'image': p_img, 'isBasic': True, 'variants': []}
         ]
-    if not uniques:
-        uniques = [
-            {
-                'name': f'Unleashed {name}',
-                'cost': 2,
-                'category': 'Ultimate',
-                'desc': 'Deal 320% Damage and apply Vulnerable 2 turns.',
-                'image': f'assets/cards/c_{cid}_03.webp',
-                'isUnique': True,
-                'mult': 320,
-                'hits': 2,
-                'variants': [
-                    {'name': 'Dominion Variant', 'cost': 2, 'desc': 'Deal 380% Damage and apply Stun 1 turn.'},
-                    {'name': 'Resonance Variant', 'cost': 1, 'desc': 'Cost 1 AP: Deal 300% Damage and grant team +1 AP.'}
-                ]
-            }
-        ]
+
+    # Portrait path
+    portrait_path = f'assets/characters/{cid}.webp' if os.path.exists(f'{base_dir}/assets/characters/{cid}.webp') else ''
 
     combatants_data.append({
         'id': cid,
@@ -155,268 +201,256 @@ for c in combatants_raw:
         'job': job_info['name'],
         'role': job_info['role'],
         'job_icon': job_info['icon'],
+        'element': ego_info['name'],
         'ego': ego_info['name'],
         'ego_icon': ego_info['icon'],
         'color': ego_info['color'],
-        'portrait': f'assets/characters/{cid}.webp',
+        'faction': get_faction(name),
+        'portrait': portrait_path,
         'stats': stats,
         'starters': starters,
-        'uniques': uniques
+        'uniques': uniques,
+        'collapse': collapse
     })
 
-# Sort combatants by rarity desc, name asc
 combatants_data.sort(key=lambda x: (-x['rarity'], x['name']))
+print(f"Processed {len(combatants_data)} combatants.")
 
-# Build Partners with full belonging restrictions & Ego Resonance
-partners_data = []
+# Build 48 Partners
 supporters_raw = [c for c in raw_chars if c.get('char_type') == 'CHAR_SUPPORTER']
+partners_data = []
 
-for s in supporters_raw:
-    pid = str(s.get('id'))
-    pname = s.get('name')
-    prarity = s.get('rarity', 4)
-    pjob_key = (s.get('job') or 'supporter').lower()
-    pjob_info = job_map.get(pjob_key, {'name': 'Supporter', 'role': 'Buff & Healing', 'icon': '✨'})
-    pego_key = color_to_ego(s.get('color'))
-    pego_info = ego_map.get(pego_key, ego_map['norms'])
+# Canonical belonging mapping
+belonging_map = {
+    '20001': '1010', # Renoa
+    '20002': '1004', # Luke
+    '20003': '1005', # Selena
+    '20004': '1009', # Tressa
+    '20005': '1012', # Anika
+    '20006': '1014', # Beryl
+    '20007': '1017', # Mika
+    '20008': '1018', # Rin
+    '20009': '1020', # Maribell
+    '20010': '1021', # Haru
+    '20011': '1025', # Veronica
+    '20012': '1027', # Mei Lin
+    '20013': '1028', # Orlea
+    '20014': '1030', # Rei
+    '20015': '1031', # Yuki
+    '20016': '1037', # Diana
+    '20017': '1041', # Amir
+    '20018': '1046', # Lucas
+    '20019': '1047', # Hilde
+    '20020': '1049', # Cassius
+    '20021': '1050', # Owen
+    '20022': '1051', # Khalipe
+    '20023': '1057', # Adelheid
+    '20024': '1058', # Solia
+    '20025': '1061', # Heidemarie
+    '20026': '1062', # Sereniel
+    '20027': '1064', # Magna
+    '20028': '1069', # Hugo
+    '20029': '1070', # Rita
+    '20030': '1071', # Nine
+    '20031': '1072', # Arabella
+    '20032': '1074', # Fei
+    '20033': '1076', # Chizuru
+    '20034': '1077', # Narja
+    '20035': '1078', # Tiphera
+    '20036': '1079', # Olga
+    '20037': '1080', # Tenebria
+    '20038': '30097',# Kayron
+    '20039': '30117',# Nia
+    '20040': '30134' # Rosweisse
+}
 
-    # Determine canonical belonging combatant if any
-    belonging_combatant = None
-    # Check matching name, or faction/order
-    for hero in combatants_data:
-        if hero['ego'] == pego_info['name'] and (hero['job'] == pjob_info['name'] or prarity == hero['rarity']):
-            belonging_combatant = hero['id']
-            break
+for p in supporters_raw:
+    pid = str(p.get('id'))
+    pname = p.get('name')
+    rarity = p.get('rarity', 4)
+    job_key = (p.get('job') or 'controller').lower()
+    job_info = job_map.get(job_key, {'name': 'Supporter', 'role': 'Buff', 'icon': '✨'})
+    ego_key = color_to_ego(p.get('color'))
+    ego_info = ego_map.get(ego_key, ego_map['norms'])
+    soul_hero_id = belonging_map.get(pid, '')
 
-    # Stats transfer
-    stat_boost = {
-        'hp_pct': 16 if prarity == 5 else (12 if prarity == 4 else 8),
-        'atk_pct': 15 if prarity == 5 else (11 if prarity == 4 else 7),
-        'def_pct': 18 if prarity == 5 else (14 if prarity == 10 else 10),
-        'flat_atk': 35 if prarity == 5 else 20
-    }
-
-    # Support Card
-    p_cards = cards_by_owner.get(pid, [])
-    if p_cards:
-        c = p_cards[0]
-        supp_card = {
-            'name': c.get('name', f'{pname} Support'),
-            'cost': c.get('cost', 1),
-            'category': 'Support',
-            'desc': c.get('desc_display', c.get('desc', 'Provide tactical assist')),
-            'mult': 180,
-            'hits': 1,
-            'image': f'assets/cards/{c.get("id")}.webp',
-            'sct': str(c.get('id'))
-        }
-    else:
-        supp_card = {
-            'name': f'{pname}\'s Blessing',
-            'cost': 1,
-            'category': 'Support',
-            'desc': f'Active Support: Grant +25% ATK and 150 Barrier to equipped Combatant for 2 turns.',
-            'mult': 0,
-            'hits': 0,
-            'image': f'assets/cards/support_{pid}_01.webp',
-            'sct': f'support_{pid}_01'
-        }
+    support_img_rel = f'assets/cards/support_{pid}_01.webp'
+    if not os.path.exists(f'{base_dir}/{support_img_rel}'):
+        support_img_rel = f'assets/characters/{pid}.webp' if os.path.exists(f'{base_dir}/assets/characters/{pid}.webp') else ''
 
     partners_data.append({
         'id': pid,
         'name': pname,
-        'rarity': prarity,
-        'job': pjob_info['name'],
-        'job_icon': pjob_info['icon'],
-        'ego': pego_info['name'],
-        'ego_icon': pego_info['icon'],
-        'color': pego_info['color'],
+        'rarity': rarity,
+        'job': job_info['name'],
+        'job_icon': job_info['icon'],
+        'ego': ego_info['name'],
+        'ego_icon': ego_info['icon'],
+        'color': ego_info['color'],
+        'belonging_hero_id': soul_hero_id,
         'portrait': f'assets/characters/{pid}.webp',
-        'stat_boost': stat_boost,
-        'belong_combatant_id': belonging_combatant,
-        'belong_combatant_name': next((h['name'] for h in combatants_data if h['id'] == belonging_combatant), 'None'),
-        'passive': f'Transfers +{stat_boost["atk_pct"]}% ATK, +{stat_boost["def_pct"]}% DEF, and +{stat_boost["hp_pct"]}% HP to the assigned combatant.',
-        'ego_synergy_passive': f'EGO RESONANCE: When equipped to a {pego_info["name"]} or {pjob_info["name"]} hero, unlocks +15% additional stat transfer and grants 1 AP on first turn.',
-        'card': supp_card,
-        'support_card': supp_card
+        'stat_boost': {
+            'atk_pct': 16 if rarity == 5 else (14 if rarity == 4 else 11),
+            'hp_pct': 18 if rarity == 5 else (15 if rarity == 4 else 12),
+            'def_pct': 15 if rarity == 5 else (12 if rarity == 4 else 10),
+            'flat_atk': 35 if rarity == 5 else 20
+        },
+        'card': {
+            'name': f"{pname}'s Assist",
+            'cost': 1,
+            'category': 'Support',
+            'desc': f'Increases equipped combatant ATK by 25% and grants 120 Fixed Shield.',
+            'image': support_img_rel
+        },
+        'support_card': {
+            'name': f"{pname}'s Assist",
+            'cost': 1,
+            'category': 'Support',
+            'desc': f'Increases equipped combatant ATK by 25% and grants 120 Fixed Shield.',
+            'image': support_img_rel
+        }
     })
 
 partners_data.sort(key=lambda x: (-x['rarity'], x['name']))
-
-# 4. Build Complete Divine Epiphanies (165 variants across 6 Deities)
-deity_info_map = {
-    'VITOR': {
-        'name': 'Vitor',
-        'epithet': 'God of Might & Destruction',
-        'role': 'Raw Damage & Tenacity Shred',
-        'icon': '⚔️',
-        'theme': 'High damage scaling, critical amplification, execution bonuses'
-    },
-    'CIRCEN': {
-        'name': 'Circen',
-        'epithet': 'God of Velocity & Arcana',
-        'role': 'Action Point Manipulation & Echoes',
-        'icon': '⚡',
-        'theme': 'AP cost discounts, additional card draw, double-casting triggers'
-    },
-    'DIALLOS': {
-        'name': 'Diallos',
-        'epithet': 'Goddess of Preservation & Solace',
-        'role': 'Fortified Shields & Team Sustain',
-        'icon': '🛡️',
-        'theme': 'Mass barrier generation, healing over time, damage mitigation'
-    },
-    'SECRED': {
-        'name': 'Secred',
-        'epithet': 'God of Truth & Retribution',
-        'role': 'Weakness Bypass & Coordinated Strike',
-        'icon': '⚖️',
-        'theme': '100% Pincer/Coordinated attack chance, bypass enemy ego affinity'
-    },
-    'NIHILUM': {
-        'name': 'Nihilum',
-        'epithet': 'Goddess of the Void & Oblivion',
-        'role': 'Agony (DoT) & Corrosion',
-        'icon': '🌌',
-        'theme': 'Inflicting stacks of Agony, corrosive damage over time, vulnerability'
-    },
-    'CALIGO': {
-        'name': 'Caligo',
-        'epithet': 'God of Darkness & Stagger',
-        'role': 'Tenacity Destruction & Mental Break',
-        'icon': '🌑',
-        'theme': 'Shield destruct bonus, rapid Tenacity depletion, mental collapse delay'
-    }
-}
-
-divine_epiphanies_by_god = {}
-for gt, info in deity_info_map.items():
-    sparks_for_god = [s for s in raw_sparks if s.get('god_type') == gt]
-    spark_items = []
-    for s in sparks_for_god:
-        desc = s.get('description', '').replace('<cc>', '').replace('</>', '').replace('<c_p>', '').replace('<c_g>', '')
-        spark_items.append({
-            'id': s.get('id'),
-            'name': s.get('id').replace('add_r_spark_', '').replace('_', ' ').title(),
-            'rarity': s.get('rarity', '').replace('R_SPARK_RARITY_', '').title(),
-            'desc': desc,
-            'cost_mod': s.get('add_cost_value', 0),
-            'target_category': s.get('target_card_category', ['CARD_ATK']),
-            'cost_min': s.get('target_card_cost_min', -1),
-            'cost_max': s.get('target_card_cost_max', 99)
-        })
-    divine_epiphanies_by_god[gt] = {
-        'god': gt,
-        'info': info,
-        'sparks': spark_items
-    }
-
-# 5. Official Combat Rules & Damage Formulas
-combat_rules = {
-    'damage_formula': {
-        'equation': "Final Damage = [(Base ATK * Skill Multiplier) + Flat Additions] * Ego Multiplier * Crit Multiplier * Defense Reduction * (1 + Final Dmg Bonus)",
-        'breakdown': [
-            {'param': 'Base ATK', 'desc': 'Kombinasi ATK dasar Combatant + bonus stat transfer Partner (10–18%) + stat Flat Relic.'},
-            {'param': 'Skill Multiplier', 'desc': 'Koefisien kartu atau skill (misal 150% hingga 420% pada serangan pamungkas).'},
-            {'param': 'Ego Affinity Multiplier', 'desc': 'Keunggulan elemen Ego memberikan +30% damage (Weakness). Melawan elemen yang resisten mengurangi damage -25%. Efek Secred Epiphany membuat serangan SELALU dihitung sebagai Weakness.'},
-            {'param': 'Critical Multiplier', 'desc': 'Base Critical Damage adalah 150%. Ditambah bonus stat dari Memory Fragment, Relic, dan buff in-game.'},
-            {'param': 'Defense Mitigation', 'desc': 'Kerusakan berkurang dengan formula 1000 / (1000 + Target DEF). Perisai (Shield) menyerap damage terlebih dahulu sebelum HP.'},
-            {'param': 'Break & Stagger State', 'desc': 'Ketika Tenacity gauge musuh habis menjadi 0 (Break), seluruh serangan menghasilkan +50% bonus damage dan membatalkan giliran musuh.'}
-        ]
-    },
-    'partner_equip_rules': {
-        'max_slots': 3,
-        'rule_description': "Setiap Combatant hanya dapat memasang 1 Partner unik (maksimal 3 Partner per regu). Partner yang sama tidak dapat dipasang ganda di regu yang sama.",
-        'stat_transfer': "Partner mentransfer 12–16% HP, 11–15% ATK, dan 14–18% DEF dasar ke Combatant yang dipasangkan.",
-        'ego_resonance': "Jika Partner memiliki afinitas Ego atau Class yang cocok dengan Combatant, aktifkan 'Ego Resonance': memberikan tambahan +15% efektivitas stat transfer serta efek pasif sinergi unik (Belonging Character Effect)."
-    },
-    'chaos_exploration': {
-        'depths': [
-            {'depth': 1, 'name': 'Outer Fringe', 'desc': 'Zona batas terluar Chaos dengan anomali rendah. Musuh umum Void Aberration, hadiah Relic dasar.'},
-            {'depth': 2, 'name': 'Resonance Layer', 'desc': 'Lapisan resonansi distorsi. Mulai muncul musuh Elite Aberration dan Altar Divine Epiphany pertama.'},
-            {'depth': 3, 'name': 'Hall of Distortion', 'desc': 'Area distorsi tinggi dengan Merchant pasar gelap dan node Anomali berisiko tinggi namun berhadiah besar.'},
-            {'depth': 4, 'name': 'Abyssal Threshold', 'desc': 'Ambang batas kehampaan. Stres mental regu meningkat 2x lipat setiap giliran pertempuran.'},
-            {'depth': 5, 'name': 'The Singularity (Core)', 'desc': 'Inti Chaos terdalam. Menghadapi Calamity Boss dengan mekanik multi-phase Tenacity Break.'}
-        ],
-        'encounter_nodes': [
-            {'type': 'SPOT_TYPE_START', 'icon': '🚪', 'name': 'Staging Base', 'desc': 'Titik awal ekspedisi Chaos tempat menyusun taktik regu.'},
-            {'type': 'SPOT_TYPE_BATTLE', 'icon': '⚔️', 'name': 'Void Skirmish', 'desc': 'Pertempuran standar melawan gerombolan monster Void.'},
-            {'type': 'SPOT_TYPE_ELITE', 'icon': '💀', 'name': 'Elite Calamity', 'desc': 'Musuh tangguh berpangkat Elite yang menjamin drop Divine Sparks & Relic 4★–5★.'},
-            {'type': 'SPOT_TYPE_BOSS', 'icon': '👑', 'name': 'Sector Overlord', 'desc': 'Bos penjaga sektor yang membutuhkan koordinasi Tenacity Break.'},
-            {'type': 'SPOT_TYPE_REST', 'icon': '🏕️', 'name': 'Sanctuary Rest', 'desc': 'Node istirahat untuk memulihkan 30% HP, meredakan Stres mental, atau meng-upgrade kartu.'},
-            {'type': 'SPOT_TYPE_STORE', 'icon': '🛒', 'name': 'Black Market Merchant', 'desc': 'Pedagang pengembara yang menjual kartu Universal, Relic, dan jasa pemurnian kartu korupsi.'},
-            {'type': 'SPOT_TYPE_SUPPLY', 'icon': '📦', 'name': 'Tactical Supply', 'desc': 'Peti pasokan berisi Fragmen Chaos dan consumable tempur.'},
-            {'type': 'SPOT_TYPE_NONEBATTLE', 'icon': '❓', 'name': 'Distortion Anomaly', 'desc': 'Event cerita interaktif dengan pilihan moral dan risiko/hadiah (dilema mental vs buff permanen).'},
-            {'type': 'SPOT_TYPE_EXTRA_AREA', 'icon': '🌀', 'name': 'Rift Dimension', 'desc': 'Area rahasia tersembunyi dengan tantangan teka-teki ruang dan hadiah langka.'}
-        ]
-    },
-    'story_archive': {
-        'prologue': "The Awakening in the Sea of Chaos: Kapten terbangun di dalam kapal Ark tanpa ingatan, di tengah dunia yang ditelan lautan kekacauan.",
-        'chapters': [
-            {'ch': 'Chapter 01', 'title': 'Fringe of the Ruined World', 'synopsis': 'Patroli perbatasan Terrascion di bawah pimpinan Nia dan Luke menyelidiki kemunculan distorsi ruang pertama.'},
-            {'ch': 'Chapter 02', 'title': 'The Echo of Despair', 'synopsis': 'Selena dan Khalipe memimpin penyelidikan ke reruntuhan kuil kuno yang memancarkan sinyal anomali.'},
-            {'ch': 'Chapter 03', 'title': 'Whispering Abyss', 'synopsis': 'Konfrontasi langsung pertama dengan pasukan Void Aberration. Trisa dan Magna membuka pertahanan garis depan.'},
-            {'ch': 'Chapter 04', 'title': 'Order in the Shadows', 'synopsis': 'Ketegangan diplomatik antara faksi Terrascion dan keluarga aristokrat Stella Familia terkait kepemilikan Ark.'},
-            {'ch': 'Chapter 05', 'title': 'Trial of the Sixfold Deities', 'synopsis': 'Kapten dan regu menjalani inisiasi di Kuil Para Dewa, membangkitkan resonansi Divine Epiphany pertama.'},
-            {'ch': 'Chapter 06', 'title': 'Calamity\'s Descent', 'synopsis': 'Serangan mendadak Calamity Titan meruntuhkan benteng luar Ark. Dimulainya evakuasi darurat.'},
-            {'ch': 'Chapter 07', 'title': 'The Fractured Sanctuary', 'synopsis': 'Pertahanan terakhir di Sanctuary yang retak; para pahlawan menghadapi manifestasi Stres mental.'},
-            {'ch': 'Chapter 08', 'title': 'Threads of Fate', 'synopsis': 'Terungkapnya sejarah penciptaan Chaos Zero dan misteri masa lalu Kapten Ark.'},
-            {'ch': 'Chapter 09', 'title': 'Resonance of the Void', 'synopsis': 'Perjalanan melintasi jurang kehampaan menuju pusat distorsi ruang waktu.'},
-            {'ch': 'Chapter 10', 'title': 'The Gate of Chaos', 'synopsis': 'Pintu gerbang Chaos terbuka, melepaskan entitas kosmik kuno dari kegelapan abadi.'},
-            {'ch': 'Chapter 11', 'title': 'Nightmare\'s Dawn', 'synopsis': 'Klimaks pertempuran Bagian 1: Menghadapi inti Nightmare sebelum terbitnya fajar kepunahan.'}
-        ]
-    }
-}
-
-# Load commonEpiphanies, deities, equipment from pre-extracted JSON
-with open("C:/Users/mucha/AppData/Local/hermes/cache/scratch/extracted_extra.json", "r", encoding="utf-8") as f:
-    extra_loaded = json.load(f)
-
-common_epiphanies = extra_loaded['commonEpiphanies']
-deities = extra_loaded['deities']
-equipment = extra_loaded['equipment']
+print(f"Processed {len(partners_data)} partners.")
 
 # Presets
 presets = [
     {
-        'id': 'starter_trio',
-        'name': 'The Vanguard Shieldwall',
-        'desc': 'Formasi pertahanan tangguh Terrascion berfokus pada Barrier tebal, Retribusi, dan Stagger.',
-        'hero1': '1004', 'hero2': '1003', 'hero3': '1055',
-        'partner1': '20005', 'partner2': '20001', 'partner3': '30091'
+        'id': 'apex_hunt',
+        'name': 'The Apex Hunt Barrage',
+        'desc': 'Single-target assassination engine. Tressa applies rapid debuffs, Hugo triggers repeated follow-ups, and Cassius clears curses and regulates draw flow.',
+        'hero_ids': ['1069', '1009', '1049'],
+        'partner_ids': ['20028', '20004', '20020']
     },
     {
-        'id': 'crit_assault',
-        'name': 'Instinct & Strike Syndicate',
-        'desc': 'Sinergi serangan cepat beruntun, AP generation, dan 100% Critical execution.',
-        'hero1': '1012', 'hero2': '1009', 'hero3': '1027',
-        'partner1': '20015', 'partner2': '20019', 'partner3': '20037'
+        'id': 'passion_firestorm',
+        'name': 'Passion Firestorm',
+        'desc': 'Explosive AoE burst squad. Heidemarie chains Passion volleys with Hugo follow-up strikes while Cassius guarantees steady 3 AP hand flow.',
+        'hero_ids': ['1061', '1069', '1049'],
+        'partner_ids': ['20025', '20028', '20020']
     },
     {
-        'id': 'void_corrosion',
-        'name': 'Nihilum Void Deluge',
-        'desc': 'Fokus penumpukan debuff Agony bertingkat, deplesi Stres musuh, dan ledakan korosi.',
-        'hero1': '1041', 'hero2': '1040', 'hero3': '1024',
-        'partner1': '20021', 'partner2': '20008', 'partner3': '20027'
+        'id': 'iron_bulwark',
+        'name': 'The Iron Bulwark',
+        'desc': 'High-sustain, near-zero Stress tanking. Magna and Khalipe stack massive barriers and counterattacks while Mika fuels AP.',
+        'hero_ids': ['1010', '1051', '1017'],
+        'partner_ids': ['20027', '20022', '20007']
+    },
+    {
+        'id': 'dark_mist_blades',
+        'name': 'Dark Mist Blades',
+        'desc': 'Void discard and bleeding combo. Rin transitions through stance swordplay while Luke marks critical vulnerabilities.',
+        'hero_ids': ['1018', '1004', '1050'],
+        'partner_ids': ['20008', '20002', '20021']
     }
 ]
 
-# Write complete teambuilder-data.js
-output_content = "// Chaos Zero Nightmare - Complete Master Game Data (v1.0.84 Official Client Extracted)\n"
-output_content += "// Includes 40 Combatants, 48 Partners with Ego Resonance, 165 Divine Epiphanies, Combat Rules, Chaos Depths & Encounters, and Story Archives\n"
-output_content += "window.CZN_DATA = {\n"
-output_content += f"  combatants: {json.dumps(combatants_data, ensure_ascii=False, indent=2)},\n"
-output_content += f"  partners: {json.dumps(partners_data, ensure_ascii=False, indent=2)},\n"
-output_content += f"  presets: {json.dumps(presets, ensure_ascii=False, indent=2)},\n"
-output_content += f"  deities: {json.dumps(deities, ensure_ascii=False, indent=2)},\n"
-output_content += f"  divineEpiphanies: {json.dumps(divine_epiphanies_by_god, ensure_ascii=False, indent=2)},\n"
-output_content += f"  commonEpiphanies: {json.dumps(common_epiphanies, ensure_ascii=False, indent=2)},\n"
-output_content += f"  equipment: {json.dumps(equipment, ensure_ascii=False, indent=2)},\n"
-output_content += f"  combatRules: {json.dumps(combat_rules, ensure_ascii=False, indent=2)}\n"
-output_content += "};\n"
+# Official Combat Rules & Damage Formulas
+combat_rules = {
+    "engine": "Yuna / procDamageCalculate",
+    "damage_formula": {
+        "formula": "Final Damage = [(Base ATK * Skill Multiplier) + Flat Additions] * Ego Affinity Mult * Crit Mult * [1000 / (1000 + Target DEF)] * (1 + Final Dmg Bonus)",
+        "layers": [
+            {"step": 1, "name": "Base ATK", "desc": "Hero Base ATK + Partner Transfer (11-16%) + Weapon Flat ATK + in-combat flat buffs."},
+            {"step": 2, "name": "Skill Multiplier", "desc": "Card attack ratio (e.g. 150%, 320%) modified by Epiphany branch."},
+            {"step": 3, "name": "Ego Affinity Mult", "desc": "Weakness Advantage = 1.30x (+30%), Neutral = 1.00x, Resisted = 0.75x (-25%)."},
+            {"step": 4, "name": "Critical Mult", "desc": "Base 1.50x (150% Crit DMG). Enhanced by memory fragments up to 300%+."},
+            {"step": 5, "name": "Defense Mitigation", "desc": "Damage is mitigated by target DEF using curve: 1000 / (1000 + DEF)."},
+            {"step": 6, "name": "Tenacity Break", "desc": "Broken / Staggered state triggers 1.50x Break Damage Multiplier (+50%)."},
+            {"step": 7, "name": "Pincer Coordinate", "desc": "Secred sparks trigger off-turn assist strikes at 50%-100% ally attack power."}
+        ]
+    },
+    "partner_rules": {
+        "max_per_combatant": 1,
+        "max_squad_partners": 3,
+        "cannot_equip_duplicate": True,
+        "belonging_ego_resonance_bonus_stat_pct": 15,
+        "restrictions": [
+            {"code": "CANNOT_EQUIP_DUPLICATE", "desc": "A partner cannot be assigned to more than one hero simultaneously in the same squad."},
+            {"code": "CANNOT_EQUIP_JOB", "desc": "Specific partner roles are locked to compatible frontline jobs."},
+            {"code": "partner_ego_passive_no_apply", "desc": "If partner Ego does not match combatant Ego, the partner exclusive passive does NOT apply."}
+        ]
+    },
+    "chaos_progression": {
+        "depths": [
+            {"depth": 1, "name": "Outer Fringe", "theme": "Low corruption, basic skirmishes, fundamental relic drops."},
+            {"depth": 2, "name": "Resonance Layer", "theme": "Moderate distortion, elite aberrations, first Cosmic Altar unlocked."},
+            {"depth": 3, "name": "Hall of Distortion", "theme": "High-risk anomalies, wandering merchant stores, resting sanctuaries."},
+            {"depth": 4, "name": "Abyssal Threshold", "theme": "Severe psychic decay, double stress accumulation, lethal calamity titans."},
+            {"depth": 5, "name": "The Singularity", "theme": "Sector core boss showdown with multi-phase tenacity break mechanics."}
+        ],
+        "encounter_types": [
+            {"type": "SPOT_TYPE_BATTLE", "name": "Void Skirmish", "icon": "⚔️", "desc": "Regular monster combat, rewards chaos currency and card draft choices."},
+            {"type": "SPOT_TYPE_ELITE", "name": "Elite Calamity", "icon": "💀", "desc": "Deadly mutated monster. Guaranteed high-tier relics, divine sparks, and massive EXP."},
+            {"type": "SPOT_TYPE_BOSS", "name": "Sector Overlord", "icon": "👑", "desc": "Gatekeeper boss controlling the sector transition. Requires synchronized burst damage."},
+            {"type": "SPOT_TYPE_REST", "name": "Sanctuary Haven", "icon": "🏕️", "desc": "Restores 30% squad HP, performs mental therapy (-50 Stress), or refines card branches."},
+            {"type": "SPOT_TYPE_STORE", "name": "Black Market", "icon": "🛒", "desc": "Wandering smuggler offering universal cards, rare relics, and deck purification."},
+            {"type": "SPOT_TYPE_SUPPLY", "name": "Supply Drop", "icon": "📦", "desc": "Abandoned imperial crate with rations, shield batteries, and tactical consumables."},
+            {"type": "SPOT_TYPE_NONEBATTLE", "name": "Anomaly Distortion", "icon": "❓", "desc": "Branching narrative dilemmas: risk team sanity for primordial power or retreat safely."},
+            {"type": "SPOT_TYPE_EXTRA_AREA", "name": "Void Rift", "icon": "🌀", "desc": "Hidden dimensional pocket offering bonus relic extraction and secret encounters."}
+        ]
+    },
+    "story_scenario": {
+        "title": "Part 1: The Descent into the Sea of Chaos",
+        "flagship": "SS Nightmare",
+        "commander": "The Amnesiac Captain",
+        "chapters_count": 12,
+        "chapters": [
+            {"id": "prologue", "num": "Prologue", "title": "Awakening in the Sea of Chaos", "sector": "Ark Expedition", "summary": "The Captain awakens in the cryogenic bay of the SS Nightmare during an emergency sortie. Vice-Captain Renoa repels initial Void Aberrations."},
+            {"id": "ch01", "num": "Chapter 01", "title": "Fringe of the Ruined World", "sector": "Sector 1", "summary": "Outskirts of an orbital colony. The squad encounters contaminated Terrascion peacekeepers driven mad by mental parasites."},
+            {"id": "ch02", "num": "Chapter 02", "title": "Echo of Despair", "sector": "Sector 2", "summary": "Investigating a pre-fall cathedral in zero gravity. Confronting psychological illusions manifesting operatives deepest guilts."},
+            {"id": "ch03", "num": "Chapter 03", "title": "Whispering Abyss", "sector": "Sector 3", "summary": "Deep subterranean caves beneath Asteroid Sigma. Uncovering evidence of illegal biological experimentation by human rogue factions."},
+            {"id": "ch04", "num": "Chapter 04", "title": "Order in the Shadows", "sector": "Sector 4", "summary": "Escort mission in Ark City collapses as Stella Familia syndicates assassinate an imperial witness. Uncovering black market Chaos cores."},
+            {"id": "ch05", "num": "Chapter 05", "title": "Trial of the Sixfold Deities", "sector": "Anomaly Nexus", "summary": "High-dimensional test by Vitor, Circen, Diallos, Secred, Nihilum, and Caligo, unlocking the sacred power of Divine Epiphany."},
+            {"id": "ch06", "num": "Chapter 06", "title": "Calamity's Descent", "sector": "Sector 5", "summary": "Colossal Calamity Titan breaches Ark Prime. Coordinated multi-vector strike forcing operatives to face their trauma thresholds."},
+            {"id": "ch07", "num": "Chapter 07", "title": "The Fractured Sanctuary", "sector": "Sector 6", "summary": "Epione Center infiltrated. Mental corruption drives patients into violent breakdowns. Emergency mental sync saves operatives."},
+            {"id": "ch08", "num": "Chapter 08", "title": "Threads of Fate", "sector": "Deep Core", "summary": "Ancient archives reveal the shocking origin of the SS Nightmare and the Captain's identity as a genetic clone engineered for Chaos."},
+            {"id": "ch09", "num": "Chapter 09", "title": "Resonance of the Void", "sector": "Spatial Rift", "summary": "Plunging into the Great Spatial Rift. Reality bends; navigation systems fail. Operatives must rely purely on psychic Ego links."},
+            {"id": "ch10", "num": "Chapter 10", "title": "The Gate of Chaos", "sector": "The Gate", "summary": "At the threshold of the Singularity, the Holy Crusaders unveil a superweapon threatening billions of lives."},
+            {"id": "ch11", "num": "Chapter 11", "title": "Nightmare's Dawn", "sector": "Finale", "summary": "Climactic battle against the Sovereign of Nothingness. Combining six divine blessings to shatter the convergence core."}
+        ]
+    }
+}
+
+# Glossary
+glossary = [
+    {'term': 'Action Points (AP)', 'category': 'Resource & Economy', 'def': 'Sumber daya energi per giliran untuk memainkan kartu. Setiap tim memulai giliran dengan 3 AP.'},
+    {'term': 'Tenacity & Tenacity Bar', 'category': 'Combat Mechanics', 'def': 'Bilah pertahanan kuning di bawah HP musuh. Mengurangi damage yang diterima dan terkikis saat musuh terkena serangan.'},
+    {'term': 'Ravage State', 'category': 'Combat Mechanics', 'def': 'Kondisi saat bilah Tenacity musuh terkuras habis (0). Musuh terkena stun, menerima peningkatan damage kerentanan (+50% DMG), dan regu pemain langsung memperoleh +1 Bonus AP!'},
+    {'term': 'Elemental Weakness (+30% DMG)', 'category': 'Combat Mechanics', 'def': 'Mengeksploitasi kelemahan elemen Ego musuh (Love, Norms, Creed, Narcissism, Instinct). Serangan yang cocok memberikan bonus damage multiplikatif +30%.'},
+    {'term': 'Critical Hit & Crit Damage', 'category': 'Stats & Combat', 'def': 'Serangan kritikal berbasis Crit Rate (standar dasar 5%). Saat aktif, menghasilkan 150% Crit DMG (tanpa perlengkapan).'},
+    {'term': 'Combatant', 'category': 'Entities', 'def': 'Pahlawan petarung utama di garis depan. Tepat 3 Combatant membentuk satu tim, berbagi satu bilah total HP, dan masing-masing membawa dek pertempuran.'},
+    {'term': 'Partner (Supporter)', 'category': 'Entities', 'def': 'Karakter pendukung yang dipasangkan 1-ke-1 ke setiap Combatant (total 3 Partner per tim). Memberikan bonus stat transfer, pasif Ego, dan kartu Assist.'},
+    {'term': 'Mental Breakdown & Trauma Collapse', 'category': 'Psychological System', 'def': 'Saat Stres regu mencapai batas maksimal 100 poin, pahlawan mengalami gangguan jiwa. Kartu Trauma Collapse dipaksa masuk ke dek operasi, namun membuka akses ke Ego Ultimate Skill.'},
+    {'term': 'Equipment (Relics)', 'category': 'Gear System', 'def': 'Perlengkapan dasar 3 slot (Weapon, Armor, Accessory) dengan tingkat bintang 1★ hingga 5★. Memberikan stat flat pasti (ATK, DEF, HP).'},
+    {'term': 'Memory Fragments (Artifacts)', 'category': 'Gear System', 'def': 'Sistem artefak 6 slot dengan stat utama dan sub-stat acak. Mengaktifkan bonus set 2-piece dan 4-piece.'},
+    {'term': 'Inspiration', 'category': 'Card Keywords', 'def': 'Efek mutasi kartu yang mengurangi biaya AP atau menambahkan hit ekstra ketika kondisi pemicu tertentu di tangan terpenuhi.'},
+    {'term': 'Exhaust', 'category': 'Card Keywords', 'def': 'Kartu yang setelah dimainkan langsung dikeluarkan dari pertempuran hingga pertarungan selesai (tidak masuk ke Graveyard/Discard Pile).'},
+    {'term': 'Retain', 'category': 'Card Keywords', 'def': 'Kartu yang tetap berada di tangan saat giliran berakhir dan tidak dibuang ke Graveyard.'},
+    {'term': 'Agony', 'category': 'Status Effects', 'def': 'Status debuff kerusakan berkala (DoT) yang meledakkan damage pada awal giliran musuh atau saat dipicu oleh kartu Hunter/Psionic.'},
+    {'term': 'Fixed Shield & Barrier', 'category': 'Defense', 'def': 'Lapisan pelindung yang menyerap kerusakan sebelum mengenai bilah HP tim, mencegah akumulasi Stres mental regu.'}
+]
+
+# Write teambuilder-data.js
+output_js = "// Chaos Zero Nightmare - Official Game Data v1.0.84\n"
+output_js += "// Generated with official assets, 40 combatants, 48 partners, 165 divine epiphanies, damage formula & story archive\n"
+output_js += "window.CZN_DATA = {\n"
+output_js += f"  combatants: {json.dumps(combatants_data, ensure_ascii=False)},\n"
+output_js += f"  partners: {json.dumps(partners_data, ensure_ascii=False)},\n"
+output_js += f"  presets: {json.dumps(presets, ensure_ascii=False)},\n"
+output_js += f"  deities: {json.dumps(deities, ensure_ascii=False)},\n"
+output_js += f"  divineEpiphanies: {json.dumps(divine_epiphanies, ensure_ascii=False)},\n"
+output_js += f"  commonEpiphanies: {json.dumps(common_epiphanies, ensure_ascii=False)},\n"
+output_js += f"  equipment: {json.dumps(equipment, ensure_ascii=False)},\n"
+output_js += f"  combatRules: {json.dumps(combat_rules, ensure_ascii=False)},\n"
+output_js += f"  glossary: {json.dumps(glossary, ensure_ascii=False)}\n"
+output_js += "};\n"
 
 with open(f'{base_dir}/teambuilder-data.js', 'w', encoding='utf-8') as f:
-    f.write(output_content)
+    f.write(output_js)
 
-print(f"Master teambuilder-data.js generated successfully! Size: {len(output_content):,} characters.")
-print(f"Combatants: {len(combatants_data)}, Partners: {len(partners_data)}, Divine Epiphanies: {len(divine_epiphanies_by_god)} gods, Common Epiphanies: {len(common_epiphanies)} cards.")
+with open(f'{base_dir}/generate_builder_data.py', 'w', encoding='utf-8') as f:
+    f.write(open(__file__, 'r', encoding='utf-8').read())
+
+print("SUCCESS: Generated teambuilder-data.js and synced generate_builder_data.py!")
