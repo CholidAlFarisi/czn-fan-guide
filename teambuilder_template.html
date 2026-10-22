@@ -1416,7 +1416,8 @@ function renderDeckCustomizer() {
 
     const activeVar = (hasVariants && activeBranch > 0) ? c.variants[activeBranch - 1] : null;
 
-    const displayDesc = activeVar ? activeVar.desc : (c.desc || '');
+    const rawDesc = activeVar ? activeVar.desc : (c.desc || '');
+    const displayDesc = rawDesc ? rawDesc.replace(/([a-z])([A-Z])/g, '$1 $2') : '';
     const displayCat = activeVar ? activeVar.category : (c.category || c.type || 'Attack');
     let apCost = activeVar ? activeVar.cost : (c.cost !== undefined ? c.cost : 1);
 
@@ -1568,103 +1569,111 @@ function renderDeckCustomizer() {
     const cardEl = document.createElement('div');
     cardEl.className = `tcg-card ${isRemoved ? 'is-removed' : ''} ${epStateClass}`;
     cardEl.innerHTML = `
-      <!-- 1. NAMA KARTU, AP COST, & TYPE -->
+      <!-- 1. HEADER (Cost | Card Name | Card Type) -->
       <div class="tcg-header">
         <div class="tcg-ap-badge" title="Energy Cost: ${apCost} AP">${apCost}</div>
         <div class="tcg-name" title="${c.name}">${c.name}</div>
         <span class="type-badge type-${displayCat.toLowerCase()}">${displayCat}</span>
       </div>
 
-      <!-- 2. GAMBAR KARTU -->
-      <div class="tcg-art-frame">
-        ${cardImgSrc ? `
-          <img src="${cardImgSrc}" alt="${c.name}" class="tcg-art-img" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'tcg-art-fallback\'><span>${displayCat === 'Attack' ? '⚔️' : (displayCat === 'Skill' ? '🛡️' : '🔮')}</span><span style=\'font-size:0.65rem; color:var(--muted); margin-top:4px;\'>${c.name}</span></div>';">
-        ` : `
-          <div class="tcg-art-fallback">
-            <span>${displayCat === 'Attack' ? '⚔️' : (displayCat === 'Skill' ? '🛡️' : '🔮')}</span>
-            <span style="font-size:0.65rem; color:var(--muted); margin-top:4px;">${c.name}</span>
+      <!-- 2. BODY (2 COLUMNS: LEFT = ART + EFFECT, RIGHT = 3 EPIPHANIES) -->
+      <div class="tcg-body">
+        <!-- LEFT COLUMN: PICTURE (TOP) + CARD EFFECT (BOTTOM) -->
+        <div class="tcg-col-left">
+          <div class="tcg-art-frame">
+            ${cardImgSrc ? `
+              <img src="${cardImgSrc}" alt="${c.name}" class="tcg-art-img" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'tcg-art-fallback\\'><span>${displayCat === 'Attack' ? '⚔️' : (displayCat === 'Skill' ? '🛡️' : '🔮')}</span><span style=\\'font-size:0.65rem; color:var(--muted); margin-top:4px;\\'>${c.name}</span></div>';">
+            ` : `
+              <div class="tcg-art-fallback">
+                <span>${displayCat === 'Attack' ? '⚔️' : (displayCat === 'Skill' ? '🛡️' : '🔮')}</span>
+                <span style="font-size:0.65rem; color:var(--muted); margin-top:4px;">${c.name}</span>
+              </div>
+            `}
+            ${isStarter ? (
+              isUniqueSelected ? `
+                <div class="tcg-art-badge-branch">✦ Branch ${activeBranch}</div>
+              ` : (isCommonSelected ? `
+                <div class="tcg-art-badge-branch" style="color:var(--cyan); border-color:var(--cyan);">💡 Common Spark</div>
+              ` : `
+                <div class="tcg-art-badge-branch" style="color:var(--muted); border-color:var(--panel-border);">🛡️ Starter</div>
+              `)
+            ) : (c.isExtra ? `
+              <div class="tcg-art-badge-branch" style="color:var(--emerald); border-color:var(--emerald);">➕ Added Card</div>
+            ` : (isUniqueSelected ? `
+              <div class="tcg-art-badge-branch">✦ Branch ${activeBranch}</div>
+            ` : (isCommonSelected ? `
+              <div class="tcg-art-badge-branch" style="color:var(--cyan); border-color:var(--cyan);">💡 Common Spark</div>
+            ` : `
+              <div class="tcg-art-badge-branch" style="color:var(--muted); border-color:var(--panel-border);">Base Card</div>
+            `)))}
+            ${isDivine && deityData ? `
+              <div class="tcg-art-badge-deity">${deityData.icon} ${deityData.name}</div>
+            ` : ''}
           </div>
-        `}
-        ${isStarter ? (
-          isUniqueSelected ? `
-            <div class="tcg-art-badge-branch">✦ Branch ${activeBranch}</div>
-          ` : (isCommonSelected ? `
-            <div class="tcg-art-badge-branch" style="color:var(--cyan); border-color:var(--cyan);">💡 Common Spark</div>
-          ` : `
-            <div class="tcg-art-badge-branch" style="color:var(--muted); border-color:var(--panel-border);">🛡️ Starter</div>
-          `)
-        ) : (c.isExtra ? `
-          <div class="tcg-art-badge-branch" style="color:var(--emerald); border-color:var(--emerald);">➕ Added Card</div>
-        ` : (isUniqueSelected ? `
-          <div class="tcg-art-badge-branch">✦ Branch ${activeBranch}</div>
-        ` : (isCommonSelected ? `
-          <div class="tcg-art-badge-branch" style="color:var(--cyan); border-color:var(--cyan);">💡 Common Spark</div>
-        ` : `
-          <div class="tcg-art-badge-branch" style="color:var(--muted); border-color:var(--panel-border);">Base Card</div>
-        `)))}
-        ${isDivine && deityData ? `
-          <div class="tcg-art-badge-deity">${deityData.icon} ${deityData.name}</div>
-        ` : ''}
-      </div>
 
-      <!-- 3. PENJELASAN EFEK KARTU ATAU UNIQUE EPIPHANY -->
-      <div class="tcg-desc-box">
-        <div>
-          <div>${displayDesc}</div>
-          ${activeVar && (activeVar.mult > 0 || activeVar.shield > 0 || activeVar.hits > 1) ? `
-            <div style="font-size:0.68rem; color:#dfb235; font-weight:700; margin-top:3px;">
-              ✦ ${activeVar.mult > 0 ? activeVar.mult + '% DMG Scaling' : ''}${activeVar.shield > 0 ? ' • ' + activeVar.shield + '% Shield' : ''}${activeVar.hits > 1 ? ' • ' + activeVar.hits + ' Hits' : ''}
-            </div>
-          ` : ''}
-          ${isCommonSelected && activeCommonObj ? `
-            <div style="font-size:0.68rem; color:var(--cyan); font-weight:700; margin-top:3px;">
-              💡 Spark: ${activeCommonObj.desc}
-            </div>
-          ` : ''}
-        </div>
-      </div>
-
-      <!-- 4. EPIPHANY CONFIGURATION (UNIQUE, COMMON, DIVINE) -->
-      <div class="tcg-epiphany-controls">
-        <!-- UNIQUE EPIPHANY -->
-        <div class="tcg-field">
-          <div class="tcg-field-header">
-            <div style="display:flex; align-items:center; gap:5px;">
-              <span style="color:#dfb235;">✦ UNIQUE EPIPHANY</span>
-              ${hasVariants ? `<span style="font-size:0.6rem; color:var(--muted); font-weight:600;">(${c.variants.length})</span>` : ''}
-            </div>
-            <div style="display:flex; align-items:center; gap:6px;">
-              ${hasVariants ? `
-                <button type="button" class="tcg-branch-compare-btn" onclick="openEpiphanyModal('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}', ${activeSlotNum}); switchEpTab('unique'); renderEpiphanyModalBody();" title="Buka jendela perbandingan semua Unique Epiphany">
-                  🔍 Bandingkan
-                </button>
+          <!-- CARD EFFECT -->
+          <div class="tcg-desc-box">
+            <div style="width:100%;">
+              <div class="tcg-desc-header">Card Effect</div>
+              <div class="tcg-desc-text">${displayDesc}</div>
+              ${activeVar && (activeVar.mult > 0 || activeVar.shield > 0 || activeVar.hits > 1) ? `
+                <div style="font-size:0.68rem; color:#dfb235; font-weight:700; margin-top:3px;">
+                  ✦ ${activeVar.mult > 0 ? activeVar.mult + '% DMG Scaling' : ''}${activeVar.shield > 0 ? ' • ' + activeVar.shield + '% Shield' : ''}${activeVar.hits > 1 ? ' • ' + activeVar.hits + ' Hits' : ''}
+                </div>
               ` : ''}
-              ${isCommonSelected ? '<span class="tcg-locked-badge">🔒 Locked</span>' : ''}
+              ${isCommonSelected && activeCommonObj ? `
+                <div style="font-size:0.68rem; color:var(--cyan); font-weight:700; margin-top:3px;">
+                  💡 Spark: ${activeCommonObj.desc}
+                </div>
+              ` : ''}
             </div>
           </div>
-          ${uniqueEpHtml}
         </div>
 
-        <!-- COMMON EPIPHANY (MUTUALLY EXCLUSIVE) -->
-        <div class="tcg-field">
-          <div class="tcg-field-header">
-            <span style="color:var(--cyan);">💡 COMMON EPIPHANY</span>
-            ${isUniqueSelected ? '<span class="tcg-locked-badge">🔒 Locked by Unique</span>' : ''}
-          </div>
-          ${commonEpHtml}
-        </div>
+        <!-- RIGHT COLUMN: UNIQUE, COMMON, DIVINE EPIPHANIES -->
+        <div class="tcg-col-right">
+          <div class="tcg-epiphany-controls">
+            <!-- UNIQUE EPIPHANY -->
+            <div class="tcg-field ${isUniqueSelected ? 'is-active-unique' : ''}">
+              <div class="tcg-field-header">
+                <div style="display:flex; align-items:center; gap:5px;">
+                  <span style="color:#dfb235;">✦ UNIQUE EPIPHANY</span>
+                  ${hasVariants ? `<span style="font-size:0.6rem; color:var(--muted); font-weight:600;">(${c.variants.length})</span>` : ''}
+                </div>
+                <div style="display:flex; align-items:center; gap:6px;">
+                  ${hasVariants ? `
+                    <button type="button" class="tcg-branch-compare-btn" onclick="openEpiphanyModal('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}', ${activeSlotNum}); switchEpTab('unique'); renderEpiphanyModalBody();" title="Buka jendela perbandingan semua Unique Epiphany">
+                      🔍 Bandingkan
+                    </button>
+                  ` : ''}
+                  ${isCommonSelected ? '<span class="tcg-locked-badge">🔒 Locked</span>' : ''}
+                </div>
+              </div>
+              ${uniqueEpHtml}
+            </div>
 
-        <!-- DIVINE EPIPHANY -->
-        <div class="tcg-field">
-          <div class="tcg-field-header">
-            <span style="color:#c084fc;">✨ DIVINE EPIPHANY</span>
-            ${isDivine ? `<span style="font-size:0.62rem; color:#c084fc; font-weight:700;">${deityData ? deityData.icon : '✨'} Active</span>` : ''}
+            <!-- COMMON EPIPHANY (MUTUALLY EXCLUSIVE) -->
+            <div class="tcg-field ${isCommonSelected ? 'is-active-common' : ''}">
+              <div class="tcg-field-header">
+                <span style="color:var(--cyan);">💡 COMMON EPIPHANY</span>
+                ${isUniqueSelected ? '<span class="tcg-locked-badge">🔒 Locked by Unique</span>' : ''}
+              </div>
+              ${commonEpHtml}
+            </div>
+
+            <!-- DIVINE EPIPHANY -->
+            <div class="tcg-field ${isDivine ? 'is-active-divine' : ''}">
+              <div class="tcg-field-header">
+                <span style="color:#c084fc;">✨ DIVINE EPIPHANY</span>
+                ${isDivine ? `<span style="font-size:0.62rem; color:#c084fc; font-weight:700;">${deityData ? deityData.icon : '✨'} Active</span>` : ''}
+              </div>
+              ${divineEpHtml}
+            </div>
           </div>
-          ${divineEpHtml}
         </div>
       </div>
 
-      <!-- 5. FOOTER ACTIONS -->
+      <!-- 3. FOOTER ACTIONS -->
       <div class="tcg-footer-actions">
         ${!isPureBasic ? `
           <button class="builder-btn" style="flex:1; padding:5px 8px; font-size:0.72rem; color:#dfb235; border-color:rgba(223,178,53,0.4);" onclick="openEpiphanyModal('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}', ${activeSlotNum})" title="Inspect all branches, deities, and common sparks">

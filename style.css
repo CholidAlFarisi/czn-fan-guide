@@ -1564,8 +1564,15 @@ footer p { font-size: 0.76rem; color: var(--faint); line-height: 1.7; }
    ======================================================== */
 .game-card-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(460px, 1fr));
   gap: 18px;
+}
+
+@media (max-width: 640px) {
+  .game-card-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
 }
 
 .tcg-card {
@@ -1584,7 +1591,7 @@ footer p { font-size: 0.76rem; color: var(--faint); line-height: 1.7; }
 }
 
 .tcg-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
   box-shadow: 0 16px 36px rgba(0, 0, 0, 0.75), 0 0 16px rgba(34, 211, 238, 0.25);
   border-color: rgba(34, 211, 238, 0.45);
 }
@@ -1619,17 +1626,18 @@ footer p { font-size: 0.76rem; color: var(--faint); line-height: 1.7; }
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.55), 0 0 22px rgba(168, 85, 247, 0.45) !important;
 }
 
-/* Card Header Bar */
+/* Card Header Bar (Cost | Card Name | Card Type) */
 .tcg-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  background: rgba(10, 15, 26, 0.92);
+  gap: 10px;
+  background: rgba(10, 15, 26, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
   padding: 6px 10px;
   margin-bottom: 10px;
+  flex-shrink: 0;
 }
 
 .tcg-ap-badge {
@@ -1650,7 +1658,7 @@ footer p { font-size: 0.76rem; color: var(--faint); line-height: 1.7; }
 
 .tcg-name {
   font-family: 'Orbitron', sans-serif;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 700;
   color: #f8fafc;
   letter-spacing: 0.3px;
@@ -1660,31 +1668,57 @@ footer p { font-size: 0.76rem; color: var(--faint); line-height: 1.7; }
   flex: 1;
 }
 
-/* Card Artwork Frame */
+/* 2-Column Body Layout (Image 1 Structure) */
+.tcg-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+
+@media (max-width: 540px) {
+  .tcg-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Left Column: Picture (Top) + Card Effect (Bottom) */
+.tcg-col-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* Card Artwork Frame - uncropped full picture (aspect-ratio 2:3) */
 .tcg-art-frame {
   width: 100%;
-  height: 140px;
+  aspect-ratio: 2 / 3;
   border-radius: 8px;
   overflow: hidden;
   position: relative;
-  background: #080c16;
+  background: radial-gradient(circle at center, #111827 0%, #060913 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px;
+  box-shadow: inset 0 0 16px rgba(0, 0, 0, 0.7);
+  flex-shrink: 0;
 }
 
 .tcg-art-img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center top;
+  object-fit: contain;
+  object-position: center;
   transition: transform 0.3s ease;
+  display: block;
 }
 
 .tcg-card:hover .tcg-art-img {
-  transform: scale(1.06);
+  transform: scale(1.03);
 }
 
 .tcg-art-fallback {
@@ -1712,6 +1746,7 @@ footer p { font-size: 0.76rem; color: var(--faint); line-height: 1.7; }
   font-weight: 800;
   color: #dfb235;
   box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  z-index: 2;
 }
 
 .tcg-art-badge-deity {
@@ -1727,39 +1762,88 @@ footer p { font-size: 0.76rem; color: var(--faint); line-height: 1.7; }
   font-weight: 800;
   color: #c084fc;
   box-shadow: 0 2px 6px rgba(0,0,0,0.6);
+  z-index: 2;
 }
 
-/* Card Effect Description Box */
+/* Card Effect Description Box (Under Picture) */
 .tcg-desc-box {
   background: rgba(10, 14, 23, 0.88);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 8px;
-  padding: 9px 11px;
-  min-height: 54px;
-  font-size: 0.76rem;
-  line-height: 1.45;
+  padding: 8px 10px;
+  font-size: 0.74rem;
+  line-height: 1.4;
   color: #e2e8f0;
-  margin-bottom: 10px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
+  min-height: 58px;
+  box-sizing: border-box;
 }
 
-/* Epiphany Config Section */
+.tcg-desc-header {
+  font-size: 0.62rem;
+  font-weight: 800;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.tcg-desc-text {
+  font-size: 0.74rem;
+  line-height: 1.4;
+  color: #f1f5f9;
+}
+
+/* Right Column: Epiphany Controls (Unique, Common, Divine) */
+.tcg-col-right {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+}
+
 .tcg-epiphany-controls {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 8px;
-  background: rgba(8, 12, 22, 0.75);
-  border: 1px solid rgba(255, 255, 255, 0.07);
-  border-radius: 8px;
-  padding: 10px;
-  margin-bottom: 10px;
+  flex: 1;
+  padding: 0;
+  background: transparent;
+  border: none;
+  margin-bottom: 0;
 }
 
 .tcg-field {
+  background: rgba(8, 12, 22, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 8px 10px;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  justify-content: center;
+  gap: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.2s, background 0.2s;
+  flex: 1;
+}
+
+.tcg-field.is-active-unique {
+  border-color: rgba(223, 178, 53, 0.4);
+  background: rgba(223, 178, 53, 0.05);
+}
+
+.tcg-field.is-active-common {
+  border-color: rgba(34, 211, 238, 0.4);
+  background: rgba(34, 211, 238, 0.05);
+}
+
+.tcg-field.is-active-divine {
+  border-color: rgba(168, 85, 247, 0.4);
+  background: rgba(168, 85, 247, 0.05);
 }
 
 .tcg-field-header {
@@ -1801,8 +1885,10 @@ footer p { font-size: 0.76rem; color: var(--faint); line-height: 1.7; }
   color: var(--muted);
   font-weight: 700;
   background: rgba(255, 255, 255, 0.05);
-  padding: 1px 5px;
-  border-radius: 3px;
+  padding: 3px 6px;
+  border-radius: 4px;
+  display: inline-block;
+  text-align: center;
 }
 
 .tcg-deity-banner {
@@ -1822,7 +1908,9 @@ footer p { font-size: 0.76rem; color: var(--faint); line-height: 1.7; }
 .tcg-footer-actions {
   display: flex;
   gap: 8px;
-  margin-top: auto;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 /* TCG Add Card Slot & Deck Summary */
