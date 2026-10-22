@@ -1,0 +1,24 @@
+{
+  "card_icon_name": "",
+  "char_type": "CHAR_SUPPORTER",
+  "color": "#8981a9",
+  "combatant": null,
+  "ego": "",
+  "faction": "",
+  "gender_type": "GENDER_FEMALE",
+  "id": "1058",
+  "job": "ranger",
+  "live_event_id": "",
+  "map_portrait_name": "",
+  "model": "1058",
+  "name": "Solia",
+  "names": {
+    "en": "Solia",
+    "zhs": "索莉亞",
+    "zht": "索莉亞"
+  },
+  "portrait_ani": "face/portrait/1058",
+  "portrait_name": "",
+  "potential_nodes": [],
+  "rarity": 5
+}

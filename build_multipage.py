@@ -98,6 +98,17 @@ def run():
             unique_combatants.append(c)
     unique_combatants.sort(key=lambda x: (-x['rarity'], x['name']))
 
+    # Load Manifest Ego data and attach to combatants
+    manifest_egos_dict = {}
+    if os.path.exists(f'{base_dir}/raw-data/e7bot/manifest_ego.json'):
+        with open(f'{base_dir}/raw-data/e7bot/manifest_ego.json', encoding='utf-8') as mf:
+            manifest_egos_dict = json.load(mf)
+
+    for c in unique_combatants:
+        cid = c.get('id', '')
+        if cid in manifest_egos_dict:
+            c['manifest_ego'] = manifest_egos_dict[cid].get('stages', [])
+
     # 4. Load Partners from characters-en.json
     supporters = []
     for cr in chars_raw:
@@ -445,8 +456,18 @@ def run():
     </div>
     <div class="modal-desc" id="mDesc"></div>
     <div class="modal-cards">
-      <h4>Starter &amp; Signature Cards</h4>
-      <div class="modal-card-list" id="mCardList"></div>
+      <div class="modal-tabs">
+        <button class="modal-tab-btn active" id="mTabCardsBtn" onclick="switchCharModalTab('cards')">🃏 Starter &amp; Signature Cards (<span id="mCardCount">0</span>)</button>
+        <button class="modal-tab-btn" id="mTabEgoBtn" onclick="switchCharModalTab('ego')">🧠 Manifest Ego (<span id="mEgoCount">6</span> Stages)</button>
+      </div>
+
+      <div id="mTabCards">
+        <div class="modal-card-list" id="mCardList"></div>
+      </div>
+
+      <div id="mTabEgo" style="display:none;">
+        <div class="ego-stage-list" id="mEgoList"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -567,6 +588,7 @@ function openModal(c) {{
   
   const cardList = document.getElementById('mCardList');
   cardList.innerHTML = '';
+  document.getElementById('mCardCount').textContent = (c.cards || []).length;
   if (c.cards && c.cards.length > 0) {{
     c.cards.forEach(card => {{
       const row = document.createElement('div');
@@ -588,7 +610,52 @@ function openModal(c) {{
   }} else {{
     cardList.innerHTML = '<div style="color:var(--muted);font-size:0.8rem">No starter card dossier available.</div>';
   }}
+
+  // Populate Manifest Ego Stages
+  const egoList = document.getElementById('mEgoList');
+  egoList.innerHTML = '';
+  const stages = c.manifest_ego || [];
+  document.getElementById('mEgoCount').textContent = stages.length;
+  if (stages.length > 0) {{
+    stages.forEach(st => {{
+      const card = document.createElement('div');
+      card.className = 'ego-stage-card';
+      card.innerHTML = `
+        <div class="ego-stage-head">
+          <div class="ego-stage-title-wrap">
+            <span class="ego-level-badge">LEVEL ${{st.level}}</span>
+            <span class="ego-stage-title">${{st.title}}</span>
+            ${{st.sub_title ? `<span class="ego-sub-badge">${{st.sub_title}}</span>` : ''}}
+          </div>
+        </div>
+        <div class="ego-stage-desc">${{st.desc_html || st.desc}}</div>
+      `;
+      egoList.appendChild(card);
+    }});
+  }} else {{
+    egoList.innerHTML = '<div style="color:var(--muted);font-size:0.8rem;padding:12px;">No Manifest Ego progression available for this combatant.</div>';
+  }}
+
+  switchCharModalTab('cards');
   modal.classList.add('open');
+}}
+
+function switchCharModalTab(tab) {{
+  const tCards = document.getElementById('mTabCards');
+  const tEgo = document.getElementById('mTabEgo');
+  const bCards = document.getElementById('mTabCardsBtn');
+  const bEgo = document.getElementById('mTabEgoBtn');
+  if (tab === 'ego') {{
+    tCards.style.display = 'none';
+    tEgo.style.display = 'block';
+    bCards.classList.remove('active');
+    bEgo.classList.add('active');
+  }} else {{
+    tCards.style.display = 'block';
+    tEgo.style.display = 'none';
+    bCards.classList.add('active');
+    bEgo.classList.remove('active');
+  }}
 }}
 
 modalClose.addEventListener('click', () => modal.classList.remove('open'));

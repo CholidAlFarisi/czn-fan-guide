@@ -632,6 +632,27 @@
   </div>
 </div>
 
+<!-- MODAL: MANIFEST EGO INSPECTOR & SELECTOR -->
+<div class="builder-modal-backdrop" id="modalManifestEgo">
+  <div class="builder-modal-content" style="max-width:840px; max-height:88vh; display:flex; flex-direction:column;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+      <div>
+        <h3 id="egoModalHeroTitle" style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin:0 0 2px 0;">🧠 Manifest Ego Progression</h3>
+        <p id="egoModalHeroSubtitle" style="font-size:0.78rem; color:var(--muted); margin:0;">Configure Awakened Memory Stages 1–6 and inspect character-exclusive passives.</p>
+      </div>
+      <button class="builder-btn" style="flex:none; padding:4px 10px;" onclick="closeManifestEgoModal()">✕</button>
+    </div>
+
+    <div id="egoModalBody" style="overflow-y:auto; flex:1; padding-right:4px;">
+      <!-- Populated dynamically -->
+    </div>
+
+    <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:14px; padding-top:10px; border-top:1px solid var(--panel-border);">
+      <button class="builder-btn builder-btn-primary" onclick="closeManifestEgoModal()">Done</button>
+    </div>
+  </div>
+</div>
+
 <!-- FLOATING TOAST NOTIFICATION -->
 <div id="floatingToast" class="floating-toast">
   <span id="toastIcon">✅</span>
@@ -778,6 +799,41 @@ const MANIFESTATION_STAGES = {
   5: { stat_pct: 25, crit_rate: 8, crit_dmg: 30, name: 'Stage 5: Complete (+25% Stats, +8% Crit, +30% CDMG)' },
   6: { stat_pct: 35, crit_rate: 10, crit_dmg: 50, name: 'Stage 6: Liberated (+35% Stats, +10% Crit, +50% CDMG)' }
 };
+
+function getHeroManifestStageTitle(heroId, stage) {
+  const num = parseInt(stage, 10) || 0;
+  if (num === 0) return 'Stage 0: Base (Dormant)';
+  const egoData = window.CZN_DATA?.manifestEgos?.[heroId];
+  if (egoData && egoData.stages && egoData.stages[num - 1]) {
+    const st = egoData.stages[num - 1];
+    return `Stage ${num}: ${st.title}`;
+  }
+  return `Stage ${num}: ${MANIFESTATION_STAGES[num]?.name || 'E' + num}`;
+}
+
+function getHeroManifestStageDetail(heroId, stage) {
+  const num = parseInt(stage, 10) || 0;
+  const egoData = window.CZN_DATA?.manifestEgos?.[heroId];
+  if (num === 0) {
+    return {
+      level: 0,
+      title: 'Base / Dormant',
+      desc: 'Base stats only. No Manifest Ego memory passives unlocked.',
+      desc_html: '<span style="color:var(--muted)">Base stats only. Click to inspect all 6 Manifest Ego stages.</span>',
+      sub_title: 'Dormant Memory'
+    };
+  }
+  if (egoData && egoData.stages && egoData.stages[num - 1]) {
+    return egoData.stages[num - 1];
+  }
+  return {
+    level: num,
+    title: `Stage ${num}`,
+    desc: `+${MANIFESTATION_STAGES[num]?.stat_pct || 0}% Base Stats`,
+    desc_html: `+${MANIFESTATION_STAGES[num]?.stat_pct || 0}% Base Stats`,
+    sub_title: 'Stat Boost'
+  };
+}
 
 window.addEventListener('DOMContentLoaded', () => {
   if (!window.CZN_DATA) {
@@ -936,6 +992,7 @@ function renderSquadColumns() {
     const hero = window.CZN_DATA.combatants.find(c => c.id === heroId) || window.CZN_DATA.combatants[0];
     const partner = window.CZN_DATA.partners.find(p => p.id === partnerId) || window.CZN_DATA.partners[0];
     const stats = getHeroEffectiveStats(hero, stage, partner, equip);
+    const manifestDetail = getHeroManifestStageDetail(hero.id, stage);
 
     const lane = document.createElement('div');
     lane.className = `team-column-lane ${activeHeroSlotIndex === (slotNum - 1) ? 'active' : ''}`;
@@ -956,13 +1013,29 @@ function renderSquadColumns() {
           <button class="builder-btn" style="padding:3px 8px; font-size:0.7rem;" onclick="openHeroModal(${slotNum})">Swap</button>
         </div>
 
-        <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(0,0,0,0.25); padding:4px 8px; border-radius:4px; margin-bottom:8px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(0,0,0,0.25); padding:4px 8px; border-radius:4px; margin-bottom:6px;">
           <span style="font-size:0.68rem; color:var(--muted); font-weight:700;">EGO STAGE:</span>
           <select style="background:transparent; border:none; color:#dfb235; font-size:0.74rem; font-weight:700; cursor:pointer;" onchange="changeHeroManifestation(${slotNum}, this.value)">
-            ${Object.keys(MANIFESTATION_STAGES).map(st => `
-              <option value="${st}" ${stage == st ? 'selected' : ''} style="background:#0f172a; color:#fff;">Stage ${st} (${MANIFESTATION_STAGES[st].stat_pct > 0 ? '+' + MANIFESTATION_STAGES[st].stat_pct + '%' : 'Base'})</option>
+            ${[0, 1, 2, 3, 4, 5, 6].map(st => `
+              <option value="${st}" ${stage == st ? 'selected' : ''} style="background:#0f172a; color:#fff;">
+                ${getHeroManifestStageTitle(hero.id, st)}
+              </option>
             `).join('')}
           </select>
+        </div>
+
+        <div class="hero-manifest-banner" onclick="openManifestEgoModal(${slotNum})">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:3px;">
+            <div style="font-size:0.68rem; font-weight:700; color:#dfb235; display:flex; align-items:center; gap:4px;">
+              <span>🧠</span>
+              <span>${stage > 0 ? `E${stage} • ${manifestDetail.title}` : 'MANIFEST EGO: DORMANT'}</span>
+            </div>
+            <span style="font-size:0.62rem; color:var(--cyan); font-weight:600; text-decoration:underline;">Inspect 6 Stages ↗</span>
+          </div>
+          <div style="font-size:0.67rem; color:var(--body); line-height:1.3; max-height:36px; overflow:hidden; text-overflow:ellipsis;">
+            ${stage > 0 ? manifestDetail.desc_html : '<span style="color:var(--muted)">Base stats only. Click to view &amp; activate custom Manifest Ego passives.</span>'}
+          </div>
+          ${stage > 1 ? `<div style="font-size:0.62rem; color:#10b981; margin-top:2px; font-weight:600;">✓ Stages 1–${stage} active (${stage} memory passives unlocked)</div>` : ''}
         </div>
 
         <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:4px; font-size:0.68rem; text-align:center;">
@@ -1064,6 +1137,7 @@ function renderSquadStations() {
     const hero = window.CZN_DATA.combatants.find(c => c.id === heroId) || window.CZN_DATA.combatants[0];
     const partner = window.CZN_DATA.partners.find(p => p.id === partnerId) || window.CZN_DATA.partners[0];
     const stats = getHeroEffectiveStats(hero, stage, partner, equip);
+    const manifestDetail = getHeroManifestStageDetail(hero.id, stage);
 
     const station = document.createElement('div');
     station.className = `squad-station ${activeHeroSlotIndex === (slotNum - 1) ? 'active' : ''}`;
@@ -1082,13 +1156,29 @@ function renderSquadStations() {
         </div>
       </div>
 
-      <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(0,0,0,0.25); padding:6px 10px; border-radius:4px; margin-bottom:10px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; background:rgba(0,0,0,0.25); padding:6px 10px; border-radius:4px; margin-bottom:8px;">
         <span style="font-size:0.72rem; color:var(--muted); font-weight:700;">EGO STAGE:</span>
         <select style="background:transparent; border:none; color:#dfb235; font-size:0.78rem; font-weight:700; cursor:pointer;" onchange="changeHeroManifestation(${slotNum}, this.value)">
-          ${Object.keys(MANIFESTATION_STAGES).map(st => `
-            <option value="${st}" ${stage == st ? 'selected' : ''} style="background:#0f172a; color:#fff;">Stage ${st}: ${MANIFESTATION_STAGES[st].name}</option>
+          ${[0, 1, 2, 3, 4, 5, 6].map(st => `
+            <option value="${st}" ${stage == st ? 'selected' : ''} style="background:#0f172a; color:#fff;">
+              ${getHeroManifestStageTitle(hero.id, st)}
+            </option>
           `).join('')}
         </select>
+      </div>
+
+      <div class="hero-manifest-banner" onclick="openManifestEgoModal(${slotNum})" style="margin-bottom:12px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:4px;">
+          <div style="font-size:0.72rem; font-weight:700; color:#dfb235; display:flex; align-items:center; gap:5px;">
+            <span>🧠</span>
+            <span>${stage > 0 ? `STAGE ${stage} • ${manifestDetail.title}` : 'MANIFEST EGO: DORMANT (E0)'}</span>
+          </div>
+          <span style="font-size:0.65rem; color:var(--cyan); font-weight:600; text-decoration:underline;">Inspect 6 Stages ↗</span>
+        </div>
+        <div style="font-size:0.72rem; color:var(--body); line-height:1.4;">
+          ${stage > 0 ? manifestDetail.desc_html : '<span style="color:var(--muted)">Base stats only. Click to view &amp; activate character-exclusive Manifest Ego passives.</span>'}
+        </div>
+        ${stage > 1 ? `<div style="font-size:0.66rem; color:#10b981; margin-top:4px; font-weight:600;">✓ Stages 1–${stage} active (${stage} memory passives unlocked)</div>` : ''}
       </div>
 
       <div style="display:grid; grid-template-columns:repeat(4, 1fr); gap:6px; font-size:0.72rem; text-align:center; margin-bottom:12px;">
@@ -1143,7 +1233,108 @@ function renderSquadStations() {
 function changeHeroManifestation(slotNum, level) {
   currentSquad['manifestation' + slotNum] = parseInt(level, 10);
   renderAll();
-  showToast(`Hero in Slot ${slotNum} set to Stage ${level}!`);
+  const heroId = currentSquad['hero' + slotNum];
+  const title = getHeroManifestStageDetail(heroId, level).title;
+  showToast(`Slot ${slotNum} Ego set to Stage ${level} (${title})!`);
+}
+
+let activeManifestEgoSlot = 1;
+
+function openManifestEgoModal(slotNum) {
+  activeManifestEgoSlot = slotNum;
+  const heroId = currentSquad['hero' + slotNum];
+  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId) || window.CZN_DATA.combatants[0];
+  
+  const titleEl = document.getElementById('egoModalHeroTitle');
+  const subtitleEl = document.getElementById('egoModalHeroSubtitle');
+  if (titleEl) titleEl.innerText = `🧠 ${hero ? hero.name : 'Hero'} — Manifest Ego Evolution`;
+  if (subtitleEl) subtitleEl.innerText = `${hero ? hero.element : 'Element'} • ${hero ? hero.rarity : 5}★ ${hero ? (hero.role || hero.job) : 'Combatant'} • Exclusive Awakened Memories`;
+  
+  renderManifestEgoModalBody();
+  const modalEl = document.getElementById('modalManifestEgo');
+  if (modalEl) modalEl.classList.add('active');
+}
+
+function closeManifestEgoModal() {
+  const modalEl = document.getElementById('modalManifestEgo');
+  if (modalEl) modalEl.classList.remove('active');
+}
+
+function setEgoStageFromModal(slotNum, stage) {
+  changeHeroManifestation(slotNum, stage);
+  renderManifestEgoModalBody();
+}
+
+function renderManifestEgoModalBody() {
+  const container = document.getElementById('egoModalBody');
+  if (!container) return;
+  const slotNum = activeManifestEgoSlot;
+  const heroId = currentSquad['hero' + slotNum];
+  const stage = currentSquad['manifestation' + slotNum] || 0;
+  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId) || window.CZN_DATA.combatants[0];
+  const egoData = window.CZN_DATA?.manifestEgos?.[heroId];
+  const stages = egoData?.stages || [];
+  const currentStageInfo = MANIFESTATION_STAGES[stage] || MANIFESTATION_STAGES[0];
+
+  let stagesHtml = '';
+  if (stages.length === 0) {
+    stagesHtml = '<div style="padding:24px; text-align:center; color:var(--muted);">No Manifest Ego stages found for this combatant.</div>';
+  } else {
+    stagesHtml = stages.map(st => {
+      const isUnlocked = stage >= st.level;
+      const isCurrent = stage === st.level;
+      return `
+        <div class="ego-stage-card ${isUnlocked ? 'active' : 'locked'}" style="margin-bottom:12px; border-left:4px solid ${isUnlocked ? '#dfb235' : 'rgba(255,255,255,0.1)'};">
+          <div class="ego-stage-head">
+            <div class="ego-stage-title-wrap">
+              <span class="ego-level-badge" style="${isUnlocked ? 'border-color:#dfb235; color:#dfb235;' : 'border-color:rgba(255,255,255,0.2); color:var(--muted);'}">STAGE ${st.level}</span>
+              <span class="ego-stage-title">${st.title}</span>
+              ${st.sub_title ? `<span class="ego-sub-badge">${st.sub_title}</span>` : ''}
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+              ${isUnlocked 
+                ? `<span style="background:rgba(16,185,129,0.2); color:#10b981; border:1px solid rgba(16,185,129,0.4); padding:3px 8px; border-radius:4px; font-weight:700; font-size:0.68rem;">✓ UNLOCKED</span>` 
+                : `<span style="background:rgba(148,163,184,0.15); color:#94a3b8; border:1px solid rgba(148,163,184,0.3); padding:3px 8px; border-radius:4px; font-weight:700; font-size:0.68rem;">🔒 LOCKED (Req E${st.level})</span>`
+              }
+              <button class="builder-btn ${isCurrent ? 'builder-btn-primary' : ''}" style="padding:4px 12px; font-size:0.72rem;" onclick="setEgoStageFromModal(${slotNum}, ${st.level})">
+                ${isCurrent ? 'Active Stage' : `Set Stage ${st.level}`}
+              </button>
+            </div>
+          </div>
+          <div class="ego-stage-desc" style="font-size:0.84rem; margin-top:8px; color:var(--text); line-height:1.45;">
+            ${st.desc_html || st.desc}
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  container.innerHTML = `
+    <!-- Top Stage Pills Bar -->
+    <div style="background:rgba(0,0,0,0.35); border:1px solid var(--panel-border); border-radius:8px; padding:12px; margin-bottom:14px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+        <div style="font-size:0.84rem; font-weight:700; color:var(--text);">
+          Current Selection: <strong style="color:#dfb235;">Stage ${stage} (${getHeroManifestStageDetail(heroId, stage).title})</strong>
+        </div>
+        <div style="font-size:0.75rem; color:var(--muted);">
+          Memories Active: <strong style="color:#10b981;">${stage} / 6</strong> &bull; Stat Multipliers: <strong style="color:#dfb235;">+${currentStageInfo.stat_pct}% Stats, +${currentStageInfo.crit_rate}% Crit</strong>
+        </div>
+      </div>
+
+      <div style="display:flex; gap:6px; flex-wrap:wrap;">
+        ${[0, 1, 2, 3, 4, 5, 6].map(lvl => `
+          <button class="builder-btn ${stage === lvl ? 'builder-btn-primary' : ''}" style="flex:1; min-width:85px; padding:6px 8px; font-size:0.74rem; font-weight:700;" onclick="setEgoStageFromModal(${slotNum}, ${lvl})">
+            ${lvl === 0 ? 'E0 Base' : `E${lvl} Stage`}
+          </button>
+        `).join('')}
+      </div>
+    </div>
+
+    <!-- 6 Awakened Memory Stages -->
+    <div class="ego-stage-list">
+      ${stagesHtml}
+    </div>
+  `;
 }
 
 function selectDeckTabAndScroll(idx) {

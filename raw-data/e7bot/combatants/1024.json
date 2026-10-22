@@ -1,0 +1,3852 @@
+{
+  "card_icon_name": "",
+  "char_type": "CHAR_COMBATANT",
+  "color": "#c59250",
+  "combatant": {
+    "card_factor_link_item_id": "5201024",
+    "collapse_passive": {
+      "collapse_cards": [
+        {
+          "animation": false,
+          "base_combatant": {
+            "ego": "instinct",
+            "id": "1024",
+            "job": "controller",
+            "rarity": 5
+          },
+          "card_category": "CARD_SKILL",
+          "chaos_id": "",
+          "chaos_name": "",
+          "cost": 0,
+          "desc_display": "Has a low chance for unexpected results to occur on use.",
+          "ego_type": "EGO_BASIC",
+          "id": "c_1024_col",
+          "name": "Guilt",
+          "ownable_job": [],
+          "r_spark_cards": [],
+          "rarity": "RARITY_RARE",
+          "reward_tag": [],
+          "sct_name": "collapse_1024_02",
+          "season_tags": [],
+          "skill_eff_ids": [],
+          "sort": "SORT_COLLAPSE",
+          "spine_model": "",
+          "talent": [],
+          "tooltips": []
+        },
+        {
+          "animation": false,
+          "base_combatant": {
+            "ego": "instinct",
+            "id": "1024",
+            "job": "controller",
+            "rarity": 5
+          },
+          "card_category": "CARD_SKILL",
+          "chaos_id": "",
+          "chaos_name": "",
+          "cost": 0,
+          "desc_display": "Has a low chance for unexpected results to occur on use.",
+          "ego_type": "EGO_BASIC",
+          "id": "c_1024_col2",
+          "name": "Guilt",
+          "ownable_job": [],
+          "r_spark_cards": [],
+          "rarity": "RARITY_RARE",
+          "reward_tag": [],
+          "sct_name": "collapse_2_1024_02",
+          "season_tags": [],
+          "skill_eff_ids": [],
+          "sort": "SORT_COLLAPSE",
+          "spine_model": "",
+          "talent": [],
+          "tooltips": []
+        }
+      ],
+      "collapse_effect": "guilty_conscience",
+      "collapse_illustration": "collapse/collapse_illustration/guilty_conscience",
+      "collapse_need_count": 5,
+      "collapse_skill_card": {
+        "animation": false,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_SKILL",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 6,
+        "desc_display": "Create <cc>1</> of each <color_orange><u>Creation</u></>★★",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_eps",
+        "name": "Salvation",
+        "ownable_job": [],
+        "r_spark_cards": [
+          {
+            "animation": false,
+            "card_category": "CARD_SKILL",
+            "cost": 6,
+            "desc_display": "Create <cc>1</> of each <color_orange><u>Creation</u></>★★<br>Evolve created <color_orange><u>Creation</u></>",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_eps_lbk",
+            "name": "Salvation",
+            "ownable_job": [],
+            "rarity": "RARITY_UNIQUE",
+            "reward_tag": [],
+            "sct_name": "collapse_1024_01",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_eps_lbk_01",
+              "c_1024_eps_lbk_02",
+              "c_1024_eps_lbk_03",
+              "c_1024_eps_lbk_04",
+              "c_1024_eps_lbk_05",
+              "c_1024_eps_lbk_06"
+            ],
+            "sort": "SORT_COLLAPSE_SKILL",
+            "spine_model": "",
+            "talent": [],
+            "tooltips": [
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          }
+        ],
+        "rarity": "RARITY_UNIQUE",
+        "reward_tag": [],
+        "sct_name": "collapse_1024_01",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_eps_01",
+          "c_1024_eps_02",
+          "c_1024_eps_03"
+        ],
+        "sort": "SORT_COLLAPSE_SKILL",
+        "spine_model": "",
+        "talent": [],
+        "tooltips": [
+          {
+            "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+            "id": "TALENT_ORLEA_CREATION",
+            "title": "Creation"
+          }
+        ]
+      },
+      "collapse_text": "collapse_text/collapse_text_guilty_conscience",
+      "desc": "At the end of every turn, gain Stress equal to the number of times this combatant dealt damage to monsters during the turn.",
+      "id": "collapse_1024",
+      "link_psychosis_id": "psychosis_1008_1",
+      "name": "Guilt"
+    },
+    "collapse_skill_card": {
+      "animation": false,
+      "base_combatant": {
+        "ego": "instinct",
+        "id": "1024",
+        "job": "controller",
+        "rarity": 5
+      },
+      "card_category": "CARD_SKILL",
+      "chaos_id": "",
+      "chaos_name": "",
+      "cost": 6,
+      "desc_display": "Create <cc>1</> of each <color_orange><u>Creation</u></>★★",
+      "ego_type": "EGO_OWNER",
+      "id": "c_1024_eps",
+      "name": "Salvation",
+      "ownable_job": [],
+      "r_spark_cards": [
+        {
+          "animation": false,
+          "card_category": "CARD_SKILL",
+          "cost": 6,
+          "desc_display": "Create <cc>1</> of each <color_orange><u>Creation</u></>★★<br>Evolve created <color_orange><u>Creation</u></>",
+          "ego_type": "EGO_OWNER",
+          "id": "c_1024_eps_lbk",
+          "name": "Salvation",
+          "ownable_job": [],
+          "rarity": "RARITY_UNIQUE",
+          "reward_tag": [],
+          "sct_name": "collapse_1024_01",
+          "season_tags": [],
+          "skill_eff_ids": [
+            "c_1024_eps_lbk_01",
+            "c_1024_eps_lbk_02",
+            "c_1024_eps_lbk_03",
+            "c_1024_eps_lbk_04",
+            "c_1024_eps_lbk_05",
+            "c_1024_eps_lbk_06"
+          ],
+          "sort": "SORT_COLLAPSE_SKILL",
+          "spine_model": "",
+          "talent": [],
+          "tooltips": [
+            {
+              "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+              "id": "TALENT_ORLEA_CREATION",
+              "title": "Creation"
+            }
+          ]
+        }
+      ],
+      "rarity": "RARITY_UNIQUE",
+      "reward_tag": [],
+      "sct_name": "collapse_1024_01",
+      "season_tags": [],
+      "skill_eff_ids": [
+        "c_1024_eps_01",
+        "c_1024_eps_02",
+        "c_1024_eps_03"
+      ],
+      "sort": "SORT_COLLAPSE_SKILL",
+      "spine_model": "",
+      "talent": [],
+      "tooltips": [
+        {
+          "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+          "id": "TALENT_ORLEA_CREATION",
+          "title": "Creation"
+        }
+      ]
+    },
+    "combatant_friendship_bonuses": [
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_2",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "3",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_3",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "1",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_4",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "3",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_5",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "3",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_6",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "1",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_7",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "3",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_8",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "3",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_9",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "1",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_10",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "3",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_11",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "3",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_12",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "1",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_13",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "3",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_14",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "3",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_15",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "1",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_16",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "3",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_17",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "3",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_18",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "1",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_19",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "3",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_20",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "3",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_21",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "1",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_22",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "3",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_23",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "3",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_24",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "1",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_25",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "3",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_26",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "3",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_27",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "1",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_28",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "3",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_29",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "3",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_30",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "1",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_31",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "3",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_32",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "3",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_33",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "1",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_34",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "3",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_35",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "3",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_36",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "1",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_37",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "3",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_38",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "3",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_39",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "1",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "",
+        "unlock_text": ""
+      },
+      {
+        "group": "friendship_bonus_no_bg",
+        "id": "friendship_bonus_no_bg_40",
+        "item0_count": "5",
+        "reward0_link_item_id": "2000004",
+        "stat0_link_stat_list_id": "S_ATK_INC_ADD_OUT",
+        "stat0_value": "",
+        "stat1_link_stat_list_id": "S_DEF_INC_ADD_OUT",
+        "stat1_value": "",
+        "stat2_link_stat_list_id": "S_HP_INC_ADD_OUT",
+        "stat2_value": "3",
+        "unlock_text": ""
+      }
+    ],
+    "combatant_info": {
+      "background_text": "<color_darkgray>The foreseeing priestess.</><br>Capable of manipulating light and occasionally glimpsing the future through foresight. She exhibits minimal emotional changes, not being overly cold or expressionless, but lacking visible sorrow or anger, which gives her an enigmatic aura. Often works alongside Quinto.",
+      "birth_day": "ui_label_day_12th",
+      "birth_month": "ui_label_month_january",
+      "cv_en": "Not included",
+      "cv_ja": "Yuiko Tatsumi",
+      "cv_ko": "Yena Jang",
+      "cv_zhs": "Pei Zhiying",
+      "favorite_gift_link_item_id": "",
+      "gacha_link_combatant_voice_id": "1024_gacha_01",
+      "hospitalization_reason": "combatant_info@hospitalization_reason@1024_info",
+      "id": "1024_info",
+      "link_combatant_face_group": "1024_face",
+      "link_combatant_voice_group": "1024_voice",
+      "link_live_event_id": "live_event_1024",
+      "link_story_content_counseling_key": "story_counseling_1024",
+      "link_town_normal_visit_group": "normal_visit_1024",
+      "link_town_policy_reaction_id": "1024",
+      "link_town_story_visit_group": "",
+      "lobby_enter_link_combatant_voice_id": "1024_lobby_enter_01",
+      "race_type": "CHAR_INFO_RACE_TYPE_1",
+      "small_talk_link_combatant_voice_id": "[1024_small_talk_01,1024_small_talk_02,1024_small_talk_03,1024_small_talk_04]",
+      "specialty": "combatant_info@specialty@1024_info",
+      "stage_success_link_combatant_voice_id": "1024_stage_success_01",
+      "touch_link_combatant_voice_id": "[1024_touch_01,1024_touch_02]"
+    },
+    "combatant_limit_breaks": [
+      {
+        "break_level": 1,
+        "break_type": "BREAK_TYPE_CARD_R_SPARK",
+        "break_value": "[]",
+        "desc": "Adds <color_orange>Retain</> to the <color_orange><u>Will of Light</u></> card.",
+        "group": "limit_1024",
+        "id": "limit_1024_1",
+        "illust": "unique_1024_02",
+        "link_card_id": "[c_1024_uni4]",
+        "link_cs_id": "[]",
+        "potential_node_num": "[]",
+        "sub_title": "Mythic Card Upgrade",
+        "title": "Sleeping Memory"
+      },
+      {
+        "break_level": 2,
+        "break_type": "BREAK_TYPE_BATTLE_CS_ADD",
+        "break_value": "[1]",
+        "desc": "When a <color_orange>Creation</> card evolves into a <color_orange>Creation★★★</> card, <color_orange> retain</> is triggered.",
+        "group": "limit_1024",
+        "id": "limit_1024_2",
+        "illust": "unique_1024_04",
+        "link_card_id": "[]",
+        "link_cs_id": "[cs06_0074]",
+        "potential_node_num": "[]",
+        "sub_title": "Battle Passive Upgrade",
+        "title": "Awakening Memory"
+      },
+      {
+        "break_level": 3,
+        "break_type": "BREAK_TYPE_CARD_R_SPARK",
+        "break_value": "[]",
+        "desc": "<color_orange>Evolved Creation</> effect is added to <color_orange><u>Salvation</u></>.",
+        "group": "limit_1024",
+        "id": "limit_1024_3",
+        "illust": "collapse_1024_01",
+        "link_card_id": "[c_1024_eps]",
+        "link_cs_id": "[]",
+        "potential_node_num": "[]",
+        "sub_title": "Ego Skill Upgrade",
+        "title": "Vivid Memory"
+      },
+      {
+        "break_level": 4,
+        "break_type": "BREAK_TYPE_BATTLE_CS_ADD",
+        "break_value": "[1]",
+        "desc": "If there is a <color_orange>Creation</> Card in hand, increase Damage Amount of allies by <color_orange>10</>%.",
+        "group": "limit_1024",
+        "id": "limit_1024_4",
+        "illust": "unique_1024_03",
+        "link_card_id": "[]",
+        "link_cs_id": "[cs06_0075]",
+        "potential_node_num": "[]",
+        "sub_title": "Battle Passive Upgrade",
+        "title": "Inner Memory"
+      },
+      {
+        "break_level": 5,
+        "break_type": "BREAK_TYPE_POTENTIAL_LEVEL_UP",
+        "break_value": "[3]",
+        "desc": "Increase the level of <color_orange>[Basic Card Upgrade]</>, <color_orange>[Signature Card Upgrade]</>, and <color_orange>[Common Card Upgrade]</> in Potentials by <color_orange>3</>.",
+        "group": "limit_1024",
+        "id": "limit_1024_5",
+        "illust": "unique_1024_01",
+        "link_card_id": "[]",
+        "link_cs_id": "[]",
+        "potential_node_num": "[2_0,3_0,4_0]",
+        "sub_title": "Stat Upgrade",
+        "title": "Complete Memory"
+      },
+      {
+        "break_level": 6,
+        "break_type": "BREAK_TYPE_BATTLE_CS_ADD",
+        "break_value": "[1]",
+        "desc": "When Orlea $activate$s a <color_orange>Creation</> card, deal <color_orange>★</> x <color_orange>50</>% Fixed Damage to all enemies.",
+        "group": "limit_1024",
+        "id": "limit_1024_6",
+        "illust": "unique_1024_05",
+        "link_card_id": "[]",
+        "link_cs_id": "[cs06_0076]",
+        "potential_node_num": "[]",
+        "sub_title": "Battle Passive Upgrade",
+        "title": "Liberated Memory"
+      }
+    ],
+    "dice_technique": {
+      "foresight": 3
+    },
+    "ego": "instinct",
+    "gacha_dup_link_item_id": "5100037",
+    "id": "1024",
+    "job": "controller",
+    "potential_cards": [],
+    "potential_target_cards": [
+      {
+        "animation": false,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_SKILL",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 0,
+        "desc_display": "Increase Damage Amount by <color_orange>10</>% for <cc>1</> turn<br><color_orange>Retain:</> Increase Damage Amount of the next Attack Card <color_orange><u>activate</u></>d by <color_orange>10</>% (max <cc><color_orange>350</></>%)",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_cre1",
+        "name": "Softie ★",
+        "ownable_job": [],
+        "r_spark_cards": [],
+        "rarity": "RARITY_RARE",
+        "reward_tag": [],
+        "sct_name": "unique_1024_08",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_cre1_01",
+          "c_1024_cre1_02",
+          "c_1024_cre1_03"
+        ],
+        "sort": "SORT_UNIQUE",
+        "spine_model": "unique_1024_08",
+        "talent": [
+          {
+            "desc": "When this card is <color_orange><u>activate</u></>d, move to <color_orange><u>Exhaust</u></> Pile",
+            "id": "TALENT_EXHAUST",
+            "title": "Exhaust"
+          },
+          {
+            "desc": "This card is not discarded at the end of the turn",
+            "id": "TALENT_RETAIN",
+            "title": "Retain"
+          },
+          {
+            "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+            "id": "TALENT_ORLEA_CREATION",
+            "title": "Creation"
+          }
+        ],
+        "tooltips": [
+          {
+            "desc": "Using or proccing a card",
+            "id": "CARD_ACTIVATE",
+            "title": "Activate"
+          }
+        ]
+      },
+      {
+        "animation": false,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_SKILL",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 0,
+        "desc_display": "Increase Damage Amount by <color_orange>20</>% for <cc>1</> turn<br><color_orange>Retain:</> Increase Damage Amount of the next Attack Card <color_orange><u>activate</u></>d by <color_orange>20</>% (max <cc><color_orange>350</></>%)",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_cre2",
+        "name": "Softie ★★",
+        "ownable_job": [],
+        "r_spark_cards": [],
+        "rarity": "RARITY_LEGEND",
+        "reward_tag": [],
+        "sct_name": "unique_1024_14",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_cre2_01",
+          "c_1024_cre2_02",
+          "c_1024_cre2_03"
+        ],
+        "sort": "SORT_UNIQUE",
+        "spine_model": "",
+        "talent": [
+          {
+            "desc": "When this card is <color_orange><u>activate</u></>d, move to <color_orange><u>Exhaust</u></> Pile",
+            "id": "TALENT_EXHAUST",
+            "title": "Exhaust"
+          },
+          {
+            "desc": "This card is not discarded at the end of the turn",
+            "id": "TALENT_RETAIN",
+            "title": "Retain"
+          },
+          {
+            "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+            "id": "TALENT_ORLEA_CREATION",
+            "title": "Creation"
+          }
+        ],
+        "tooltips": [
+          {
+            "desc": "Using or proccing a card",
+            "id": "CARD_ACTIVATE",
+            "title": "Activate"
+          }
+        ]
+      },
+      {
+        "animation": false,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_SKILL",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 0,
+        "desc_display": "Increase Damage Amount by <color_orange>35</>% for <cc>1</> turn<br><color_orange>Retain:</> Increase Damage Amount of the next Attack Card <color_orange><u>activate</u></>d by <color_orange>35</>% (max <cc><color_orange>350</></>%)",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_cre3",
+        "name": "Softie ★★★",
+        "ownable_job": [],
+        "r_spark_cards": [],
+        "rarity": "RARITY_UNIQUE",
+        "reward_tag": [],
+        "sct_name": "unique_1024_13",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_cre3_01",
+          "c_1024_cre3_02",
+          "c_1024_cre3_03"
+        ],
+        "sort": "SORT_UNIQUE",
+        "spine_model": "",
+        "talent": [
+          {
+            "desc": "When this card is <color_orange><u>activate</u></>d, move to <color_orange><u>Exhaust</u></> Pile",
+            "id": "TALENT_EXHAUST",
+            "title": "Exhaust"
+          },
+          {
+            "desc": "This card is not discarded at the end of the turn",
+            "id": "TALENT_RETAIN",
+            "title": "Retain"
+          },
+          {
+            "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+            "id": "TALENT_ORLEA_CREATION",
+            "title": "Creation"
+          }
+        ],
+        "tooltips": [
+          {
+            "desc": "Using or proccing a card",
+            "id": "CARD_ACTIVATE",
+            "title": "Activate"
+          }
+        ]
+      },
+      {
+        "animation": false,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_ATK",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 0,
+        "desc_display": "<color_orange>100%</> Damage<br><color_orange>Retain:</> +<color_orange>40</>% Damage Amount",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_cre4",
+        "name": "Swiftie ★",
+        "ownable_job": [],
+        "r_spark_cards": [],
+        "rarity": "RARITY_RARE",
+        "reward_tag": [],
+        "sct_name": "unique_1024_07",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_cre4_01",
+          "c_1024_cre4_02",
+          "c_1024_cre4_03"
+        ],
+        "sort": "SORT_UNIQUE",
+        "spine_model": "unique_1024_07",
+        "talent": [
+          {
+            "desc": "When this card is <color_orange><u>activate</u></>d, move to <color_orange><u>Exhaust</u></> Pile",
+            "id": "TALENT_EXHAUST",
+            "title": "Exhaust"
+          },
+          {
+            "desc": "This card is not discarded at the end of the turn",
+            "id": "TALENT_RETAIN",
+            "title": "Retain"
+          },
+          {
+            "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+            "id": "TALENT_ORLEA_CREATION",
+            "title": "Creation"
+          }
+        ],
+        "tooltips": []
+      },
+      {
+        "animation": false,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_ATK",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 0,
+        "desc_display": "<color_orange>200%</> Damage<br><color_orange>Retain:</> +<color_orange>80</>% Damage Amount",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_cre5",
+        "name": "Swiftie ★★",
+        "ownable_job": [],
+        "r_spark_cards": [],
+        "rarity": "RARITY_LEGEND",
+        "reward_tag": [],
+        "sct_name": "unique_1024_10",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_cre5_01",
+          "c_1024_cre5_02",
+          "c_1024_cre5_03"
+        ],
+        "sort": "SORT_UNIQUE",
+        "spine_model": "",
+        "talent": [
+          {
+            "desc": "When this card is <color_orange><u>activate</u></>d, move to <color_orange><u>Exhaust</u></> Pile",
+            "id": "TALENT_EXHAUST",
+            "title": "Exhaust"
+          },
+          {
+            "desc": "This card is not discarded at the end of the turn",
+            "id": "TALENT_RETAIN",
+            "title": "Retain"
+          },
+          {
+            "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+            "id": "TALENT_ORLEA_CREATION",
+            "title": "Creation"
+          }
+        ],
+        "tooltips": []
+      },
+      {
+        "animation": false,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_ATK",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 0,
+        "desc_display": "<color_orange>350%</> Damage<br><color_orange>Retain:</> +<color_orange>150</>% Damage Amount",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_cre6",
+        "name": "Swiftie ★★★",
+        "ownable_job": [],
+        "r_spark_cards": [],
+        "rarity": "RARITY_UNIQUE",
+        "reward_tag": [],
+        "sct_name": "unique_1024_09",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_cre6_01",
+          "c_1024_cre6_02",
+          "c_1024_cre6_03"
+        ],
+        "sort": "SORT_UNIQUE",
+        "spine_model": "",
+        "talent": [
+          {
+            "desc": "When this card is <color_orange><u>activate</u></>d, move to <color_orange><u>Exhaust</u></> Pile",
+            "id": "TALENT_EXHAUST",
+            "title": "Exhaust"
+          },
+          {
+            "desc": "This card is not discarded at the end of the turn",
+            "id": "TALENT_RETAIN",
+            "title": "Retain"
+          },
+          {
+            "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+            "id": "TALENT_ORLEA_CREATION",
+            "title": "Creation"
+          }
+        ],
+        "tooltips": []
+      },
+      {
+        "animation": false,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_SKILL",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 0,
+        "desc_display": "<color_orange>100%</> <color_orange><u>Shield</u></><br><color_orange>Retain:</> <color_orange><u>Heal</u></> <color_orange>60%</>",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_cre7",
+        "name": "Sturdie ★",
+        "ownable_job": [],
+        "r_spark_cards": [],
+        "rarity": "RARITY_RARE",
+        "reward_tag": [],
+        "sct_name": "unique_1024_06",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_cre7_01",
+          "c_1024_cre7_02",
+          "c_1024_cre7_03"
+        ],
+        "sort": "SORT_UNIQUE",
+        "spine_model": "unique_1024_06",
+        "talent": [
+          {
+            "desc": "When this card is <color_orange><u>activate</u></>d, move to <color_orange><u>Exhaust</u></> Pile",
+            "id": "TALENT_EXHAUST",
+            "title": "Exhaust"
+          },
+          {
+            "desc": "This card is not discarded at the end of the turn",
+            "id": "TALENT_RETAIN",
+            "title": "Retain"
+          },
+          {
+            "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+            "id": "TALENT_ORLEA_CREATION",
+            "title": "Creation"
+          }
+        ],
+        "tooltips": [
+          {
+            "desc": "Decrease Damage Amount taken until the next turn",
+            "id": "CARD_SHIELD",
+            "title": "Shield"
+          },
+          {
+            "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+            "id": "CARD_CURE",
+            "title": "Healing"
+          }
+        ]
+      },
+      {
+        "animation": false,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_SKILL",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 0,
+        "desc_display": "<color_orange>200%</> <color_orange><u>Shield</u></><br><color_orange>Retain:</> <color_orange><u>Heal</u></> <color_orange>120%</>",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_cre8",
+        "name": "Sturdie ★★",
+        "ownable_job": [],
+        "r_spark_cards": [],
+        "rarity": "RARITY_LEGEND",
+        "reward_tag": [],
+        "sct_name": "unique_1024_12",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_cre8_01",
+          "c_1024_cre8_02",
+          "c_1024_cre8_03"
+        ],
+        "sort": "SORT_UNIQUE",
+        "spine_model": "",
+        "talent": [
+          {
+            "desc": "When this card is <color_orange><u>activate</u></>d, move to <color_orange><u>Exhaust</u></> Pile",
+            "id": "TALENT_EXHAUST",
+            "title": "Exhaust"
+          },
+          {
+            "desc": "This card is not discarded at the end of the turn",
+            "id": "TALENT_RETAIN",
+            "title": "Retain"
+          },
+          {
+            "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+            "id": "TALENT_ORLEA_CREATION",
+            "title": "Creation"
+          }
+        ],
+        "tooltips": [
+          {
+            "desc": "Decrease Damage Amount taken until the next turn",
+            "id": "CARD_SHIELD",
+            "title": "Shield"
+          },
+          {
+            "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+            "id": "CARD_CURE",
+            "title": "Healing"
+          }
+        ]
+      },
+      {
+        "animation": false,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_SKILL",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 0,
+        "desc_display": "<color_orange>350%</> <color_orange><u>Shield</u></><br><color_orange>Retain:</> <color_orange><u>Heal</u></> <color_orange>200%</>",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_cre9",
+        "name": "Sturdie ★★★",
+        "ownable_job": [],
+        "r_spark_cards": [],
+        "rarity": "RARITY_UNIQUE",
+        "reward_tag": [],
+        "sct_name": "unique_1024_11",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_cre9_01",
+          "c_1024_cre9_02",
+          "c_1024_cre9_03"
+        ],
+        "sort": "SORT_UNIQUE",
+        "spine_model": "",
+        "talent": [
+          {
+            "desc": "When this card is <color_orange><u>activate</u></>d, move to <color_orange><u>Exhaust</u></> Pile",
+            "id": "TALENT_EXHAUST",
+            "title": "Exhaust"
+          },
+          {
+            "desc": "This card is not discarded at the end of the turn",
+            "id": "TALENT_RETAIN",
+            "title": "Retain"
+          },
+          {
+            "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+            "id": "TALENT_ORLEA_CREATION",
+            "title": "Creation"
+          }
+        ],
+        "tooltips": [
+          {
+            "desc": "Decrease Damage Amount taken until the next turn",
+            "id": "CARD_SHIELD",
+            "title": "Shield"
+          },
+          {
+            "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+            "id": "CARD_CURE",
+            "title": "Healing"
+          }
+        ]
+      }
+    ],
+    "potential_target_link_card_id": "[c_1024_cre1,c_1024_cre2,c_1024_cre3,c_1024_cre4,c_1024_cre5,c_1024_cre6,c_1024_cre7,c_1024_cre8,c_1024_cre9]",
+    "s_addi_atk_dmg_rate": 0,
+    "s_atk": 140,
+    "s_blue_dmg_rate": 0,
+    "s_charging_power": 0,
+    "s_cri": 3,
+    "s_cri_dmg_rate": 125,
+    "s_def": 60,
+    "s_dot_atk_dmg_rate": 0,
+    "s_green_dmg_rate": 0,
+    "s_hp": 80,
+    "s_orange_dmg_rate": 0,
+    "s_purple_dmg_rate": 0,
+    "s_red_dmg_rate": 0,
+    "s_weak_ego_dmg_rate": 125,
+    "spark_cards": [
+      {
+        "animation": true,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_SKILL",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 1,
+        "desc_display": "<color_orange><u>Heal</u></> <color_orange>100%</><br>Select <cc>1</> card of this unit in hand, then activate the <color_orange><u>Retain</u></> effect <color_orange>2</> time(s)",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_uni1",
+        "name": "Growth Acceleration",
+        "ownable_job": [],
+        "r_spark_cards": [
+          {
+            "animation": true,
+            "card_category": "CARD_SKILL",
+            "cost": 0,
+            "desc_display": "<color_orange><u>Heal</u></> <color_orange>100%</><br>Select <cc>1</> card in hand, then activate the <color_orange><u>Retain</u></> effect <color_orange>2</> time(s)",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_uni1_rsp1",
+            "name": "Growth Acceleration",
+            "ownable_job": [],
+            "rarity": "RARITY_RARE",
+            "reward_tag": [],
+            "sct_name": "unique_1024_03",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_uni1_rsp1_01",
+              "c_1024_uni1_rsp1_02",
+              "c_1024_uni1_rsp1_03",
+              "c_1024_uni1_rsp1_04"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_03",
+            "talent": [],
+            "tooltips": [
+              {
+                "desc": "When this card is Retained, activate effect",
+                "id": "TRIGGER_RETAIN",
+                "title": "Retain:"
+              },
+              {
+                "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+                "id": "CARD_CURE",
+                "title": "Healing"
+              }
+            ]
+          },
+          {
+            "animation": true,
+            "card_category": "CARD_SKILL",
+            "cost": 1,
+            "desc_display": "<color_orange><u>Heal</u></> <color_orange>200%</><br>Select <cc>1</> <color_orange><u>Creation</u></> of this unit in hand and duplicate it into hand",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_uni1_rsp2",
+            "name": "Growth Acceleration",
+            "ownable_job": [],
+            "rarity": "RARITY_RARE",
+            "reward_tag": [],
+            "sct_name": "unique_1024_03",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_uni1_rsp2_01",
+              "c_1024_uni1_rsp2_02"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_03",
+            "talent": [
+              {
+                "desc": "When this card is <color_orange><u>activate</u></>d, move to <color_orange><u>Exhaust</u></> Pile",
+                "id": "TALENT_EXHAUST",
+                "title": "Exhaust"
+              }
+            ],
+            "tooltips": [
+              {
+                "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+                "id": "CARD_CURE",
+                "title": "Healing"
+              },
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          },
+          {
+            "animation": true,
+            "card_category": "CARD_SKILL",
+            "cost": 1,
+            "desc_display": "<color_orange><u>Heal</u></> <color_orange>150%</><br>Select <cc>1</> card of this unit in hand, then activate the <color_orange><u>Retain</u></> effect <color_orange>2</> time(s)<br>When that card is a Softie, <cc>2</> <color_orange><u>Vulnerable</u></> to all enemies",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_uni1_rsp3",
+            "name": "Growth Acceleration",
+            "ownable_job": [],
+            "rarity": "RARITY_RARE",
+            "reward_tag": [],
+            "sct_name": "unique_1024_03",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_uni1_rsp3_01",
+              "c_1024_uni1_rsp3_02",
+              "c_1024_uni1_rsp3_03",
+              "c_1024_uni1_rsp3_04"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_03",
+            "talent": [],
+            "tooltips": [
+              {
+                "desc": "Damage taken increased by <color_orange>50</>%<br>Upon activation, decrease <color_orange><u>Vulnerable</u></> by <cc>1</>",
+                "id": "T_CS00_0002",
+                "title": "Vulnerable"
+              },
+              {
+                "desc": "When this card is Retained, activate effect",
+                "id": "TRIGGER_RETAIN",
+                "title": "Retain:"
+              },
+              {
+                "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+                "id": "CARD_CURE",
+                "title": "Healing"
+              }
+            ]
+          },
+          {
+            "animation": true,
+            "card_category": "CARD_SKILL",
+            "cost": 1,
+            "desc_display": "<color_orange><u>Heal</u></> <color_orange>150%</><br>Select <cc>1</> card of this unit in hand, then activate the <color_orange><u>Retain</u></> effect <color_orange>2</> time(s)<br>When that card is a Swiftie, activate the <color_orange><u>Retain</u></> effect <cc>3</> times",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_uni1_rsp4",
+            "name": "Growth Acceleration",
+            "ownable_job": [],
+            "rarity": "RARITY_RARE",
+            "reward_tag": [],
+            "sct_name": "unique_1024_03",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_uni1_rsp4_01",
+              "c_1024_uni1_rsp4_02",
+              "c_1024_uni1_rsp4_03",
+              "c_1024_uni1_rsp4_04"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_03",
+            "talent": [],
+            "tooltips": [
+              {
+                "desc": "When this card is Retained, activate effect",
+                "id": "TRIGGER_RETAIN",
+                "title": "Retain:"
+              },
+              {
+                "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+                "id": "CARD_CURE",
+                "title": "Healing"
+              }
+            ]
+          },
+          {
+            "animation": true,
+            "card_category": "CARD_SKILL",
+            "cost": 1,
+            "desc_display": "<color_orange><u>Heal</u></> <color_orange>150%</><br>Select <cc>1</> card of this unit in hand, then activate the <color_orange><u>Retain</u></> effect <color_orange>2</> time(s)<br>When that card is a Sturdie<br>decrease Stress of allies by <cc>5</>",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_uni1_rsp5",
+            "name": "Growth Acceleration",
+            "ownable_job": [],
+            "rarity": "RARITY_RARE",
+            "reward_tag": [],
+            "sct_name": "unique_1024_03",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_uni1_rsp5_01",
+              "c_1024_uni1_rsp5_02",
+              "c_1024_uni1_rsp5_03",
+              "c_1024_uni1_rsp5_04"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_03",
+            "talent": [],
+            "tooltips": [
+              {
+                "desc": "When this card is Retained, activate effect",
+                "id": "TRIGGER_RETAIN",
+                "title": "Retain:"
+              },
+              {
+                "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+                "id": "CARD_CURE",
+                "title": "Healing"
+              }
+            ]
+          }
+        ],
+        "rarity": "RARITY_RARE",
+        "reward_tag": [],
+        "sct_name": "unique_1024_03",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_uni1_01",
+          "c_1024_uni1_02",
+          "c_1024_uni1_03",
+          "c_1024_uni1_04"
+        ],
+        "sort": "SORT_UNIQUE",
+        "spine_model": "unique_1024_03",
+        "talent": [],
+        "tooltips": [
+          {
+            "desc": "When this card is Retained, activate effect",
+            "id": "TRIGGER_RETAIN",
+            "title": "Retain:"
+          },
+          {
+            "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+            "id": "CARD_CURE",
+            "title": "Healing"
+          }
+        ]
+      },
+      {
+        "animation": true,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_ATK",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 0,
+        "desc_display": "For each card in hand, <color_orange>40%</> <color_orange><u>Fixed Damage</u></> and <color_orange><u>Heal</u></> <color_orange>20</>%",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_uni2",
+        "name": "Annoying",
+        "ownable_job": [],
+        "r_spark_cards": [
+          {
+            "animation": true,
+            "card_category": "CARD_ATK",
+            "cost": 0,
+            "desc_display": "<color_orange>40%</><color_orange></> <color_orange><u>Fixed Damage</u></> for each card in hand<br>When there are <cc>6</> or more cards, <color_orange><u>Heal</u></> <color_orange>200%</>",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_uni2_rsp1",
+            "name": "Annoying",
+            "ownable_job": [],
+            "rarity": "RARITY_RARE",
+            "reward_tag": [],
+            "sct_name": "unique_1024_01",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_uni2_rsp1_01",
+              "c_1024_uni2_rsp1_02"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_01",
+            "talent": [],
+            "tooltips": [
+              {
+                "desc": "A damage that ignores persistent effects",
+                "id": "CARD_FIXEDDAMAGE",
+                "title": "Fixed Damage"
+              },
+              {
+                "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+                "id": "CARD_CURE",
+                "title": "Healing"
+              }
+            ]
+          },
+          {
+            "animation": true,
+            "card_category": "CARD_ATK",
+            "cost": 1,
+            "desc_display": "<color_orange>100</>% <color_orange><u>Defense-Based Damage</u></><br>For each<color_orange></> <color_orange><u>Creation</u></> in hand, +<color_orange>100</>% Damage Amount and <color_orange><u>Heal</u></> <color_orange>60%</>",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_uni2_rsp2",
+            "name": "Annoying",
+            "ownable_job": [],
+            "rarity": "RARITY_RARE",
+            "reward_tag": [],
+            "sct_name": "unique_1024_01",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_uni2_rsp2_01",
+              "c_1024_uni2_rsp2_02",
+              "c_1024_uni2_rsp2_03"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_01",
+            "talent": [],
+            "tooltips": [
+              {
+                "desc": "Damage applied as <cc>210</>% of Defense and <cc>30</>% of Attack",
+                "id": "CARD_DEFDAMAGE",
+                "title": "Defense-Based Damage"
+              },
+              {
+                "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+                "id": "CARD_CURE",
+                "title": "Healing"
+              },
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          },
+          {
+            "animation": true,
+            "card_category": "CARD_ATK",
+            "cost": 3,
+            "desc_display": "<color_orange>450</>% <color_orange><u>Defense-Based Damage</u></><br><color_orange><u>Heal</u></> <color_orange>200%</><br><color_orange>Retain:</> Decrease Cost by <cc>1</>",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_uni2_rsp3",
+            "name": "Annoying",
+            "ownable_job": [],
+            "rarity": "RARITY_RARE",
+            "reward_tag": [],
+            "sct_name": "unique_1024_01",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_uni2_rsp3_01",
+              "c_1024_uni2_rsp3_03",
+              "c_1024_uni2_rsp3_02"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_01",
+            "talent": [
+              {
+                "desc": "This card is not discarded at the end of the turn",
+                "id": "TALENT_RETAIN",
+                "title": "Retain"
+              }
+            ],
+            "tooltips": [
+              {
+                "desc": "Damage applied as <cc>210</>% of Defense and <cc>30</>% of Attack",
+                "id": "CARD_DEFDAMAGE",
+                "title": "Defense-Based Damage"
+              },
+              {
+                "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+                "id": "CARD_CURE",
+                "title": "Healing"
+              }
+            ]
+          },
+          {
+            "animation": true,
+            "card_category": "CARD_ATK",
+            "cost": 0,
+            "desc_display": "<color_orange>60</>% <color_orange><u>Defense-Based Damage</u></> × <color_orange>3</> to random enemies<br>Create <cc>1</> <color_orange><u>Creation</u></>★ for each target Hit",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_uni2_rsp4",
+            "name": "Annoying",
+            "ownable_job": [],
+            "rarity": "RARITY_RARE",
+            "reward_tag": [],
+            "sct_name": "unique_1024_01",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_uni2_rsp4_01",
+              "c_1024_uni2_rsp4_02"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_01",
+            "talent": [],
+            "tooltips": [
+              {
+                "desc": "Damage applied as <cc>210</>% of Defense and <cc>30</>% of Attack",
+                "id": "CARD_DEFDAMAGE",
+                "title": "Defense-Based Damage"
+              },
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          },
+          {
+            "animation": true,
+            "card_category": "CARD_ATK",
+            "cost": 1,
+            "desc_display": "<color_orange>120</>%<color_orange></> <color_orange><u>Defense-Based Damage</u></><br>While this card is in hand, for each <color_orange><u>Creation</u></> created, +<cc>120</>% Damage Amount to this card until <color_orange><u>activate</u></>d",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_uni2_rsp5",
+            "name": "Annoying",
+            "ownable_job": [],
+            "rarity": "RARITY_RARE",
+            "reward_tag": [],
+            "sct_name": "unique_1024_01",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_uni2_rsp5_01",
+              "c_1024_uni2_rsp5_02"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_01",
+            "talent": [
+              {
+                "desc": "This card is not discarded at the end of the turn",
+                "id": "TALENT_RETAIN",
+                "title": "Retain"
+              }
+            ],
+            "tooltips": [
+              {
+                "desc": "Damage applied as <cc>210</>% of Defense and <cc>30</>% of Attack",
+                "id": "CARD_DEFDAMAGE",
+                "title": "Defense-Based Damage"
+              },
+              {
+                "desc": "Using or proccing a card",
+                "id": "CARD_ACTIVATE",
+                "title": "Activate"
+              },
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          }
+        ],
+        "rarity": "RARITY_RARE",
+        "reward_tag": [],
+        "sct_name": "unique_1024_01",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_uni2_01",
+          "c_1024_uni2_02"
+        ],
+        "sort": "SORT_UNIQUE",
+        "spine_model": "unique_1024_01",
+        "talent": [],
+        "tooltips": [
+          {
+            "desc": "A damage that ignores persistent effects",
+            "id": "CARD_FIXEDDAMAGE",
+            "title": "Fixed Damage"
+          },
+          {
+            "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+            "id": "CARD_CURE",
+            "title": "Healing"
+          }
+        ]
+      },
+      {
+        "animation": true,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_SKILL",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 1,
+        "desc_display": "Create <color_orange>1</> <color_orange><u>Creation</u></>★<br><color_orange>Retain:</> Change this card to <color_orange><u>Creation</u></>★★★",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_uni3",
+        "name": "Growing Creature",
+        "ownable_job": [],
+        "r_spark_cards": [
+          {
+            "animation": true,
+            "card_category": "CARD_SKILL",
+            "cost": 1,
+            "desc_display": "Create <color_orange>1</> <color_orange><u>Creation</u></>★<br><color_orange>Retain:</> Create <color_orange>1</> <color_orange><u>Creation</u></>★",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_uni3_rsp1",
+            "name": "Growing Creature",
+            "ownable_job": [],
+            "rarity": "RARITY_LEGEND",
+            "reward_tag": [],
+            "sct_name": "unique_1024_05",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_uni3_rsp1_01",
+              "c_1024_uni3_rsp1_02"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_05",
+            "talent": [
+              {
+                "desc": "This card is not discarded at the end of the turn",
+                "id": "TALENT_RETAIN",
+                "title": "Retain"
+              }
+            ],
+            "tooltips": [
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          },
+          {
+            "animation": true,
+            "card_category": "CARD_SKILL",
+            "cost": 1,
+            "desc_display": "Create <color_orange>1</> <color_orange><u>Creation</u></>★<br><color_orange>Retain:</> Change this card to <color_orange><u>Creation</u></>★★ and create <cc>1</> of each <color_orange><u>Creation</u></>★",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_uni3_rsp2",
+            "name": "Growing Creature",
+            "ownable_job": [],
+            "rarity": "RARITY_LEGEND",
+            "reward_tag": [],
+            "sct_name": "unique_1024_05",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_uni3_rsp2_01",
+              "c_1024_uni3_rsp2_02",
+              "c_1024_uni3_rsp2_03",
+              "c_1024_uni3_rsp2_04",
+              "c_1024_uni3_rsp2_05"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_05",
+            "talent": [
+              {
+                "desc": "This card is not discarded at the end of the turn",
+                "id": "TALENT_RETAIN",
+                "title": "Retain"
+              }
+            ],
+            "tooltips": [
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          },
+          {
+            "animation": true,
+            "card_category": "CARD_SKILL",
+            "cost": 1,
+            "desc_display": "Create <color_orange>1</> <color_orange><u>Creation</u></>★<br><color_orange>Retain:</> Change this card to <cc><u>Softie★★★</u></>, then <color_orange>2</> <color_orange><u>Vulnerable</u></> to all enemies",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_uni3_rsp3",
+            "name": "Growing Creature",
+            "ownable_job": [],
+            "rarity": "RARITY_LEGEND",
+            "reward_tag": [],
+            "sct_name": "unique_1024_05",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_uni3_rsp3_01",
+              "c_1024_uni3_rsp3_02",
+              "c_1024_uni3_rsp3_03"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_05",
+            "talent": [
+              {
+                "desc": "This card is not discarded at the end of the turn",
+                "id": "TALENT_RETAIN",
+                "title": "Retain"
+              }
+            ],
+            "tooltips": [
+              {
+                "desc": "Damage taken increased by <color_orange>50</>%<br>Upon activation, decrease <color_orange><u>Vulnerable</u></> by <cc>1</>",
+                "id": "T_CS00_0002",
+                "title": "Vulnerable"
+              },
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          },
+          {
+            "animation": true,
+            "card_category": "CARD_SKILL",
+            "cost": 1,
+            "desc_display": "Create <color_orange>1</> <color_orange><u>Creation</u></>★<br><color_orange>Retain:</> Change this card to <cc><u>Swiftie★★★</u></> and activate <color_orange><u>Retain</u></> effect <color_orange>2</> time(s)",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_uni3_rsp4",
+            "name": "Growing Creature",
+            "ownable_job": [],
+            "rarity": "RARITY_LEGEND",
+            "reward_tag": [],
+            "sct_name": "unique_1024_05",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_uni3_rsp4_01",
+              "c_1024_uni3_rsp4_02",
+              "c_1024_uni3_rsp4_03"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_05",
+            "talent": [
+              {
+                "desc": "This card is not discarded at the end of the turn",
+                "id": "TALENT_RETAIN",
+                "title": "Retain"
+              }
+            ],
+            "tooltips": [
+              {
+                "desc": "This card is not discarded at the end of the turn",
+                "id": "TALENT_RETAIN",
+                "title": "Retain"
+              },
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          },
+          {
+            "animation": true,
+            "card_category": "CARD_SKILL",
+            "cost": 1,
+            "desc_display": "Create <color_orange>1</> <color_orange><u>Creation</u></>★<br><color_orange>Retain:</> Change this card to <cc><u>Sturdie ★★★</u></>, then <color_orange>3</> <color_orange><u>Weaken</u></> to all enemies",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_uni3_rsp5",
+            "name": "Growing Creature",
+            "ownable_job": [],
+            "rarity": "RARITY_LEGEND",
+            "reward_tag": [],
+            "sct_name": "unique_1024_05",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_uni3_rsp5_01",
+              "c_1024_uni3_rsp5_02",
+              "c_1024_uni3_rsp5_03"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_05",
+            "talent": [
+              {
+                "desc": "This card is not discarded at the end of the turn",
+                "id": "TALENT_RETAIN",
+                "title": "Retain"
+              }
+            ],
+            "tooltips": [
+              {
+                "desc": "Decrease Damage Amount by <cc><color_orange>25</></>% <br>When the effect is activated, decrease Weaken by <cc>1</>",
+                "id": "T_CS00_0003",
+                "title": "Weaken"
+              },
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          }
+        ],
+        "rarity": "RARITY_LEGEND",
+        "reward_tag": [],
+        "sct_name": "unique_1024_05",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_uni3_01",
+          "c_1024_uni3_02"
+        ],
+        "sort": "SORT_UNIQUE",
+        "spine_model": "unique_1024_05",
+        "talent": [
+          {
+            "desc": "This card is not discarded at the end of the turn",
+            "id": "TALENT_RETAIN",
+            "title": "Retain"
+          }
+        ],
+        "tooltips": [
+          {
+            "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+            "id": "TALENT_ORLEA_CREATION",
+            "title": "Creation"
+          }
+        ]
+      },
+      {
+        "animation": true,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_SKILL",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 1,
+        "desc_display": "<color_orange><u>Heal</u></> <color_orange>200%</><br>Activate the <color_orange><u>Retain</u></> effect of all cards in hand",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_uni4",
+        "name": "Will of Light",
+        "ownable_job": [],
+        "r_spark_cards": [
+          {
+            "animation": true,
+            "card_category": "CARD_SKILL",
+            "cost": 1,
+            "desc_display": "<color_orange><u>Heal</u></> <color_orange>200%</><br>Activate the <color_orange><u>Retain</u></> effect of all cards in hand",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_uni4_lbk",
+            "name": "Will of Light",
+            "ownable_job": [],
+            "rarity": "RARITY_UNIQUE",
+            "reward_tag": [],
+            "sct_name": "unique_1024_02",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_uni4_lbk_01",
+              "c_1024_uni4_lbk_02"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_02",
+            "talent": [
+              {
+                "desc": "This card is not discarded at the end of the turn",
+                "id": "TALENT_RETAIN",
+                "title": "Retain"
+              }
+            ],
+            "tooltips": [
+              {
+                "desc": "When this card is Retained, activate effect",
+                "id": "TRIGGER_RETAIN",
+                "title": "Retain:"
+              },
+              {
+                "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+                "id": "CARD_CURE",
+                "title": "Healing"
+              }
+            ]
+          }
+        ],
+        "rarity": "RARITY_UNIQUE",
+        "reward_tag": [],
+        "sct_name": "unique_1024_02",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_uni4_01",
+          "c_1024_uni4_02"
+        ],
+        "sort": "SORT_UNIQUE",
+        "spine_model": "unique_1024_02",
+        "talent": [],
+        "tooltips": [
+          {
+            "desc": "When this card is Retained, activate effect",
+            "id": "TRIGGER_RETAIN",
+            "title": "Retain:"
+          },
+          {
+            "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+            "id": "CARD_CURE",
+            "title": "Healing"
+          }
+        ]
+      }
+    ],
+    "start_cards": [
+      {
+        "animation": false,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_ATK",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 1,
+        "desc_display": "<color_orange>100%</> Damage",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_srt1",
+        "name": "Attack, My Minions",
+        "ownable_job": [],
+        "r_spark_cards": [
+          {
+            "animation": false,
+            "card_category": "CARD_ATK",
+            "cost": 1,
+            "desc_display": "<color_orange>100%</> Damage<br>Has a <color_orange>30%</> chance to create <cc>1</> <color_orange><u>Creation</u></>★",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_srt1_pot",
+            "name": "Attack, My Minions",
+            "ownable_job": [],
+            "rarity": "RARITY_COMMON",
+            "reward_tag": [],
+            "sct_name": "start_1024_01",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_srt1_pot_01",
+              "c_1024_srt1_pot_02"
+            ],
+            "sort": "SORT_START",
+            "spine_model": "",
+            "talent": [],
+            "tooltips": [
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          }
+        ],
+        "rarity": "RARITY_COMMON",
+        "reward_tag": [],
+        "sct_name": "start_1024_01",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_srt1_01"
+        ],
+        "sort": "SORT_START",
+        "spine_model": "",
+        "talent": [],
+        "tooltips": []
+      },
+      {
+        "animation": false,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_SKILL",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 1,
+        "desc_display": "<color_orange><u>Heal</u></> <color_orange>100%</>",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_srt2",
+        "name": "Healing of Light",
+        "ownable_job": [],
+        "r_spark_cards": [
+          {
+            "animation": false,
+            "card_category": "CARD_SKILL",
+            "cost": 1,
+            "desc_display": "<color_orange><u>Heal</u></> <color_orange>100%</><br>Has a <color_orange>50%</> chance to create <cc>1</> <color_orange><u>Creation</u></>★",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_srt2_pot",
+            "name": "Healing of Light",
+            "ownable_job": [],
+            "rarity": "RARITY_COMMON",
+            "reward_tag": [],
+            "sct_name": "start_1024_02",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_srt2_pot_01",
+              "c_1024_srt2_pot_02"
+            ],
+            "sort": "SORT_START",
+            "spine_model": "",
+            "talent": [],
+            "tooltips": [
+              {
+                "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+                "id": "CARD_CURE",
+                "title": "Healing"
+              },
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          }
+        ],
+        "rarity": "RARITY_COMMON",
+        "reward_tag": [],
+        "sct_name": "start_1024_02",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_srt2_01"
+        ],
+        "sort": "SORT_START",
+        "spine_model": "",
+        "talent": [],
+        "tooltips": [
+          {
+            "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+            "id": "CARD_CURE",
+            "title": "Healing"
+          }
+        ]
+      },
+      {
+        "animation": false,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_SKILL",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 1,
+        "desc_display": "<color_orange><u>Heal</u></> <color_orange>100%</>",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_srt3",
+        "name": "Healing of Light",
+        "ownable_job": [],
+        "r_spark_cards": [
+          {
+            "animation": false,
+            "card_category": "CARD_SKILL",
+            "cost": 1,
+            "desc_display": "<color_orange><u>Heal</u></> <color_orange>100%</><br>Has a <color_orange>50%</> chance to create <cc>1</> <color_orange><u>Creation</u></>★",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_srt3_pot",
+            "name": "Healing of Light",
+            "ownable_job": [],
+            "rarity": "RARITY_COMMON",
+            "reward_tag": [],
+            "sct_name": "start_1024_02",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_srt3_pot_01",
+              "c_1024_srt3_pot_02"
+            ],
+            "sort": "SORT_START",
+            "spine_model": "",
+            "talent": [],
+            "tooltips": [
+              {
+                "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+                "id": "CARD_CURE",
+                "title": "Healing"
+              },
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          }
+        ],
+        "rarity": "RARITY_COMMON",
+        "reward_tag": [],
+        "sct_name": "start_1024_02",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_srt3_01"
+        ],
+        "sort": "SORT_START",
+        "spine_model": "",
+        "talent": [],
+        "tooltips": [
+          {
+            "desc": "Increase current HP based on Defense<br>Decrease Stress of a random Combatant by <cc>1</>-<cc>6</> based on the amount increased",
+            "id": "CARD_CURE",
+            "title": "Healing"
+          }
+        ]
+      },
+      {
+        "animation": true,
+        "base_combatant": {
+          "ego": "instinct",
+          "id": "1024",
+          "job": "controller",
+          "rarity": 5
+        },
+        "card_category": "CARD_SKILL",
+        "chaos_id": "",
+        "chaos_name": "",
+        "cost": 1,
+        "desc_display": "Create <cc>2</> <color_orange><u>Creation</u></>★",
+        "ego_type": "EGO_OWNER",
+        "id": "c_1024_srt4",
+        "name": "Sacred Censer",
+        "ownable_job": [],
+        "r_spark_cards": [
+          {
+            "animation": true,
+            "card_category": "CARD_SKILL",
+            "cost": 1,
+            "desc_display": "Create <cc>3</> <color_orange><u>Creation</u></>★",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_srt4_rsp1",
+            "name": "Sacred Censer",
+            "ownable_job": [],
+            "rarity": "RARITY_RARE",
+            "reward_tag": [],
+            "sct_name": "unique_1024_04",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_srt4_rsp1_01"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_04",
+            "talent": [
+              {
+                "desc": "At the start of battle, place this card at the top of <color_orange><u>Draw Pile</u></>",
+                "id": "TALENT_INNATE",
+                "title": "Initiation"
+              }
+            ],
+            "tooltips": [
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          },
+          {
+            "animation": true,
+            "card_category": "CARD_POWER",
+            "cost": 2,
+            "desc_display": "Create <cc>2</> <color_orange><u>Creation</u></>★<br>At the start of the turn, create <color_orange>1</> <color_orange><u>Creation</u></>★",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_srt4_rsp2",
+            "name": "Sacred Censer",
+            "ownable_job": [],
+            "rarity": "RARITY_RARE",
+            "reward_tag": [],
+            "sct_name": "unique_1024_04",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_srt4_rsp2_01",
+              "c_1024_srt4_rsp2_02"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_04",
+            "talent": [
+              {
+                "desc": "At the start of battle, place this card at the top of <color_orange><u>Draw Pile</u></>",
+                "id": "TALENT_INNATE",
+                "title": "Initiation"
+              },
+              {
+                "desc": "At the start of the turn, has a <color_orange>50%</> chance to decrease Cost of the card with this effect by <cc>1</><br>When a different card is used, the effect is removed",
+                "id": "TALENT_LEAD",
+                "title": "Lead"
+              }
+            ],
+            "tooltips": [
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          },
+          {
+            "animation": true,
+            "card_category": "CARD_SKILL",
+            "cost": 1,
+            "desc_display": "Create <color_orange>1</> <cc><u>Softie★</u></> and <color_orange><u>Creation</u></>★ each<br>When the next Softie is <color_orange><u>activate</u></>d, create <cc><u>Softie★</u></>",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_srt4_rsp3",
+            "name": "Sacred Censer",
+            "ownable_job": [],
+            "rarity": "RARITY_RARE",
+            "reward_tag": [],
+            "sct_name": "unique_1024_04",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_srt4_rsp3_01",
+              "c_1024_srt4_rsp3_02",
+              "c_1024_srt4_rsp3_03"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_04",
+            "talent": [
+              {
+                "desc": "At the start of battle, place this card at the top of <color_orange><u>Draw Pile</u></>",
+                "id": "TALENT_INNATE",
+                "title": "Initiation"
+              }
+            ],
+            "tooltips": [
+              {
+                "desc": "Using or proccing a card",
+                "id": "CARD_ACTIVATE",
+                "title": "Activate"
+              },
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          },
+          {
+            "animation": true,
+            "card_category": "CARD_SKILL",
+            "cost": 1,
+            "desc_display": "Create <color_orange>1</> <cc><u>Swiftie★</u></> and <color_orange><u>Creation</u></>★ each<br>Increase Damage Amount of the next Swiftie <color_orange><u>activate</u></>d by <color_orange>40</>%",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_srt4_rsp4",
+            "name": "Sacred Censer",
+            "ownable_job": [],
+            "rarity": "RARITY_RARE",
+            "reward_tag": [],
+            "sct_name": "unique_1024_04",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_srt4_rsp4_01",
+              "c_1024_srt4_rsp4_02",
+              "c_1024_srt4_rsp4_03"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_04",
+            "talent": [
+              {
+                "desc": "At the start of battle, place this card at the top of <color_orange><u>Draw Pile</u></>",
+                "id": "TALENT_INNATE",
+                "title": "Initiation"
+              }
+            ],
+            "tooltips": [
+              {
+                "desc": "Using or proccing a card",
+                "id": "CARD_ACTIVATE",
+                "title": "Activate"
+              },
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          },
+          {
+            "animation": true,
+            "card_category": "CARD_SKILL",
+            "cost": 1,
+            "desc_display": "Create <color_orange>1</> <cc><u>Sturdie★</u></> and <color_orange><u>Creation</u></>★ each<br>When the next Sturdie is <color_orange><u>activate</u></>d, <color_orange>150</>% <color_orange><u>Shield</u></>",
+            "ego_type": "EGO_OWNER",
+            "id": "c_1024_srt4_rsp5",
+            "name": "Sacred Censer",
+            "ownable_job": [],
+            "rarity": "RARITY_RARE",
+            "reward_tag": [],
+            "sct_name": "unique_1024_04",
+            "season_tags": [],
+            "skill_eff_ids": [
+              "c_1024_srt4_rsp5_01",
+              "c_1024_srt4_rsp5_02",
+              "c_1024_srt4_rsp5_03"
+            ],
+            "sort": "SORT_UNIQUE",
+            "spine_model": "unique_1024_04",
+            "talent": [
+              {
+                "desc": "At the start of battle, place this card at the top of <color_orange><u>Draw Pile</u></>",
+                "id": "TALENT_INNATE",
+                "title": "Initiation"
+              }
+            ],
+            "tooltips": [
+              {
+                "desc": "Decrease Damage Amount taken until the next turn",
+                "id": "CARD_SHIELD",
+                "title": "Shield"
+              },
+              {
+                "desc": "Using or proccing a card",
+                "id": "CARD_ACTIVATE",
+                "title": "Activate"
+              },
+              {
+                "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+                "id": "TALENT_ORLEA_CREATION",
+                "title": "Creation"
+              }
+            ]
+          }
+        ],
+        "rarity": "RARITY_RARE",
+        "reward_tag": [],
+        "sct_name": "unique_1024_04",
+        "season_tags": [],
+        "skill_eff_ids": [
+          "c_1024_srt4_01"
+        ],
+        "sort": "SORT_UNIQUE",
+        "spine_model": "unique_1024_04",
+        "talent": [
+          {
+            "desc": "At the start of battle, place this card at the top of <color_orange><u>Draw Pile</u></>",
+            "id": "TALENT_INNATE",
+            "title": "Initiation"
+          }
+        ],
+        "tooltips": [
+          {
+            "desc": "Three types of cards summoned by Orlea<br>If a card of the same creature★ is in hand, it evolves and merges<br>Evolution can reach up to <cc>3</> stages",
+            "id": "TALENT_ORLEA_CREATION",
+            "title": "Creation"
+          }
+        ]
+      }
+    ]
+  },
+  "ego": "instinct",
+  "faction": "",
+  "gender_type": "GENDER_FEMALE",
+  "id": "1024",
+  "job": "controller",
+  "live_event_id": "live_event_1024",
+  "map_portrait_name": "",
+  "model": "1024",
+  "name": "Orlea",
+  "names": {
+    "en": "Orlea",
+    "zhs": "奧爾萊亞",
+    "zht": "奧爾萊亞"
+  },
+  "portrait_ani": "face/portrait/1024",
+  "portrait_name": "",
+  "potential_nodes": [
+    {
+      "desc": "When entering Chaos, obtain 1 random Rare Card with an activated Epiphany.",
+      "id": "10241001",
+      "link_potential_node_effect_id": "",
+      "link_potential_node_require_id": "potential_node_require_10_1",
+      "max_level": "1",
+      "node_level": "1",
+      "node_num": "1_0",
+      "node_shape_type": "SHAPE_BIG_CIRCLE",
+      "potential_node_type_define": {
+        "define_node_type": "NODE_FIRST_SPARK_R_CARD_GET_UNLOCK",
+        "icon": "icon_comm/icon_comm_card_unique",
+        "id": "N_FIRST_SP_CDGET_UNLOCK_NONE",
+        "link_stat_list_id": "",
+        "main_title": "Combatant Epiphany",
+        "sub_title": "Epiphany Bonus"
+      },
+      "unlock_combatant_ascend": "1",
+      "upgrade_nodes": []
+    },
+    {
+      "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Basic Cards</> by <color_orange>2</>%",
+      "id": "10242001",
+      "link_potential_node_effect_id": "",
+      "link_potential_node_require_id": "potential_node_require_20_1",
+      "max_level": "10",
+      "node_level": "1",
+      "node_num": "2_0",
+      "node_shape_type": "SHAPE_CIRCLE",
+      "potential_node_type_define": {
+        "define_node_type": "NODE_REINFORCE_CARD_START",
+        "icon": "icon_comm/icon_comm_card_reinforce",
+        "id": "N_CARD_BASIC",
+        "link_stat_list_id": "",
+        "main_title": "Upgrade Card",
+        "sub_title": "Basic Card Upgrade"
+      },
+      "unlock_combatant_ascend": "1",
+      "upgrade_nodes": [
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Basic Cards</> by <color_orange>4</>%",
+          "id": "10242002",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_20_2",
+          "max_level": "10",
+          "node_level": "2",
+          "node_num": "2_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_START",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_BASIC",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Basic Card Upgrade"
+          },
+          "unlock_combatant_ascend": "1",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Basic Cards</> by <color_orange>6</>%",
+          "id": "10242003",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_20_3",
+          "max_level": "10",
+          "node_level": "3",
+          "node_num": "2_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_START",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_BASIC",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Basic Card Upgrade"
+          },
+          "unlock_combatant_ascend": "1",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Basic Cards</> by <color_orange>8</>%",
+          "id": "10242004",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_20_4",
+          "max_level": "10",
+          "node_level": "4",
+          "node_num": "2_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_START",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_BASIC",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Basic Card Upgrade"
+          },
+          "unlock_combatant_ascend": "1",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Basic Cards</> by <color_orange>10</>%",
+          "id": "10242005",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_20_5",
+          "max_level": "10",
+          "node_level": "5",
+          "node_num": "2_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_START",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_BASIC",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Basic Card Upgrade"
+          },
+          "unlock_combatant_ascend": "1",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Basic Cards</> by <color_orange>12</>%",
+          "id": "10242006",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_20_6",
+          "max_level": "10",
+          "node_level": "6",
+          "node_num": "2_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_START",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_BASIC",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Basic Card Upgrade"
+          },
+          "unlock_combatant_ascend": "2",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Basic Cards</> by <color_orange>14</>%",
+          "id": "10242007",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_20_7",
+          "max_level": "10",
+          "node_level": "7",
+          "node_num": "2_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_START",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_BASIC",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Basic Card Upgrade"
+          },
+          "unlock_combatant_ascend": "2",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Basic Cards</> by <color_orange>16</>%",
+          "id": "10242008",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_20_8",
+          "max_level": "10",
+          "node_level": "8",
+          "node_num": "2_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_START",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_BASIC",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Basic Card Upgrade"
+          },
+          "unlock_combatant_ascend": "2",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Basic Cards</> by <color_orange>18</>%",
+          "id": "10242009",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_20_9",
+          "max_level": "10",
+          "node_level": "9",
+          "node_num": "2_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_START",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_BASIC",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Basic Card Upgrade"
+          },
+          "unlock_combatant_ascend": "2",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Basic Cards</> by <color_orange>20</>%",
+          "id": "10242010",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_20_10",
+          "max_level": "10",
+          "node_level": "10",
+          "node_num": "2_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_START",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_BASIC",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Basic Card Upgrade"
+          },
+          "unlock_combatant_ascend": "2",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Basic Cards</> by <color_orange>22</>%",
+          "id": "10242011",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "11",
+          "node_num": "2_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_START",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_BASIC",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Basic Card Upgrade"
+          },
+          "unlock_combatant_ascend": "2",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Basic Cards</> by <color_orange>24</>%",
+          "id": "10242012",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "12",
+          "node_num": "2_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_START",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_BASIC",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Basic Card Upgrade"
+          },
+          "unlock_combatant_ascend": "2",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Basic Cards</> by <color_orange>26</>%",
+          "id": "10242013",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "13",
+          "node_num": "2_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_START",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_BASIC",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Basic Card Upgrade"
+          },
+          "unlock_combatant_ascend": "2",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Basic Cards</> by <color_orange>28</>%",
+          "id": "10242014",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "14",
+          "node_num": "2_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_START",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_BASIC",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Basic Card Upgrade"
+          },
+          "unlock_combatant_ascend": "2",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Basic Cards</> by <color_orange>30</>%",
+          "id": "10242015",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "15",
+          "node_num": "2_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_START",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_BASIC",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Basic Card Upgrade"
+          },
+          "unlock_combatant_ascend": "2",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Basic Cards</> by <color_orange>32</>%",
+          "id": "10242016",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "16",
+          "node_num": "2_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_START",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_BASIC",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Basic Card Upgrade"
+          },
+          "unlock_combatant_ascend": "2",
+          "upgrade_nodes": []
+        }
+      ]
+    },
+    {
+      "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Common Cards</> by <color_orange>2</>%",
+      "id": "10243001",
+      "link_potential_node_effect_id": "",
+      "link_potential_node_require_id": "potential_node_require_30_1",
+      "max_level": "10",
+      "node_level": "1",
+      "node_num": "3_0",
+      "node_shape_type": "SHAPE_CIRCLE",
+      "potential_node_type_define": {
+        "define_node_type": "NODE_REINFORCE_CARD_NEUTRAL",
+        "icon": "icon_comm/icon_comm_card_reinforce",
+        "id": "N_CARD_NEUTRAL",
+        "link_stat_list_id": "",
+        "main_title": "Upgrade Card",
+        "sub_title": "Common Card Upgrade"
+      },
+      "unlock_combatant_ascend": "2",
+      "upgrade_nodes": [
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Common Cards</> by <color_orange>4</>%",
+          "id": "10243002",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_30_2",
+          "max_level": "10",
+          "node_level": "2",
+          "node_num": "3_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_NEUTRAL",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_NEUTRAL",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Common Card Upgrade"
+          },
+          "unlock_combatant_ascend": "2",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Common Cards</> by <color_orange>6</>%",
+          "id": "10243003",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_30_3",
+          "max_level": "10",
+          "node_level": "3",
+          "node_num": "3_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_NEUTRAL",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_NEUTRAL",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Common Card Upgrade"
+          },
+          "unlock_combatant_ascend": "3",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Common Cards</> by <color_orange>8</>%",
+          "id": "10243004",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_30_4",
+          "max_level": "10",
+          "node_level": "4",
+          "node_num": "3_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_NEUTRAL",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_NEUTRAL",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Common Card Upgrade"
+          },
+          "unlock_combatant_ascend": "3",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Common Cards</> by <color_orange>10</>%",
+          "id": "10243005",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_30_5",
+          "max_level": "10",
+          "node_level": "5",
+          "node_num": "3_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_NEUTRAL",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_NEUTRAL",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Common Card Upgrade"
+          },
+          "unlock_combatant_ascend": "3",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Common Cards</> by <color_orange>12</>%",
+          "id": "10243006",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_30_6",
+          "max_level": "10",
+          "node_level": "6",
+          "node_num": "3_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_NEUTRAL",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_NEUTRAL",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Common Card Upgrade"
+          },
+          "unlock_combatant_ascend": "3",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Common Cards</> by <color_orange>14</>%",
+          "id": "10243007",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_30_7",
+          "max_level": "10",
+          "node_level": "7",
+          "node_num": "3_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_NEUTRAL",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_NEUTRAL",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Common Card Upgrade"
+          },
+          "unlock_combatant_ascend": "4",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Common Cards</> by <color_orange>16</>%",
+          "id": "10243008",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_30_8",
+          "max_level": "10",
+          "node_level": "8",
+          "node_num": "3_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_NEUTRAL",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_NEUTRAL",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Common Card Upgrade"
+          },
+          "unlock_combatant_ascend": "4",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Common Cards</> by <color_orange>18</>%",
+          "id": "10243009",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_30_9",
+          "max_level": "10",
+          "node_level": "9",
+          "node_num": "3_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_NEUTRAL",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_NEUTRAL",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Common Card Upgrade"
+          },
+          "unlock_combatant_ascend": "4",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Common Cards</> by <color_orange>20</>%",
+          "id": "10243010",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_30_10",
+          "max_level": "10",
+          "node_level": "10",
+          "node_num": "3_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_NEUTRAL",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_NEUTRAL",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Common Card Upgrade"
+          },
+          "unlock_combatant_ascend": "4",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Common Cards</> by <color_orange>22</>%",
+          "id": "10243011",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "11",
+          "node_num": "3_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_NEUTRAL",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_NEUTRAL",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Common Card Upgrade"
+          },
+          "unlock_combatant_ascend": "4",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Common Cards</> by <color_orange>24</>%",
+          "id": "10243012",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "12",
+          "node_num": "3_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_NEUTRAL",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_NEUTRAL",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Common Card Upgrade"
+          },
+          "unlock_combatant_ascend": "4",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Common Cards</> by <color_orange>26</>%",
+          "id": "10243013",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "13",
+          "node_num": "3_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_NEUTRAL",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_NEUTRAL",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Common Card Upgrade"
+          },
+          "unlock_combatant_ascend": "4",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Common Cards</> by <color_orange>28</>%",
+          "id": "10243014",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "14",
+          "node_num": "3_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_NEUTRAL",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_NEUTRAL",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Common Card Upgrade"
+          },
+          "unlock_combatant_ascend": "4",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Common Cards</> by <color_orange>30</>%",
+          "id": "10243015",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "15",
+          "node_num": "3_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_NEUTRAL",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_NEUTRAL",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Common Card Upgrade"
+          },
+          "unlock_combatant_ascend": "4",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Common Cards</> by <color_orange>32</>%",
+          "id": "10243016",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "16",
+          "node_num": "3_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_NEUTRAL",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_NEUTRAL",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Common Card Upgrade"
+          },
+          "unlock_combatant_ascend": "4",
+          "upgrade_nodes": []
+        }
+      ]
+    },
+    {
+      "desc": "Add <color_orange>50</>% chance to <color_orange><u>Heaven's Healing</u></> card to create <color_orange>1</> <color_orange>Creation★</> card in hand.",
+      "id": "10243101",
+      "link_potential_node_effect_id": "",
+      "link_potential_node_require_id": "potential_node_require_31_1",
+      "max_level": "1",
+      "node_level": "1",
+      "node_num": "3_1",
+      "node_shape_type": "SHAPE_BIG_CIRCLE",
+      "potential_node_type_define": {
+        "define_node_type": "NODE_CARD_R_SPARK",
+        "icon": "icon_comm/icon_comm_card_reinforce",
+        "id": "N_CARD_R_SP_NONE",
+        "link_stat_list_id": "",
+        "main_title": "Basic Card",
+        "sub_title": "Basic Card Proficiency"
+      },
+      "unlock_combatant_ascend": "2",
+      "upgrade_nodes": []
+    },
+    {
+      "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Signature Cards</> by <color_orange>2</>%",
+      "id": "10244001",
+      "link_potential_node_effect_id": "",
+      "link_potential_node_require_id": "potential_node_require_40_1",
+      "max_level": "10",
+      "node_level": "1",
+      "node_num": "4_0",
+      "node_shape_type": "SHAPE_CIRCLE",
+      "potential_node_type_define": {
+        "define_node_type": "NODE_REINFORCE_CARD_UNIQUE",
+        "icon": "icon_comm/icon_comm_card_reinforce",
+        "id": "N_CARD_UNIQUE",
+        "link_stat_list_id": "",
+        "main_title": "Upgrade Card",
+        "sub_title": "Signature Card Upgrade"
+      },
+      "unlock_combatant_ascend": "3",
+      "upgrade_nodes": [
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Signature Cards</> by <color_orange>4</>%",
+          "id": "10244002",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_40_2",
+          "max_level": "10",
+          "node_level": "2",
+          "node_num": "4_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_UNIQUE",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_UNIQUE",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Signature Card Upgrade"
+          },
+          "unlock_combatant_ascend": "3",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Signature Cards</> by <color_orange>6</>%",
+          "id": "10244003",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_40_3",
+          "max_level": "10",
+          "node_level": "3",
+          "node_num": "4_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_UNIQUE",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_UNIQUE",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Signature Card Upgrade"
+          },
+          "unlock_combatant_ascend": "3",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Signature Cards</> by <color_orange>8</>%",
+          "id": "10244004",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_40_4",
+          "max_level": "10",
+          "node_level": "4",
+          "node_num": "4_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_UNIQUE",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_UNIQUE",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Signature Card Upgrade"
+          },
+          "unlock_combatant_ascend": "3",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Signature Cards</> by <color_orange>10</>%",
+          "id": "10244005",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_40_5",
+          "max_level": "10",
+          "node_level": "5",
+          "node_num": "4_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_UNIQUE",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_UNIQUE",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Signature Card Upgrade"
+          },
+          "unlock_combatant_ascend": "3",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Signature Cards</> by <color_orange>12</>%",
+          "id": "10244006",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_40_6",
+          "max_level": "10",
+          "node_level": "6",
+          "node_num": "4_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_UNIQUE",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_UNIQUE",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Signature Card Upgrade"
+          },
+          "unlock_combatant_ascend": "4",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Signature Cards</> by <color_orange>14</>%",
+          "id": "10244007",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_40_7",
+          "max_level": "10",
+          "node_level": "7",
+          "node_num": "4_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_UNIQUE",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_UNIQUE",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Signature Card Upgrade"
+          },
+          "unlock_combatant_ascend": "4",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Signature Cards</> by <color_orange>16</>%",
+          "id": "10244008",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_40_8",
+          "max_level": "10",
+          "node_level": "8",
+          "node_num": "4_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_UNIQUE",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_UNIQUE",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Signature Card Upgrade"
+          },
+          "unlock_combatant_ascend": "4",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Signature Cards</> by <color_orange>18</>%",
+          "id": "10244009",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_40_9",
+          "max_level": "10",
+          "node_level": "9",
+          "node_num": "4_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_UNIQUE",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_UNIQUE",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Signature Card Upgrade"
+          },
+          "unlock_combatant_ascend": "5",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Signature Cards</> by <color_orange>20</>%",
+          "id": "10244010",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_40_10",
+          "max_level": "10",
+          "node_level": "10",
+          "node_num": "4_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_UNIQUE",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_UNIQUE",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Signature Card Upgrade"
+          },
+          "unlock_combatant_ascend": "5",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Signature Cards</> by <color_orange>22</>%",
+          "id": "10244011",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "11",
+          "node_num": "4_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_UNIQUE",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_UNIQUE",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Signature Card Upgrade"
+          },
+          "unlock_combatant_ascend": "5",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Signature Cards</> by <color_orange>24</>%",
+          "id": "10244012",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "12",
+          "node_num": "4_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_UNIQUE",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_UNIQUE",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Signature Card Upgrade"
+          },
+          "unlock_combatant_ascend": "5",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Signature Cards</> by <color_orange>26</>%",
+          "id": "10244013",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "13",
+          "node_num": "4_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_UNIQUE",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_UNIQUE",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Signature Card Upgrade"
+          },
+          "unlock_combatant_ascend": "5",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Signature Cards</> by <color_orange>28</>%",
+          "id": "10244014",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "14",
+          "node_num": "4_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_UNIQUE",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_UNIQUE",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Signature Card Upgrade"
+          },
+          "unlock_combatant_ascend": "5",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Signature Cards</> by <color_orange>30</>%",
+          "id": "10244015",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "15",
+          "node_num": "4_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_UNIQUE",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_UNIQUE",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Signature Card Upgrade"
+          },
+          "unlock_combatant_ascend": "5",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Damage, Shield Gain, and Heal Amounts of <color_orange>Signature Cards</> by <color_orange>32</>%",
+          "id": "10244016",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "",
+          "max_level": "10",
+          "node_level": "16",
+          "node_num": "4_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_REINFORCE_CARD_UNIQUE",
+            "icon": "icon_comm/icon_comm_card_reinforce",
+            "id": "N_CARD_UNIQUE",
+            "link_stat_list_id": "",
+            "main_title": "Upgrade Card",
+            "sub_title": "Signature Card Upgrade"
+          },
+          "unlock_combatant_ascend": "5",
+          "upgrade_nodes": []
+        }
+      ]
+    },
+    {
+      "desc": "Increase Health by <color_orange>1.6</>%",
+      "id": "10245001",
+      "link_potential_node_effect_id": "",
+      "link_potential_node_require_id": "potential_node_require_50_1",
+      "max_level": "5",
+      "node_level": "1",
+      "node_num": "5_0",
+      "node_shape_type": "SHAPE_CIRCLE",
+      "potential_node_type_define": {
+        "define_node_type": "NODE_STAT_ADD",
+        "icon": "icon_comm/icon_comm_con",
+        "id": "N_ADD_S_HP_INC_RATE_OUT",
+        "link_stat_list_id": "S_HP_INC_RATE_OUT",
+        "main_title": "Stats",
+        "sub_title": "Health Proficiency"
+      },
+      "unlock_combatant_ascend": "4",
+      "upgrade_nodes": [
+        {
+          "desc": "Increase Health by <color_orange>3.2</>%",
+          "id": "10245002",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_50_2",
+          "max_level": "5",
+          "node_level": "2",
+          "node_num": "5_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_STAT_ADD",
+            "icon": "icon_comm/icon_comm_con",
+            "id": "N_ADD_S_HP_INC_RATE_OUT",
+            "link_stat_list_id": "S_HP_INC_RATE_OUT",
+            "main_title": "Stats",
+            "sub_title": "Health Proficiency"
+          },
+          "unlock_combatant_ascend": "4",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Health by <color_orange>4.8</>%",
+          "id": "10245003",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_50_3",
+          "max_level": "5",
+          "node_level": "3",
+          "node_num": "5_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_STAT_ADD",
+            "icon": "icon_comm/icon_comm_con",
+            "id": "N_ADD_S_HP_INC_RATE_OUT",
+            "link_stat_list_id": "S_HP_INC_RATE_OUT",
+            "main_title": "Stats",
+            "sub_title": "Health Proficiency"
+          },
+          "unlock_combatant_ascend": "5",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Health by <color_orange>6.4</>%",
+          "id": "10245004",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_50_4",
+          "max_level": "5",
+          "node_level": "4",
+          "node_num": "5_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_STAT_ADD",
+            "icon": "icon_comm/icon_comm_con",
+            "id": "N_ADD_S_HP_INC_RATE_OUT",
+            "link_stat_list_id": "S_HP_INC_RATE_OUT",
+            "main_title": "Stats",
+            "sub_title": "Health Proficiency"
+          },
+          "unlock_combatant_ascend": "5",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Health by <color_orange>8</>%",
+          "id": "10245005",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_50_5",
+          "max_level": "5",
+          "node_level": "5",
+          "node_num": "5_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_STAT_ADD",
+            "icon": "icon_comm/icon_comm_con",
+            "id": "N_ADD_S_HP_INC_RATE_OUT",
+            "link_stat_list_id": "S_HP_INC_RATE_OUT",
+            "main_title": "Stats",
+            "sub_title": "Health Proficiency"
+          },
+          "unlock_combatant_ascend": "5",
+          "upgrade_nodes": []
+        }
+      ]
+    },
+    {
+      "desc": "+<color_orange>10</>% Heal Amount to Orlea’s <color_orange><u>Healing of Light</u></>",
+      "id": "10245101",
+      "link_potential_node_effect_id": "",
+      "link_potential_node_require_id": "potential_node_require_51_1",
+      "max_level": "1",
+      "node_level": "1",
+      "node_num": "5_1",
+      "node_shape_type": "SHAPE_BIG_CIRCLE",
+      "potential_node_type_define": {
+        "define_node_type": "NODE_CARD_R_SPARK",
+        "icon": "icon_comm/icon_comm_card_reinforce",
+        "id": "N_CARD_R_SP_NONE",
+        "link_stat_list_id": "",
+        "main_title": "Basic Card",
+        "sub_title": "Basic Card Proficiency"
+      },
+      "unlock_combatant_ascend": "4",
+      "upgrade_nodes": []
+    },
+    {
+      "desc": "Increases the chance for a Divine Epiphany to appear by <color_orange>25</>%.",
+      "id": "10245201",
+      "link_potential_node_effect_id": "",
+      "link_potential_node_require_id": "potential_node_require_52_1",
+      "max_level": "1",
+      "node_level": "1",
+      "node_num": "5_2",
+      "node_shape_type": "SHAPE_BIG_CIRCLE",
+      "potential_node_type_define": {
+        "define_node_type": "NODE_R_SPARK_GOD_ADD",
+        "icon": "icon_comm/icon_comm_card_spark",
+        "id": "N_G_SP_PCT_ADD_NONE",
+        "link_stat_list_id": "",
+        "main_title": "Card Epiphany",
+        "sub_title": "Divine Epiphany Adaptation"
+      },
+      "unlock_combatant_ascend": "4",
+      "upgrade_nodes": []
+    },
+    {
+      "desc": "Increase Attack by <color_orange>1.6</>%",
+      "id": "10246001",
+      "link_potential_node_effect_id": "",
+      "link_potential_node_require_id": "potential_node_require_60_1",
+      "max_level": "5",
+      "node_level": "1",
+      "node_num": "6_0",
+      "node_shape_type": "SHAPE_CIRCLE",
+      "potential_node_type_define": {
+        "define_node_type": "NODE_STAT_ADD",
+        "icon": "icon_comm/icon_comm_attack",
+        "id": "N_ADD_S_ATK_INC_RATE_OUT",
+        "link_stat_list_id": "S_ATK_INC_RATE_OUT",
+        "main_title": "Stats",
+        "sub_title": "Attack Proficiency"
+      },
+      "unlock_combatant_ascend": "5",
+      "upgrade_nodes": [
+        {
+          "desc": "Increase Attack by <color_orange>3.2</>%",
+          "id": "10246002",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_60_2",
+          "max_level": "5",
+          "node_level": "2",
+          "node_num": "6_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_STAT_ADD",
+            "icon": "icon_comm/icon_comm_attack",
+            "id": "N_ADD_S_ATK_INC_RATE_OUT",
+            "link_stat_list_id": "S_ATK_INC_RATE_OUT",
+            "main_title": "Stats",
+            "sub_title": "Attack Proficiency"
+          },
+          "unlock_combatant_ascend": "5",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Attack by <color_orange>4.8</>%",
+          "id": "10246003",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_60_3",
+          "max_level": "5",
+          "node_level": "3",
+          "node_num": "6_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_STAT_ADD",
+            "icon": "icon_comm/icon_comm_attack",
+            "id": "N_ADD_S_ATK_INC_RATE_OUT",
+            "link_stat_list_id": "S_ATK_INC_RATE_OUT",
+            "main_title": "Stats",
+            "sub_title": "Attack Proficiency"
+          },
+          "unlock_combatant_ascend": "5",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Attack by <color_orange>6.4</>%",
+          "id": "10246004",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_60_4",
+          "max_level": "5",
+          "node_level": "4",
+          "node_num": "6_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_STAT_ADD",
+            "icon": "icon_comm/icon_comm_attack",
+            "id": "N_ADD_S_ATK_INC_RATE_OUT",
+            "link_stat_list_id": "S_ATK_INC_RATE_OUT",
+            "main_title": "Stats",
+            "sub_title": "Attack Proficiency"
+          },
+          "unlock_combatant_ascend": "5",
+          "upgrade_nodes": []
+        },
+        {
+          "desc": "Increase Attack by <color_orange>8</>%",
+          "id": "10246005",
+          "link_potential_node_effect_id": "",
+          "link_potential_node_require_id": "potential_node_require_60_5",
+          "max_level": "5",
+          "node_level": "5",
+          "node_num": "6_0",
+          "node_shape_type": "SHAPE_CIRCLE",
+          "potential_node_type_define": {
+            "define_node_type": "NODE_STAT_ADD",
+            "icon": "icon_comm/icon_comm_attack",
+            "id": "N_ADD_S_ATK_INC_RATE_OUT",
+            "link_stat_list_id": "S_ATK_INC_RATE_OUT",
+            "main_title": "Stats",
+            "sub_title": "Attack Proficiency"
+          },
+          "unlock_combatant_ascend": "5",
+          "upgrade_nodes": []
+        }
+      ]
+    },
+    {
+      "desc": "If Orlea's Attack is <color_orange>700</> or higher, or her Defense is <color_orange>300</> or higher, then at the start of battle, +<color_orange>6</>% Critical Chance to allies",
+      "id": "10247001",
+      "link_potential_node_effect_id": "",
+      "link_potential_node_require_id": "potential_node_require_70_1",
+      "max_level": "1",
+      "node_level": "1",
+      "node_num": "7_0",
+      "node_shape_type": "SHAPE_SPECIAL",
+      "potential_node_type_define": {
+        "define_node_type": "NODE_STAT_ADD",
+        "icon": "icon_potential_rare",
+        "id": "N_UNIQUE",
+        "link_stat_list_id": "S_ADDI_ATK_DMG_RATE",
+        "main_title": "Unique Stats",
+        "sub_title": "Unique Stat Upgrade"
+      },
+      "unlock_combatant_ascend": "5",
+      "upgrade_nodes": []
+    }
+  ],
+  "rarity": 5
+}
