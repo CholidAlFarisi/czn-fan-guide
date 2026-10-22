@@ -466,7 +466,7 @@
         <option value="all">All Types</option>
         <option value="Attack">⚔️ Attack</option>
         <option value="Skill">🌀 Skill</option>
-        <option value="Power">⚡ Power</option>
+        <option value="Upgrade">⚡ Upgrade</option>
       </select>
 
       <select id="browserCostFilter" style="padding:8px 12px; background:var(--card-inner); border:1px solid var(--panel-border); border-radius:4px; color:#fff; font-size:0.85rem;" onchange="filterCardBrowser()">
@@ -1247,7 +1247,6 @@ function renderDeckCustomizer() {
     const displayCat = activeVar ? activeVar.category : (c.category || c.type || 'Attack');
     let apCost = activeVar ? activeVar.cost : (c.cost !== undefined ? c.cost : 1);
 
-    if (!isBasic && isUniqueSelected) apCost = Math.max(0, apCost - 1);
     if (!isBasic && isDivine && equippedSpark && equippedSpark.cost_mod) {
       apCost = Math.max(0, apCost + equippedSpark.cost_mod);
     }
@@ -1260,17 +1259,67 @@ function renderDeckCustomizer() {
     const cardImgSrc = c.image || (activeHero ? `assets/characters/${activeHero.id}.webp` : '');
     const activeCommonObj = isCommonSelected ? commonEpList.find(s => s.id === activeCommon) : null;
 
-    // 1. UNIQUE EPIPHANY SELECTOR (Mutually exclusive with Common)
+    // 1. UNIQUE EPIPHANY SELECTOR (Interactive Branch Pills + Summary + Dropdown)
     let uniqueEpHtml = '';
     if (isBasic) {
       uniqueEpHtml = `<div class="tcg-locked-badge">🛡️ Basic Starter (No Epiphany)</div>`;
     } else if (hasVariants) {
+      const baseCost = (c.cost !== undefined ? c.cost : 1);
+      const isMorphedToUpgrade = activeVar && activeVar.category === 'Upgrade' && c.category !== 'Upgrade';
+
       uniqueEpHtml = `
-        <select class="tcg-select" style="border-color:${isUniqueSelected ? '#dfb235' : 'var(--panel-border)'}; color:${isUniqueSelected ? '#dfb235' : '#f1f5f9'};" ${isCommonSelected ? 'disabled title="Locked because Common Epiphany is selected"' : ''} onchange="setCardBranch('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}', this.value)">
-          <option value="0" ${activeBranch === 0 ? 'selected' : ''}>Base Card (No Branch)</option>
+        <div class="tcg-branch-pill-row">
+          <button type="button" class="tcg-branch-pill ${activeBranch === 0 ? 'active' : ''}" 
+                  ${isCommonSelected ? 'disabled' : ''} 
+                  onclick="setCardBranch('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}', 0)" 
+                  title="Base Card (${c.category || 'Skill'} • ${baseCost} AP): ${c.desc ? c.desc.replace(/"/g, '&quot;') : ''}">
+            Base
+          </button>
+          ${c.variants.map(v => {
+            const isUpgrade = (v.category === 'Upgrade');
+            const isAct = (activeBranch === v.branch);
+            const costDiff = v.cost - baseCost;
+            let costTag = '';
+            if (costDiff > 0) costTag = `+${costDiff}`;
+            else if (costDiff < 0) costTag = `${costDiff}`;
+            return `
+              <button type="button" class="tcg-branch-pill ${isAct ? 'active' : ''} ${isUpgrade ? 'is-upgrade' : ''}" 
+                      ${isCommonSelected ? 'disabled' : ''} 
+                      onclick="setCardBranch('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}', ${v.branch})" 
+                      title="Branch ${v.branch} [${v.category} • ${v.cost} AP]: ${v.desc ? v.desc.replace(/"/g, '&quot;') : ''}">
+                B${v.branch}${isUpgrade ? '⚡' : ''}${costTag ? `<span style="font-size:0.55rem; opacity:0.8; margin-left:1px;">(${costTag})</span>` : ''}
+              </button>
+            `;
+          }).join('')}
+        </div>
+
+        <div class="tcg-branch-summary">
+          <div class="tcg-branch-summary-head">
+            <span style="font-weight:700; color:${activeBranch > 0 ? '#dfb235' : 'var(--muted)'};">
+              ${activeBranch > 0 ? `✦ Branch ${activeBranch}` : 'Base Card'}
+            </span>
+            <span class="type-badge type-${displayCat.toLowerCase()}" style="font-size:0.6rem; padding:1px 5px;">
+              ${displayCat === 'Upgrade' ? '⚡ Upgrade' : displayCat}
+            </span>
+            <span style="font-size:0.68rem; color:var(--cyan); font-weight:700;">${apCost} AP</span>
+          </div>
+          <div style="font-size:0.7rem; color:var(--text); line-height:1.35; margin-top:2px;">
+            ${displayDesc}
+          </div>
+          ${isMorphedToUpgrade ? `
+            <div class="tcg-morph-notice">
+              ⚡ Epiphany mengubah tipe kartu menjadi <strong>Upgrade</strong>
+            </div>
+          ` : ''}
+        </div>
+
+        <select class="tcg-select" style="margin-top:4px; border-color:${isUniqueSelected ? '#dfb235' : 'var(--panel-border)'}; color:${isUniqueSelected ? '#dfb235' : '#f1f5f9'}; font-size:0.68rem;" 
+                ${isCommonSelected ? 'disabled title="Locked because Common Epiphany is selected"' : ''} 
+                onchange="setCardBranch('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}', this.value)">
+          <option value="0" ${activeBranch === 0 ? 'selected' : ''}>Base Card (${c.category || 'Skill'} • ${baseCost} AP)</option>
           ${c.variants.map(v => `
             <option value="${v.branch}" ${activeBranch === v.branch ? 'selected' : ''}>
-              ✦ Branch ${v.branch}: ${v.mult > 0 ? v.mult + '% DMG' : (v.shield > 0 ? v.shield + '% Shield' : v.desc.slice(0, 18) + '...')}
+              ✦ Branch ${v.branch} [${v.category} • ${v.cost} AP]: ${v.desc.slice(0, 42)}...
             </option>
           `).join('')}
         </select>
@@ -1401,8 +1450,18 @@ function renderDeckCustomizer() {
         <!-- UNIQUE EPIPHANY -->
         <div class="tcg-field">
           <div class="tcg-field-header">
-            <span style="color:#dfb235;">✦ UNIQUE EPIPHANY</span>
-            ${isCommonSelected ? '<span class="tcg-locked-badge">🔒 Locked by Common</span>' : ''}
+            <div style="display:flex; align-items:center; gap:5px;">
+              <span style="color:#dfb235;">✦ UNIQUE EPIPHANY</span>
+              ${hasVariants ? `<span style="font-size:0.6rem; color:var(--muted); font-weight:600;">(${c.variants.length})</span>` : ''}
+            </div>
+            <div style="display:flex; align-items:center; gap:6px;">
+              ${hasVariants ? `
+                <button type="button" class="tcg-branch-compare-btn" onclick="openEpiphanyModal('${activeHeroId}', '${c.name.replace(/'/g, "\\'")}', ${activeSlotNum}); switchEpTab('unique'); renderEpiphanyModalBody();" title="Buka jendela perbandingan semua Unique Epiphany">
+                  🔍 Bandingkan
+                </button>
+              ` : ''}
+              ${isCommonSelected ? '<span class="tcg-locked-badge">🔒 Locked</span>' : ''}
+            </div>
           </div>
           ${uniqueEpHtml}
         </div>
@@ -1678,6 +1737,7 @@ function getCombinedDeckCards() {
           const activeCommon = isBasic ? 'none' : (currentSquad.commonSparks?.[hid]?.[c.name] || (currentSquad.epiphanies?.[hid]?.[c.name] === 'common' ? 'c00002' : 'none'));
           const activeDeity = isBasic ? 'none' : (currentSquad.deities?.[hid]?.[c.name] || 'none');
           const isDivine = !isBasic && activeDeity && activeDeity !== 'none';
+          const equippedSpark = (isDivine && window.CZN_DATA.deitySparks) ? window.CZN_DATA.deitySparks.find(s => s.id === activeDeity) : null;
           const activeVar = (hasVariants && activeBranch > 0) ? c.variants[activeBranch - 1] : null;
 
           let epTier = 'none';
@@ -1688,8 +1748,8 @@ function getCombinedDeckCards() {
           }
 
           let cost = activeVar ? activeVar.cost : (c.cost !== undefined ? c.cost : 1);
-          if (!isBasic && (activeBranch > 0 || isDivine)) {
-            cost = Math.max(0, cost - 1);
+          if (!isBasic && isDivine && equippedSpark && equippedSpark.cost_mod) {
+            cost = Math.max(0, cost + equippedSpark.cost_mod);
           }
 
           deck.push({
@@ -1954,7 +2014,15 @@ function filterCardBrowser() {
   else pool = heroCards.concat(universalCards);
 
   const filtered = pool.filter(c => {
-    if (typeF !== 'all' && (c.category || c.type) !== typeF) return false;
+    if (typeF !== 'all') {
+      const cType = (c.category || c.type || '').toLowerCase();
+      const fType = typeF.toLowerCase();
+      if (fType === 'upgrade' || fType === 'power') {
+        if (cType !== 'upgrade' && cType !== 'power') return false;
+      } else if (cType !== fType) {
+        return false;
+      }
+    }
     if (costF !== 'all') {
       const cost = c.cost !== undefined ? c.cost : 1;
       if (costF === '3+' && cost < 3) return false;
@@ -2085,37 +2153,70 @@ function renderEpiphanyModalBody() {
       return;
     }
 
-    let branchesHtml = `
-      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px; margin-bottom:14px;">
+    const baseCost = card.cost !== undefined ? card.cost : 1;
+    let overviewStrip = `
+      <div class="ep-branch-overview-strip">
+        <div class="ep-branch-overview-item ${activeBranch === 0 ? 'active' : ''}" onclick="setCardBranch('${heroId}', '${cardName.replace(/'/g, "\\'")}', 0); renderEpiphanyModalBody();">
+          <div style="font-size:0.65rem; color:var(--muted); font-weight:700;">Base Card</div>
+          <div style="font-size:0.75rem; font-weight:700; color:var(--text);">${card.category || 'Skill'}</div>
+          <div style="font-size:0.65rem; color:var(--cyan);">${baseCost} AP</div>
+        </div>
+        ${card.variants.map(v => {
+          const isAct = activeBranch === v.branch;
+          const isUpg = v.category === 'Upgrade';
+          return `
+            <div class="ep-branch-overview-item ${isAct ? 'active' : ''}" onclick="setCardBranch('${heroId}', '${cardName.replace(/'/g, "\\'")}', ${v.branch}); renderEpiphanyModalBody();">
+              <div style="font-size:0.65rem; color:#dfb235; font-weight:700;">Branch ${v.branch}</div>
+              <div style="font-size:0.75rem; font-weight:700; color:${isUpg ? '#dfb235' : 'var(--text)'};">${isUpg ? '⚡ Upgrade' : v.category}</div>
+              <div style="font-size:0.65rem; color:var(--cyan);">${v.cost} AP</div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    `;
+
+    let branchesHtml = overviewStrip + `
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:12px; margin-bottom:14px;">
         <div class="ep-branch-card ${activeBranch === 0 ? 'active' : ''}">
           <div>
             <div class="ep-branch-head">
               <span class="ep-branch-badge" style="background:rgba(255,255,255,0.08); color:var(--text); border-color:var(--panel-border);">Base Card</span>
               <span class="type-badge type-${(card.category || 'attack').toLowerCase()}">${card.category || 'Attack'}</span>
             </div>
-            <div style="font-size:0.75rem; color:var(--muted); line-height:1.4; margin-bottom:12px;">${card.desc}</div>
+            <div style="font-size:0.72rem; color:var(--cyan); font-weight:700; margin-bottom:6px;">Cost: ${baseCost} AP</div>
+            <div style="font-size:0.76rem; color:var(--text); line-height:1.45; margin-bottom:12px;">${card.desc}</div>
           </div>
           <button class="builder-btn ${activeBranch === 0 ? 'builder-btn-primary' : ''}" style="width:100%; font-size:0.75rem;" onclick="setCardBranch('${heroId}', '${cardName.replace(/'/g, "\\'")}', 0); renderEpiphanyModalBody();">
-            ${activeBranch === 0 ? '✓ Currently Equipped' : 'Equip Base'}
+            ${activeBranch === 0 ? '✓ Currently Equipped' : 'Equip Base Card'}
           </button>
         </div>
     `;
 
     card.variants.forEach(v => {
       const isEq = activeBranch === v.branch;
+      const isMorphed = v.category === 'Upgrade' && card.category !== 'Upgrade';
       branchesHtml += `
         <div class="ep-branch-card ${isEq ? 'active' : ''}">
           <div>
             <div class="ep-branch-head">
               <span class="ep-branch-badge">✦ Branch ${v.branch}</span>
-              <span class="type-badge type-${(v.category || 'attack').toLowerCase()}">${v.category}</span>
+              <span class="type-badge type-${(v.category || 'attack').toLowerCase()}">${v.category === 'Upgrade' ? '⚡ Upgrade' : v.category}</span>
             </div>
-            <div style="font-size:0.75rem; color:var(--text); line-height:1.4; margin-bottom:8px;">${v.desc}</div>
+            ${isMorphed ? `
+              <div style="background:rgba(223,178,53,0.18); border:1px solid rgba(223,178,53,0.45); color:#dfb235; border-radius:4px; padding:3px 8px; font-size:0.68rem; font-weight:700; margin-bottom:8px; display:flex; align-items:center; gap:5px;">
+                ⚡ Converts Card Type into Upgrade (Power)
+              </div>
+            ` : ''}
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <span style="font-size:0.72rem; color:var(--cyan); font-weight:700;">
+                Cost: ${v.cost} AP ${v.cost !== card.cost ? `<span style="color:#22c55e;">(Base: ${card.cost} AP)</span>` : ''}
+              </span>
+            </div>
+            <div style="font-size:0.76rem; color:var(--text); line-height:1.45; margin-bottom:8px;">${v.desc}</div>
             <div style="display:flex; gap:6px; flex-wrap:wrap; font-size:0.7rem; color:var(--muted); margin-bottom:12px;">
               ${v.mult > 0 ? `<span style="color:#dfb235; font-weight:700;">${v.mult}% DMG</span>` : ''}
               ${v.shield > 0 ? `<span style="color:var(--cyan); font-weight:700;">${v.shield}% Shield</span>` : ''}
               ${v.hits > 1 ? `<span style="color:var(--purple); font-weight:700;">${v.hits} Hits</span>` : ''}
-              <span>${v.cost} AP</span>
             </div>
           </div>
           <button class="builder-btn ${isEq ? 'builder-btn-primary' : ''}" style="width:100%; font-size:0.75rem;" onclick="setCardBranch('${heroId}', '${cardName.replace(/'/g, "\\'")}', ${v.branch}); renderEpiphanyModalBody();">
