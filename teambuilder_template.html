@@ -359,9 +359,25 @@ __FOOTER__
 <!-- MODAL: SELECT PARTNER -->
 <div class="builder-modal-backdrop" id="modalPartnerPicker">
   <div class="builder-modal-content">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
       <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin:0;" id="partnerModalTitle">Assign Partner to Combatant</h3>
       <button class="builder-btn" style="flex:none; padding:4px 10px;" onclick="closePartnerModal()">✕</button>
+    </div>
+
+    <!-- CLASS MATCH RULE BANNER -->
+    <div style="background:rgba(34,211,238,0.08); border:1px solid rgba(34,211,238,0.25); border-radius:6px; padding:10px 14px; margin-bottom:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+      <div>
+        <div style="font-size:0.8rem; font-weight:700; color:var(--cyan); display:flex; align-items:center; gap:6px;">
+          <span>⚖️ Class Match Rule</span>
+        </div>
+        <div style="font-size:0.72rem; color:var(--muted); margin-top:2px;" id="partnerModalRuleText">
+          Combatants can only equip Partners of the same Class (Hunter &harr; Hunter, Vanguard &harr; Vanguard, etc.).
+        </div>
+      </div>
+      <label style="font-size:0.72rem; color:var(--text); display:flex; align-items:center; gap:6px; cursor:pointer;">
+        <input type="checkbox" id="partnerShowAllCheckbox" onchange="filterPartnerPicker()">
+        <span>Show Incompatible Classes</span>
+      </label>
     </div>
 
     <div style="display:flex; gap:10px; margin-bottom:14px; flex-wrap:wrap;">
@@ -602,17 +618,70 @@ __FOOTER__
 </div>
 
 <script>
+
+// --- CLASS / JOB COMPATIBILITY HELPERS ---
+function normalizeJob(job) {
+  if (!job) return '';
+  const j = job.toString().trim().toLowerCase();
+  if (j === 'supporter' || j === 'support') return 'controller';
+  return j;
+}
+
+function isPartnerJobCompatible(heroJob, partnerJob) {
+  if (!heroJob || !partnerJob) return false;
+  return normalizeJob(heroJob) === normalizeJob(partnerJob);
+}
+
+function validateSlotPartnerJob(slotNum) {
+  const heroId = currentSquad['hero' + slotNum];
+  const hero = window.CZN_DATA.combatants.find(c => c.id === heroId);
+  if (!hero) return;
+  const heroJobNorm = normalizeJob(hero.job);
+
+  const curPartnerId = currentSquad['partner' + slotNum];
+  const curPartner = window.CZN_DATA.partners.find(p => p.id === curPartnerId);
+
+  // If already compatible, do nothing
+  if (curPartner && normalizeJob(curPartner.job) === heroJobNorm) {
+    return;
+  }
+
+  // Find equipped partners in other slots
+  const otherEquipped = {};
+  [1, 2, 3].forEach(s => {
+    if (s !== slotNum && currentSquad['partner' + s]) {
+      otherEquipped[currentSquad['partner' + s]] = true;
+    }
+  });
+
+  const matchingPartners = (window.CZN_DATA.partners || []).filter(p => {
+    if (otherEquipped[p.id]) return false;
+    return normalizeJob(p.job) === heroJobNorm;
+  });
+
+  if (matchingPartners.length > 0) {
+    const soulmate = matchingPartners.find(p => p.belonging_hero_id === hero.id);
+    const chosen = soulmate || [...matchingPartners].sort((a, b) => b.rarity - a.rarity)[0];
+    currentSquad['partner' + slotNum] = chosen.id;
+    showToast(`Rule: Auto-assigned ${chosen.name} (${chosen.job}) to match ${hero.name}'s Class.`);
+  }
+}
+
+function validateAllSlotPartners() {
+  [1, 2, 3].forEach(s => validateSlotPartnerJob(s));
+}
+
 let currentSquad = {
-  hero1: '1010', // Magna
-  partner1: '30091',
+  hero1: '1010', // Magna (Vanguard)
+  partner1: '30091', // Alcea (Vanguard)
   manifestation1: 0,
 
-  hero2: '1009', // Tressa
-  partner2: '20008',
+  hero2: '1009', // Tressa (Psionic)
+  partner2: '20008', // Anteia (Psionic)
   manifestation2: 0,
 
-  hero3: '1049', // Cassius
-  partner3: '1070',
+  hero3: '1049', // Cassius (Controller)
+  partner3: '30052', // Noel (Controller)
   manifestation3: 0,
 
   equipment: {
@@ -921,6 +990,8 @@ function renderSquadColumns() {
             <div>
               <div style="font-size:0.76rem; font-weight:700; color:var(--text); display:flex; align-items:center; gap:6px;">
                 <span>${partner ? partner.name : 'Dedicated Partner'}</span>
+                ${partner ? `<span style="font-size:0.6rem; padding:1px 4px; border-radius:3px; background:${isPartnerJobCompatible(hero ? hero.job : '', partner.job) ? 'rgba(34,211,238,0.15)' : 'rgba(239,68,68,0.25)'}; color:${isPartnerJobCompatible(hero ? hero.job : '', partner.job) ? 'var(--cyan)' : '#ef4444'}; font-weight:700;">${partner.job}</span>` : ''}
+                ${partner && !isPartnerJobCompatible(hero ? hero.job : '', partner.job) ? '<span style="font-size:0.6rem; padding:1px 4px; background:rgba(239,68,68,0.25); color:#ef4444; border-radius:3px; font-weight:700;">⚠️ MISMATCH</span>' : ''}
                 ${(hero && partner && partner.belonging_hero_id === hero.id) ? '<span style="font-size:0.6rem; padding:1px 4px; background:rgba(223,178,53,0.25); color:#dfb235; border-radius:3px; font-weight:700;">⭐ SOULMATE</span>' : ((hero && partner && partner.ego && hero.element && partner.ego.toLowerCase() === hero.element.toLowerCase()) ? '<span style="font-size:0.6rem; padding:1px 4px; background:rgba(16,185,129,0.25); color:#10b981; border-radius:3px; font-weight:700;">🔥 RESONANCE</span>' : '')}
               </div>
               <div style="font-size:0.65rem; color:var(--emerald);">${partner ? (partner.ego || 'Norms') + ' &bull; ' : ''}${(partner && (partner.card || partner.support_card)) ? (partner.card || partner.support_card).name : 'Support Assist'}</div>
@@ -1033,6 +1104,8 @@ function renderSquadStations() {
           <div>
             <div style="font-size:0.8rem; font-weight:700; color:var(--text); display:flex; align-items:center; gap:6px;">
               <span>${partner ? partner.name : 'Dedicated Partner'}</span>
+              ${partner ? `<span style="font-size:0.62rem; padding:1px 5px; border-radius:3px; background:${isPartnerJobCompatible(hero ? hero.job : '', partner.job) ? 'rgba(34,211,238,0.15)' : 'rgba(239,68,68,0.25)'}; color:${isPartnerJobCompatible(hero ? hero.job : '', partner.job) ? 'var(--cyan)' : '#ef4444'}; font-weight:700;">${partner.job}</span>` : ''}
+              ${partner && !isPartnerJobCompatible(hero ? hero.job : '', partner.job) ? '<span style="font-size:0.62rem; padding:1px 5px; border-radius:3px; background:rgba(239,68,68,0.25); color:#ef4444; font-weight:700;">⚠️ MISMATCH</span>' : ''}
               ${(hero && partner && partner.belonging_hero_id === hero.id) ? '<span style="font-size:0.62rem; padding:1px 5px; background:rgba(223,178,53,0.25); color:#dfb235; border-radius:3px; font-weight:700;">⭐ SOULMATE</span>' : ((hero && partner && partner.ego && hero.element && partner.ego.toLowerCase() === hero.element.toLowerCase()) ? '<span style="font-size:0.62rem; padding:1px 5px; background:rgba(16,185,129,0.25); color:#10b981; border-radius:3px; font-weight:700;">🔥 RESONANCE</span>' : '')}
             </div>
             <div style="font-size:0.68rem; color:var(--emerald);">${partner ? (partner.ego || 'Norms') + ' &bull; ' : ''}${(partner && (partner.card || partner.support_card)) ? (partner.card || partner.support_card).name : 'Support Assist'}</div>
@@ -2885,10 +2958,11 @@ function filterHeroPicker() {
     `;
     card.onclick = () => {
       currentSquad['hero' + pickingHeroSlot] = c.id;
+      validateSlotPartnerJob(pickingHeroSlot);
       initDefaultDeck();
       renderAll();
       closeHeroModal();
-      showToast(`Selected ${c.name} for Slot 0${pickingHeroSlot}!`);
+      showToast(`Selected ${c.name} (${c.job}) for Slot 0${pickingHeroSlot}!`);
     };
     grid.appendChild(card);
   });
@@ -2896,7 +2970,20 @@ function filterHeroPicker() {
 
 function openPartnerModal(slotNum) {
   pickingPartnerSlot = slotNum;
-  document.getElementById('partnerModalTitle').innerText = `Assign Dedicated Partner for Slot 0${slotNum}`;
+  const activeSlotHeroId = currentSquad['hero' + pickingPartnerSlot];
+  const activeHero = window.CZN_DATA.combatants.find(c => c.id === activeSlotHeroId);
+  const heroJob = activeHero ? activeHero.job : 'Combatant';
+  const heroName = activeHero ? activeHero.name : ('Slot 0' + slotNum);
+
+  const titleEl = document.getElementById('partnerModalTitle');
+  if (titleEl) {
+    titleEl.innerHTML = `Assign Dedicated Partner &bull; <span style="color:var(--cyan);">${heroName} (${heroJob})</span>`;
+  }
+  const ruleEl = document.getElementById('partnerModalRuleText');
+  if (ruleEl && activeHero) {
+    ruleEl.innerHTML = `<strong>Rule Active:</strong> ${heroName} is a <strong>${heroJob}</strong> &mdash; Can only equip <strong>${heroJob}</strong> partners.`;
+  }
+
   filterPartnerPicker();
   document.getElementById('modalPartnerPicker').classList.add('active');
 }
@@ -2910,6 +2997,8 @@ function filterPartnerPicker() {
   const partners = window.CZN_DATA.partners || [];
   const activeSlotHeroId = currentSquad['hero' + pickingPartnerSlot];
   const activeHero = window.CZN_DATA.combatants.find(c => c.id === activeSlotHeroId);
+  const heroJob = activeHero ? activeHero.job : '';
+  const heroJobNorm = normalizeJob(heroJob);
 
   // Collect equipped partners in OTHER slots to enforce CANNOT_EQUIP_DUPLICATE
   const otherEquippedPartners = {};
@@ -2919,13 +3008,22 @@ function filterPartnerPicker() {
     }
   });
 
+  const showAllCheckbox = document.getElementById('partnerShowAllCheckbox');
+  const showAll = showAllCheckbox ? showAllCheckbox.checked : false;
+
   const filtered = partners.filter(p => {
+    const isJobMatch = isPartnerJobCompatible(heroJob, p.job);
+    if (!showAll && !isJobMatch) return false;
     if (query && !p.name.toLowerCase().includes(query) && !(p.job && p.job.toLowerCase().includes(query)) && !(p.ego && p.ego.toLowerCase().includes(query))) return false;
     return true;
   });
 
-  // Sort: Soulmates first, then Ego Resonance, then unassigned, then assigned to other slots
+  // Sort: Matching class first, then Soulmates, then Ego Resonance, then unassigned, then assigned to other slots
   filtered.sort((a, b) => {
+    const aMatch = isPartnerJobCompatible(heroJob, a.job) ? 1 : 0;
+    const bMatch = isPartnerJobCompatible(heroJob, b.job) ? 1 : 0;
+    if (aMatch !== bMatch) return bMatch - aMatch;
+
     const aOther = otherEquippedPartners[a.id] ? 1 : 0;
     const bOther = otherEquippedPartners[b.id] ? 1 : 0;
     if (aOther !== bOther) return aOther - bOther;
@@ -2942,39 +3040,56 @@ function filterPartnerPicker() {
   const grid = document.getElementById('partnerPickerGrid');
   grid.innerHTML = '';
 
+  if (filtered.length === 0) {
+    grid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:30px; color:var(--muted);">No matching ${heroJob} partners found.</div>`;
+    return;
+  }
+
   filtered.forEach(p => {
+    const isJobMatch = isPartnerJobCompatible(heroJob, p.job);
     const isEquippedOther = otherEquippedPartners[p.id];
     const isCurrent = currentSquad['partner' + pickingPartnerSlot] === p.id;
     const isEgoResonance = activeHero && p.ego && activeHero.element && (p.ego.toLowerCase() === activeHero.element.toLowerCase());
     const isSoulmate = activeHero && p.belonging_hero_id === activeHero.id;
 
+    const isLocked = isEquippedOther || !isJobMatch;
+
     const card = document.createElement('div');
     card.className = `hero-picker-card ${isCurrent ? 'selected' : ''}`;
-    card.style.cssText = `position:relative; opacity:${isEquippedOther ? '0.5' : '1'}; cursor:${isEquippedOther ? 'not-allowed' : 'pointer'}; border-color:${isCurrent ? 'var(--cyan)' : (isSoulmate ? '#dfb235' : (isEgoResonance ? '#10b981' : 'var(--panel-border)'))};`;
+    card.style.cssText = `position:relative; opacity:${isLocked ? (isEquippedOther ? '0.5' : '0.4') : '1'}; cursor:${isLocked ? 'not-allowed' : 'pointer'}; border-color:${isCurrent ? 'var(--cyan)' : (!isJobMatch ? 'rgba(239,68,68,0.4)' : (isSoulmate ? '#dfb235' : (isEgoResonance ? '#10b981' : 'var(--panel-border)')))}; filter:${!isJobMatch ? 'grayscale(40%)' : 'none'};`;
 
     card.innerHTML = `
       <img src="assets/characters/${p.id}.webp" style="width:44px; height:44px; border-radius:50%; object-fit:cover; border:2px solid ${p.color || '#3b82f6'};" onerror="this.src='https://via.placeholder.com/44?text=P'">
       <div style="flex:1; overflow:hidden;">
         <div style="display:flex; justify-content:space-between; align-items:center;">
           <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:700; color:var(--text);">${p.name}</div>
-          <span style="font-size:0.65rem; padding:1px 5px; border-radius:3px; background:rgba(255,255,255,0.08); color:${p.color || '#fff'}; font-weight:700;">${p.rarity}★ ${p.job}</span>
+          <span style="font-size:0.65rem; padding:1px 5px; border-radius:3px; background:${isJobMatch ? 'rgba(34,211,238,0.15)' : 'rgba(239,68,68,0.2)'}; color:${isJobMatch ? 'var(--cyan)' : '#ef4444'}; font-weight:700;">${p.rarity}★ ${p.job}</span>
         </div>
         <div style="font-size:0.7rem; color:var(--muted); line-height:1.3; margin-top:2px;">
           ${p.ego ? `<span style="color:${p.color || 'var(--cyan)'}; font-weight:600;">Ego: ${p.ego}</span> &bull; ` : ''}
           ${p.stat_boost ? `+${p.stat_boost.atk_pct}% ATK` : '+15% Stats'}
         </div>
-        ${isSoulmate ? `<div style="font-size:0.65rem; color:#dfb235; font-weight:700; margin-top:2px;">⭐ DEDICATED SOULMATE (+Belonging Ego Skill)</div>` : ''}
-        ${!isSoulmate && isEgoResonance ? `<div style="font-size:0.65rem; color:#10b981; font-weight:700; margin-top:2px;">🔥 EGO RESONANCE (+15% Bonus Stats)</div>` : ''}
-        ${isEquippedOther ? `<div style="font-size:0.65rem; color:#ef4444; font-weight:700; margin-top:2px;">🔒 Assigned to Slot 0${isEquippedOther} (Rule: No Duplicates)</div>` : ''}
+        ${!isJobMatch ? `<div style="font-size:0.65rem; color:#ef4444; font-weight:700; margin-top:2px;">🚫 Incompatible Class: ${p.job} (Requires ${heroJob})</div>` : ''}
+        ${isJobMatch && isSoulmate ? `<div style="font-size:0.65rem; color:#dfb235; font-weight:700; margin-top:2px;">⭐ DEDICATED SOULMATE (+Belonging Ego Skill)</div>` : ''}
+        ${isJobMatch && !isSoulmate && isEgoResonance ? `<div style="font-size:0.65rem; color:#10b981; font-weight:700; margin-top:2px;">🔥 EGO RESONANCE (+15% Bonus Stats)</div>` : ''}
+        ${isJobMatch && isEquippedOther ? `<div style="font-size:0.65rem; color:#ef4444; font-weight:700; margin-top:2px;">🔒 Assigned to Slot 0${isEquippedOther} (Rule: No Duplicates)</div>` : ''}
       </div>
     `;
 
-    if (!isEquippedOther) {
+    if (!isLocked) {
       card.onclick = () => {
         currentSquad['partner' + pickingPartnerSlot] = p.id;
         renderAll();
         closePartnerModal();
-        showToast(`Assigned ${p.name} as Partner for Slot 0${pickingPartnerSlot}!`);
+        showToast(`Assigned ${p.name} (${p.job}) to ${activeHero ? activeHero.name : 'Hero'}!`);
+      };
+    } else if (!isJobMatch) {
+      card.onclick = () => {
+        showToast(`Class Rule: ${activeHero ? activeHero.name : 'Hero'} is a ${heroJob} and cannot equip ${p.name} (${p.job})!`);
+      };
+    } else if (isEquippedOther) {
+      card.onclick = () => {
+        showToast(`Cannot equip ${p.name}: already assigned to Slot 0${isEquippedOther}!`);
       };
     }
     grid.appendChild(card);
@@ -3039,6 +3154,7 @@ function loadPreset(presetId) {
 
   initDefaultDeck();
   initDefaultEquipment();
+  validateAllSlotPartners();
   renderAll();
   initSimState();
   showToast(`Loaded preset: ${p.name}!`);
@@ -3046,15 +3162,15 @@ function loadPreset(presetId) {
 
 function resetSquad() {
   currentSquad.hero1 = '1010';
-  currentSquad.partner1 = '20001';
+  currentSquad.partner1 = '30091';
   currentSquad.manifestation1 = 0;
 
   currentSquad.hero2 = '1009';
-  currentSquad.partner2 = '20002';
+  currentSquad.partner2 = '20008';
   currentSquad.manifestation2 = 0;
 
   currentSquad.hero3 = '1049';
-  currentSquad.partner3 = '20003';
+  currentSquad.partner3 = '30052';
   currentSquad.manifestation3 = 0;
 
   currentSquad.removedCards = {};
@@ -3064,6 +3180,7 @@ function resetSquad() {
 
   initDefaultDeck();
   initDefaultEquipment();
+  validateAllSlotPartners();
   renderAll();
   initSimState();
   showToast("Squad and deck reset to default formation.");
