@@ -34,13 +34,21 @@
     </p>
 
     <!-- Top Presets Bar -->
-    <div style="display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom:16px;">
-      <span style="font-size:0.78rem; color:var(--muted); align-self:center; margin-right:4px;">Presets:</span>
-      <button class="builder-btn" onclick="loadPreset('apex_hunt')">⚡ Apex Hunt</button>
-      <button class="builder-btn" onclick="loadPreset('passion_firestorm')">🔥 Passion Firestorm</button>
-      <button class="builder-btn" onclick="loadPreset('iron_bulwark')">🛡️ Iron Bulwark</button>
-      <button class="builder-btn" onclick="loadPreset('dark_mist_blades')">🗡️ Dark Mist</button>
+    <div style="display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom:12px;">
+      <span style="font-size:0.78rem; color:var(--muted); align-self:center; margin-right:4px;">Meta Presets:</span>
+      <button class="builder-btn" style="border-color:#10664d; color:#5eead4;" onclick="loadPreset('rossweisse_polarity')">⚡ Rossweisse Polarity (T0)</button>
+      <button class="builder-btn" style="border-color:#dfb235; color:#fde047;" onclick="loadPreset('nine_infinite_cycle')">👑 Nine Infinite Cycle (T0)</button>
+      <button class="builder-btn" style="border-color:#22d3ee; color:#67e8f9;" onclick="loadPreset('hugo_pursuit_flow')">🎯 Hugo 0-AP Pursuit (T0)</button>
+      <button class="builder-btn" style="border-color:#10664d; color:#a7f3d0;" onclick="loadPreset('beryl_gatling_multihit')">⚙️ Beryl Gatling (T1)</button>
+      <button class="builder-btn" style="border-color:#f85058; color:#fca5a5;" onclick="loadPreset('mei_lin_flame_burst')">🔥 Mei Lin Burst (T1)</button>
       <button class="builder-btn builder-btn-primary" style="margin-left:6px;" onclick="openGlossaryModal()">📖 Glossary</button>
+    </div>
+
+    <!-- Active Preset Playbook Banner -->
+    <div class="container" style="max-width:1200px; padding:0; margin-bottom:16px;">
+      <div id="presetPlaybookBanner" style="display:none; background:linear-gradient(135deg, rgba(16,102,77,0.18), var(--panel)); border:1px solid #10664d; border-radius:8px; padding:18px 22px; transition:all 0.3s ease;">
+        <!-- Injected via loadPreset() -->
+      </div>
     </div>
 
     <!-- CZNMETADECKS BUILDER TOOLBAR -->
@@ -851,6 +859,11 @@ window.addEventListener('DOMContentLoaded', () => {
     } catch (e) {
       console.warn('URL team import error:', e);
     }
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('preset')) {
+    loadPreset(params.get('preset'));
   }
 
   renderAll();
@@ -3500,9 +3513,9 @@ function loadPreset(presetId) {
   currentSquad.partner2 = (p.partner_ids || p.partners)[1];
   currentSquad.partner3 = (p.partner_ids || p.partners)[2];
 
-  currentSquad.manifestation1 = 0;
-  currentSquad.manifestation2 = 0;
-  currentSquad.manifestation3 = 0;
+  currentSquad.manifestation1 = (p.manifestations && p.manifestations[0]) || 0;
+  currentSquad.manifestation2 = (p.manifestations && p.manifestations[1]) || 0;
+  currentSquad.manifestation3 = (p.manifestations && p.manifestations[2]) || 0;
 
   currentSquad.removedCards = {};
   currentSquad.epiphanies = {};
@@ -3514,6 +3527,51 @@ function loadPreset(presetId) {
   validateAllSlotPartners();
   renderAll();
   initSimState();
+
+  // Render Playbook Banner
+  const banner = document.getElementById('presetPlaybookBanner');
+  if (banner && p.playbook) {
+    const playbookHtml = p.playbook.map((step, idx) => `
+      <div style="display:flex; gap:10px; margin-bottom:8px; font-size:0.82rem; line-height:1.45; color:var(--text);">
+        <span style="display:inline-flex; align-items:center; justify-content:center; min-width:22px; height:22px; border-radius:50%; background:var(--accent); color:#fff; font-size:0.75rem; font-weight:700;">${idx+1}</span>
+        <div>${step}</div>
+      </div>
+    `).join('');
+
+    banner.style.display = 'block';
+    banner.style.borderColor = p.color || 'var(--accent)';
+    banner.innerHTML = `
+      <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+        <div style="display:flex; align-items:center; gap:10px;">
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:${p.color || 'var(--cyan)'}; margin:0;">${p.name}</h3>
+          <span style="font-size:0.7rem; font-weight:700; padding:2px 8px; border-radius:4px; background:${p.color || 'var(--accent)'}22; border:1px solid ${p.color || 'var(--accent)'}; color:${p.color || 'var(--text)'};">${p.tag || p.tier}</span>
+        </div>
+        <button onclick="document.getElementById('presetPlaybookBanner').style.display='none'" style="background:none; border:none; color:var(--muted); font-size:1.1rem; cursor:pointer;">✕</button>
+      </div>
+      <p style="font-size:0.85rem; color:var(--body); margin:0 0 12px 0;">${p.description}</p>
+      
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-bottom:14px; background:var(--card-inner); border-radius:6px; padding:12px 14px;">
+        <div>
+          <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); margin-bottom:4px; font-weight:700;">⚙️ Recommended Gearing</div>
+          <div style="font-size:0.8rem; color:var(--text); line-height:1.4;">${p.recommended_gear || 'Standard 4/2 Set'}</div>
+        </div>
+        <div>
+          <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--muted); margin-bottom:4px; font-weight:700;">🃏 Key Cards & Epiphanies</div>
+          <div style="font-size:0.8rem; color:var(--text); line-height:1.4;">${(p.key_cards || []).join(' • ')}</div>
+        </div>
+      </div>
+
+      <div style="margin-bottom:12px;">
+        <div style="font-size:0.75rem; text-transform:uppercase; letter-spacing:0.05em; color:var(--cyan); margin-bottom:8px; font-weight:700;">📋 Turn Rotation & Execution Playbook</div>
+        ${playbookHtml}
+      </div>
+
+      <div style="display:flex; justify-content:flex-end; gap:8px;">
+        <button class="builder-btn builder-btn-primary" onclick="document.querySelector('.sim-card').scrollIntoView({behavior:'smooth'})">⚔️ Go to Turn Simulator</button>
+      </div>
+    `;
+  }
+
   showToast(`Loaded preset: ${p.name}!`);
 }
 

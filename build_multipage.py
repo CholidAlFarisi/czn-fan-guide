@@ -302,6 +302,24 @@ def run():
   </header>
 
   <div class="container">
+    <!-- SPOTLIGHT: SEASON 5 META & ROSSWEISSE -->
+    <div style="background:linear-gradient(135deg, rgba(16,102,77,0.25), var(--panel)); border:1px solid #10664d; border-radius:10px; padding:24px 28px; margin-bottom:32px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; box-shadow:0 8px 30px rgba(0,0,0,0.3);">
+      <div style="max-width:700px;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px;">
+          <span style="background:#10664d; color:#fff; font-size:0.7rem; font-weight:800; padding:3px 10px; border-radius:4px; font-family:'Orbitron',sans-serif; letter-spacing:0.05em;">SEASON 5 SPOTLIGHT</span>
+          <span style="color:#5eead4; font-size:0.85rem; font-weight:700;">NEW META GUIDES &amp; COMBAT PLAYBOOK</span>
+        </div>
+        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.4rem; color:var(--text); margin:0 0 8px 0;">Rossweisse Polarity &amp; Endgame Meta Hub</h2>
+        <p style="font-size:0.88rem; color:var(--body); line-height:1.6; margin:0;">
+          Dive into our comprehensive Day-1 to Min-Max guide for Rossweisse (4-pc Veiled Radiance, 6-slot stats, Partner Arya), explore 5 S-Tier team formations, and launch 1-click presets in the squad simulator.
+        </p>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="guides.html?tab=tab-rossweisse" class="nav-btn" style="background:#10664d; color:#fff; border-color:#10664d; padding:10px 20px; font-size:0.88rem; font-weight:700;">⚔️ Rossweisse Guide →</a>
+        <a href="teambuilder.html?preset=rossweisse_polarity" class="nav-btn" style="background:rgba(16,102,77,0.3); border-color:#10664d; color:#5eead4; padding:10px 20px; font-size:0.88rem; font-weight:700;">⚡ Test Simulator →</a>
+      </div>
+    </div>
+
     <!-- Hub Sections Navigation -->
     <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:18px; margin-bottom:48px;">
       <a href="teambuilder.html" style="text-decoration:none; color:inherit;">
@@ -2117,11 +2135,11 @@ __FOOTER__
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-<title>Guides &amp; Roadmaps — Chaos Zero Nightmare</title>
+<title>Meta Builds, Team Comps &amp; Strategy Guides — Chaos Zero Nightmare</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
 <script src="teambuilder-data.js"></script>
 </head>
 <body>
@@ -2129,138 +2147,496 @@ __NAV__
 
 <main>
   <header class="page-header">
-    <div class="page-pill">Strategy &amp; Progression</div>
-    <h1>Game Guides &amp; Account Progression</h1>
-    <p>Complete compendium covering early game onboarding, Aether stamina distribution, daily routines, progression milestones, and squad pre-sortie readiness.</p>
+    <div class="page-pill">Theorycrafting &amp; Strategy Hub</div>
+    <h1>Meta Builds, Squad Synergy &amp; Combat Guides</h1>
+    <p>Authoritative endgame guides covering S-Tier team formations, turn-by-turn combo execution, equipment sets, and our comprehensive Rossweisse Day-1 to Min-Max breakdown.</p>
   </header>
 
   <div class="container">
     <!-- Callout Banner to Dedicated Team Builder -->
-    <div style="background:linear-gradient(135deg, rgba(38,146,211,0.15), var(--panel)); border:1px solid rgba(38,146,211,0.4); border-radius:8px; padding:18px 24px; margin-bottom:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+    <div style="background:linear-gradient(135deg, rgba(16,102,77,0.22), var(--panel)); border:1px solid #10664d; border-radius:8px; padding:20px 24px; margin-bottom:24px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
       <div>
-        <div style="font-family:'Orbitron',sans-serif; font-size:1.05rem; font-weight:700; color:var(--cyan); margin-bottom:4px;">Looking for Squad Building &amp; Turn Simulation?</div>
-        <p style="font-size:0.85rem; color:var(--body); margin:0;">Form 3-combatant teams, customize 24-card operational decks, evaluate AP curves, and test draw opening hands in our dedicated simulator.</p>
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:4px;">
+          <span style="background:#10664d; color:#fff; font-size:0.7rem; font-weight:700; padding:2px 8px; border-radius:4px; font-family:'Orbitron',sans-serif;">INTERACTIVE TOOL</span>
+          <span style="font-family:'Orbitron',sans-serif; font-size:1.1rem; font-weight:700; color:var(--cyan);">Interactive Squad Simulator &amp; Turn Engine</span>
+        </div>
+        <p style="font-size:0.85rem; color:var(--body); margin:0; line-height:1.5;">Test draw hands, calculate damage scaling with live Epiphany mutations, verify AP curves, and load 1-click meta presets in our full-featured simulator.</p>
       </div>
-      <a href="teambuilder.html" class="nav-btn" style="background:var(--accent); color:#fff; border-color:var(--accent); padding:8px 18px; font-size:0.85rem;">Open Team Builder →</a>
+      <a href="teambuilder.html" class="nav-btn" style="background:#10664d; color:#fff; border-color:#10664d; padding:10px 20px; font-size:0.88rem; font-weight:700; box-shadow:0 0 15px rgba(16,102,77,0.4);">Launch Simulator →</a>
     </div>
 
+    <!-- Navigation Sub-Tabs -->
     <div class="sub-tabs">
-      <button class="sub-tab-btn active" data-tab="tab-beginner">🌱 Beginner Roadmap</button>
-      <button class="sub-tab-btn" data-tab="tab-progression">📈 Account &amp; Progression</button>
-      <button class="sub-tab-btn" data-tab="tab-checklist">📋 Squad Readiness Checklist</button>
+      <button class="sub-tab-btn active" data-tab="tab-meta">🏆 S-Tier Meta Teams</button>
+      <button class="sub-tab-btn" data-tab="tab-rossweisse">⚔️ Rossweisse Deep Dive</button>
+      <button class="sub-tab-btn" data-tab="tab-framework">🧠 Teambuilding Framework</button>
+      <button class="sub-tab-btn" data-tab="tab-progression">📈 Account &amp; Routine</button>
     </div>
 
-    <!-- PANE 1: BEGINNER ROADMAP -->
-    <div id="tab-beginner" class="tab-pane active">
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px; margin-bottom:24px;">
-        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--text); margin-bottom:12px;">First Things to Do as Captain</h2>
-        <div class="table-responsive">
-          <table class="guide-table">
-            <thead>
-              <tr><th>Step</th><th>Action</th><th>Key Benefit</th></tr>
-            </thead>
-            <tbody>
-              <tr><td><strong>1</strong></td><td>Finish Tutorial (Prologue)</td><td>Unlocks the in-game Shop, Mailbox, and Rescue Gacha banners.</td></tr>
-              <tr><td><strong>2</strong></td><td>Claim Entire Mailbox</td><td>Converts pre-registration bundles and launch gifts into instant pull currency.</td></tr>
-              <tr><td><strong>3</strong></td><td>Reach Chapter 1 Ep 4</td><td>Unlocks the <em>Register Coupon</em> feature to redeem launch gift codes.</td></tr>
-              <tr><td><strong>4</strong></td><td>Rush Campaign Stages</td><td>Highest stamina-to-resource yield in the early game; unlocks Ark City and farm modes.</td></tr>
-            </tbody>
-          </table>
+    <!-- ===================================================================
+         PANE 1: S-TIER META TEAMS
+         =================================================================== -->
+    <div id="tab-meta" class="tab-pane active">
+      <div style="margin-bottom:20px;">
+        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.25rem; color:var(--text); margin-bottom:8px;">Endgame Tier Formations (Season 5 Apex)</h2>
+        <p style="font-size:0.85rem; color:var(--body); line-height:1.6;">
+          Ranked by consistency in Level 86+ Zero System Codices and Event Chaos Diff VIII clears. Every squad is built around the <strong>Golden Ratio</strong>: 1 Main Carry, 1 Sub-DPS/Enabler, and 1 dedicated Cycle/AP Battery.
+        </p>
+      </div>
+
+      <!-- TEAM 1: ROSSWEISSE POLARITY -->
+      <div style="background:var(--panel); border:1px solid #10664d; border-radius:8px; padding:22px; margin-bottom:24px; box-shadow:0 4px 20px rgba(0,0,0,0.25);">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+          <div>
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:4px;">
+              <span style="background:#10664d; color:#fff; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:4px; font-family:'Orbitron',sans-serif;">TIER 0 APEX</span>
+              <h3 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--cyan); margin:0;">⚡ Polarity Equilux Nuke</h3>
+            </div>
+            <div style="font-size:0.82rem; color:var(--muted);">Rossweisse (Carry) • Tiphera (Multiplier Battery) • Orlea (Exhaust Buffer)</div>
+          </div>
+          <a href="teambuilder.html?preset=rossweisse_polarity" class="nav-btn" style="background:rgba(16,102,77,0.3); border-color:#10664d; color:#5eead4; padding:6px 14px; font-size:0.8rem;">⚡ Load Preset in Simulator →</a>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-bottom:16px; background:var(--card-inner); border-radius:6px; padding:16px;">
+          <div>
+            <div style="font-size:0.75rem; font-weight:700; color:var(--cyan); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">Core Mechanics &amp; Multipliers</div>
+            <p style="font-size:0.82rem; color:var(--body); line-height:1.5; margin:0;">
+              Combines Rossweisse’s 0-AP polarity cycle (<em>Flicker Blade</em> split into <em>Shard: Light/Dark</em> and recombined into <em>Equilux</em>) with Tiphera’s massive <strong>+200% to +300% Multiplicative Buff</strong> and Orlea’s 3★ Softy Exhaust (<strong>+70% Multiplicative &amp; +35% Turnwide DMG</strong>).
+            </p>
+          </div>
+          <div>
+            <div style="font-size:0.75rem; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">Gearing &amp; Memory Fragment Sets</div>
+            <ul style="font-size:0.8rem; color:var(--text); line-height:1.6; margin:0 0 0 16px; padding:0;">
+              <li><strong>Rossweisse:</strong> 4-pc <em>Veiled Radiance</em> (+16% Crit) + 2-pc <em>Executioner’s Tool</em> (+25% CDMG).</li>
+              <li><strong>Tiphera:</strong> 4-pc <em>Snowflake of Our First Meeting</em> (+30% Justice DMG, +15% CDMG triggered by Bind).</li>
+              <li><strong>Orlea:</strong> 4-pc <em>Glory’s Reign</em> (+15% ally DMG on skill exhaust).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid var(--panel-border); padding-top:14px;">
+          <div style="font-size:0.78rem; font-weight:700; color:var(--text); margin-bottom:8px;">Turn-by-Turn Combo Execution:</div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:10px; font-size:0.8rem; color:var(--body);">
+            <div style="background:rgba(0,0,0,0.25); padding:10px; border-radius:4px; border-left:3px solid var(--cyan);">
+              <strong style="color:var(--cyan);">1. Battery Setup:</strong> Tiphera casts <em>Archetype Prediction (Square)</em> (+1 AP, draw 1) and stacks <em>The Final Command</em> relic.
+            </div>
+            <div style="background:rgba(0,0,0,0.25); padding:10px; border-radius:4px; border-left:3px solid var(--gold);">
+              <strong style="color:var(--gold);">2. Exhaust Primer:</strong> Orlea casts <em>Sacred Censer</em>, fuses Softy to 3★, and exhausts it (+70% multiplicative buff).
+            </div>
+            <div style="background:rgba(0,0,0,0.25); padding:10px; border-radius:4px; border-left:3px solid #10664d;">
+              <strong style="color:#5eead4;">3. Polarity Loop:</strong> Rossweisse plays <em>Kyrken’s Apostle</em> (0 AP, +1 AP at E1) -> <em>Flicker Blade</em> (0 AP) splits into Shards.
+            </div>
+            <div style="background:rgba(0,0,0,0.25); padding:10px; border-radius:4px; border-left:3px solid #f85058;">
+              <strong style="color:#f85058;">4. Finisher Nuke:</strong> Tassels trigger <em>Snowflake</em> set; fuse Equilux and release <em>Flicker Blade Unbound</em> for multi-million True Damage.
+            </div>
+          </div>
         </div>
       </div>
 
+      <!-- TEAM 2: NINE INFINITE CYCLE -->
+      <div style="background:var(--panel); border:1px solid #dfb235; border-radius:8px; padding:22px; margin-bottom:24px; box-shadow:0 4px 20px rgba(0,0,0,0.25);">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+          <div>
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:4px;">
+              <span style="background:#dfb235; color:#000; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:4px; font-family:'Orbitron',sans-serif;">TIER 0 APEX</span>
+              <h3 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--gold); margin:0;">👑 Infinite Cycle Hyper-Carry</h3>
+            </div>
+            <div style="font-size:0.82rem; color:var(--muted);">Nine (Vanguard Carry) • Veronica (Engine Queen) • Tiphera (AP Battery)</div>
+          </div>
+          <a href="teambuilder.html?preset=nine_infinite_cycle" class="nav-btn" style="background:rgba(223,178,53,0.2); border-color:#dfb235; color:#fde047; padding:6px 14px; font-size:0.8rem;">👑 Load Preset in Simulator →</a>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-bottom:16px; background:var(--card-inner); border-radius:6px; padding:16px;">
+          <div>
+            <div style="font-size:0.75rem; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">Core Mechanics &amp; Multipliers</div>
+            <p style="font-size:0.82rem; color:var(--body); line-height:1.5; margin:0;">
+              Leverages the best support duo in CZN (Veronica + Tiphera) to thin the operational deck down to pure 0-cost and 1-cost draw engines. Nine unleashes 4 to 5 devastating burst chains per single turn without ever stalling on AP.
+            </p>
+          </div>
+          <div>
+            <div style="font-size:0.75rem; font-weight:700; color:var(--cyan); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">Gearing &amp; Memory Fragment Sets</div>
+            <ul style="font-size:0.8rem; color:var(--text); line-height:1.6; margin:0 0 0 16px; padding:0;">
+              <li><strong>Nine:</strong> 4-pc <em>Line of Justice</em> (+ATK stacking) + 2-pc <em>Executioner’s Tool</em> (+25% CDMG).</li>
+              <li><strong>Veronica:</strong> 4-pc <em>Glory’s Reign</em> (Team DMG buff on card exhaust).</li>
+              <li><strong>Tiphera:</strong> 4-pc <em>Tetra’s Authority</em> (+12% DEF &amp; damage mitigation).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="border-top:1px solid var(--panel-border); padding-top:14px;">
+          <div style="font-size:0.78rem; font-weight:700; color:var(--text); margin-bottom:8px;">Turn-by-Turn Combo Execution:</div>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:10px; font-size:0.8rem; color:var(--body);">
+            <div style="background:rgba(0,0,0,0.25); padding:10px; border-radius:4px; border-left:3px solid var(--gold);">
+              <strong>1. Tactical Cycle:</strong> Veronica casts mutated <em>Tactical Draw</em> (draws 2 combatant cards, restores +1 AP).
+            </div>
+            <div style="background:rgba(0,0,0,0.25); padding:10px; border-radius:4px; border-left:3px solid var(--cyan);">
+              <strong>2. Square Prediction:</strong> Tiphera locks Square shape, replenishing +1 AP and drawing Nine’s burst cards.
+            </div>
+            <div style="background:rgba(0,0,0,0.25); padding:10px; border-radius:4px; border-left:3px solid #dfb235;">
+              <strong>3. Order Cleave:</strong> Nine loops <em>Absolute Order</em> and 0-AP strikes, recycling the deck twice in a single turn.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEAM 3: HUGO PURSUIT -->
+      <div style="background:var(--panel); border:1px solid #22d3ee; border-radius:8px; padding:22px; margin-bottom:24px; box-shadow:0 4px 20px rgba(0,0,0,0.25);">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:16px;">
+          <div>
+            <div style="display:flex; align-items:center; gap:10px; margin-bottom:4px;">
+              <span style="background:#22d3ee; color:#000; font-size:0.75rem; font-weight:800; padding:2px 8px; border-radius:4px; font-family:'Orbitron',sans-serif;">TIER 0 S-TIER</span>
+              <h3 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--cyan); margin:0;">🎯 Hugo 0-AP Pursuit Chains</h3>
+            </div>
+            <div style="font-size:0.82rem; color:var(--muted);">Hugo (Pursuit Finisher) • Selena (Flaw Applicator) • Tressa (Status Debuffer)</div>
+          </div>
+          <a href="teambuilder.html?preset=hugo_pursuit_flow" class="nav-btn" style="background:rgba(34,211,238,0.2); border-color:#22d3ee; color:#67e8f9; padding:6px 14px; font-size:0.8rem;">🎯 Load Preset in Simulator →</a>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; margin-bottom:16px; background:var(--card-inner); border-radius:6px; padding:16px;">
+          <div>
+            <div style="font-size:0.75rem; font-weight:700; color:var(--cyan); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">Core Mechanics &amp; Multipliers</div>
+            <p style="font-size:0.82rem; color:var(--body); line-height:1.5; margin:0;">
+              Selena and Tressa blanket targets in Flaw Marks, Poison, and Vulnerability. Every trigger commands Hugo to fire automatic 0-AP Pursuit volleys from off-field, completely bypassing action economy restrictions and devastating boss Tenacity shields.
+            </p>
+          </div>
+          <div>
+            <div style="font-size:0.75rem; font-weight:700; color:var(--gold); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px;">Gearing &amp; Memory Fragment Sets</div>
+            <ul style="font-size:0.8rem; color:var(--text); line-height:1.6; margin:0 0 0 16px; padding:0;">
+              <li><strong>Hugo:</strong> 4-pc <em>Starlight and Dreams</em> + 2-pc <em>Black Wing</em> (+12% ATK).</li>
+              <li><strong>Selena:</strong> 4-pc <em>Battlefield Evolution</em> (amplifies Flaw Mark damage by +20%).</li>
+              <li><strong>Tressa:</strong> 4-pc <em>Judgment’s Flames</em> (spreads debuffs across all enemy units).</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEAM 4 & 5 SUMMARY GRID -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px;">
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <span style="background:var(--emerald); color:#fff; font-size:0.7rem; font-weight:700; padding:2px 8px; border-radius:4px;">TIER 1 SPECIALIST</span>
+            <a href="teambuilder.html?preset=beryl_gatling_multihit" style="font-size:0.75rem; color:var(--cyan);">Simulate →</a>
+          </div>
+          <h4 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--text); margin-bottom:6px;">⚙️ Beryl Gatling Multi-Hit</h4>
+          <p style="font-size:0.8rem; color:var(--body); line-height:1.5; margin-bottom:10px;">
+            Pairs Beryl with Mika and Magna. Leveraging the <em>Spore Collector</em> relic, Beryl fires 30+ Gatling rounds in a single turn, melting hit-count shields while Magna maintains impenetrable defenses.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);">Gear: 4-pc Conqueror’s Aspect • 4-pc Glory’s Reign • 4-pc Tetra’s Authority</div>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <span style="background:#f85058; color:#fff; font-size:0.7rem; font-weight:700; padding:2px 8px; border-radius:4px;">TIER 1 LOW COST</span>
+            <a href="teambuilder.html?preset=mei_lin_flame_burst" style="font-size:0.75rem; color:var(--cyan);">Simulate →</a>
+          </div>
+          <h4 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--text); margin-bottom:6px;">🔥 Mei Lin Flame Burst</h4>
+          <p style="font-size:0.8rem; color:var(--body); line-height:1.5; margin-bottom:10px;">
+            Mei Lin, Owen, and Khalipe deliver ultra-cheap 1-AP combo strings. High Passion resonance triggers blazing burst strikes without requiring premium 5★ manifestation copies.
+          </p>
+          <div style="font-size:0.75rem; color:var(--muted);">Gear: 4-pc Beast’s Yearning • 2-pc Executioner’s Tool • 4-pc Tetra’s Authority</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================================
+         PANE 2: ROSSWEISSE DEEP DIVE (VIDEO GUIDE STANDARD)
+         =================================================================== -->
+    <div id="tab-rossweisse" class="tab-pane">
+      <div style="background:var(--panel); border:1px solid #10664d; border-radius:8px; padding:24px; margin-bottom:24px;">
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:8px;">
+          <div style="width:48px; height:48px; border-radius:50%; overflow:hidden; border:2px solid #10664d;">
+            <img src="assets/characters/30134.webp" alt="Rossweisse" style="width:100%; height:100%; object-fit:cover;">
+          </div>
+          <div>
+            <h2 style="font-family:'Orbitron',sans-serif; font-size:1.3rem; color:#5eead4; margin:0;">Rossweisse: Day-1 to Endgame Master Guide</h2>
+            <div style="font-size:0.8rem; color:var(--muted);">5★ Justice Striker • Celestial Bulwark (Apostle of Kyrken) • ID: 30134</div>
+          </div>
+        </div>
+        <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin:0;">
+          A complete min-maxing compendium detailing gear priorities, 6-slot memory fragment breakdowns, Chaos drop weapon selections, teammate synergies, duplicate (Manifest Ego) milestones, and the infamous 17-AP burst trick.
+        </p>
+      </div>
+
+      <!-- SECTION 1: GEAR & MEMORY FRAGMENTS -->
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:22px; margin-bottom:24px;">
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--cyan); margin-bottom:12px;">I. Gearing &amp; Memory Fragment Matrix</h3>
+        <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:16px;">
+          There are only three Memory Fragment gear sets that matter for Rossweisse. Everything else dilutes her scaling:
+        </p>
+        
+        <div class="table-responsive" style="margin-bottom:18px;">
+          <table class="guide-table">
+            <thead>
+              <tr><th>Set Tier</th><th>Set Name &amp; Bonus</th><th>Tactical Assessment</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong style="color:#5eead4;">Best in Slot (4-pc)</strong></td>
+                <td><strong>Veiled Radiance (4-pc)</strong><br><span style="font-size:0.75rem; color:var(--muted);">When a Justice card is stacked/played, grants +8% Crit Chance to Attack Cards (stacks 2x = +16% permanent Crit Chance).</span></td>
+                <td>Mandatory 4-piece set. Rossweisse plays Justice cards effortlessly, keeping +16% Crit active permanently.</td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--gold);">BiS 2-pc Option A</strong></td>
+                <td><strong>Executioner’s Tool (2-pc)</strong><br><span style="font-size:0.75rem; color:var(--muted);">Grants +25% Critical Damage.</span></td>
+                <td>Preferred 2-piece pairing once Crit Chance reaches 75%+. Provides the highest multiplicative damage ceiling.</td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--gold);">BiS 2-pc Option B</strong></td>
+                <td><strong>Black Wing (2-pc)</strong><br><span style="font-size:0.75rem; color:var(--muted);">Grants +12% Attack.</span></td>
+                <td>Solid alternative if high Crit Damage sub-stats are already present on slots 1-3.</td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--muted);">Transitional</strong></td>
+                <td><strong>2-pc Executioner + 2-pc Black Wing</strong></td>
+                <td>Early game filler before a high-stat 4-piece Veiled Radiance set is fully farmed.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 style="font-family:'Orbitron',sans-serif; font-size:0.95rem; color:var(--gold); margin-bottom:10px;">Slot 4, 5, and 6 Main Stat Distribution</h4>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px;">
+          <div style="background:var(--card-inner); padding:14px; border-radius:6px; border-top:3px solid var(--cyan);">
+            <div style="font-size:0.8rem; font-weight:700; color:var(--cyan); margin-bottom:4px;">Slot 4: Headpiece</div>
+            <div style="font-size:0.85rem; font-weight:700; color:var(--text); margin-bottom:4px;">Crit Chance % (Priority: 90-95%)</div>
+            <div style="font-size:0.78rem; color:var(--body); line-height:1.5;">Run Crit Chance until reaching ~85% total in combat. If Partner buffs and Veiled Radiance push you over 100%, switch to <strong>Crit Damage %</strong>. Do NOT auto-trash Crit DMG main stats!</div>
+          </div>
+          <div style="background:var(--card-inner); padding:14px; border-radius:6px; border-top:3px solid var(--gold);">
+            <div style="font-size:0.8rem; font-weight:700; color:var(--gold); margin-bottom:4px;">Slot 5: Goblet</div>
+            <div style="font-size:0.85rem; font-weight:700; color:var(--text); margin-bottom:4px;">Justice Damage % &gt; Attack %</div>
+            <div style="font-size:0.78rem; color:var(--body); line-height:1.5;">External ATK% buffs are abundant in endgame squads, leading to heavy diminishing returns on ATK goblets. <strong>Justice DMG %</strong> provides a cleaner multiplier unless your ATK goblet has God-roll sub-stats.</div>
+          </div>
+          <div style="background:var(--card-inner); padding:14px; border-radius:6px; border-top:3px solid #10664d;">
+            <div style="font-size:0.8rem; font-weight:700; color:#5eead4; margin-bottom:4px;">Slot 6: Accessory</div>
+            <div style="font-size:0.85rem; font-weight:700; color:var(--text); margin-bottom:4px;">Attack % (Mandatory)</div>
+            <div style="font-size:0.78rem; color:var(--body); line-height:1.5;">Slot 6 provides Rossweisse’s primary ATK baseline. Look for Crit Chance and Crit Damage sub-stats on this piece.</div>
+          </div>
+        </div>
+        <div style="margin-top:12px; font-size:0.8rem; color:var(--muted);">
+          <strong>Sub-Stat Hierarchy:</strong> Crit Chance (until ~85%) &gt; Crit Damage &gt; Flat Attack &gt; Attack %.
+        </div>
+      </div>
+
+      <!-- SECTION 2: CHAOS DROPS & PARTNERS -->
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:20px; margin-bottom:24px;">
         <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
-          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--cyan); margin-bottom:10px;">⚡ Aether (Stamina) Allocation</h3>
-          <ul style="font-size:0.85rem; color:var(--body); line-height:1.8; margin-left:18px;">
-            <li><strong>Early Game:</strong> Spend 100% on Main Campaign to unlock Simulation modes.</li>
-            <li><strong>Level 25+:</strong> Farm <em>Simulation: Memory Fragments</em> (60 Aether/run) for core gear sets.</li>
-            <li><strong>Daily Routine:</strong> Never let Aether cap—visit the Garden Café in Ark City to claim 80 free daily Aether.</li>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--cyan); margin-bottom:12px;">🗡️ Chaos 3-Piece Drops</h3>
+          <ul style="font-size:0.82rem; color:var(--body); line-height:1.8; margin-left:18px; padding:0;">
+            <li><strong>Weapon:</strong> <em>Criticism of Discord</em> / <em>Intellect of Discord</em> — massive crit scaling during burst turns.</li>
+            <li><strong>Armor:</strong> <em>Psionic Combat Suit</em> — converts excess shields into additional offensive scaling.</li>
+            <li><strong>Accessory:</strong> <em>Split Design Core</em> — grants +8% Turn 1, +16% Turn 2, and <strong>+24% Turn 3 Multiplicative Damage</strong> to the entire team.</li>
           </ul>
         </div>
 
         <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
-          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--gold); margin-bottom:10px;">📅 Daily Captain Routine</h3>
-          <ul style="font-size:0.85rem; color:var(--body); line-height:1.8; margin-left:18px;">
-            <li>Clear all Daily Missions for steady pull crystals and upgrade tokens.</li>
-            <li>Spend 3 <strong>Communication Passes</strong> in Ark City to raise Hero Affinity.</li>
-            <li>Dispatch agents at the <strong>Policy Office</strong> to earn Nono Shop points.</li>
-            <li>Treat agents with Deep Trauma at the <strong>Epione Center</strong>.</li>
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--gold); margin-bottom:12px;">🤝 Striker Partner Hierarchy</h3>
+          <ul style="font-size:0.82rem; color:var(--body); line-height:1.8; margin-left:18px; padding:0;">
+            <li><strong>T0: Arya</strong> — The supreme partner. Grants ATK, Crit Chance, Crit DMG, +2 turn AP, and applies guaranteed Vulnerable on purple cards.</li>
+            <li><strong>T1: Scarlet (5★)</strong> — Best general striker partner; provides both additive and multiplicative damage boosts.</li>
+            <li><strong>T1.5: Priscilla (5★)</strong> — Strong alternative delivering flat Damage Amount and Attack buffs.</li>
+            <li><strong>T2: Lillian / Westmacott / Ritochka / Douglas</strong> — Budget 4★ and 5★ fillers.</li>
           </ul>
         </div>
       </div>
 
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px;">
-        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--text); margin-bottom:10px;">Account Progression Milestones</h3>
+      <!-- SECTION 3: TEAMMATES & THE 17-AP TRICK -->
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:22px; margin-bottom:24px;">
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--cyan); margin-bottom:12px;">👥 Teammate Synergies &amp; The 17-AP Flicker Blade Trick</h3>
+        <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:14px;">
+          Rossweisse has unique card interactions that make certain standard supports ineffective, while turning unexpected teammates into game-breaking batteries:
+        </p>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px;">
+          <div style="background:var(--card-inner); padding:16px; border-radius:6px;">
+            <div style="font-family:'Orbitron',sans-serif; font-size:0.9rem; font-weight:700; color:var(--cyan); margin-bottom:6px;">Tiphera: The Multiplier God</div>
+            <p style="font-size:0.8rem; color:var(--body); line-height:1.5; margin-bottom:8px;">
+              Rossweisse’s Sword Tassels carry the <em>Bind</em> tag. When Tiphera equips <strong>Snowflake of Our First Meeting</strong>, generating Tassels triggers <em>Powdered Snow</em> (+30% Justice DMG, +15% CDMG). Combined with Tiphera’s +200-300% single-hit multiplicative buff, Rossweisse’s nuke reaches obscene heights.
+            </p>
+          </div>
+
+          <div style="background:var(--card-inner); padding:16px; border-radius:6px;">
+            <div style="font-family:'Orbitron',sans-serif; font-size:0.9rem; font-weight:700; color:var(--gold); margin-bottom:6px;">Orlea: The Softy Exhaust Engine</div>
+            <p style="font-size:0.8rem; color:var(--body); line-height:1.5; margin-bottom:8px;">
+              Normal Retain Orlea clogs hand space and prevents polarity cards from splitting. Instead, build Orlea to fuse 3★ <em>Softy</em> and <strong>Exhaust</strong> it immediately. This triggers <em>Glory’s Reign</em> (+15% ally DMG) and grants a colossal <strong>+70% Multiplicative Buff</strong> on the finisher.
+            </p>
+          </div>
+
+          <div style="background:var(--card-inner); padding:16px; border-radius:6px;">
+            <div style="font-family:'Orbitron',sans-serif; font-size:0.9rem; font-weight:700; color:#a855f7; margin-bottom:6px;">Fei: The 17-AP Streak Battery</div>
+            <p style="font-size:0.8rem; color:var(--body); line-height:1.5; margin-bottom:8px;">
+              The game hard-caps AP at <strong>9</strong>. However, using Fei’s Void Streak passive (<em>"Next X-Cost card triggers as X + 2"</em>) allows <em>Flicker Blade Unbound</em> to calculate as if cast with <strong>17 AP</strong>! That yields 8 bonus AP tiers = <strong>+960% Base Multiplier</strong> added before multiplicative calculations.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 4: MANIFEST EGO VALUE & SAVE DATA -->
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:22px;">
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--gold); margin-bottom:12px;">💎 Manifest Ego (Duplicates) &amp; Save Data Crafting</h3>
+        
+        <div class="table-responsive" style="margin-bottom:18px;">
+          <table class="guide-table">
+            <thead>
+              <tr><th>Dupe Level</th><th>Bonus Effect</th><th>Pull Recommendation &amp; Value</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>E0 (Base)</strong></td>
+                <td>Baseline Polarity &amp; Equilux kit.</td>
+                <td><strong>100% Viable.</strong> Pair with Partner Arya for maximum efficiency before chasing dupes.</td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--emerald);">E1 (Sweet Spot)</strong></td>
+                <td><em>Kyrken’s Apostle</em> costs 0 AP and <strong>restores +1 AP</strong>; Polarity DMG increased from 15% to 20%.</td>
+                <td><strong>⭐ Best Investment Value.</strong> Converts her card draw into positive AP generation. Stop here if on a budget!</td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--cyan);">E2 (Min-Max)</strong></td>
+                <td>Starts battle with <strong>4 Blade Afterimages</strong>.</td>
+                <td>High value for fast clears; allows capping 20 Sword Tassels 1 turn earlier.</td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--muted);">E3–E5</strong></td>
+                <td>Stat nodes and minor passive rank boosts.</td>
+                <td><strong>Low Value / Whale Bait.</strong> Skip unless pushing directly to E6.</td>
+              </tr>
+              <tr>
+                <td><strong style="color:#dfb235);">E6 (Apex)</strong></td>
+                <td>Unlocks <em>Blade Poised Against the Cycle</em>; expands hand size limit to 12.</td>
+                <td>Completely removes hand congestion constraints; peak speedrun territory.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="background:var(--card-inner); border-radius:6px; padding:16px;">
+          <div style="font-size:0.85rem; font-weight:700; color:var(--cyan); margin-bottom:6px;">Save Data Expedition Strategy (Zero System 160pt vs Event 130pt)</div>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin:0;">
+            When crafting Rossweisse’s definitive Save Data deck in the Zero System (Diff 10, 160pt limit):<br>
+            1. <strong>Prioritize Locking:</strong> <em>Flicker Blade (Unbound / Amped)</em>, <em>Kyrken’s Apostle (V1: +1 AP)</em>, and <em>Sword Resonance (3 Tassels)</em>.<br>
+            2. <strong>Aggressive Deck Thinning:</strong> Route toward Rest Area campfire nodes to delete un-upgraded 1-AP Basic Attacks. Rossweisse operates best with a razor-thin 18-card deck where 0-AP loop cards are redrawn every turn.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================================
+         PANE 3: TEAMBUILDING FRAMEWORK & THEORYCRAFTING
+         =================================================================== -->
+    <div id="tab-framework" class="tab-pane">
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px; margin-bottom:24px;">
+        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.25rem; color:var(--text); margin-bottom:8px;">The CZN Teambuilding Framework</h2>
+        <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin:0;">
+          Building endgame squads in Chaos Zero Nightmare is not about putting three random 5★ heroes together. It is an exact science governed by action point curves, hand congestion limits, and multiplicative damage formulas.
+        </p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; margin-bottom:24px;">
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--cyan); margin-bottom:10px;">1. The Golden Ratio (1-1-1 Rule)</h3>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            Every top-tier squad adheres strictly to the Golden Ratio:
+          </p>
+          <ul style="font-size:0.82rem; color:var(--text); line-height:1.8; margin-left:18px; padding:0;">
+            <li><strong>1x Active Hyper-Carry:</strong> Consumes 60-70% of available AP on burst turns (e.g. Rossweisse, Nine, Beryl).</li>
+            <li><strong>1x Enabler / Sub-DPS:</strong> Sets Vulnerability, Flaw Marks, Bind stacks, or provides barrier survival (e.g. Orlea, Selena, Magna).</li>
+            <li><strong>1x Cycle Battery:</strong> Produces bonus AP, accelerates card draw, and filters out dead hands (e.g. Tiphera, Veronica, Mika).</li>
+          </ul>
+        </div>
+
+        <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px;">
+          <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--gold); margin-bottom:10px;">2. AP Curve &amp; The 10-Card Cap</h3>
+          <p style="font-size:0.82rem; color:var(--body); line-height:1.6; margin-bottom:12px;">
+            Card economics dictate your combat consistency:
+          </p>
+          <ul style="font-size:0.82rem; color:var(--text); line-height:1.8; margin-left:18px; padding:0;">
+            <li><strong>Ideal AP Curve:</strong> 1.1 to 1.3 AP average cost per card across the 24-card operational deck.</li>
+            <li><strong>The 10-Card Cap Danger:</strong> Holding too many Retain cards caps your hand at 10. Cards drawn past 10 are burned, and polarity split cards fail to materialize!</li>
+            <li><strong>Deck Thinning:</strong> An 18-card deck with four 0-AP cards cycles 300% faster than a full 24-card deck cluttered with basic attacks.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:22px; margin-bottom:24px;">
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--cyan); margin-bottom:12px;">3. The Damage Formula Demystified</h3>
+        <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:14px;">
+          Understanding how buffs stack separates 50,000 damage hits from 2,000,000 damage nukes:
+        </p>
+
+        <div style="background:var(--card-inner); border-left:4px solid var(--cyan); padding:14px 18px; border-radius:6px; font-family:monospace; font-size:0.88rem; color:var(--text); margin-bottom:14px;">
+          Final Damage = [Base Skill Multiplier] × [1 + Σ Additive ATK%] × [Π (1 + Multiplicative Buff%)] × [1 + Crit DMG%] × [1 + Enemy Vulnerability%]
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; font-size:0.8rem; color:var(--body); line-height:1.6;">
+          <div>
+            <strong style="color:var(--text);">Additive Buffs (+ATK%, Morale):</strong><br>
+            All sources (gear 2-pc, potential nodes, flat buffs) are added together. Stacking 50% ATK on top of 200% existing ATK yields only an ~16% actual damage increase (heavy diminishing returns).
+          </div>
+          <div>
+            <strong style="color:var(--cyan);">Multiplicative Buffs (Final DMG %, Softy, Tiphera):</strong><br>
+            Each source multiplies against the total! A +70% Softy buff and a +200% Tiphera buff multiply together: 1.7 × 3.0 = <strong>5.1x total multiplier (+410% net increase)</strong>.
+          </div>
+        </div>
+      </div>
+
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:22px;">
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.05rem; color:var(--gold); margin-bottom:12px;">4. Zero System (160pt) vs Chaos Event (130pt) Expeditions</h3>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:16px; font-size:0.82rem; color:var(--body); line-height:1.6;">
+          <div style="background:var(--card-inner); padding:16px; border-radius:6px;">
+            <strong style="color:var(--gold);">Chaos Event (e.g. Celestial Bulwark - 130pt Limit):</strong><br>
+            Has a <strong>+50% Rare Fate Chance</strong> modifier. Use this zone for rapid seasonal farming, acquiring new Epiphany card variants, and testing fresh synergies at reduced enemy stat scaling.
+          </div>
+          <div style="background:var(--card-inner); padding:16px; border-radius:6px;">
+            <strong style="color:var(--cyan);">Zero System (Codex 01 Diff 10 - 160pt Limit):</strong><br>
+            The pinnacle endgame playground. Grants the maximum <strong>160pt Save Data Storage</strong>. Route specifically through: <em>Elite Battles &gt; Unidentified Events &gt; Campfire Card Removal &gt; Altar</em> to produce pristine permanent Save Data decks.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================================================================
+         PANE 4: ACCOUNT PROGRESSION & CHECKLIST
+         =================================================================== -->
+    <div id="tab-progression" class="tab-pane">
+      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px; margin-bottom:24px;">
+        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--text); margin-bottom:12px;">Captain Progression &amp; Daily Routine</h2>
         <div class="table-responsive">
           <table class="guide-table">
             <thead>
-              <tr><th>Level</th><th>Milestone</th><th>Significance</th></tr>
+              <tr><th>Priority</th><th>Routine Task</th><th>Key Strategic Benefit</th></tr>
             </thead>
             <tbody>
-              <tr><td><strong>Lv 10</strong></td><td>Promotion Unlocks</td><td>Break character level ceilings using Class Striker Manuals.</td></tr>
-              <tr><td><strong>Lv 25</strong></td><td>Memory Fragment Simulation</td><td>Primary gear artifact farming mode (60 Aether per run).</td></tr>
-              <tr><td><strong>Lv 30</strong></td><td>Basin of Hyperspace</td><td>Mid-game challenge sectors yielding high-grade potential nodes.</td></tr>
-              <tr><td><strong>Lv 40</strong></td><td>Zero System Codices</td><td>Endgame heat-modifier roguelike mode dropping 557-relic tiers.</td></tr>
+              <tr><td><strong>1</strong></td><td>Daily Garden Café Visit</td><td>Claim 80 free daily Aether stamina to prevent stamina stalling.</td></tr>
+              <tr><td><strong>2</strong></td><td>Memory Fragment Simulation (Lv 25+)</td><td>Primary farming loop (60 Aether/run) for Veiled Radiance and Glory’s Reign sets.</td></tr>
+              <tr><td><strong>3</strong></td><td>Ark City Communication Passes</td><td>Spend 3 daily passes to raise combatant Affinity for passive stat milestones.</td></tr>
+              <tr><td><strong>4</strong></td><td>Zero System Weekly Progress (8000/8000)</td><td>Clears weekly exploration quotas for top-tier relic synthesis materials.</td></tr>
             </tbody>
           </table>
         </div>
       </div>
-    </div>
 
-    <!-- PANE 2: PROGRESSION -->
-    <div id="tab-progression" class="tab-pane">
-      <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px; margin-bottom:24px;">
-        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--text); margin-bottom:10px;">Hero Investment Priority</h2>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:16px;">
-          <div style="background:var(--card-inner); border-radius:6px; padding:16px;">
-            <div style="font-size:0.85rem; font-weight:700; color:var(--cyan); margin-bottom:6px;">1. Rank Promotion</div>
-            <div style="font-size:0.82rem; color:var(--body); line-height:1.6;">Breakthrough levels at 20/40/60/80 using Striker Manuals to unlock higher base stats and card skill upgrades.</div>
-          </div>
-          <div style="background:var(--card-inner); border-radius:6px; padding:16px;">
-            <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:700; color:var(--gold); margin-bottom:6px;">2. Potential Skill Tree</div>
-            <div style="font-size:0.82rem; color:var(--body); line-height:1.6;">Unlock character-specific nodes that permanently mutate starting card effects and enhance critical multipliers.</div>
-          </div>
-          <div style="background:var(--card-inner); border-radius:6px; padding:16px;">
-            <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:700; color:var(--emerald); margin-bottom:6px;">3. Memory Fragments</div>
-            <div style="font-size:0.82rem; color:var(--body); line-height:1.6;">Farm set bonuses (4-piece Attack / 2-piece Defense) to reinforce baseline survival before entering Chaos zones.</div>
-          </div>
-          <div style="background:var(--card-inner); border-radius:6px; padding:16px;">
-            <div style="font-family:'Orbitron',sans-serif; font-size:0.85rem; font-weight:700; color:var(--purple); margin-bottom:6px;">4. Save Data Carryover</div>
-            <div style="font-size:0.82rem; color:var(--body); line-height:1.6;">Lock optimal high-roll Epiphany cards and rare relics in the Zero System to create perfect loadouts.</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- PANE 3: CHECKLIST -->
-    <div id="tab-checklist" class="tab-pane">
       <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:24px; max-width:680px; margin:0 auto;">
-        <h2 style="font-family:'Orbitron',sans-serif; font-size:1.2rem; color:var(--text); margin-bottom:12px;">Squad Pre-Sortie Checklist</h2>
-        <p style="font-size:0.85rem; color:var(--body); line-height:1.6; margin-bottom:20px;">
-          Before launching into difficult Chaos sectors or high-heat Zero System runs, check your squad against these core tactical criteria:
-        </p>
-
+        <h3 style="font-family:'Orbitron',sans-serif; font-size:1.1rem; color:var(--text); margin-bottom:12px;">Squad Pre-Sortie Readiness Checklist</h3>
         <div style="display:flex; flex-direction:column; gap:12px;" id="squadChecklist">
           <label style="display:flex; align-items:center; gap:10px; background:var(--card-inner); padding:12px 16px; border-radius:6px; cursor:pointer;">
             <input type="checkbox" style="width:18px; height:18px; accent-color:var(--cyan);">
-            <span style="font-size:0.88rem; color:var(--text);">At least 1 hero matches the recommended sector attribute (+25% DMG bonus).</span>
+            <span style="font-size:0.88rem; color:var(--text);">At least 1 hero matches sector attribute resonance (+25% DMG bonus).</span>
           </label>
           <label style="display:flex; align-items:center; gap:10px; background:var(--card-inner); padding:12px 16px; border-radius:6px; cursor:pointer;">
             <input type="checkbox" style="width:18px; height:18px; accent-color:var(--cyan);">
-            <span style="font-size:0.88rem; color:var(--text);">Squad includes adequate shields or healing to prevent Stress reaching 100.</span>
+            <span style="font-size:0.88rem; color:var(--text);">Squad includes dedicated AP generation / card cycle engine (Tiphera, Veronica, Mika).</span>
           </label>
           <label style="display:flex; align-items:center; gap:10px; background:var(--card-inner); padding:12px 16px; border-radius:6px; cursor:pointer;">
             <input type="checkbox" style="width:18px; height:18px; accent-color:var(--cyan);">
-            <span style="font-size:0.88rem; color:var(--text);">Deck has sufficient 0-cost or 1-cost cards to sustain 3 AP per turn flow.</span>
+            <span style="font-size:0.88rem; color:var(--text);">Deck has sufficient 0-cost cards; average deck AP curve is under 1.3 AP.</span>
           </label>
           <label style="display:flex; align-items:center; gap:10px; background:var(--card-inner); padding:12px 16px; border-radius:6px; cursor:pointer;">
             <input type="checkbox" style="width:18px; height:18px; accent-color:var(--cyan);">
-            <span style="font-size:0.88rem; color:var(--text);">Includes a dedicated card cycling mechanism (Nia, Cassius, or draw items).</span>
+            <span style="font-size:0.88rem; color:var(--text);">Key combatant memory fragment set bonuses active (e.g. 4-pc Veiled Radiance / Glory’s Reign).</span>
           </label>
           <label style="display:flex; align-items:center; gap:10px; background:var(--card-inner); padding:12px 16px; border-radius:6px; cursor:pointer;">
             <input type="checkbox" style="width:18px; height:18px; accent-color:var(--cyan);">
-            <span style="font-size:0.88rem; color:var(--text);">Card synergy triggers are aligned (e.g. Extra Attacks, Discard procs, Wave stacks).</span>
+            <span style="font-size:0.88rem; color:var(--text);">Hand retention is managed: no more than 2 Retain cards in hand to prevent overflow.</span>
           </label>
         </div>
       </div>
@@ -2279,6 +2655,13 @@ document.querySelectorAll('.sub-tab-btn').forEach(btn => {
     if (target) target.classList.add('active');
   });
 });
+
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has('tab')) {
+  const t = urlParams.get('tab');
+  const btn = document.querySelector(`.sub-tab-btn[data-tab="${t}"]`);
+  if (btn) btn.click();
+}
 </script>
 
 __FOOTER__

@@ -1,6 +1,7 @@
 import asyncio
 import base64
 import json
+import os
 import subprocess
 import time
 import urllib.request
@@ -59,6 +60,8 @@ async def run_full_suite():
             await send_cmd('Runtime.enable')
             await asyncio.sleep(2)
     
+            os.makedirs('mockup', exist_ok=True)
+
             # 1. Capture 3-Columns Layout
             shot = await send_cmd('Page.captureScreenshot', {'format': 'png'})
             with open('mockup/preview_czn_columns_layout.png', 'wb') as f:
