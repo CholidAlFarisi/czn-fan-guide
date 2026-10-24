@@ -91,3 +91,32 @@ Rita is a 5★ Psionic affiliated with Empire Psionic, harnessing the Justice (S
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Confusion` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T0.5 S-TIER**
+- **Tactical Role**: High-Impact Justice Psionic Burst & Mind Shatter
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Veiled Radiance (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Executioner’s Tool (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Tetra’s Authority | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / Crit DMG %
+- **Slot 5 (Goblet)**: Justice DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > Crit DMG > ATK % > Effect Hit`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Aria (5★) [BiS] • Anteia (5★)
+- **Dream Squad Synergies**: **Rossweisse**, **Magna**, **Mika**
+- **Zero System Priority Epiphanies**: `Mind Resonance`, `Psychic Judgment`, `Prismatic Barrier`
+
+### Tactical Combat Playbook & Turn Execution
+Pairs with mono-Justice squads to exploit Justice card density, releasing psychic shockwaves that ignore enemy armor and stagger elite mobs.

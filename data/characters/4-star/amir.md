@@ -85,3 +85,32 @@ Amir is a 4★ Vanguard affiliated with Terrascion, harnessing the Order (Cross)
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Daze` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1.5 NICHE**
+- **Tactical Role**: Order Metallic Wall & Iron Shielder
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Tetra’s Authority (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Line of Justice (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Glory’s Reign | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: DEF % / HP %
+- **Slot 5 (Goblet)**: DEF %
+- **Slot 6 (Accessory)**: DEF %
+- **Sub-stat Priority**: `DEF % > HP % > Effect Res > Flat DEF`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Wilhelmina (4★) [BiS] • Raidel (3★)
+- **Dream Squad Synergies**: **Nine**, **Anika**, **Tiphera**
+- **Zero System Priority Epiphanies**: `Iron Skin`, `Metal Pierce`, `Full Metal Hurricane`
+
+### Tactical Combat Playbook & Turn Execution
+Solid early-game budget vanguard; stacks Iron Skin to absorb massive physical punishment.

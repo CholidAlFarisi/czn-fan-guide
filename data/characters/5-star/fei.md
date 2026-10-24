@@ -94,3 +94,32 @@ Fei is a 5★ Ranger affiliated with Unknown Origin, harnessing the Void (Dark) 
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Guilt` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T0.5 S-TIER**
+- **Tactical Role**: Void Streak Battery & AP Cap Limit-Breaker
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Starlight and Dreams (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Executioner’s Tool (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Judgment’s Flames | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / Crit DMG %
+- **Slot 5 (Goblet)**: Void DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > Crit DMG > ATK % > Speed`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Marin (5★) [BiS] • Sylvia (5★)
+- **Dream Squad Synergies**: **Rossweisse**, **Rin**, **Adelheid**
+- **Zero System Priority Epiphanies**: `Inferno Rhapsody (Streak)`, `Exorcist’s Formation`, `Soliloquy`
+
+### Tactical Combat Playbook & Turn Execution
+Chains Void streak cards to activate 'Next X-Cost triggers as X+2'. Bypasses the 9-AP cap to simulate 17-AP scaling on Rossweisse's Flicker Blade Unbound, yielding +960% base damage.

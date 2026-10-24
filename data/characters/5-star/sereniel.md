@@ -88,3 +88,32 @@ Sereniel is a 5★ Hunter affiliated with Celestial Hunter, harnessing the Insti
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Guilt` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T0.5 S-TIER**
+- **Tactical Role**: Piercing Multi-Shot Hunter & Tenacity Shredder
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Conqueror’s Aspect (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Executioner’s Tool (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 2-pc Executioner + 2-pc Black Wing | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / Crit DMG %
+- **Slot 5 (Goblet)**: Instinct DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > Crit DMG > ATK % > Flat ATK`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Janet (5★) [BiS] • Peko (5★)
+- **Dream Squad Synergies**: **Khalipe**, **Orlea**, **Veronica**
+- **Zero System Priority Epiphanies**: `Apex Arrow`, `Prismatic Tracking`, `Instinct Volley`
+
+### Tactical Combat Playbook & Turn Execution
+Builds tracking stacks to fire multi-hit armor-piercing arrows. Scales exponentially as enemy Tenacity bars decrease, melting high-difficulty boss phases.

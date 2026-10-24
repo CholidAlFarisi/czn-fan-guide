@@ -93,3 +93,32 @@ Kayron is a 5★ Psionic affiliated with Wanderer, harnessing the Void (Dark) at
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Impulse` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1 HIGH**
+- **Tactical Role**: Undying Berserker & Low-HP Nuclear Punisher
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Judgment’s Flames (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Executioner’s Tool (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 2-pc Executioner + 2-pc Black Wing | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / Crit DMG %
+- **Slot 5 (Goblet)**: Void DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > Crit DMG > ATK % > Low-HP DMG`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Anteia (5★) [BiS] • Bria (5★)
+- **Dream Squad Synergies**: **Chizuru**, **Rei**, **Adelheid**
+- **Zero System Priority Epiphanies**: `Immortal Brand`, `Void Calamity`, `Soul Reave`
+
+### Tactical Combat Playbook & Turn Execution
+Gains exponential damage scaling as his HP drops to 1. Activates undying status to survive lethal hits and counter with cataclysmic AoE burst.

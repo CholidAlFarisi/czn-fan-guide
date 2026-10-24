@@ -107,3 +107,32 @@ Adelheid is a 5★ Vanguard affiliated with Empire Vanguard, harnessing the Void
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Escapism` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T0.5 S-TIER**
+- **Tactical Role**: Fairy Tale Shielder, Morph Tank & Retaliation
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Tetra’s Authority (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Line of Justice (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Glory’s Reign | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: DEF % / HP %
+- **Slot 5 (Goblet)**: Void DMG % > DEF %
+- **Slot 6 (Accessory)**: DEF %
+- **Sub-stat Priority**: `DEF % > HP % > Effect Res > Flat DEF`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Zeta (5★) [BiS] • Clara (5★)
+- **Dream Squad Synergies**: **Rin**, **Nine**, **Chizuru**
+- **Zero System Priority Epiphanies**: `Truth Behind A Story (Morphed)`, `Doggie (Pack)`, `Protect Us`
+
+### Tactical Combat Playbook & Turn Execution
+Summons Doggie & Teddy companions, morphs them into impenetrable barriers, and converts absorbed enemy damage into devastating party-wide counter-bursts.

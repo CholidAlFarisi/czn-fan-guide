@@ -91,3 +91,32 @@ Olga is a 5★ Psionic affiliated with Empire Psionic, harnessing the Instinct (
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Fear` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1 HIGH**
+- **Tactical Role**: Primal Instinct Psionic & Mental Disruption
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Conqueror’s Aspect (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Tetra’s Authority (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Glory’s Reign | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / Effect Hit %
+- **Slot 5 (Goblet)**: Instinct DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK % / AP Recovery
+- **Sub-stat Priority**: `Effect Hit > Crit Chance > ATK % > HP %`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Anteia (5★) [BiS] • Emilie (5★)
+- **Dream Squad Synergies**: **Orlea**, **Khalipe**, **Narja**
+- **Zero System Priority Epiphanies**: `Primal Wave`, `Mind Roar`, `Instinct Pulse`
+
+### Tactical Combat Playbook & Turn Execution
+Sends shockwaves of raw mental energy through enemy ranks, destabilizing boss defenses and inflicting mental debuffs.

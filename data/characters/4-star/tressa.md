@@ -91,3 +91,32 @@ Tressa is a 4★ Psionic affiliated with Terrascion, harnessing the Void (Dark) 
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Escapism` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1 HIGH**
+- **Tactical Role**: Poison & Debuff Spreader, Multi-Status Engine
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Judgment’s Flames (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Tetra’s Authority (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Glory’s Reign | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Effect Hit % / HP %
+- **Slot 5 (Goblet)**: Void DMG % > HP %
+- **Slot 6 (Accessory)**: AP Recovery / Effect Hit
+- **Sub-stat Priority**: `Effect Hit > AP Recovery > HP % > Speed`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Anteia (5★) [BiS] • Zatera (3★)
+- **Dream Squad Synergies**: **Hugo**, **Selena**, **Rin**
+- **Zero System Priority Epiphanies**: `Venom Needle`, `Corrosive Mist`, `Hex of Frailty`
+
+### Tactical Combat Playbook & Turn Execution
+Coats enemies in corrosion and poison dots, amplifying incoming critical damage from all allies.

@@ -85,3 +85,32 @@ Mika is a 4★ Controller affiliated with Terrascion, harnessing the Justice (Sc
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Escapism` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1 HIGH**
+- **Tactical Role**: Rapid Energy Battery & 0-AP Accelerator
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Glory’s Reign (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Tetra’s Authority (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Snowflake of Our First Meeting | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: HP % / Healing %
+- **Slot 5 (Goblet)**: Justice DMG % > HP %
+- **Slot 6 (Accessory)**: AP Recovery / HP %
+- **Sub-stat Priority**: `AP Recovery > HP % > Effect Res > Speed`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Noel (5★) [BiS] • Arwen (4★)
+- **Dream Squad Synergies**: **Rossweisse**, **Magna**, **Beryl**
+- **Zero System Priority Epiphanies**: `Source of Water (0 AP)`, `Soothing Rain`, `Justice Energy`
+
+### Tactical Combat Playbook & Turn Execution
+Generates instant 0-cost draw cards and supplies AP, keeping mono-Justice decks cycling smoothly.

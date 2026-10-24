@@ -115,3 +115,32 @@ Tiphera is a 5★ Controller affiliated with Order Controller, harnessing the Or
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Gloom` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T0 APEX**
+- **Tactical Role**: Universal AP Battery & Multiplicative Buffer
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Snowflake of Our First Meeting (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Tetra’s Authority (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Glory’s Reign / 4-pc Tetra’s Authority | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: HP % / Effect Hit %
+- **Slot 5 (Goblet)**: HP % / DEF %
+- **Slot 6 (Accessory)**: AP Recovery % / HP %
+- **Sub-stat Priority**: `AP Recovery > HP % > DEF % > Speed`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Tiana (5★) [BiS] • Noel (5★)
+- **Dream Squad Synergies**: **Rossweisse**, **Nine**, **Hugo**
+- **Zero System Priority Epiphanies**: `Archetype Prediction (Square)`, `Form Conversion (Doubler)`, `Divine Alignment`
+
+### Tactical Combat Playbook & Turn Execution
+Always select Square prediction on Archetype cards for guaranteed +1 AP and instant draw. Bestows massive +200% to +300% multiplicative damage on the carry's next nuke while stacking The Final Command relic.

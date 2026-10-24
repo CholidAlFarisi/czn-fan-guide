@@ -156,3 +156,32 @@ Nine is a 5★ Vanguard affiliated with Order Vanguard, harnessing the Order (Cr
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Impulse` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T0 APEX**
+- **Tactical Role**: DEF-Scaling Vanguard & Incinerate Hyper-Carry
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Line of Justice (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Executioner’s Tool (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Tetra’s Authority (Pure Tank) | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / DEF %
+- **Slot 5 (Goblet)**: Order DMG % > DEF %
+- **Slot 6 (Accessory)**: DEF %
+- **Sub-stat Priority**: `DEF % > Crit Chance > Crit DMG > Flat DEF`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Clara (5★) [BiS] • Alcea (5★)
+- **Dream Squad Synergies**: **Veronica**, **Tiphera**, **Adelheid**
+- **Zero System Priority Epiphanies**: `Hew (Extreme / Ironclad Lv. 3)`, `Absolute Order`, `Back-Edge Parry`
+
+### Tactical Combat Playbook & Turn Execution
+Incinerates 'Hew' to ramp up tiers from Lv. 1 to Lv. 3 (700% DEF damage). Veronica and Tiphera thin the deck and generate AP so Nine can loop 4-5 Hew burst strikes in a single turn without energy stalling.

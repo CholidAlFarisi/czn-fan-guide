@@ -85,3 +85,32 @@ Hugo is a 5★ Ranger affiliated with Stella Familia, harnessing the Order (Cros
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Impulse` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T0 APEX**
+- **Tactical Role**: 0-AP Pursuit Executioner & Tenacity Breaker
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Starlight and Dreams (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Black Wing (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 2-pc Executioner + 2-pc Black Wing | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / Crit DMG %
+- **Slot 5 (Goblet)**: Order DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > Crit DMG > ATK % > Flat ATK`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Sylvia (5★) [BiS] • Eunie (5★)
+- **Dream Squad Synergies**: **Selena**, **Tressa**, **Veronica**
+- **Zero System Priority Epiphanies**: `Covering Fire (0 AP)`, `Deadly Precision`, `Barrage Order`
+
+### Tactical Combat Playbook & Turn Execution
+Fires automatic off-field Pursuit shots whenever allies inflict Flaw Marks, Poison, or debuffs. Bypasses normal action limits completely, shredding boss Tenacity bars with zero AP cost.

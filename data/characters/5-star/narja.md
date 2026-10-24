@@ -85,3 +85,32 @@ Narja is a 5★ Controller affiliated with Terrascion Controller, harnessing the
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Guilt` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1 HIGH**
+- **Tactical Role**: Burst Healer, Stress Cleanser & Protective Shield
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Glory’s Reign (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Tetra’s Authority (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Tetra’s Authority | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Healing % / HP %
+- **Slot 5 (Goblet)**: HP % / Instinct DMG %
+- **Slot 6 (Accessory)**: AP Recovery / HP %
+- **Sub-stat Priority**: `Healing % > HP % > AP Recovery > Effect Res`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Tiana (5★) [BiS] • Gaya (5★)
+- **Dream Squad Synergies**: **Khalipe**, **Orlea**, **Sereniel**
+- **Zero System Priority Epiphanies**: `Healing Tide`, `Cleanse Trauma`, `Sanctuary Veil`
+
+### Tactical Combat Playbook & Turn Execution
+The premier burst cleanser; resets squad Stress meters before 100% Breakdown triggers and dispenses emergency shields.

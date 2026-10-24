@@ -90,3 +90,32 @@ Rin is a 5★ Striker affiliated with Wanderer, harnessing the Void (Dark) attri
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Charm` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1 HIGH**
+- **Tactical Role**: Void Bleed Finisher & Bloodline Ramp
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Judgment’s Flames (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Executioner’s Tool (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 2-pc Executioner + 2-pc Black Wing | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / Crit DMG %
+- **Slot 5 (Goblet)**: Void DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > Crit DMG > ATK % > Bleed Potency`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Scarlet (5★) [BiS] • Arya (5★)
+- **Dream Squad Synergies**: **Adelheid**, **Tressa**, **Fei**
+- **Zero System Priority Epiphanies**: `Crimson Crescent`, `Bloodlust Surge`, `Bleed Blossom`
+
+### Tactical Combat Playbook & Turn Execution
+Builds deep Bleed stacks on elite targets and detonates them with high-crit finisher slashes. Synergizes with Adelheid to safely survive while setting up bleed ramps.

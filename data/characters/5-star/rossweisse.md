@@ -104,3 +104,32 @@ When reaching 100 Stress, the character enters Mental Breakdown:
 - **E4 (Inner Memory)**: At the start of battle, gain 1 Precious Name. Each time Light or Dark cards activate, gain 1 Precious Name (+8% Damage Amount, max 5 stacks). *「Sig, Siegrune, Gerhilde, Fricka... and you.」*
 - **E5 (Complete Memory)**: Increase the level of [Basic Card Upgrade], [Signature Card Upgrade], and [Common Card Upgrade] in Potentials by 3.
 - **E6 (Liberated Memory)**: When Flicker Blade moves to hand, gain 1 Blade Poised Against the Cycle (+15% Attack Card final damage, +25% if Flicker Blade, max 2 stacks); Equilux, Light, and Dark cards no longer count toward maximum hand capacity.
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T0 APEX**
+- **Tactical Role**: Polarity True Damage Hyper-Carry
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Veiled Radiance (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Executioner’s Tool (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 2-pc Executioner + 2-pc Black Wing | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % (until 85%) / Crit DMG %
+- **Slot 5 (Goblet)**: Justice DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > Crit DMG > Flat ATK > ATK %`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Arya (5★) [BiS] • Scarlet (5★)
+- **Dream Squad Synergies**: **Tiphera**, **Orlea**, **Magna**
+- **Zero System Priority Epiphanies**: `Flicker Blade (Unbound / Amped)`, `Kyrken’s Apostle (V1: +1 AP)`, `Sword Resonance (3 Tassels)`
+
+### Tactical Combat Playbook & Turn Execution
+Splits 0-AP Flicker Blade into Light & Dark Shards at hand edges. Generates Sword Tassels (Bind tag) to trigger teammate Snowflake sets, fuses Equilux, and unleashes multi-million damage with Tiphera/Orlea multiplicative buffs.

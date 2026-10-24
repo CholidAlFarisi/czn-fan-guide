@@ -85,3 +85,32 @@ Rei is a 4★ Controller affiliated with Terrascion, harnessing the Void (Dark) 
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Confusion` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T2 BUDGET**
+- **Tactical Role**: Void Curse Debuffer & Single-Target Hexer
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Judgment’s Flames (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Tetra’s Authority (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Glory’s Reign | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Effect Hit % / HP %
+- **Slot 5 (Goblet)**: Void DMG % > HP %
+- **Slot 6 (Accessory)**: AP Recovery / Effect Hit
+- **Sub-stat Priority**: `Effect Hit > AP Recovery > HP % > Speed`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Noel (5★) [BiS] • Nyx (5★)
+- **Dream Squad Synergies**: **Rin**, **Kayron**, **Adelheid**
+- **Zero System Priority Epiphanies**: `Curse of Agony`, `Void Siphon`, `Shadow Ward`
+
+### Tactical Combat Playbook & Turn Execution
+Places single-target curses on elite foes; effective in specific debuff challenge runs but outclassed by Tressa and Tenebria.

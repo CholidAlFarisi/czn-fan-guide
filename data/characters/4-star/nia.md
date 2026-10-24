@@ -85,3 +85,32 @@ Nia is a 4★ Controller affiliated with Terrascion, harnessing the Instinct (Ey
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Charm` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1.5 NICHE**
+- **Tactical Role**: Emergency Draw & Hand Shuffler
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Glory’s Reign (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Tetra’s Authority (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Tetra’s Authority | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: HP % / Healing %
+- **Slot 5 (Goblet)**: HP %
+- **Slot 6 (Accessory)**: AP Recovery
+- **Sub-stat Priority**: `AP Recovery > HP % > Speed > Effect Res`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Arwen (4★) [BiS] • Noel (5★)
+- **Dream Squad Synergies**: **Sereniel**, **Khalipe**, **Hugo**
+- **Zero System Priority Epiphanies**: `Tactical Redraw`, `Instinct Boon`, `Quick Heal`
+
+### Tactical Combat Playbook & Turn Execution
+Discards dead hands and instantly draws 4 fresh cards, rescuing runs from RNG hand bricking.

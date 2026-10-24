@@ -86,3 +86,32 @@ Magna is a 5★ Vanguard affiliated with Stella Familia, harnessing the Justice 
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Impulse` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1 HIGH**
+- **Tactical Role**: Frost Barrier Anchor & Justice Card Supplier
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Tetra’s Authority (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Line of Justice (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Glory’s Reign | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: DEF % / HP %
+- **Slot 5 (Goblet)**: DEF %
+- **Slot 6 (Accessory)**: DEF % / AP Recovery
+- **Sub-stat Priority**: `DEF % > HP % > Effect Res > Flat DEF`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Alcea (5★) [BiS] • Clara (5★)
+- **Dream Squad Synergies**: **Rossweisse**, **Mika**, **Beryl**
+- **Zero System Priority Epiphanies**: `Frost Shield`, `Glacial Wall`, `Justice Bastion`
+
+### Tactical Combat Playbook & Turn Execution
+Generates massive teamwide barriers while populating the hand with Justice cards to trigger Rossweisse's and Beryl's Justice-scaling attack buffs.

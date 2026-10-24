@@ -85,3 +85,32 @@ Arabella is a 5★ Striker affiliated with Empire Striker, harnessing the Instin
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Charm` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1 HIGH**
+- **Tactical Role**: Instinct Blood Frenzy & Self-Buff Ramp
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Conqueror’s Aspect (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Executioner’s Tool (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 2-pc Executioner + 2-pc Black Wing | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / Crit DMG %
+- **Slot 5 (Goblet)**: Instinct DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > Crit DMG > ATK % > Lifesteal %`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Scarlet (5★) [BiS] • Priscilla (5★)
+- **Dream Squad Synergies**: **Khalipe**, **Orlea**, **Sereniel**
+- **Zero System Priority Epiphanies**: `Scream For Me`, `Observer’s Pleasure`, `The Art of Unmaking`
+
+### Tactical Combat Playbook & Turn Execution
+Trades minor self-damage for colossal attack speed and critical damage, sustaining herself through powerful lifesteal strikes.

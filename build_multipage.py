@@ -1,4 +1,5 @@
 import os, glob, re, json
+from combatant_guides_data import COMBATANT_GUIDES
 
 def clean_desc(text):
     if not text:
@@ -111,9 +112,15 @@ def run():
             manifest_egos_dict = json.load(mf)
 
     for c in unique_combatants:
-        cid = c.get('id', '')
+        cid = str(c.get('id', ''))
         if cid in manifest_egos_dict:
             c['manifest_ego'] = manifest_egos_dict[cid].get('stages', [])
+        if cid in COMBATANT_GUIDES:
+            c['guide'] = COMBATANT_GUIDES[cid]
+            c['tier'] = COMBATANT_GUIDES[cid].get('tier', 'T1')
+            c['tier_label'] = COMBATANT_GUIDES[cid].get('tier_label', 'T1 HIGH')
+            c['tier_color'] = COMBATANT_GUIDES[cid].get('tier_color', '#3b82f6')
+            c['role'] = COMBATANT_GUIDES[cid].get('role', '')
 
     # 4. Load Partners from characters-en.json
     supporters = []
@@ -401,11 +408,11 @@ def run():
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
-<title>Characters — Chaos Zero Nightmare Database</title>
+<title>Characters &amp; Meta Builds — Chaos Zero Nightmare</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
 <script src="teambuilder-data.js"></script>
 </head>
 <body>
@@ -413,9 +420,9 @@ def run():
 
 <main>
   <header class="page-header">
-    <div class="page-pill">Roster Archive</div>
-    <h1>Characters &amp; Partners</h1>
-    <p>Complete roster of 40 playable Combatants and 48 Supporter Partners. Click on any Combatant to inspect their starter cards, signature decks, and background lore.</p>
+    <div class="page-pill">Roster &amp; Strategy Matrix</div>
+    <h1>Characters &amp; Meta Guides</h1>
+    <p>Complete database of 40 playable Combatants with verified Endgame Builds, Memory Fragment Gear Matrices, Stat Priorities (Slots 4/5/6), Supporter Synergies, and 48 Partners.</p>
   </header>
 
   <div class="container">
@@ -427,10 +434,25 @@ def run():
 
     <!-- Combatants View -->
     <div id="viewCombatants">
-      <div class="toolbar">
-        <div class="filter-bar" id="combFilters">
-          <button class="f-btn active" data-f="all">All (40)</button>
-          <button class="f-btn" data-f="5">5★ (26)</button>
+      <div class="toolbar" style="flex-direction:column; align-items:stretch; gap:12px;">
+        <!-- Tier Filter Bar -->
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+          <div class="filter-bar" id="combTierFilters" style="display:flex; gap:6px; flex-wrap:wrap;">
+            <button class="f-btn tier-btn active" data-tier="all">All Tiers (40)</button>
+            <button class="f-btn tier-btn" data-tier="T0" style="border-color:#10664d; color:#2dd4bf; font-weight:700;">★ T0 Apex (5)</button>
+            <button class="f-btn tier-btn" data-tier="T0.5" style="border-color:#a855f7; color:#d8b4fe; font-weight:700;">◆ T0.5 S-Tier (7)</button>
+            <button class="f-btn tier-btn" data-tier="T1" style="border-color:#3b82f6; color:#93c5fd; font-weight:700;">▲ T1 High (20)</button>
+            <button class="f-btn tier-btn" data-tier="T1.5" style="border-color:#64748b; color:#cbd5e1; font-weight:700;">● T1.5-T2 Budget (8)</button>
+          </div>
+          <div class="search-inline" style="min-width:280px;">
+            <input type="text" id="combSearch" placeholder="Search combatants, jobs, gear, roles...">
+          </div>
+        </div>
+
+        <!-- Class / Rarity Filter Bar -->
+        <div class="filter-bar" id="combFilters" style="display:flex; gap:6px; flex-wrap:wrap; border-top:1px dashed rgba(255,255,255,0.07); padding-top:10px;">
+          <button class="f-btn active" data-f="all">All Classes</button>
+          <button class="f-btn" data-f="5">5★ (28)</button>
           <button class="f-btn" data-f="4">4★ (12)</button>
           <button class="f-btn" data-job="Vanguard">Vanguard (6)</button>
           <button class="f-btn" data-job="Striker">Striker (7)</button>
@@ -438,9 +460,6 @@ def run():
           <button class="f-btn" data-job="Ranger">Ranger (7)</button>
           <button class="f-btn" data-job="Psionic">Psionic (6)</button>
           <button class="f-btn" data-job="Controller">Controller (7)</button>
-        </div>
-        <div class="search-inline">
-          <input type="text" id="combSearch" placeholder="Search combatants, jobs, factions...">
         </div>
       </div>
       <div style="margin-bottom:14px; font-size:0.8rem; color:var(--muted);" id="combCountInfo">Showing 40 combatants</div>
@@ -468,12 +487,15 @@ def run():
 
 <!-- Modal -->
 <div class="modal-overlay" id="charModal">
-  <div class="modal-card">
+  <div class="modal-card" style="max-width:750px;">
     <button class="modal-close" id="modalClose">&times;</button>
     <div class="modal-head">
       <div class="modal-icon" id="mIcon">⚔️</div>
       <div class="modal-title">
-        <h2 id="mName">Character Name</h2>
+        <div style="display:flex; align-items:center; gap:10px;">
+          <h2 id="mName" style="margin:0;">Character Name</h2>
+          <span id="mTierBadge" class="tier-badge tier-t0">T0 APEX</span>
+        </div>
         <div class="stars" id="mStars">★★★★★</div>
         <div class="modal-meta" id="mMeta"></div>
       </div>
@@ -481,11 +503,16 @@ def run():
     <div class="modal-desc" id="mDesc"></div>
     <div class="modal-cards">
       <div class="modal-tabs">
-        <button class="modal-tab-btn active" id="mTabCardsBtn" onclick="switchCharModalTab('cards')">🃏 Starter &amp; Signature Cards (<span id="mCardCount">0</span>)</button>
+        <button class="modal-tab-btn active" id="mTabGuideBtn" onclick="switchCharModalTab('guide')">⚔️ Build &amp; Meta Guide</button>
+        <button class="modal-tab-btn" id="mTabCardsBtn" onclick="switchCharModalTab('cards')">🃏 Starter Cards (<span id="mCardCount">0</span>)</button>
         <button class="modal-tab-btn" id="mTabEgoBtn" onclick="switchCharModalTab('ego')">🧠 Manifest Ego (<span id="mEgoCount">6</span> Stages)</button>
       </div>
 
-      <div id="mTabCards">
+      <div id="mTabGuide">
+        <div id="mGuideContent"></div>
+      </div>
+
+      <div id="mTabCards" style="display:none;">
         <div class="modal-card-list" id="mCardList"></div>
       </div>
 
@@ -502,7 +529,7 @@ def run():
 const COMBATANTS = {chars_json_str};
 const PARTNERS = {supporters_json_str};
 
-// Tab Switching
+// Tab Switching (Combatants vs Partners)
 const tabComb = document.getElementById('tabComb');
 const tabSupp = document.getElementById('tabSupp');
 const viewComb = document.getElementById('viewCombatants');
@@ -526,6 +553,15 @@ tabSupp.addEventListener('click', () => {{
 // Render Combatants
 const combGrid = document.getElementById('combGrid');
 const combCountInfo = document.getElementById('combCountInfo');
+
+function getTierClass(tier) {{
+  if (tier === 'T0') return 'tier-t0';
+  if (tier === 'T0.5') return 'tier-t05';
+  if (tier === 'T1') return 'tier-t1';
+  if (tier === 'T1.5') return 'tier-t15';
+  return 'tier-t2';
+}}
+
 function renderCombatants(items) {{
   combGrid.innerHTML = '';
   combCountInfo.textContent = `Showing ${{items.length}} combatants`;
@@ -538,14 +574,23 @@ function renderCombatants(items) {{
     el.className = 'char-card';
     el.dataset.r = c.rarity;
     el.dataset.job = c.job;
+    el.dataset.tier = c.tier || 'T1';
     const stars = '★'.repeat(c.rarity);
     const imgHtml = c.id ? `<img src="assets/characters/${{c.id}}.webp" alt="${{c.name}}" loading="lazy" onerror="this.parentElement.textContent='${{c.icon}}'">` : c.icon;
+    const tierClass = getTierClass(c.tier);
+    const tierLabel = c.tier_label || c.tier || 'T1';
+    const roleText = c.role || (c.guide && c.guide.role) || '';
+
     el.innerHTML = `
       <div class="char-icon">${{imgHtml}}</div>
       <div class="char-info">
-        <div class="char-name">${{c.name}}</div>
-        <div class="char-stars">${{stars}}</div>
-        <div class="char-tags">
+        <div style="display:flex; justify-content:space-between; align-items:center; gap:6px;">
+          <div class="char-name">${{c.name}}</div>
+          <span class="tier-badge ${{tierClass}}">${{tierLabel}}</span>
+        </div>
+        <div class="char-role-sub" title="${{roleText}}">${{roleText}}</div>
+        <div class="char-stars" style="margin-top:4px;">${{stars}}</div>
+        <div class="char-tags" style="margin-top:6px;">
           <span class="tag">${{c.job}}</span>
           <span class="tag attr">${{c.ego}}</span>
           <span class="tag">${{c.faction}}</span>
@@ -592,6 +637,7 @@ function renderPartners(items) {{
 // Modal
 const modal = document.getElementById('charModal');
 const modalClose = document.getElementById('modalClose');
+
 function openModal(c) {{
   const mIcon = document.getElementById('mIcon');
   if (c.id) {{
@@ -603,13 +649,118 @@ function openModal(c) {{
   document.getElementById('mStars').textContent = '★'.repeat(c.rarity);
   document.getElementById('mDesc').textContent = c.overview;
   
+  const mTierBadge = document.getElementById('mTierBadge');
+  const tierClass = getTierClass(c.tier);
+  mTierBadge.className = `tier-badge ${{tierClass}}`;
+  mTierBadge.textContent = c.tier_label || c.tier || 'T1';
+
   const meta = document.getElementById('mMeta');
   meta.innerHTML = `
     <span class="tag" style="background:var(--accent);color:#fff">${{c.job}}</span>
     <span class="tag attr">${{c.ego}}</span>
     <span class="tag">${{c.faction}}</span>
   `;
+
+  // Render Build Guide Tab
+  const guide = c.guide || {{}};
+  const gContent = document.getElementById('mGuideContent');
+  const teammatesHtml = (guide.best_teammates || []).map(t => `<span class="synergy-chip highlight">👥 ${{t}}</span>`).join(' ');
+  const cardsHtml = (guide.core_cards || []).map(cd => `<span class="synergy-chip">🃏 ${{cd}}</span>`).join(' ');
+
+  gContent.innerHTML = `
+    <div class="build-guide-container">
+      <!-- Role & Overview Card -->
+      <div class="build-hero-card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px; margin-bottom:8px;">
+          <div>
+            <span class="tier-badge ${{tierClass}}" style="font-size:0.75rem; padding:3px 8px;">${{guide.tier_label || 'T1 HIGH'}}</span>
+            <span style="font-weight:700; font-size:0.95rem; color:var(--text); margin-left:8px;">${{guide.role || 'Combatant'}}</span>
+          </div>
+          <a href="teambuilder.html" class="sim-open-btn" style="padding:4px 12px; font-size:0.75rem;">⚡ Test in Team Builder →</a>
+        </div>
+        <div style="font-size:0.83rem; color:var(--body); line-height:1.55; margin-top:6px;">
+          ${{guide.playstyle || 'Optimal turn rotation focuses on cycling primary archetype cards and triggering partner synergies.'}}
+        </div>
+      </div>
+
+      <!-- Gear Matrix & Stat Priorities -->
+      <div class="build-grid-2col">
+        <!-- Gear Panel -->
+        <div class="build-card-panel">
+          <div class="build-card-title">🛡️ Gear Matrix (Memory Fragments)</div>
+          <div class="gear-matrix-row">
+            <span class="gear-label">4-Piece Set (BiS):</span>
+            <span class="gear-val" style="color:#2dd4bf;">${{guide.best_set_4pc || 'Conqueror’s Aspect (4-pc)'}}</span>
+          </div>
+          <div class="gear-matrix-row">
+            <span class="gear-label">2-Piece Set (BiS):</span>
+            <span class="gear-val" style="color:#a855f7;">${{guide.best_set_2pc || 'Executioner’s Tool (2-pc)'}}</span>
+          </div>
+          <div class="gear-matrix-row">
+            <span class="gear-label">Alternative:</span>
+            <span class="gear-val" style="font-size:0.78rem;">${{guide.alt_sets || '2-pc Black Wing'}}</span>
+          </div>
+        </div>
+
+        <!-- Main Stats Panel -->
+        <div class="build-card-panel">
+          <div class="build-card-title">📊 Main Stats (Slot 4 / 5 / 6)</div>
+          <div class="stat-pills-wrap">
+            <div class="stat-slot-row">
+              <span class="stat-slot-tag">Slot 4 [Head]</span>
+              <span class="stat-slot-val">${{guide.slot_4 || 'Crit Chance % / Crit DMG %'}}</span>
+            </div>
+            <div class="stat-slot-row">
+              <span class="stat-slot-tag">Slot 5 [Goblet]</span>
+              <span class="stat-slot-val">${{guide.slot_5 || 'Element DMG % > ATK %'}}</span>
+            </div>
+            <div class="stat-slot-row">
+              <span class="stat-slot-tag">Slot 6 [Acc]</span>
+              <span class="stat-slot-val">${{guide.slot_6 || 'ATK %'}}</span>
+            </div>
+          </div>
+          <div style="margin-top:8px; font-size:0.75rem; color:var(--muted);">
+            <strong style="color:var(--text);">Sub-Stats:</strong> ${{guide.substats || 'Crit Chance > Crit DMG > ATK %'}}
+          </div>
+        </div>
+      </div>
+
+      <!-- Partners & Synergies -->
+      <div class="build-grid-2col">
+        <!-- Best Partner Supporter -->
+        <div class="build-card-panel">
+          <div class="build-card-title">🤝 Best Partner Supporters</div>
+          <div style="font-size:0.85rem; font-weight:700; color:var(--gold); margin-bottom:6px;">
+            ${{guide.best_partner || 'Arya (5★) [BiS]'}}
+          </div>
+          <div style="font-size:0.75rem; color:var(--muted); line-height:1.4;">
+            Grants indispensable AP recovery, attribute amplification, and status multiplier support for ${{c.name}}.
+          </div>
+        </div>
+
+        <!-- Dream Squad Teammates -->
+        <div class="build-card-panel">
+          <div class="build-card-title">👥 Dream Squad Teammates</div>
+          <div class="synergy-chip-list">
+            ${{teammatesHtml || '<span class="synergy-chip">Flexible Support</span>'}}
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Epiphany Mutations -->
+      <div class="build-card-panel">
+        <div class="build-card-title">✨ Zero System Priority Epiphanies</div>
+        <div class="synergy-chip-list" style="margin-bottom:6px;">
+          ${{cardsHtml || '<span class="synergy-chip">Signature Deck Cards</span>'}}
+        </div>
+        <div style="font-size:0.75rem; color:var(--muted);">
+          Key cards to roll and upgrade during Zero System Save Data runs for peak performance.
+        </div>
+      </div>
+    </div>
+  `;
   
+  // Render Cards Tab
   const cardList = document.getElementById('mCardList');
   cardList.innerHTML = '';
   document.getElementById('mCardCount').textContent = (c.cards || []).length;
@@ -660,35 +811,46 @@ function openModal(c) {{
     egoList.innerHTML = '<div style="color:var(--muted);font-size:0.8rem;padding:12px;">No Manifest Ego progression available for this combatant.</div>';
   }}
 
-  switchCharModalTab('cards');
+  switchCharModalTab('guide');
   modal.classList.add('open');
 }}
 
 function switchCharModalTab(tab) {{
+  const tGuide = document.getElementById('mTabGuide');
   const tCards = document.getElementById('mTabCards');
   const tEgo = document.getElementById('mTabEgo');
+  const bGuide = document.getElementById('mTabGuideBtn');
   const bCards = document.getElementById('mTabCardsBtn');
   const bEgo = document.getElementById('mTabEgoBtn');
-  if (tab === 'ego') {{
-    tCards.style.display = 'none';
-    tEgo.style.display = 'block';
-    bCards.classList.remove('active');
-    bEgo.classList.add('active');
-  }} else {{
-    tCards.style.display = 'block';
-    tEgo.style.display = 'none';
-    bCards.classList.add('active');
-    bEgo.classList.remove('active');
-  }}
+
+  tGuide.style.display = (tab === 'guide') ? 'block' : 'none';
+  tCards.style.display = (tab === 'cards') ? 'block' : 'none';
+  tEgo.style.display = (tab === 'ego') ? 'block' : 'none';
+
+  bGuide.classList.toggle('active', tab === 'guide');
+  bCards.classList.toggle('active', tab === 'cards');
+  bEgo.classList.toggle('active', tab === 'ego');
 }}
 
 modalClose.addEventListener('click', () => modal.classList.remove('open'));
 modal.addEventListener('click', (e) => {{ if (e.target === modal) modal.classList.remove('open'); }});
 window.addEventListener('keydown', (e) => {{ if (e.key === 'Escape') modal.classList.remove('open'); }});
 
-// Combatant Filtering
+// Combatant Filtering (Tier + Rarity + Job + Search)
+let combTier = 'all';
 let combRarity = 'all';
 let combJob = null;
+
+const tierBtns = document.querySelectorAll('#combTierFilters .tier-btn');
+tierBtns.forEach(btn => {{
+  btn.addEventListener('click', () => {{
+    tierBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    combTier = btn.dataset.tier;
+    filterCombatants();
+  }});
+}});
+
 const combBtns = document.querySelectorAll('#combFilters .f-btn');
 combBtns.forEach(btn => {{
   btn.addEventListener('click', () => {{
@@ -709,10 +871,30 @@ const combSearch = document.getElementById('combSearch');
 function filterCombatants() {{
   const q = combSearch.value.toLowerCase().trim();
   const res = COMBATANTS.filter(c => {{
+    // Tier match
+    let matchT = true;
+    if (combTier === 'T0') matchT = (c.tier === 'T0');
+    else if (combTier === 'T0.5') matchT = (c.tier === 'T0.5');
+    else if (combTier === 'T1') matchT = (c.tier === 'T1');
+    else if (combTier === 'T1.5') matchT = (c.tier === 'T1.5' || c.tier === 'T2');
+
+    // Rarity / Job match
     const matchR = combRarity === 'all' || !combRarity || String(c.rarity) === combRarity;
     const matchJ = !combJob || c.job.toLowerCase() === combJob.toLowerCase();
-    const matchQ = !q || c.name.toLowerCase().includes(q) || c.job.toLowerCase().includes(q) || c.ego.toLowerCase().includes(q) || c.faction.toLowerCase().includes(q);
-    return matchR && matchJ && matchQ;
+
+    // Query match (searches name, job, ego, faction, tier, role, best gear)
+    const guide = c.guide || {{}};
+    const matchQ = !q || 
+      c.name.toLowerCase().includes(q) || 
+      c.job.toLowerCase().includes(q) || 
+      c.ego.toLowerCase().includes(q) || 
+      c.faction.toLowerCase().includes(q) ||
+      (c.tier && c.tier.toLowerCase().includes(q)) ||
+      (c.role && c.role.toLowerCase().includes(q)) ||
+      (guide.best_set_4pc && guide.best_set_4pc.toLowerCase().includes(q)) ||
+      (guide.best_partner && guide.best_partner.toLowerCase().includes(q));
+
+    return matchT && matchR && matchJ && matchQ;
   }});
   renderCombatants(res);
 }}

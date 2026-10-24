@@ -85,3 +85,32 @@ Mei Lin is a 5★ Striker affiliated with Terrascion, harnessing the Passion (Fi
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Daze` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1 HIGH**
+- **Tactical Role**: Low-Cost Passion Martial Finisher
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Beast’s Yearning (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Executioner’s Tool (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 2-pc Executioner + 2-pc Black Wing | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / Crit DMG %
+- **Slot 5 (Goblet)**: Passion DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > Crit DMG > ATK % > Flat ATK`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Priscilla (5★) [BiS] • Asteria (5★)
+- **Dream Squad Synergies**: **Owen**, **Khalipe**, **Veronica**
+- **Zero System Priority Epiphanies**: `Flame Fist`, `Dragon Soar`, `Blazing Stance`
+
+### Tactical Combat Playbook & Turn Execution
+Executes rapid chains of 1-AP martial strikes. Multiplies damage dramatically when Passion resonance is ignited by Owen and supported by Khalipe's taunt.

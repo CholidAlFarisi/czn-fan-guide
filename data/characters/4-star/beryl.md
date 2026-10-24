@@ -87,3 +87,32 @@ Beryl is a 4★ Ranger affiliated with Ironrain, harnessing the Justice (Scale) 
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Daze` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T0.5 S-TIER**
+- **Tactical Role**: Hit-Count Gatling Gun Shredder (Budget Queen)
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Conqueror’s Aspect (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Black Wing (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Veiled Radiance | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / ATK %
+- **Slot 5 (Goblet)**: Justice DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > ATK % > Crit DMG > Flat ATK`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Eunie (5★) [BiS] • Daisy (4★)
+- **Dream Squad Synergies**: **Magna**, **Mika**, **Tiphera**
+- **Zero System Priority Epiphanies**: `Unlimited Firepower`, `Charged Shot`, `Opening Found`
+
+### Tactical Combat Playbook & Turn Execution
+Equips the Spore Collector relic and transforms into a Gatling turret. Fires 30+ rounds per turn with Mika's AP acceleration, shredding boss hit-count shields effortlessly.

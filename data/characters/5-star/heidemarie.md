@@ -97,3 +97,32 @@ Heidemarie is a 5★ Ranger affiliated with Independent (Limited), harnessing th
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Guilt` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T0.5 S-TIER**
+- **Tactical Role**: Passion Burn Hyper-Carry & Hand Cycler
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Beast’s Yearning (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Executioner’s Tool (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Starlight and Dreams | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / Crit DMG %
+- **Slot 5 (Goblet)**: Passion DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > Crit DMG > ATK % > Burn Potency`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Sylvia (5★) [BiS] • Marin (5★)
+- **Dream Squad Synergies**: **Mei Lin**, **Owen**, **Veronica**
+- **Zero System Priority Epiphanies**: `Blazing Sonata`, `Infernal Rhythm`, `Overheat Shot`
+
+### Tactical Combat Playbook & Turn Execution
+Blankets enemies in stacking Passion Burns. Detonates active burn dots for instantaneous critical explosions while maintaining steady hand cycling.

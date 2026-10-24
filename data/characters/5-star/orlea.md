@@ -116,3 +116,32 @@ Orlea is a 5★ Controller affiliated with The Holy Crusaders, harnessing the In
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Guilt` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T0.5 S-TIER**
+- **Tactical Role**: Softy Creation / Exhaust Engine & Multiplier Buffer
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Glory’s Reign (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Tetra’s Authority (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Snowflake of Our First Meeting | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: HP % / Healing %
+- **Slot 5 (Goblet)**: HP % / Instinct DMG %
+- **Slot 6 (Accessory)**: AP Recovery / HP %
+- **Sub-stat Priority**: `HP % > AP Recovery > DEF % > Effect Res`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Tiana (5★) [BiS] • Gaya (5★)
+- **Dream Squad Synergies**: **Rossweisse**, **Khalipe**, **Narja**
+- **Zero System Priority Epiphanies**: `Sacred Censer (Exhaust)`, `Will of Light`, `Softy Synthesis`
+
+### Tactical Combat Playbook & Turn Execution
+Synthesizes Softy tokens to 3★ and exhausts them immediately. Triggers Glory's Reign (+15% ally DMG) and grants a colossal +70% Multiplicative Buff plus +35% turnwide team DMG without clogging the hand.

@@ -86,3 +86,32 @@ Khalipe is a 5★ Vanguard affiliated with Stella Familia, harnessing the Instin
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Impulse` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1 HIGH**
+- **Tactical Role**: Provocation Counter-Tank & Stress Absorber
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Tetra’s Authority (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Line of Justice (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Glory’s Reign | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: HP % / DEF %
+- **Slot 5 (Goblet)**: Instinct DMG % > HP %
+- **Slot 6 (Accessory)**: HP %
+- **Sub-stat Priority**: `HP % > DEF % > Effect Res > Counter Potency`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Alcea (5★) [BiS] • Zeta (5★)
+- **Dream Squad Synergies**: **Orlea**, **Sereniel**, **Mei Lin**
+- **Zero System Priority Epiphanies**: `Shield of Instinct`, `Primal Roar`, `Provoke & Deflect`
+
+### Tactical Combat Playbook & Turn Execution
+Taunts single-target boss attacks and retaliates with instinctive counter-attacks, protecting squishy backline DPS from lethal single-hit spikes.

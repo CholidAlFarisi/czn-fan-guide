@@ -84,3 +84,32 @@ Anika is a 4★ Striker affiliated with Order Striker, harnessing the Order (Cro
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Guilt` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1.5 NICHE**
+- **Tactical Role**: Order Ramp Striker & Armor Cracker
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Line of Justice (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Executioner’s Tool (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 2-pc Executioner + 2-pc Black Wing | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / ATK %
+- **Slot 5 (Goblet)**: Order DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > ATK % > Crit DMG > Flat ATK`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Lillian (4★) [BiS] • Scarlet (5★)
+- **Dream Squad Synergies**: **Nine**, **Amir**, **Tiphera**
+- **Zero System Priority Epiphanies**: `Ignition Slash`, `Shock Gun`, `Rampage Trigger`
+
+### Tactical Combat Playbook & Turn Execution
+Builds Rampage stacks with each attack, eventually executing massive physical slashes that shatter enemy armor.

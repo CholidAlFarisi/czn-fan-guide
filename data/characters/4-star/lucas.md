@@ -99,3 +99,32 @@ Lucas is a 4★ Hunter affiliated with Ironrain, harnessing the Passion (Fire) a
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Despair` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T2 BUDGET**
+- **Tactical Role**: Heavy Munitions & R.P.G Multi-Hit
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Conqueror’s Aspect (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Black Wing (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Beast’s Yearning | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / ATK %
+- **Slot 5 (Goblet)**: Passion DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > ATK % > Crit DMG > Flat ATK`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Akad (4★) [BiS] • Yuri (3★)
+- **Dream Squad Synergies**: **Mei Lin**, **Owen**, **Veronica**
+- **Zero System Priority Epiphanies**: `R.P.G-7`, `Flame Thrower`, `Extended Magazine`
+
+### Tactical Combat Playbook & Turn Execution
+Fires explosive rockets and flamethrower bursts; requires heavy AP investment to shine compared to higher-tier hunters.

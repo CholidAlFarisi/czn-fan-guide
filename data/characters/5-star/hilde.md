@@ -94,3 +94,32 @@ Hilde is a 5★ Ranger affiliated with Ironrain Ally, harnessing the Instinct (E
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Despair` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1 HIGH**
+- **Tactical Role**: Instinct Wind Trap & Evasion Sniper
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Starlight and Dreams (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Black Wing (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Conqueror’s Aspect | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / ATK %
+- **Slot 5 (Goblet)**: Instinct DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > ATK % > Crit DMG > Speed`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Sylvia (5★) [BiS] • Marin (5★)
+- **Dream Squad Synergies**: **Khalipe**, **Orlea**, **Hugo**
+- **Zero System Priority Epiphanies**: `Gale Gale`, `Aerial Sniping`, `Wind Trap`
+
+### Tactical Combat Playbook & Turn Execution
+Sets wind traps to evade incoming damage and fire armor-reducing shots that soften elite enemies for the team.

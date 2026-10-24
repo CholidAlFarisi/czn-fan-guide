@@ -87,3 +87,32 @@ Yuki is a 5★ Striker affiliated with Terrascion, harnessing the Order (Cross) 
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Impulse` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1 HIGH**
+- **Tactical Role**: Order Counter-Duelist & Blade Stance
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Line of Justice (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Executioner’s Tool (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 2-pc Executioner + 2-pc Black Wing | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / Crit DMG %
+- **Slot 5 (Goblet)**: Order DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > Crit DMG > ATK % > Counter Potency`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Scarlet (5★) [BiS] • Westmacott (5★)
+- **Dream Squad Synergies**: **Nine**, **Tiphera**, **Amir**
+- **Zero System Priority Epiphanies**: `Silent Repose`, `Counter Stance`, `Flash Iai`
+
+### Tactical Combat Playbook & Turn Execution
+Adopts defensive counter stances to intercept incoming attacks, slashing through enemy ranks with amplified critical damage upon retaliation.

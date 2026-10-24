@@ -88,3 +88,32 @@ Chizuru is a 5★ Psionic affiliated with Far East Psionic, harnessing the Void 
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Fear` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1 HIGH**
+- **Tactical Role**: Karmic Flames & Dark Moonlight Burn
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Judgment’s Flames (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Executioner’s Tool (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Starlight and Dreams | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / Crit DMG %
+- **Slot 5 (Goblet)**: Void DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > Crit DMG > ATK % > Effect Hit`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Anteia (5★) [BiS] • Aria (5★)
+- **Dream Squad Synergies**: **Kayron**, **Tressa**, **Adelheid**
+- **Zero System Priority Epiphanies**: `Karmic Flames`, `Tsukuyomi`, `Shadow of the Moon`
+
+### Tactical Combat Playbook & Turn Execution
+Sacrifices party shields to cloak foes in dark karmic flames, triggering high damage over time that escalates as moonlight stacks accumulate.

@@ -87,3 +87,32 @@ Haru is a 5★ Striker affiliated with Terrascion, harnessing the Justice (Scale
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Fear` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1 HIGH**
+- **Tactical Role**: Justice Flurry Striker & Combo Chain
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Veiled Radiance (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Executioner’s Tool (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Conqueror’s Aspect | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / Crit DMG %
+- **Slot 5 (Goblet)**: Justice DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK %
+- **Sub-stat Priority**: `Crit Chance > Crit DMG > Flat ATK > ATK %`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Arya (5★) [BiS] • Licinia (5★)
+- **Dream Squad Synergies**: **Rossweisse**, **Magna**, **Mika**
+- **Zero System Priority Epiphanies**: `Gale Blade`, `Justice Flow`, `Twin Strike`
+
+### Tactical Combat Playbook & Turn Execution
+Builds Justice combo stacks rapidly to unleash multi-slashing whirlwind strikes with high critical strike rates.

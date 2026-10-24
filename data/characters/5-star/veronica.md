@@ -103,3 +103,32 @@ Veronica is a 5★ Ranger affiliated with Stella Familia, harnessing the Passion
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Fear` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T0 APEX**
+- **Tactical Role**: Infinite Fast-Draw Engine & Ballista Sub-DPS
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Glory’s Reign (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Black Wing (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Starlight and Dreams | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Crit Chance % / ATK %
+- **Slot 5 (Goblet)**: Passion DMG % > ATK %
+- **Slot 6 (Accessory)**: ATK % / AP Recovery
+- **Sub-stat Priority**: `Crit Chance > ATK % > Crit DMG > Speed`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Sylvia (5★) [BiS] • Marin (5★)
+- **Dream Squad Synergies**: **Nine**, **Hugo**, **Tiphera**
+- **Zero System Priority Epiphanies**: `Tactical Assessment (0 AP)`, `Deploy Ballista`, `Cover Fire`
+
+### Tactical Combat Playbook & Turn Execution
+Plays 0-AP mutated Tactical Assessment to draw 2 combatant cards and refund AP. Deploys automated Ballistas that fire continuous free damage every turn while keeping squad hands perfectly stocked.

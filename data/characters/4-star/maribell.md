@@ -87,3 +87,32 @@ Maribell is a 4★ Vanguard affiliated with Ironrain, harnessing the Passion (Fi
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Fear` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1.5 NICHE**
+- **Tactical Role**: Passion Self-Heal Tank & Flame Shield
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Tetra’s Authority (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Beast’s Yearning (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Glory’s Reign | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: HP % / DEF %
+- **Slot 5 (Goblet)**: Passion DMG % > HP %
+- **Slot 6 (Accessory)**: HP %
+- **Sub-stat Priority**: `HP % > DEF % > Effect Res > Lifesteal`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Rachel (4★) [BiS] • Clara (5★)
+- **Dream Squad Synergies**: **Mei Lin**, **Owen**, **Heidemarie**
+- **Zero System Priority Epiphanies**: `Blazing Bastion`, `Flame Ward`, `Unyielding Will`
+
+### Tactical Combat Playbook & Turn Execution
+Shields the team with fire barriers, healing herself whenever enemies suffer burn damage.

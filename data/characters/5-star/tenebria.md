@@ -99,3 +99,32 @@ Tenebria is a 5★ Psionic affiliated with Epic Seven Collab, harnessing the Pas
 When reaching 100 Stress, the character enters Mental Breakdown and their hand converts to:
 
 - **Breakdown Card**: `Charm` (0 AP) — *Has a low chance for unexpected results to occur on use.* (Play to recover from breakdown)
+
+---
+
+## ⚔️ Build & Meta Guide (Day-1 & Endgame Optimization)
+
+### Meta Tier & Role
+- **Tier Rating**: **T1 HIGH**
+- **Tactical Role**: Nightmare Illusionist & AoE Debuffer
+
+### Gear Matrix (Memory Fragments)
+| Slot Type | Recommended Set | Tactical Role / Scaling |
+|-----------|-----------------|-------------------------|
+| **4-Piece Set (BiS)** | **Judgment’s Flames (4-pc)** | Core set bonus & multiplicative mechanic |
+| **2-Piece Set (BiS)** | **Tetra’s Authority (2-pc)** | Stat amplification & execution threshold |
+| **Alternative Set** | 4-pc Glory’s Reign | Secondary / budget option |
+
+### Main Stat Priorities (Slots 4, 5, 6)
+- **Slot 4 (Headpiece)**: Effect Hit % / Crit Chance %
+- **Slot 5 (Goblet)**: Passion DMG % > ATK %
+- **Slot 6 (Accessory)**: AP Recovery / ATK %
+- **Sub-stat Priority**: `Effect Hit > AP Recovery > Crit Chance > ATK %`
+
+### Supporter Partners & Dream Squad
+- **Best Partners (Supporters)**: Aria (5★) [BiS] • Eloise (4★)
+- **Dream Squad Synergies**: **Heidemarie**, **Mei Lin**, **Veronica**
+- **Zero System Priority Epiphanies**: `Nightmare Phantasm`, `Lurking Terror`, `Mind Fracture`
+
+### Tactical Combat Playbook & Turn Execution
+Inflicts sleep, terror, and confusion across enemy waves, stripping defense values and delaying boss attack turns.
