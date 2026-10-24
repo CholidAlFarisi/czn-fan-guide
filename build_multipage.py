@@ -3,8 +3,11 @@ import os, glob, re, json
 def clean_desc(text):
     if not text:
         return ""
+    text = re.sub(r'<br\s*/?>', ' ', text)
     text = re.sub(r'<[^>]+>', '', text)
-    text = text.replace('\n', ' ').strip()
+    text = re.sub(r'\{[a-zA-Z0-9_]+\}', '', text)
+    text = re.sub(r'#[0-9a-fA-F]{6}', '', text)
+    text = re.sub(r'\s+', ' ', text).strip()
     return text
 
 def run():
@@ -14,7 +17,10 @@ def run():
     with open(f'{base_dir}/raw-data/e7bot/characters-en.json', encoding='utf-8') as f:
         chars_raw = json.load(f)['data']
     name_to_id = {c['name'].lower(): str(c['id']) for c in chars_raw if 'name' in c and 'id' in c}
+    name_to_id['rosweisse'] = '30134'
+    name_to_id['rossweisse'] = '30134'
     id_map = {str(c['id']): c['name'] for c in chars_raw if 'id' in c and 'name' in c}
+    id_map['30134'] = 'Rossweisse'
 
     # 2. Load Cards Database from e7bot & build illustration lookup
     with open(f'{base_dir}/raw-data/e7bot/cards-en.json', encoding='utf-8') as f:
@@ -287,9 +293,9 @@ def run():
     </div>
 
     <div style="display:flex; justify-content:center; gap:36px; flex-wrap:wrap; margin-top:30px; padding-top:24px; border-top:1px solid var(--panel-border);">
-      <div style="text-align:center"><div style="font-family:'Orbitron',sans-serif; font-weight:800; font-size:1.4rem; color:var(--text);">40</div><div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;">Combatants</div></div>
-      <div style="text-align:center"><div style="font-family:'Orbitron',sans-serif; font-weight:800; font-size:1.4rem; color:var(--text);">49</div><div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;">Partners</div></div>
-      <div style="text-align:center"><div style="font-family:'Orbitron',sans-serif; font-weight:800; font-size:1.4rem; color:var(--text);">2,174</div><div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;">Cards</div></div>
+      <div style="text-align:center"><div style="font-family:'Orbitron',sans-serif; font-weight:800; font-size:1.4rem; color:var(--text);">{len(unique_combatants)}</div><div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;">Combatants</div></div>
+      <div style="text-align:center"><div style="font-family:'Orbitron',sans-serif; font-weight:800; font-size:1.4rem; color:var(--text);">{len(supporters)}</div><div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;">Partners</div></div>
+      <div style="text-align:center"><div style="font-family:'Orbitron',sans-serif; font-weight:800; font-size:1.4rem; color:var(--text);">{len(cards_raw):,}</div><div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;">Cards</div></div>
       <div style="text-align:center"><div style="font-family:'Orbitron',sans-serif; font-weight:800; font-size:1.4rem; color:var(--text);">6</div><div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;">Cosmic Deities</div></div>
       <div style="text-align:center"><div style="font-family:'Orbitron',sans-serif; font-weight:800; font-size:1.4rem; color:var(--text);">557</div><div style="font-size:0.7rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.08em;">Relics</div></div>
     </div>
@@ -1758,13 +1764,19 @@ __FOOTER__
             'name': 'Imperial High Command & Allies',
             'hq': 'Imperial Capital & Dimensional Nexuses',
             'desc': 'Direct imperial officers, enigmatic entities, and interdimensional collaborators.',
-            'members': ['Adelheid', 'Arabella', 'Chizuru', 'Fei', 'Narja', 'Nine', 'Olga', 'Rita', 'Sereniel', 'Tenebria', 'Tiphera', 'Rosweisse']
+            'members': ['Adelheid', 'Arabella', 'Chizuru', 'Fei', 'Narja', 'Nine', 'Olga', 'Rita', 'Sereniel', 'Tenebria', 'Tiphera']
+        },
+        {
+            'name': 'Celestial Bulwark (Apostle of Kyrken)',
+            'hq': 'Sanctuary of Cycles & Outer Snow Fields',
+            'desc': 'Ancient divine order sworn to Kyrken, Goddess of Cycles, wielding the sacred Saingeom to dispel zero-space calamities.',
+            'members': ['Rossweisse']
         },
         {
             'name': 'The 10 World Macro-Factions (Game Engine Archives)',
             'hq': 'Cosmic Core & Frontier Hubs',
             'desc': 'Official primary macro-factions recognized in the Chaos Zero Nightmare game architecture: Black Spica, Iron Rain, Terrascion, Zera, Circen, Diallos, Nightmare, Nihilum, Secred, and Vitor.',
-            'members': ['Luke', 'Lucas', 'Beryl', 'Khalipe', 'Hugo', 'Adelheid', 'Rosweisse', 'Nine', 'Olga', 'Cassius', 'Orlea', 'Diana', 'Kayron']
+            'members': ['Luke', 'Lucas', 'Beryl', 'Khalipe', 'Hugo', 'Adelheid', 'Rossweisse', 'Nine', 'Olga', 'Cassius', 'Orlea', 'Diana', 'Kayron']
         },
         {
             'name': 'Remnants Exploration Divisions (Teams 1–10)',

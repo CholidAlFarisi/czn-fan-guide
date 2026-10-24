@@ -3,8 +3,8 @@
 Comprehensive directory of all Combatants (playable heroes) and Supporters (Partners) extracted from game data.
 
 ## Summary Statistics
-- **Total Combatants**: 38 (Playable Agents)
-- **5★ Combatants**: 26
+- **Total Combatants**: 39 (Playable Agents)
+- **5★ Combatants**: 27
 - **4★ Combatants**: 12
 - **Total Supporters / Partners**: 49
 
@@ -35,6 +35,7 @@ Comprehensive directory of all Combatants (playable heroes) and Supporters (Part
 | **Renoa** | Hunter | Void (Dark) | Female | Terrascion | [View Details](5-star/renoa.md) |
 | **Rin** | Striker | Void (Dark) | Female | Wanderer | [View Details](5-star/rin.md) |
 | **Rita** | Psionic | Justice (Scale) | Female | Empire Psionic | [View Details](5-star/rita.md) |
+| **Rossweisse** | Striker | Justice (Scale) | Female | Celestial Bulwark | [View Details](5-star/rossweisse.md) |
 | **Sereniel** | Hunter | Instinct (Eye) | Female | Celestial Hunter | [View Details](5-star/sereniel.md) |
 | **Tenebria** | Psionic | Passion (Fire) | Female | Epic Seven Collab | [View Details](5-star/tenebria.md) |
 | **Tiphera** | Controller | Order (Cross) | Female | Order Controller | [View Details](5-star/tiphera.md) |
