@@ -72,7 +72,16 @@ def run():
         overview = over_m.group(1).strip() if over_m else f'{name} is a {rarity}★ {job} affiliated with {faction}.'
         
         starters = re.findall(r'\|\s*\*\*([^*]+)\*\*\s*\|\s*(\d+)\s*\|\s*([^|]+)\|\s*([^|]+)\|', content)
-        card_list = [{'name': c[0].strip(), 'cost': c[1].strip(), 'type': c[2].strip(), 'effect': c[3].strip(), 'image': card_name_to_sct.get((c[0].strip().lower(), cid), card_name_to_sct.get(c[0].strip().lower(), ''))} for c in starters[:6]]
+        def _get_card_img(c_name, c_id):
+            c_lower = c_name.strip().lower()
+            clean_lower = re.sub(r'\s*\([^)]*\)', '', c_name.strip()).strip().lower()
+            return (
+                card_name_to_sct.get((c_lower, c_id))
+                or card_name_to_sct.get(c_lower)
+                or card_name_to_sct.get((clean_lower, c_id))
+                or card_name_to_sct.get(clean_lower, '')
+            )
+        card_list = [{'name': c[0].strip(), 'cost': c[1].strip(), 'type': c[2].strip(), 'effect': c[3].strip(), 'image': _get_card_img(c[0], cid)} for c in starters[:6]]
         
         icons = {
             'Vanguard': '🛡️',

@@ -191,7 +191,7 @@
     </div>
 
     <!-- SECTION 4: COMBAT TURN SIMULATOR (SUBJECT ZERO) -->
-    <div style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px; margin-bottom:28px;">
+    <div id="combatSimulatorSection" class="sim-card" style="background:var(--panel); border:1px solid var(--panel-border); border-radius:8px; padding:20px; margin-bottom:28px;">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:8px;">
         <div>
           <h3 style="font-family:'Orbitron',sans-serif; font-size:1.15rem; color:var(--text); margin:0 0 2px 0;">Tactical Combat Simulator (Damage &amp; Tenacity Testbed)</h3>
@@ -892,9 +892,12 @@ function initDefaultEquipment() {
     const w = window.CZN_DATA.equipment.weapons;
     const a = window.CZN_DATA.equipment.armors;
     const acc = window.CZN_DATA.equipment.accessories;
-    if (w && w.length) currentSquad.equipment[1].weapon = w[0];
-    if (a && a.length) currentSquad.equipment[1].armor = a[0];
-    if (acc && acc.length) currentSquad.equipment[1].accessory = acc[0];
+    [1, 2, 3].forEach((slot, idx) => {
+      if (!currentSquad.equipment[slot]) currentSquad.equipment[slot] = {};
+      if (w && w.length) currentSquad.equipment[slot].weapon = w[idx % w.length];
+      if (a && a.length) currentSquad.equipment[slot].armor = a[idx % a.length];
+      if (acc && acc.length) currentSquad.equipment[slot].accessory = acc[idx % acc.length];
+    });
   }
 }
 
@@ -3500,6 +3503,26 @@ function filterGlossary() {
   `).join('');
 }
 
+function scrollToSimulator() {
+  const sim = document.getElementById('combatSimulatorSection') || document.querySelector('.sim-card');
+  if (sim) {
+    const y = sim.getBoundingClientRect().top + window.pageYOffset - 20;
+    try {
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    } catch(e) {
+      window.scrollTo(0, y);
+    }
+    sim.style.transition = 'box-shadow 0.4s ease, border-color 0.4s ease';
+    sim.style.borderColor = 'var(--cyan)';
+    sim.style.boxShadow = '0 0 24px rgba(34, 211, 238, 0.45)';
+    setTimeout(() => {
+      sim.style.borderColor = 'var(--panel-border)';
+      sim.style.boxShadow = 'none';
+    }, 1600);
+    showToast("Scrolled to Turn Simulator! Hand & draw pile ready.");
+  }
+}
+
 function loadPreset(presetId) {
   const presets = window.CZN_DATA.presets || [];
   const p = presets.find(pr => pr.id === presetId);
@@ -3517,6 +3540,9 @@ function loadPreset(presetId) {
   currentSquad.manifestation2 = (p.manifestations && p.manifestations[1]) || 0;
   currentSquad.manifestation3 = (p.manifestations && p.manifestations[2]) || 0;
 
+  currentSquad.branches = {};
+  currentSquad.commonSparks = {};
+  currentSquad.divineSparks = {};
   currentSquad.removedCards = {};
   currentSquad.epiphanies = {};
   currentSquad.deities = {};
@@ -3524,6 +3550,43 @@ function loadPreset(presetId) {
 
   initDefaultDeck();
   initDefaultEquipment();
+
+  // Apply deck configuration & epiphanies from preset
+  if (p.deck_config) {
+    Object.keys(p.deck_config).forEach(hid => {
+      const cfg = p.deck_config[hid];
+      if (cfg.removedCards) currentSquad.removedCards[hid] = [...cfg.removedCards];
+      if (cfg.branches) {
+        currentSquad.branches[hid] = { ...cfg.branches };
+        if (!currentSquad.epiphanies[hid]) currentSquad.epiphanies[hid] = {};
+        Object.keys(cfg.branches).forEach(cName => {
+          if (cfg.branches[cName] > 0) {
+            currentSquad.epiphanies[hid][cName] = 'unique';
+          }
+        });
+      }
+      if (cfg.commonSparks) {
+        currentSquad.commonSparks[hid] = { ...cfg.commonSparks };
+        if (!currentSquad.epiphanies[hid]) currentSquad.epiphanies[hid] = {};
+        Object.keys(cfg.commonSparks).forEach(cName => {
+          if (cfg.commonSparks[cName] && cfg.commonSparks[cName] !== 'none') {
+            currentSquad.epiphanies[hid][cName] = 'common';
+          }
+        });
+      }
+      if (cfg.divineSparks) currentSquad.divineSparks[hid] = { ...cfg.divineSparks };
+      if (cfg.deities) {
+        currentSquad.deities[hid] = { ...cfg.deities };
+        if (!currentSquad.epiphanies[hid]) currentSquad.epiphanies[hid] = {};
+        Object.keys(cfg.deities).forEach(cName => {
+          if (cfg.deities[cName] && cfg.deities[cName] !== 'none') {
+            currentSquad.epiphanies[hid][cName] = 'divine';
+          }
+        });
+      }
+    });
+  }
+
   validateAllSlotPartners();
   renderAll();
   initSimState();
@@ -3566,13 +3629,14 @@ function loadPreset(presetId) {
         ${playbookHtml}
       </div>
 
-      <div style="display:flex; justify-content:flex-end; gap:8px;">
-        <button class="builder-btn builder-btn-primary" onclick="document.querySelector('.sim-card').scrollIntoView({behavior:'smooth'})">⚔️ Go to Turn Simulator</button>
+      <div style="display:flex; justify-content:flex-end; gap:10px; flex-wrap:wrap;">
+        <button class="builder-btn" onclick="document.getElementById('deckCustomizerContainer').scrollIntoView({behavior:'smooth'})">🃏 View Preset Cards in Customizer</button>
+        <button class="builder-btn builder-btn-primary" onclick="scrollToSimulator()">⚔️ Go to Turn Simulator</button>
       </div>
     `;
   }
 
-  showToast(`Loaded preset: ${p.name}!`);
+  showToast(`Loaded preset: ${p.name}! (Deck & Simulator configured)`);
 }
 
 function resetSquad() {

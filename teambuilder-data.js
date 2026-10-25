@@ -52,7 +52,57 @@ window.CZN_DATA = {
       "4. Mainkan Flicker Blade (0 AP) -> membelah ke Shard: Light & Shard: Dark.",
       "5. Tumpuk Sword Tassel (Bind) memicu set Snowflake (+30% Justice DMG, +15% CDMG).",
       "6. Gabung Equilux dan lepaskan Flicker Blade Unbound / Ultimate Flickering White Night dengan jutaan damage!"
-    ]
+    ],
+    "deck_config": {
+      "30134": {
+        "removedCards": [
+          "Sword Slash"
+        ],
+        "branches": {
+          "Flicker Blade": 1,
+          "Kyrken’s Apostle": 1,
+          "Sword Resonance": 1,
+          "Radiant Sword Flow": 1
+        },
+        "deities": {
+          "Flicker Blade": "marionette"
+        },
+        "commonSparks": {
+          "Sword Resonance": "c_dmg25",
+          "Radiant Sword Flow": "c_tenacity"
+        }
+      },
+      "30084": {
+        "removedCards": [
+          "Matter Disintegration"
+        ],
+        "branches": {
+          "Quantum Seed": 1,
+          "Form Convergence": 1,
+          "Creation and Destruction": 1,
+          "Dual Creation": 1,
+          "Event Horizon": 1
+        },
+        "commonSparks": {
+          "Quantum Seed": "c_draw1"
+        }
+      },
+      "1024": {
+        "removedCards": [
+          "Attack, My Minions"
+        ],
+        "branches": {
+          "Sacred Censer": 1,
+          "Growth Acceleration": 1,
+          "Annoying": 1,
+          "Growing Creature": 1,
+          "Will of Light": 1
+        },
+        "commonSparks": {
+          "Sacred Censer": "c_draw1"
+        }
+      }
+    }
   },
   {
     "id": "nine_infinite_cycle",
@@ -87,7 +137,58 @@ window.CZN_DATA = {
       "2. Tiphera memprediksi Square untuk pasokan AP konstan.",
       "3. Nine mengeksekusi kartu burst berturut-turut tanpa pernah kehabisan AP.",
       "4. Rotasi terus berputar karena deck tipis selalu menarik kartu draw kembali."
-    ]
+    ],
+    "deck_config": {
+      "30047": {
+        "removedCards": [
+          "Slash"
+        ],
+        "branches": {
+          "Hew": 1,
+          "Experienced Strike": 1,
+          "Fatal Strike": 1,
+          "Counterblade": 1,
+          "Fighting Spirit": 1
+        },
+        "deities": {
+          "Fatal Strike": "shadow"
+        },
+        "commonSparks": {
+          "Experienced Strike": "c_dmg25",
+          "Counterblade": "c_shield"
+        }
+      },
+      "1033": {
+        "removedCards": [
+          "Rapid Fire"
+        ],
+        "branches": {
+          "Firing Preparation": 1,
+          "Repose": 1,
+          "Pendant of Resolution": 1,
+          "Sir Kowalski": 1,
+          "Bombardment Prep": 1
+        },
+        "commonSparks": {
+          "Repose": "c_draw1"
+        }
+      },
+      "30084": {
+        "removedCards": [
+          "Matter Disintegration"
+        ],
+        "branches": {
+          "Quantum Seed": 1,
+          "Form Convergence": 1,
+          "Creation and Destruction": 1,
+          "Dual Creation": 1,
+          "Event Horizon": 1
+        },
+        "commonSparks": {
+          "Quantum Seed": "c_draw1"
+        }
+      }
+    }
   },
   {
     "id": "hugo_pursuit_flow",
@@ -122,7 +223,58 @@ window.CZN_DATA = {
       "2. Tressa sebar poison dan debuff status.",
       "3. Setiap aksi memicu serangan pasif 0-AP Hugo secara instan.",
       "4. Mengikis Tenacity musuh hingga masuk fase Ravage tanpa menghabiskan resource tim."
-    ]
+    ],
+    "deck_config": {
+      "1043": {
+        "removedCards": [
+          "Knife Toss"
+        ],
+        "branches": {
+          "Hunting Instincts": 1,
+          "Fan of Daggers": 1,
+          "Quick Fix": 1,
+          "Dingo Howling": 1,
+          "Fixer's Approach": 1
+        },
+        "deities": {
+          "Fan of Daggers": "shadow"
+        },
+        "commonSparks": {
+          "Quick Fix": "c_dmg25",
+          "Dingo Howling": "c_draw1"
+        }
+      },
+      "1005": {
+        "removedCards": [
+          "Engagement Fire"
+        ],
+        "branches": {
+          "High-Power Scope": 1,
+          "Target Spotted": 1,
+          "Drone Bombing": 1,
+          "Tactical Maneuver": 1,
+          "Sniper's Domain": 1
+        },
+        "commonSparks": {
+          "Target Spotted": "c_tenacity"
+        }
+      },
+      "1009": {
+        "removedCards": [
+          "Dagger Throw"
+        ],
+        "branches": {
+          "Unsheathe Dagger": 1,
+          "Curse": 1,
+          "Shadow Reload": 1,
+          "Vital Attack": 1,
+          "Cursed Gouge": 1
+        },
+        "commonSparks": {
+          "Curse": "c_dmg25"
+        }
+      }
+    }
   },
   {
     "id": "beryl_gatling_multihit",
@@ -156,7 +308,58 @@ window.CZN_DATA = {
       "1. Magna pasang Frost Shield untuk pertahanan solid.",
       "2. Mika berikan Source of Water untuk akselerasi kartu 0 AP dan draw.",
       "3. Beryl bertransformasi dan menembakkan puluhan serangan per giliran, melumat hit-count shield musuh."
-    ]
+    ],
+    "deck_config": {
+      "1040": {
+        "removedCards": [
+          "Launcher"
+        ],
+        "branches": {
+          "Opening Found": 1,
+          "Charged Shot": 1,
+          "Guilty Pleasure": 1,
+          "Unlimited Firepower": 1,
+          "Heavy Weapons Specialist": 1
+        },
+        "deities": {
+          "Charged Shot": "marionette"
+        },
+        "commonSparks": {
+          "Guilty Pleasure": "c_draw1",
+          "Opening Found": "c_dmg25"
+        }
+      },
+      "1039": {
+        "removedCards": [
+          "Water Arrow"
+        ],
+        "branches": {
+          "Source of Water": 1,
+          "Blessing of Waves": 1,
+          "Tactical Analysis": 1,
+          "Whirlpool": 1,
+          "Deluge": 1
+        },
+        "commonSparks": {
+          "Source of Water": "c_draw1"
+        }
+      },
+      "1010": {
+        "removedCards": [
+          "Frozen Fist"
+        ],
+        "branches": {
+          "Ice Fragment": 1,
+          "Glacial Iron Fist": 1,
+          "Ice Wall": 1,
+          "Frost Charge": 1,
+          "Storm of Bitter Cold": 1
+        },
+        "commonSparks": {
+          "Frost Shield": "c_shield"
+        }
+      }
+    }
   },
   {
     "id": "mei_lin_flame_burst",
@@ -190,7 +393,59 @@ window.CZN_DATA = {
       "1. Khalipe pasang shield dan taunt.",
       "2. Owen buka serangan untuk menyalakan status kombo Passion.",
       "3. Mei Lin mengeksekusi kartu 1 AP beruntun dengan pengali damage tinggi."
-    ]
+    ],
+    "deck_config": {
+      "1027": {
+        "removedCards": [
+          "Strike"
+        ],
+        "branches": {
+          "Flame Dragon's Jewel": 1,
+          "Rising Dragon Spire": 1,
+          "Unity of Attack and Defense": 1,
+          "Spirit of the Aromata": 1,
+          "Flame Dragon's Sovereignty": 1
+        },
+        "deities": {
+          "Rising Dragon Spire": "sun"
+        },
+        "commonSparks": {
+          "Flame Dragon's Jewel": "c_dmg25",
+          "Unity of Attack and Defense": "c_draw1"
+        }
+      },
+      "1050": {
+        "removedCards": [
+          "Downward Cut"
+        ],
+        "branches": {
+          "Wind Charge": 1,
+          "Wind Slash": 1,
+          "Break Armor": 1,
+          "Wind Riding": 1,
+          "Gale Strike": 1
+        },
+        "commonSparks": {
+          "Break Armor": "c_tenacity"
+        }
+      },
+      "1008": {
+        "removedCards": [
+          "Lashing"
+        ],
+        "branches": {
+          "Vulture Ejection": 1,
+          "Greatsword Aquila": 1,
+          "Overpower": 1,
+          "Rally": 1,
+          "Absolute Protection": 1
+        },
+        "commonSparks": {
+          "Greatsword Aquila": "c_shield",
+          "Overpower": "c_tenacity"
+        }
+      }
+    }
   }
 ]
 };
